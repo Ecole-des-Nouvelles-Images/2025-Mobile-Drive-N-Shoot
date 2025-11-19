@@ -8,14 +8,14 @@ namespace __Workspaces.Hugoi.Scripts
     [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineContainer))]
     public class DynamicSplineRoad : MonoBehaviour
     {
-        public SplineContainer Spline;
-        public int SplineIndex = 0;
-
-        [Min(2)] public int Resolution = 50;
-
-        [Min(0.01f)] public float Width = 2f;
-
-        [Min(0.01f)] public float TextureTiling = 1f;
+        [Header("Settings")]
+        [SerializeField] [Min(2)] private int _resolution = 50;
+        [SerializeField] [Min(0.01f)] private float _width = 2f;
+        [SerializeField] [Min(0.01f)] private float _textureTiling = 1f;
+        
+        [Header("Spline")]
+        [SerializeField] private SplineContainer _splineContainer;
+        [SerializeField] private int _splineIndex;
 
         private Mesh _mesh;
 
@@ -59,17 +59,17 @@ namespace __Workspaces.Hugoi.Scripts
 
         private bool IsOurSpline(Spline s)
         {
-            if (Spline == null) return false;
-            if (Spline.Splines.Count <= SplineIndex) return false;
-            return Spline.Splines[SplineIndex] == s;
+            if (_splineContainer == null) return false;
+            if (_splineContainer.Splines.Count <= _splineIndex) return false;
+            return _splineContainer.Splines[_splineIndex] == s;
         }
 
         private void Update()
         {
-            if (Resolution != _lastResolution ||
-                Width != _lastWidth ||
-                SplineIndex != _lastSplineIndex ||
-                TextureTiling != _lastTextureTiling)
+            if (_resolution != _lastResolution ||
+                _width != _lastWidth ||
+                _splineIndex != _lastSplineIndex ||
+                _textureTiling != _lastTextureTiling)
             {
                 Rebuild();
             }
@@ -77,48 +77,48 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void Rebuild(bool force = false)
         {
-            if (Spline == null) return;
-            if (Spline.Splines.Count <= SplineIndex) return;
+            if (_splineContainer == null) return;
+            if (_splineContainer.Splines.Count <= _splineIndex) return;
 
-            _lastResolution = Resolution;
-            _lastWidth = Width;
-            _lastSplineIndex = SplineIndex;
+            _lastResolution = _resolution;
+            _lastWidth = _width;
+            _lastSplineIndex = _splineIndex;
 
-            Resolution = Mathf.Max(2, Resolution);
+            _resolution = Mathf.Max(2, _resolution);
 
-            Vector3[] verts = new Vector3[Resolution * 2];
-            Vector2[] uvs = new Vector2[Resolution * 2];
-            int[] tris = new int[(Resolution - 1) * 6];
+            Vector3[] verts = new Vector3[_resolution * 2];
+            Vector2[] uvs = new Vector2[_resolution * 2];
+            int[] tris = new int[(_resolution - 1) * 6];
 
-            float step = 1f / (Resolution - 1);
+            float step = 1f / (_resolution - 1);
 
             // --- Calcul de la longueur cumulée ---
-            float[] distances = new float[Resolution];
+            float[] distances = new float[_resolution];
             distances[0] = 0f;
 
-            Spline.Evaluate(SplineIndex, 0f, out float3 p0, out _, out _);
+            _splineContainer.Evaluate(_splineIndex, 0f, out float3 p0, out _, out _);
             Vector3 prevPos = p0;
 
-            for (int i = 1; i < Resolution; i++)
+            for (int i = 1; i < _resolution; i++)
             {
                 float t = i * step;
-                Spline.Evaluate(SplineIndex, t, out float3 pos, out _, out _);
+                _splineContainer.Evaluate(_splineIndex, t, out float3 pos, out _, out _);
                 distances[i] = distances[i - 1] + Vector3.Distance(prevPos, pos);
                 prevPos = pos;
             }
 
             // --- Génération des vertices et UV ---
-            for (int i = 0; i < Resolution; ++i)
+            for (int i = 0; i < _resolution; ++i)
             {
                 float t = i * step;
-                Spline.Evaluate(SplineIndex, t, out float3 pos, out float3 tan, out float3 up);
+                _splineContainer.Evaluate(_splineIndex, t, out float3 pos, out float3 tan, out float3 up);
 
                 Vector3 position = pos;
                 Vector3 forward = math.normalize(tan);
                 Vector3 right = Vector3.Cross(up, forward).normalized;
 
-                Vector3 leftPos = position - right * (Width * 0.5f);
-                Vector3 rightPos = position + right * (Width * 0.5f);
+                Vector3 leftPos = position - right * (_width * 0.5f);
+                Vector3 rightPos = position + right * (_width * 0.5f);
 
                 leftPos = transform.InverseTransformPoint(leftPos);
                 rightPos = transform.InverseTransformPoint(rightPos);
@@ -128,14 +128,14 @@ namespace __Workspaces.Hugoi.Scripts
                 verts[vi + 1] = rightPos;
 
                 // --- UV FIXÉES ---
-                float uvY = distances[i] * TextureTiling;
+                float uvY = distances[i] * _textureTiling;
                 uvs[vi] = new Vector2(0, uvY);
                 uvs[vi + 1] = new Vector2(1, uvY);
             }
 
             // --- Génération des triangles ---
             int ti = 0;
-            for (int i = 0; i < Resolution - 1; ++i)
+            for (int i = 0; i < _resolution - 1; ++i)
             {
                 int vi = i * 2;
 

@@ -10,20 +10,22 @@ namespace __Workspaces.Hugoi.Scripts
     [RequireComponent( typeof(SplineContainer))]
     public class DynamicSplineProps : MonoBehaviour
     {
-        public SplineContainer Spline;
-        public int SplineIndex = 0;
-        
-        [SerializeField] private List<GameObject> _props = new();
-        
+        [Header("Settings")]
+        public uint Seed;
         [Min(2)] public int Resolution = 50;
         [Min(0.01f)] public float Width = 2f;
-
-        public uint Seed;
-        public Transform Parent;
         public float HeightOffset;
         [Range(0f, 90f)] public float RotationOffset;
         public float PositionOffset;
         public Vector2 ScaleOffsetMinMax;
+        
+        [Header("Prefabs")]
+        [SerializeField] private List<GameObject> _props = new();
+        [SerializeField] private Transform _transformParent;
+        
+        [Header("Spline")]
+        [SerializeField] private SplineContainer _splineContainer;
+        [SerializeField] private int _splineIndex;
 
         private Random _random;
         private List<GameObject> _propsSpawn = new();
@@ -38,12 +40,12 @@ namespace __Workspaces.Hugoi.Scripts
         private void OnEnable()
         {
             
-            UnityEngine.Splines.Spline.Changed += OnSplineChanged;
+            Spline.Changed += OnSplineChanged;
         }
 
         private void OnDisable()
         {
-            UnityEngine.Splines.Spline.Changed -= OnSplineChanged;
+            Spline.Changed -= OnSplineChanged;
         }
         
         private void OnSplineChanged(Spline s, int knotIndex, SplineModification modification)
@@ -54,16 +56,16 @@ namespace __Workspaces.Hugoi.Scripts
         
         private bool IsOurSpline(Spline s)
         {
-            if (Spline == null) return false;
-            if (Spline.Splines.Count <= SplineIndex) return false;
-            return Spline.Splines[SplineIndex] == s;
+            if (_splineContainer == null) return false;
+            if (_splineContainer.Splines.Count <= _splineIndex) return false;
+            return _splineContainer.Splines[_splineIndex] == s;
         }
         
         private void Update()
         {
             if (Resolution != _lastResolution ||
                 Width != _lastWidth ||
-                SplineIndex != _lastSplineIndex ||
+                _splineIndex != _lastSplineIndex ||
                 HeightOffset != _lastHeightOffset ||
                 RotationOffset != _lastRotationOffset ||
                 PositionOffset != _lastPositionOffset ||
@@ -83,12 +85,12 @@ namespace __Workspaces.Hugoi.Scripts
             }
             _propsSpawn.Clear();
             
-            if (Spline == null) return;
-            if (Spline.Splines.Count <= SplineIndex) return;
+            if (_splineContainer == null) return;
+            if (_splineContainer.Splines.Count <= _splineIndex) return;
 
             _lastResolution = Resolution;
             _lastWidth = Width;
-            _lastSplineIndex = SplineIndex;
+            _lastSplineIndex = _splineIndex;
             _lastHeightOffset = HeightOffset;
             _lastRotationOffset = RotationOffset;
             _lastPositionOffset = PositionOffset;
@@ -99,7 +101,7 @@ namespace __Workspaces.Hugoi.Scripts
             for (int i = 0; i < Resolution; ++i)
             {
                 float t = i * step;
-                Spline.Evaluate(SplineIndex, t, out float3 pos, out float3 tan, out float3 up);
+                _splineContainer.Evaluate(_splineIndex, t, out float3 pos, out float3 tan, out float3 up);
 
                 Vector3 position = pos;
                 Vector3 forward = math.normalize(tan);
@@ -114,8 +116,8 @@ namespace __Workspaces.Hugoi.Scripts
                 leftPos += new Vector3(_random.NextFloat(-PositionOffset, PositionOffset) + transform.position.x, HeightOffset, _random.NextFloat(-PositionOffset, PositionOffset) + transform.position.z);
                 rightPos += new Vector3(_random.NextFloat(-PositionOffset, PositionOffset) + transform.position.x, HeightOffset, _random.NextFloat(-PositionOffset, PositionOffset) + transform.position.z);
 
-                GameObject leftObj = Instantiate(_props[0], leftPos, Quaternion.Euler(0, _random.NextFloat(-RotationOffset, RotationOffset), 0), Parent);
-                GameObject rightObj = Instantiate(_props[0], rightPos, Quaternion.Euler(0, _random.NextFloat(-RotationOffset, RotationOffset), 0), Parent);
+                GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count - 1)], leftPos, Quaternion.Euler(0, _random.NextFloat(-RotationOffset, RotationOffset), 0), _transformParent);
+                GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count - 1)], rightPos, Quaternion.Euler(0, _random.NextFloat(-RotationOffset, RotationOffset), 0), _transformParent);
                 
                 float scaleModifier = _random.NextFloat(ScaleOffsetMinMax.x, ScaleOffsetMinMax.y);
                 leftObj.transform.localScale *= scaleModifier;

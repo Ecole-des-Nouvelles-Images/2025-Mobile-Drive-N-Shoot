@@ -6,26 +6,28 @@ namespace __Workspaces.Hugoi.Scripts
     [RequireComponent( typeof(SplineContainer))]
     public class SplineManager : MonoBehaviour
     {
-        public SplineContainer SplineContainer;
-
-        public int KnotCount;
-        public int TerrainSize;
+        [Header("Settings")]
+        [SerializeField] private int _knotCount;
+        [SerializeField] private int _terrainSize;
+        
+        [Header("References")]
+        [SerializeField] private SplineContainer _splineContainer;
         
         private void OnEnable()
         {
-            SplineContainer = GetComponent<SplineContainer>();
+            _splineContainer = GetComponent<SplineContainer>();
         }
 
         [ContextMenu("GenerateSpline")]
         private void GenerateSpline()
         {
-            SplineContainer.Spline.Clear();
+            _splineContainer.Spline.Clear();
 
-            float space = TerrainSize / (KnotCount - 1);
-            for (float i = 0; i <= TerrainSize; i += space)
+            float space = _terrainSize / (_knotCount - 1);
+            for (float i = 0; i <= _terrainSize; i += space)
             {
                 Vector3 newPos = new Vector3();
-                if (i == 0 || i == TerrainSize)
+                if (i == 0 || i == _terrainSize)
                 {
                     newPos = new Vector3(0, 0, i);
                 }
@@ -38,7 +40,7 @@ namespace __Workspaces.Hugoi.Scripts
                 Vector3 tangentOut = new Vector3(0, 0, 5);
                 
                 BezierKnot newBezierKnot = new BezierKnot(newPos, tangentIn, tangentOut);
-                SplineContainer.Spline.Add(newBezierKnot);
+                _splineContainer.Spline.Add(newBezierKnot);
             }
         }
     }
