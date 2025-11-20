@@ -10,8 +10,10 @@ namespace __Workspaces.Hugoi.Scripts
         [Header("Settings")]
         [SerializeField] private int _knotCount;
         [SerializeField] private int _terrainSize;
+        [SerializeField] private int _nextPosOffset;
         
         private SplineContainer _splineContainer;
+        private Vector3 _lastPos;
         
         private void Awake()
         {
@@ -33,7 +35,9 @@ namespace __Workspaces.Hugoi.Scripts
                 }
                 else
                 {
-                    newPos = new Vector3(Random.Range(-40, 40), 0, i);
+                    int xOffset = Random.Range(-_nextPosOffset, _nextPosOffset);
+                    newPos = new Vector3(_lastPos.x + xOffset, 0, i);
+                    newPos.x = Mathf.Clamp(newPos.x, -40, 40);
                 }
                 
                 Vector3 tangentIn = new Vector3(0, 0, -5);
@@ -41,6 +45,8 @@ namespace __Workspaces.Hugoi.Scripts
                 
                 BezierKnot newBezierKnot = new BezierKnot(newPos, tangentIn, tangentOut);
                 _splineContainer.Spline.Add(newBezierKnot);
+                
+                _lastPos = newPos;
             }
         }
     }

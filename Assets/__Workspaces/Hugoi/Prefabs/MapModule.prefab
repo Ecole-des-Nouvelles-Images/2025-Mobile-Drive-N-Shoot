@@ -294,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SplineManager
   _knotCount: 5
   _terrainSize: 100
+  _nextPosOffset: 20
 --- !u!114 &5431519557754820045
 MonoBehaviour:
   m_ObjectHideFlags: 0
