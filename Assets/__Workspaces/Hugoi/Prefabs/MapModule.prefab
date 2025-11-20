@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainLeveling
   _heightmapResolution: 256
-  _terrainSize: {x: 100, y: 5, z: 100}
+  _terrainSize: {x: 100, y: 3, z: 100}
   raiseAmount: 1
   rayHeight: 10
   roadTag: Road

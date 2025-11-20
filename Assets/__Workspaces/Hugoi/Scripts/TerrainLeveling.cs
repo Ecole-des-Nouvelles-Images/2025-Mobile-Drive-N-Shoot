@@ -56,7 +56,7 @@ namespace __Workspaces.Hugoi.Scripts
 
             float[,] heights = new float[res, res];
 
-            float delta = raiseAmount / _terrainData.size.y;
+            // float delta = raiseAmount / _terrainData.size.y;
 
             for (int y = 0; y < res; y++)
             {
@@ -65,12 +65,20 @@ namespace __Workspaces.Hugoi.Scripts
                     Vector3 worldPos = HeightmapToWorldPosition(x, y);
 
                     Ray ray = new Ray(worldPos + Vector3.up * 2f, Vector3.down);
-                    if (Physics.Raycast(ray, out RaycastHit hit, rayHeight))
+                    RaycastHit[] hits = Physics.RaycastAll(ray, rayHeight);
+                    bool hitRoad = false;
+                    foreach (var raycastHit in hits)
                     {
-                        if (hit.collider.CompareTag(roadTag)) continue;
+                        if (raycastHit.collider.CompareTag(roadTag))
+                        {
+                            hitRoad = true;
+                            break;
+                        }
                     }
 
-                    heights[y, x] = delta;
+                    if (hitRoad) continue;
+
+                    heights[y, x] = raiseAmount;
                 }
             }
 
