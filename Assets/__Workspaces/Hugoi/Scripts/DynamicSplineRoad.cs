@@ -4,7 +4,6 @@ using UnityEngine.Splines;
 
 namespace __Workspaces.Hugoi.Scripts
 {
-    [ExecuteAlways]
     [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineContainer))]
     public class DynamicSplineRoad : MonoBehaviour
     {
@@ -17,6 +16,8 @@ namespace __Workspaces.Hugoi.Scripts
         [SerializeField] private SplineContainer _splineContainer;
         [SerializeField] private int _splineIndex;
         
+        private MeshCollider _meshCollider;
+        
         private Mesh _mesh;
         
         private int _lastResolution;
@@ -26,20 +27,22 @@ namespace __Workspaces.Hugoi.Scripts
         
         private void Awake()
         {
+            _meshCollider = GetComponent<MeshCollider>();
+            
             EnsureMesh();
         }
         
-        private void OnEnable()
-        {
-            EnsureMesh();
-            Spline.Changed += OnSplineChanged;
-            Rebuild(true);
-        }
-        
-        private void OnDisable()
-        {
-            Spline.Changed -= OnSplineChanged;
-        }
+        // private void OnEnable()
+        // {
+        //     EnsureMesh();
+        //     Spline.Changed += OnSplineChanged;
+        //     Rebuild(true);
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     Spline.Changed -= OnSplineChanged;
+        // }
         
         private void EnsureMesh()
         {
@@ -51,32 +54,33 @@ namespace __Workspaces.Hugoi.Scripts
             }
         }
         
-        private void OnSplineChanged(Spline s, int knotIndex, SplineModification modification)
-        {
-            if (!IsOurSpline(s)) return;
-            Rebuild();
-        }
+        // private void OnSplineChanged(Spline s, int knotIndex, SplineModification modification)
+        // {
+        //     if (!IsOurSpline(s)) return;
+        //     Rebuild();
+        // }
+        //
+        // private bool IsOurSpline(Spline s)
+        // {
+        //     if (_splineContainer == null) return false;
+        //     if (_splineContainer.Splines.Count <= _splineIndex) return false;
+        //     return _splineContainer.Splines[_splineIndex] == s;
+        // }
         
-        private bool IsOurSpline(Spline s)
-        {
-            if (_splineContainer == null) return false;
-            if (_splineContainer.Splines.Count <= _splineIndex) return false;
-            return _splineContainer.Splines[_splineIndex] == s;
-        }
+        // private void Update()
+        // {
+        //     if (_resolution != _lastResolution ||
+        //         _width != _lastWidth ||
+        //         _splineIndex != _lastSplineIndex ||
+        //         _textureTiling != _lastTextureTiling)
+        //     {
+        //         Rebuild();
+        //     }
+        // }
         
-        private void Update()
+        public void Rebuild()
         {
-            if (_resolution != _lastResolution ||
-                _width != _lastWidth ||
-                _splineIndex != _lastSplineIndex ||
-                _textureTiling != _lastTextureTiling)
-            {
-                Rebuild();
-            }
-        }
-        
-        private void Rebuild(bool force = false)
-        {
+            Debug.Log("Rebuild");
             if (_splineContainer == null) return;
             if (_splineContainer.Splines.Count <= _splineIndex) return;
 
@@ -154,6 +158,8 @@ namespace __Workspaces.Hugoi.Scripts
             _mesh.triangles = tris;
             _mesh.RecalculateNormals();
             _mesh.RecalculateBounds();
+            
+            _meshCollider.sharedMesh = _mesh;
         }
     }
 }

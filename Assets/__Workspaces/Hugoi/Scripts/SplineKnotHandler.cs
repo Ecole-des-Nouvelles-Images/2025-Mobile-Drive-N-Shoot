@@ -1,27 +1,27 @@
 using UnityEngine;
 using UnityEngine.Splines;
+using Random = UnityEngine.Random;
 
 namespace __Workspaces.Hugoi.Scripts
 {
     [RequireComponent( typeof(SplineContainer))]
-    public class SplineManager : MonoBehaviour
+    public class SplineKnotHandler : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private int _knotCount;
         [SerializeField] private int _terrainSize;
         
-        [Header("References")]
-        [SerializeField] private SplineContainer _splineContainer;
+        private SplineContainer _splineContainer;
         
-        private void OnEnable()
+        private void Awake()
         {
             _splineContainer = GetComponent<SplineContainer>();
-            GenerateSpline();
         }
         
         [ContextMenu("GenerateSpline")]
-        private void GenerateSpline()
+        public void GenerateSpline()
         {
+            Debug.Log("Generate Spline");
             _splineContainer.Spline.Clear();
             
             float space = _terrainSize / (_knotCount - 1);

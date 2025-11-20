@@ -6,7 +6,6 @@ using Random = Unity.Mathematics.Random;
 
 namespace __Workspaces.Hugoi.Scripts
 {
-    [ExecuteAlways]
     [RequireComponent( typeof(SplineContainer))]
     public class DynamicSplineProps : MonoBehaviour
     {
@@ -37,46 +36,46 @@ namespace __Workspaces.Hugoi.Scripts
         private float _lastPositionOffset;
         private Vector2 _lastScaleOffset;
         
-        private void OnEnable()
-        {
-            
-            Spline.Changed += OnSplineChanged;
-        }
+        // private void OnEnable()
+        // {
+        //     Spline.Changed += OnSplineChanged;
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     Spline.Changed -= OnSplineChanged;
+        // }
+        //
+        // private void OnSplineChanged(Spline s, int knotIndex, SplineModification modification)
+        // {
+        //     if (!IsOurSpline(s)) return;
+        //     SpawnProps();
+        // }
+        //
+        // private bool IsOurSpline(Spline s)
+        // {
+        //     if (_splineContainer == null) return false;
+        //     if (_splineContainer.Splines.Count <= _splineIndex) return false;
+        //     return _splineContainer.Splines[_splineIndex] == s;
+        // }
+        //
+        // private void Update()
+        // {
+        //     if (Resolution != _lastResolution ||
+        //         Width != _lastWidth ||
+        //         _splineIndex != _lastSplineIndex ||
+        //         HeightOffset != _lastHeightOffset ||
+        //         RotationOffset != _lastRotationOffset ||
+        //         PositionOffset != _lastPositionOffset ||
+        //         ScaleOffsetMinMax != _lastScaleOffset)
+        //     {
+        //         SpawnProps();
+        //     }
+        // }
 
-        private void OnDisable()
+        public void SpawnProps()
         {
-            Spline.Changed -= OnSplineChanged;
-        }
-        
-        private void OnSplineChanged(Spline s, int knotIndex, SplineModification modification)
-        {
-            if (!IsOurSpline(s)) return;
-            SpawnProps();
-        }
-        
-        private bool IsOurSpline(Spline s)
-        {
-            if (_splineContainer == null) return false;
-            if (_splineContainer.Splines.Count <= _splineIndex) return false;
-            return _splineContainer.Splines[_splineIndex] == s;
-        }
-        
-        private void Update()
-        {
-            if (Resolution != _lastResolution ||
-                Width != _lastWidth ||
-                _splineIndex != _lastSplineIndex ||
-                HeightOffset != _lastHeightOffset ||
-                RotationOffset != _lastRotationOffset ||
-                PositionOffset != _lastPositionOffset ||
-                ScaleOffsetMinMax != _lastScaleOffset)
-            {
-                SpawnProps();
-            }
-        }
-
-        private void SpawnProps()
-        {
+            Debug.Log("SpawnProps");
             _random = new Random(Seed);
             
             foreach (var prop in _propsSpawn)

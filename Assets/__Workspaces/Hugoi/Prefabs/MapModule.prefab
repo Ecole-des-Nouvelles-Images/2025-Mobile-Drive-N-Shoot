@@ -79,7 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffa86d0c4fed5147afa42f681977373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapModuleHandler
-  _mapManager: {fileID: 0}
 --- !u!65 &9191153044634136344
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,9 +117,10 @@ GameObject:
   - component: {fileID: 1971513149779389270}
   - component: {fileID: 3700892192510865783}
   - component: {fileID: 4341684722506733957}
+  - component: {fileID: 2803369673277541530}
   m_Layer: 0
   m_Name: Spline
-  m_TagString: Untagged
+  m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SplineManager
   _knotCount: 5
   _terrainSize: 100
-  _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &5431519557754820045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +439,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2803369673277541530
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5935637009875891089}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &8048398075706295006
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +507,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2dccb596babcf449cd1e013e4ad270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainLeveling
-  SplineMesh: {fileID: 5935637009875891089}
+  _heightmapResolution: 256
+  _terrainSize: {x: 100, y: 5, z: 100}
+  raiseAmount: 1
+  rayHeight: 10
+  roadTag: Road
+  _terrain: {fileID: 8544518952561437464}
+  _splineContainer: {fileID: 5965455809491477312}
+  _splineIndex: 0
 --- !u!218 &8544518952561437464
 Terrain:
   m_ObjectHideFlags: 0
