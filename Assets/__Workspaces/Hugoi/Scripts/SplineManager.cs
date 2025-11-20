@@ -16,13 +16,14 @@ namespace __Workspaces.Hugoi.Scripts
         private void OnEnable()
         {
             _splineContainer = GetComponent<SplineContainer>();
+            GenerateSpline();
         }
-
+        
         [ContextMenu("GenerateSpline")]
         private void GenerateSpline()
         {
             _splineContainer.Spline.Clear();
-
+            
             float space = _terrainSize / (_knotCount - 1);
             for (float i = 0; i <= _terrainSize; i += space)
             {
@@ -35,7 +36,7 @@ namespace __Workspaces.Hugoi.Scripts
                 {
                     newPos = new Vector3(Random.Range(-40, 40), 0, i);
                 }
-
+                
                 Vector3 tangentIn = new Vector3(0, 0, -5);
                 Vector3 tangentOut = new Vector3(0, 0, 5);
                 

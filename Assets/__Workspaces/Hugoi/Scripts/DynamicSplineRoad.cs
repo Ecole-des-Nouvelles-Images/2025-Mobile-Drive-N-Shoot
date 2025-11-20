@@ -16,31 +16,31 @@ namespace __Workspaces.Hugoi.Scripts
         [Header("Spline")]
         [SerializeField] private SplineContainer _splineContainer;
         [SerializeField] private int _splineIndex;
-
+        
         private Mesh _mesh;
-
+        
         private int _lastResolution;
         private float _lastWidth;
         private int _lastSplineIndex;
         private float _lastTextureTiling;
-
+        
         private void Awake()
         {
             EnsureMesh();
         }
-
+        
         private void OnEnable()
         {
             EnsureMesh();
-            UnityEngine.Splines.Spline.Changed += OnSplineChanged;
+            Spline.Changed += OnSplineChanged;
             Rebuild(true);
         }
-
+        
         private void OnDisable()
         {
-            UnityEngine.Splines.Spline.Changed -= OnSplineChanged;
+            Spline.Changed -= OnSplineChanged;
         }
-
+        
         private void EnsureMesh()
         {
             if (_mesh == null)
@@ -50,20 +50,20 @@ namespace __Workspaces.Hugoi.Scripts
                 GetComponent<MeshFilter>().sharedMesh = _mesh;
             }
         }
-
+        
         private void OnSplineChanged(Spline s, int knotIndex, SplineModification modification)
         {
             if (!IsOurSpline(s)) return;
             Rebuild();
         }
-
+        
         private bool IsOurSpline(Spline s)
         {
             if (_splineContainer == null) return false;
             if (_splineContainer.Splines.Count <= _splineIndex) return false;
             return _splineContainer.Splines[_splineIndex] == s;
         }
-
+        
         private void Update()
         {
             if (_resolution != _lastResolution ||
@@ -74,7 +74,7 @@ namespace __Workspaces.Hugoi.Scripts
                 Rebuild();
             }
         }
-
+        
         private void Rebuild(bool force = false)
         {
             if (_splineContainer == null) return;
