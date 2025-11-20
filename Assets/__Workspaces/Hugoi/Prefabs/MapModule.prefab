@@ -187,7 +187,7 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 11
+        x: 0
         y: 0
         z: 25
       TangentIn:
@@ -205,7 +205,7 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: 31
+        x: 0
         y: 0
         z: 50
       TangentIn:
@@ -223,7 +223,7 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: -6
+        x: 0
         y: 0
         z: 75
       TangentIn:
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineRoad
   _resolution: 50
-  _width: 6
+  _width: 10
   _textureTiling: 1
   _splineContainer: {fileID: 5965455809491477312}
   _splineIndex: 0
@@ -323,15 +323,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  Seed: 12345
-  Resolution: 250
-  Width: 6
-  HeightOffset: 1.5
-  RotationOffset: 20
-  PositionOffset: 0.1
-  ScaleOffsetMinMax: {x: 1, y: 1}
+  _seed: 12345
+  _density: 250
+  _width: 10
+  _heightOffset: 0
+  _rotationOffset: 90
+  _positionOffset: 0.1
+  _scaleOffsetMinMax: {x: 0.6, y: 0.8}
   _props:
-  - {fileID: 7832807813831486515, guid: 8f83b8cf4107aa441bf89a14cd00b8f5, type: 3}
+  - {fileID: 919132149155446097, guid: 9f02755640800664e84b7fddccf02c37, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
   _splineIndex: 0
@@ -347,13 +347,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  Seed: 12345
-  Resolution: 15
-  Width: 2.5
-  HeightOffset: 0.25
-  RotationOffset: 90
-  PositionOffset: 1.4
-  ScaleOffsetMinMax: {x: 0.8, y: 1.1}
+  _seed: 12345
+  _density: 50
+  _width: 3
+  _heightOffset: 2
+  _rotationOffset: 90
+  _positionOffset: 0.5
+  _scaleOffsetMinMax: {x: 0.6, y: 0.8}
   _props:
   - {fileID: 7832807813831486515, guid: b120a211d2ab3d940a9bae4af53b3a6a, type: 3}
   _transformParent: {fileID: 6264254432998931550}
@@ -371,13 +371,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  Seed: 12345
-  Resolution: 30
-  Width: 6
-  HeightOffset: 3.25
-  RotationOffset: 90
-  PositionOffset: 0.2
-  ScaleOffsetMinMax: {x: 0.8, y: 1.5}
+  _seed: 12345
+  _density: 100
+  _width: 12
+  _heightOffset: 3.2
+  _rotationOffset: 90
+  _positionOffset: 1
+  _scaleOffsetMinMax: {x: 0.8, y: 1.2}
   _props:
   - {fileID: 7832807813831486515, guid: 78357090ae9c97f4ca71e8f91d88f42c, type: 3}
   _transformParent: {fileID: 6264254432998931550}
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TerrainLeveling
   _heightmapResolution: 256
-  _terrainSize: {x: 100, y: 3, z: 100}
+  _terrainSize: {x: 100, y: 4, z: 100}
   raiseAmount: 1
   rayHeight: 10
   roadTag: Road
