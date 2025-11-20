@@ -12,6 +12,10 @@ public class TurretControler : MonoBehaviour
     [Header("Aiming")]
     [SerializeField] private float _rotationSpeed = 5f;
 
+    [Header("Firing")] 
+    [SerializeField] private float _fireRate = 0.1f;
+    
+
     [Header("Overheat")]
     [SerializeField] private float _maxHeat = 100f;
     [SerializeField] private float _heatPerSecond = 10f;
@@ -22,6 +26,8 @@ public class TurretControler : MonoBehaviour
 
     private float _currentHeat = 0f;
     private bool _isOverHeated = false;
+    private float _nextFireTime = 0f;
+    private bool _isFiring = false;
     private void Awake()
     {
         _carInputActions = new CarInputActions();
@@ -70,11 +76,22 @@ public class TurretControler : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0, targetAngle + vehicleYaw, 0);
             _turret.rotation = Quaternion.Slerp(_turret.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
             Fire();
+            _isFiring = true;
+        }
+        else
+        {
+            if (_isFiring)
+            {
+                _muzzleFlash.Stop();
+                _isFiring = false;
+            }
         }
     }
 
     private void Fire()
     {
+        if (Time.time < _nextFireTime) return;
+        _nextFireTime = Time.time + _fireRate;
         _currentHeat += _heatPerSecond * Time.deltaTime;
         if (_currentHeat >= _maxHeat)
         {
