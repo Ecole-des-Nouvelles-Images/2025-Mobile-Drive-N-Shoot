@@ -59,23 +59,22 @@ namespace __Workspaces.Hugoi.Scripts
         //     return _splineContainer.Splines[_splineIndex] == s;
         // }
         //
-        // private void Update()
-        // {
-        //     if (Resolution != _lastResolution ||
-        //         Width != _lastWidth ||
-        //         _splineIndex != _lastSplineIndex ||
-        //         HeightOffset != _lastHeightOffset ||
-        //         RotationOffset != _lastRotationOffset ||
-        //         PositionOffset != _lastPositionOffset ||
-        //         ScaleOffsetMinMax != _lastScaleOffset)
-        //     {
-        //         SpawnProps();
-        //     }
-        // }
+        private void Update()
+        {
+            if (Resolution != _lastResolution ||
+                Width != _lastWidth ||
+                _splineIndex != _lastSplineIndex ||
+                HeightOffset != _lastHeightOffset ||
+                RotationOffset != _lastRotationOffset ||
+                PositionOffset != _lastPositionOffset ||
+                ScaleOffsetMinMax != _lastScaleOffset)
+            {
+                SpawnProps();
+            }
+        }
 
         public void SpawnProps()
         {
-            Debug.Log("SpawnProps");
             _random = new Random(Seed);
             
             foreach (var prop in _propsSpawn)

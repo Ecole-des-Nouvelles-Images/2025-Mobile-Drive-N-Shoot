@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Road
+  - Props
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Props
   - Water
   - UI
   - 

@@ -21,7 +21,6 @@ namespace __Workspaces.Hugoi.Scripts
         [ContextMenu("GenerateSpline")]
         public void GenerateSpline()
         {
-            Debug.Log("Generate Spline");
             _splineContainer.Spline.Clear();
             
             float space = _terrainSize / (_knotCount - 1);

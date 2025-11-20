@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   Seed: 12345
-  Resolution: 50
+  Resolution: 250
   Width: 6
   HeightOffset: 1.5
   RotationOffset: 20

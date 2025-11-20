@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1540798611134990151}
   - component: {fileID: 867535464692725230}
   - component: {fileID: 2762402860720245430}
-  m_Layer: 0
+  - component: {fileID: 182801272068776012}
+  m_Layer: 3
   m_Name: Prefab_Cliff
-  m_TagString: Untagged
+  m_TagString: Props
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -111,3 +112,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &182801272068776012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832807813831486515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878011cf71f3b5a4389418fe48a6d063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DestroyIfOverlapping
+  _overlapRadius: 0.05
+  _overlapLayers:
+    serializedVersion: 2
+    m_Bits: 8

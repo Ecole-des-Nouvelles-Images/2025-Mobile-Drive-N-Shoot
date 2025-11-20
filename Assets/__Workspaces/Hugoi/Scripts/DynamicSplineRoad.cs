@@ -67,20 +67,19 @@ namespace __Workspaces.Hugoi.Scripts
         //     return _splineContainer.Splines[_splineIndex] == s;
         // }
         
-        // private void Update()
-        // {
-        //     if (_resolution != _lastResolution ||
-        //         _width != _lastWidth ||
-        //         _splineIndex != _lastSplineIndex ||
-        //         _textureTiling != _lastTextureTiling)
-        //     {
-        //         Rebuild();
-        //     }
-        // }
+        private void Update()
+        {
+            if (_resolution != _lastResolution ||
+                _width != _lastWidth ||
+                _splineIndex != _lastSplineIndex ||
+                _textureTiling != _lastTextureTiling)
+            {
+                Rebuild();
+            }
+        }
         
         public void Rebuild()
         {
-            Debug.Log("Rebuild");
             if (_splineContainer == null) return;
             if (_splineContainer.Splines.Count <= _splineIndex) return;
 
