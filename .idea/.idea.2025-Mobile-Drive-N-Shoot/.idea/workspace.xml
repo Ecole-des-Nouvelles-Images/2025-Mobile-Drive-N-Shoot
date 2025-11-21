@@ -33,7 +33,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging HugoI",
+    "git-widget-placeholder": "HugoI",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -109,7 +109,7 @@
       <workItem from="1763457722597" duration="172000" />
       <workItem from="1763461396451" duration="15112000" />
       <workItem from="1763560976142" duration="1854000" />
-      <workItem from="1763716141802" duration="1074000" />
+      <workItem from="1763716141802" duration="4353000" />
     </task>
     <servers />
   </component>
