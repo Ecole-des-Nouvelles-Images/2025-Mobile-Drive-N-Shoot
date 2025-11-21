@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace __Workspaces.Hugoi.Scripts
@@ -20,12 +21,23 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void Start()
         {
+            StartCoroutine(DelayGeneration());
+        }
+
+        private IEnumerator DelayGeneration()
+        {
             _splineKnotHandler.GenerateSpline();
+            yield return new WaitForSeconds(0.2f);
+            
             _splineRoad.Rebuild();
+            yield return new WaitForSeconds(0.2f);
+            
             foreach (var prop in _splineProps)
             {
                 prop.SpawnProps();
+                yield return new WaitForSeconds(0.2f);
             }
+            
             _terrainLeveling.RaiseTerrain();
         }
 
@@ -36,7 +48,7 @@ namespace __Workspaces.Hugoi.Scripts
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player")
+            if (other.CompareTag("Player"))
             {
                 _mapManager.SpawnMapModule();
             }

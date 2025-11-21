@@ -99,7 +99,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 100, y: 10, z: 5}
-  m_Center: {x: 50, y: 0, z: 75}
+  m_Center: {x: 50, y: 0, z: 50}
 --- !u!1 &5935637009875891089
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
-  _density: 250
+  _density: 100
   _width: 10
   _heightOffset: 0
   _rotationOffset: 90

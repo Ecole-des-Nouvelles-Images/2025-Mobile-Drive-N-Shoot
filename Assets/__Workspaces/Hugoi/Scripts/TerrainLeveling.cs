@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -23,29 +24,7 @@ namespace __Workspaces.Hugoi.Scripts
         [SerializeField] private int _splineIndex;
 
         private TerrainData _terrainData;
-    
-        // private void OnEnable()
-        // {
-        //     Spline.Changed += OnSplineChanged;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     Spline.Changed -= OnSplineChanged;
-        // }
-        //
-        // private void OnSplineChanged(Spline s, int knotIndex, SplineModification modification)
-        // {
-        //     if (!IsOurSpline(s)) return;
-        //     Invoke(nameof(RaiseTerrain), 2f);
-        // }
-        //
-        // private bool IsOurSpline(Spline s)
-        // {
-        //     if (_splineContainer == null) return false;
-        //     if (_splineContainer.Splines.Count <= _splineIndex) return false;
-        //     return _splineContainer.Splines[_splineIndex] == s;
-        // }
+        private bool _alreadyCreateIndependentTerrain = false;
 
         [ContextMenu("RaiseTerrain")]
         public void RaiseTerrain()
@@ -55,8 +34,6 @@ namespace __Workspaces.Hugoi.Scripts
             int res = _terrainData.heightmapResolution;
 
             float[,] heights = new float[res, res];
-
-            // float delta = raiseAmount / _terrainData.size.y;
 
             for (int y = 0; y < res; y++)
             {
@@ -76,9 +53,7 @@ namespace __Workspaces.Hugoi.Scripts
                         }
                     }
 
-                    if (hitRoad) continue;
-
-                    heights[y, x] = raiseAmount;
+                    if (!hitRoad) heights[y, x] = raiseAmount;
                 }
             }
 
@@ -87,8 +62,6 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void CreateIndependentTerrain()
         {
-            if (_terrain == null) _terrain = GetComponent<Terrain>();
-
             _terrainData = new TerrainData();
             _terrainData.heightmapResolution = _heightmapResolution;
             _terrainData.size = _terrainSize;
@@ -96,6 +69,8 @@ namespace __Workspaces.Hugoi.Scripts
 
             float[,] heights = new float[_terrainData.heightmapResolution, _terrainData.heightmapResolution];
             _terrainData.SetHeights(0, 0, heights);
+            
+            _alreadyCreateIndependentTerrain = true;
         }
 
         private Vector3 HeightmapToWorldPosition(int x, int y)
