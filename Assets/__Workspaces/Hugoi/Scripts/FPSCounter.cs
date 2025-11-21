@@ -5,24 +5,26 @@ namespace __Workspaces.Hugoi.Scripts
 {
     public class FPSCounter : MonoBehaviour
     {
-        public TextMeshProUGUI fpsText;
-        private float timer = 0f;
+        private TextMeshProUGUI _fpsText;
+        private float _timer;
 
         private void Awake()
         {
+            _fpsText = GetComponent<TextMeshProUGUI>();
+            
             Application.targetFrameRate = 60;
             QualitySettings.vSyncCount = 0;
         }
 
         void Update()
         {
-            timer += Time.deltaTime;
+            _timer += Time.deltaTime;
 
-            if (timer >= 0.1f)
+            if (_timer >= 0.1f)
             {
                 float fps = 1f / Time.deltaTime;
-                fpsText.text = $"FPS : {fps:F0}";
-                timer = 0f;
+                _fpsText.text = $"FPS : {fps:F0}";
+                _timer = 0f;
             }
         }
     }
