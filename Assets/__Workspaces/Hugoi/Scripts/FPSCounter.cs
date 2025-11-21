@@ -10,7 +10,7 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void Awake()
         {
-            Application.targetFrameRate = 90;
+            Application.targetFrameRate = 60;
             QualitySettings.vSyncCount = 0;
         }
 

@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Rock_Canyon_v1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f02755640800664e84b7fddccf02c37, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f02755640800664e84b7fddccf02c37, type: 3}
+      propertyPath: m_TagString
+      value: Props
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
