@@ -23,7 +23,7 @@ namespace Utils.Game
         public static Action<float> OnPlayerTakeDamage;
         public static Action OnPlayerDealCritDamage;
         /// <summary>
-        /// Max Health, Current Health
+        /// Current Health, Max Health
         /// </summary>
         public static Action<float, float> OnPlayerHealthChange;
 
