@@ -12,6 +12,10 @@ public class TurretControler : MonoBehaviour
     [Header("Aiming")]
     [SerializeField] private float _rotationSpeed = 5f;
 
+    [SerializeField] private Vector3 _boxSize = new Vector3(2f, 5f, 10f);
+    [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private float _maxDetectionDistance = 50f;
+
     [Header("Firing")] 
     [SerializeField] private float _fireRate = 0.1f;
     
