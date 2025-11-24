@@ -510,9 +510,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TerrainLeveling
   _heightmapResolution: 256
   _terrainSize: {x: 100, y: 4, z: 100}
-  raiseAmount: 1
-  rayHeight: 10
-  roadTag: Road
+  _raiseAmount: 1
+  _rayHeight: 10
+  _roadTag: Road
+  _yieldEveryYRows: 10
   _terrain: {fileID: 8544518952561437464}
   _splineContainer: {fileID: 5965455809491477312}
   _splineIndex: 0

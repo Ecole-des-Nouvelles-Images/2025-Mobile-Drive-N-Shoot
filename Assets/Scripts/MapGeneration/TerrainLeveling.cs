@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
+using Debug = UnityEngine.Debug;
 
 namespace MapGeneration
 {
@@ -14,6 +16,9 @@ namespace MapGeneration
         [SerializeField] private float _raiseAmount = 1f;
         [SerializeField] private float _rayHeight = 10f;
         [SerializeField] private string _roadTag = "Road";
+        
+        [Header("ASync Settings")]
+        [SerializeField] private int _yieldEveryYRows;
 
         [Header("References")]
         [SerializeField] private Terrain _terrain;
@@ -23,17 +28,16 @@ namespace MapGeneration
         [SerializeField] private int _splineIndex;
 
         private TerrainData _terrainData;
-        private bool _alreadyCreateIndependentTerrain = false;
 
         [ContextMenu("RaiseTerrain")]
-        public void RaiseTerrain()
+        public IEnumerator RaiseTerrain()
         {
             CreateIndependentTerrain();
 
             int res = _terrainData.heightmapResolution;
 
             float[,] heights = new float[res, res];
-
+            
             for (int y = 0; y < res; y++)
             {
                 for (int x = 0; x < res; x++)
@@ -53,6 +57,8 @@ namespace MapGeneration
                     }
 
                     if (!hitRoad) heights[y, x] = _raiseAmount;
+
+                    if (y % _yieldEveryYRows == 0 && x == 0) yield return null;
                 }
             }
 
@@ -61,6 +67,8 @@ namespace MapGeneration
 
         private void CreateIndependentTerrain()
         {
+            Debug.Log("Create Independent Terrain");
+            
             _terrainData = new TerrainData();
             _terrainData.heightmapResolution = _heightmapResolution;
             _terrainData.size = _terrainSize;
@@ -68,8 +76,6 @@ namespace MapGeneration
 
             float[,] heights = new float[_terrainData.heightmapResolution, _terrainData.heightmapResolution];
             _terrainData.SetHeights(0, 0, heights);
-            
-            _alreadyCreateIndependentTerrain = true;
         }
 
         private Vector3 HeightmapToWorldPosition(int x, int y)
