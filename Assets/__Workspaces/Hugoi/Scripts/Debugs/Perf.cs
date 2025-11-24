@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace __Workspaces.Hugoi.Scripts.Debugs
 {
     public static class Perf
     {

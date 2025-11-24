@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics;
 using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 
@@ -28,18 +29,18 @@ namespace MapGeneration
         private IEnumerator DelayGeneration()
         {
             _splineKnotHandler.GenerateSpline();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             
             _splineRoad.Rebuild();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             
             foreach (var prop in _splineProps)
             {
                 prop.SpawnProps();
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.1f);
             }
             
-            _terrainLeveling.RaiseTerrain();
+            _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.RaiseTerrain));
         }
 
         public void Setup(MapManager mapManager)

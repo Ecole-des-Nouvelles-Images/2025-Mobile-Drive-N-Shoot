@@ -127,6 +127,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 734408532940629974, guid: b10ba51c85f7579479b9945275857059, type: 3}
+      propertyPath: _pickupMeshRenderer
+      value: 
+      objectReference: {fileID: 503068439}
+    - target: {fileID: 734408532940629974, guid: b10ba51c85f7579479b9945275857059, type: 3}
+      propertyPath: _turretMeshRenderers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 734408532940629974, guid: b10ba51c85f7579479b9945275857059, type: 3}
+      propertyPath: '_turretMeshRenderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 503068438}
+    - target: {fileID: 734408532940629974, guid: b10ba51c85f7579479b9945275857059, type: 3}
+      propertyPath: '_turretMeshRenderers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 503068437}
+    - target: {fileID: 734408532940629974, guid: b10ba51c85f7579479b9945275857059, type: 3}
+      propertyPath: '_turretMeshRenderers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 503068436}
     - target: {fileID: 2705500792282832784, guid: b10ba51c85f7579479b9945275857059, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -188,6 +208,26 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1274832608}
   m_SourcePrefab: {fileID: 100100000, guid: b10ba51c85f7579479b9945275857059, type: 3}
+--- !u!23 &503068436 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5707212839225971987, guid: b10ba51c85f7579479b9945275857059, type: 3}
+  m_PrefabInstance: {fileID: 503068435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &503068437 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 161308691577071435, guid: b10ba51c85f7579479b9945275857059, type: 3}
+  m_PrefabInstance: {fileID: 503068435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &503068438 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4876825497210891156, guid: b10ba51c85f7579479b9945275857059, type: 3}
+  m_PrefabInstance: {fileID: 503068435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &503068439 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7737335015935714734, guid: b10ba51c85f7579479b9945275857059, type: 3}
+  m_PrefabInstance: {fileID: 503068435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &608285484
 GameObject:
   m_ObjectHideFlags: 0
