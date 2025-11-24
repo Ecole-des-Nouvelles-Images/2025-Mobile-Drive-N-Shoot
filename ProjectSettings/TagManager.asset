@@ -4,14 +4,18 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - Road
+  - Props
   - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Props
   - Water
   - UI
+  - 
+  - 
   - Ground
   - Enemies
   - 
