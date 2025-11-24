@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using __Workspaces.Hugoi.Scripts.GameLoop;
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,10 +26,13 @@ public class CarControler : MonoBehaviour
         _carControls = new CarInputActions();
         
         // Skin
-        _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
-        foreach (var meshRenderers in _turretMeshRenderers)
+        if (GameManager.Instance)
         {
-            meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
+            _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
+            foreach (var meshRenderers in _turretMeshRenderers)
+            {
+                meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
+            }
         }
     }
 

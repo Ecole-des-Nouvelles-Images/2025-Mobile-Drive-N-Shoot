@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace SelectionSkins
 {
     [CreateAssetMenu(fileName = "Skin", menuName = "ScriptableObjects/Skin")]
     public class Skin : ScriptableObject

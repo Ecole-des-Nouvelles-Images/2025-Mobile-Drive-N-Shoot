@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace SelectionSkins
 {
     public class RotationCarVisual : MonoBehaviour
     {

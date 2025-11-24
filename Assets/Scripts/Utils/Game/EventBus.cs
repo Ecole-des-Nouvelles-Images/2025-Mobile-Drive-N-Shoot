@@ -11,11 +11,11 @@ namespace Utils.Game
         public static Action OnGameResume;
         public static Action OnGameOver;
         
-        // Timer
-        public static Action<float> OnTimerChange;
-        public static Action OnStartTimer;
-        public static Action OnStopTimer;
-        public static Action OnResetTimer;
+        // Time
+        public static Action<float> OnTimeChange;
+        public static Action OnStartTime;
+        public static Action OnStopTime;
+        public static Action OnResetTime;
 
         // Player
         public static Action OnPlayerSpawn;
@@ -36,5 +36,8 @@ namespace Utils.Game
         
         // Terrain
         public static Action<Terrain> GenerationTerrainFinished;
+        
+        // Timer
+        public static Action OnAddTimeToTimer;
     }
 }

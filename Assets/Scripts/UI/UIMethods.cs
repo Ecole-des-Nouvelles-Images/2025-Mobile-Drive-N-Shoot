@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils.Game;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace UI
 {
     public class UIMethods : MonoBehaviour
     {

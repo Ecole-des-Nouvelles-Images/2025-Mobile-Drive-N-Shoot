@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using __Workspaces.Hugoi.Scripts.GameLoop;
+using Core;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace SelectionSkins
 {
     public class SelectionSkinHandler : MonoBehaviour
     {

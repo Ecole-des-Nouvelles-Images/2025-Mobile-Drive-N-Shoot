@@ -1,12 +1,13 @@
 using System.Collections;
-using System.Diagnostics;
-using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 
 namespace MapGeneration
 {
     public class MapModuleHandler : MonoBehaviour
     {
+        [Header("References")]
+        [SerializeField] private GameObject _checkpointGameObject;
+        
         private MapManager _mapManager;
         private SplineKnotHandler _splineKnotHandler;
         private DynamicSplineRoad _splineRoad;
@@ -43,9 +44,14 @@ namespace MapGeneration
             _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.RaiseTerrain));
         }
 
-        public void Setup(MapManager mapManager)
+        public void Setup(MapManager mapManager, bool haveCheckPoint)
         {
             _mapManager = mapManager;
+
+            if (haveCheckPoint)
+            {
+                _checkpointGameObject.SetActive(true);
+            }
         }
         
         private void OnTriggerEnter(Collider other)
