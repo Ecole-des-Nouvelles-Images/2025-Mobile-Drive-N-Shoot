@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
-using Debug = UnityEngine.Debug;
 
 namespace MapGeneration
 {
@@ -67,8 +66,6 @@ namespace MapGeneration
 
         private void CreateIndependentTerrain()
         {
-            Debug.Log("Create Independent Terrain");
-            
             _terrainData = new TerrainData();
             _terrainData.heightmapResolution = _heightmapResolution;
             _terrainData.size = _terrainSize;

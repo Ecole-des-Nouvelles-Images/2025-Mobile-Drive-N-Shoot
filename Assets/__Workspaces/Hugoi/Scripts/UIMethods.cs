@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils.Game;
 
 namespace __Workspaces.Hugoi.Scripts
 {
@@ -8,6 +9,26 @@ namespace __Workspaces.Hugoi.Scripts
         public void LoadScene(int id)
         {
             SceneManager.LoadScene(id);
+        }
+
+        public void GameStart()
+        {
+            EventBus.OnGameStart?.Invoke();
+        }
+
+        public void GamePause()
+        {
+            EventBus.OnGamePause?.Invoke();
+        }
+
+        public void GameResume()
+        {
+            EventBus.OnGameResume?.Invoke();
+        }
+
+        public void GameOver()
+        {
+            EventBus.OnGameOver?.Invoke();
         }
     }
 }

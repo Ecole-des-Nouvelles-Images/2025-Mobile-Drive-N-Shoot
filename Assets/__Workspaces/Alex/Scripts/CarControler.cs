@@ -26,10 +26,10 @@ public class CarControler : MonoBehaviour
         _carControls = new CarInputActions();
         
         // Skin
-        _pickupMeshRenderer.materials = GameManager.Instance.CarMaterial;
+        _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
         foreach (var meshRenderers in _turretMeshRenderers)
         {
-            meshRenderers.materials = GameManager.Instance.TurretMaterial;
+            meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
         }
     }
 

@@ -5,8 +5,8 @@ namespace __Workspaces.Hugoi.Scripts.GameLoop
 {
     public class GameManager : MonoBehaviourSingletonDontDestroyOnLoad<GameManager>
     {
-        [Header("Player")]
-        public Material[] CarMaterial;
-        public Material[] TurretMaterial;
+        [Header("Player Data")]
+        public Material[] CurrentCarMaterials;
+        public Material[] CurrentTurretMaterials;
     }
 }

@@ -830,6 +830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ca3920e9d62464fb57fb3029b5583e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.GameLoop.GameManager
+  CurrentCarMaterials: []
+  CurrentTurretMaterials: []
 --- !u!4 &1675922288
 Transform:
   m_ObjectHideFlags: 0
@@ -849,8 +851,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1675922288}
   - {fileID: 562665637}
   - {fileID: 1524049988}
-  - {fileID: 1675922288}
   - {fileID: 493245606}
   - {fileID: 1420097743}

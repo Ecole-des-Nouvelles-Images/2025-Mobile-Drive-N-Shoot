@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using __Workspaces.Hugoi.Scripts.GameLoop;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace __Workspaces.Hugoi.Scripts
 {
-    public class SkinHandler : MonoBehaviour
+    public class SelectionSkinHandler : MonoBehaviour
     {
         [Header("Skin")]
         [SerializeField] private List<Skin> _pickupSkins =  new();
@@ -16,8 +17,10 @@ namespace __Workspaces.Hugoi.Scripts
         [SerializeField] private List<MeshRenderer> _turretMeshRenderers = new();
 
         [Header("Buttons")]
-        [SerializeField] private Button _leftArrow;
-        [SerializeField] private Button _rightArrow;
+        [SerializeField] private Button _pickupButton;
+        [SerializeField] private Button _turretButton;
+        [SerializeField] private Button _leftArrowButton;
+        [SerializeField] private Button _rightArrowButton;
 
         private SkinType _currentSkinType;
         private int _currentPickupSkinId;
@@ -31,26 +34,23 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void OnEnable()
         {
-            _leftArrow.onClick.AddListener(PreviousSkin);
-            _rightArrow.onClick.AddListener(NextSkin);
+            _pickupButton.onClick.AddListener(() => SetSkinType(SkinType.Pickup));
+            _turretButton.onClick.AddListener(() => SetSkinType(SkinType.Turret));
+            _leftArrowButton.onClick.AddListener(PreviousSkin);
+            _rightArrowButton.onClick.AddListener(NextSkin);
         }
         
         private void OnDisable()
         {
-            _leftArrow.onClick.RemoveListener(PreviousSkin);
-            _rightArrow.onClick.RemoveListener(NextSkin);
+            _pickupButton.onClick.RemoveListener(() => SetSkinType(SkinType.Pickup));
+            _turretButton.onClick.RemoveListener(() => SetSkinType(SkinType.Turret));
+            _leftArrowButton.onClick.RemoveListener(PreviousSkin);
+            _rightArrowButton.onClick.RemoveListener(NextSkin);
         }
 
-        public void SetSkinType(string skinType)
+        private void SetSkinType(SkinType skinType)
         {
-            if (skinType == "Pickup")
-            {
-                _currentSkinType = SkinType.Pickup;
-            }
-            else
-            {
-                _currentSkinType = SkinType.Turret;
-            }
+            _currentSkinType = skinType;
         }
 
         private void PreviousSkin()
@@ -124,7 +124,7 @@ namespace __Workspaces.Hugoi.Scripts
                 };
                 _pickupMeshRenderer.materials = materials;
 
-                if (GameManager.Instance) GameManager.Instance.CarMaterial = materials;
+                if (GameManager.Instance) GameManager.Instance.CurrentCarMaterials = materials;
             }
 
             if (skinType == SkinType.Turret)
@@ -138,7 +138,7 @@ namespace __Workspaces.Hugoi.Scripts
                     meshRenderers.materials = materials;
                 }
                 
-                if (GameManager.Instance) GameManager.Instance.TurretMaterial = materials;
+                if (GameManager.Instance) GameManager.Instance.CurrentTurretMaterials = materials;
             }
         }
     }
