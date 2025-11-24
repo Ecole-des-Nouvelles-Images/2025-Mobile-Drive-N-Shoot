@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using __Workspaces.Hugoi.Scripts.GameLoop;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +12,10 @@ public class CarControler : MonoBehaviour
     public float steeringRange = 30f;
     public float steeringRangeAtMaxSpeed = 10f;
     public float centreOfGravityOffset = -1f;
+    
+    [Header("Visual")]
+    [SerializeField] private MeshRenderer _pickupMeshRenderer;
+    [SerializeField] private List<MeshRenderer> _turretMeshRenderers = new();
 
     private WheelControl[] _wheels;
     private Rigidbody _rigidBody;
@@ -18,6 +24,13 @@ public class CarControler : MonoBehaviour
     private void Awake()
     {
         _carControls = new CarInputActions();
+        
+        // Skin
+        _pickupMeshRenderer.materials = GameManager.Instance.CarMaterial;
+        foreach (var meshRenderers in _turretMeshRenderers)
+        {
+            meshRenderers.materials = GameManager.Instance.TurretMaterial;
+        }
     }
 
     private void OnEnable()

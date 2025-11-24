@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace __Workspaces.Hugoi.Scripts.Debugs
 {
     public class FPSCounter : MonoBehaviour
     {

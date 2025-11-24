@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/__Workspaces/Hugoi/Scenes/HugoITestScene.unity
+    path: Assets/__Workspaces/Hugoi/Scenes/HugoITestMainScene.unity
+    guid: 77dc249b6d896d2498ab1bdf24c0e573
+  - enabled: 1
+    path: Assets/__Workspaces/Hugoi/Scenes/HugoITestSelectionScene.unity
+    guid: bbbcac0136189ae479744c01d5d2e732
+  - enabled: 1
+    path: Assets/__Workspaces/Hugoi/Scenes/HugoITestGameScene.unity
     guid: 7da38644b9cc8ea4d948274f8de34c7b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
