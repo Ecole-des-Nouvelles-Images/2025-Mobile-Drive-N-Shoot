@@ -29,7 +29,7 @@ namespace __Workspaces.Hugoi.Scripts.InGame
 
         private void Update()
         {
-            _timer -= Time.deltaTime;
+            _timer -= TimeManager.Instance.DeltaTime;
 
             if (_timer <= 0)
             {
