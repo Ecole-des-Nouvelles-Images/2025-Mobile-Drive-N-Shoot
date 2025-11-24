@@ -9,8 +9,7 @@ namespace __Workspaces.Hugoi.Scripts.InGame
         [SerializeField] private float _startTimerValue;
         [SerializeField] private float _timeToAdd;
         
-        
-        [SerializeField] private float _timer;
+        private float _timer;
 
         private void Awake()
         {
@@ -41,6 +40,11 @@ namespace __Workspaces.Hugoi.Scripts.InGame
         private void AddTimeToTimer()
         {
             _timer += _timeToAdd;
+        }
+
+        public float GetTimerValue()
+        {
+            return _timer;
         }
     }
 }
