@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Splines;
 using Random = Unity.Mathematics.Random;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     [RequireComponent( typeof(SplineContainer))]
     public class DynamicSplineProps : MonoBehaviour

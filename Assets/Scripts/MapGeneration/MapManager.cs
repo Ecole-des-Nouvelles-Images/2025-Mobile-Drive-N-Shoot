@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     public class MapManager : MonoBehaviour
     {

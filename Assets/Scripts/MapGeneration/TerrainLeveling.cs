@@ -1,8 +1,7 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     [RequireComponent(typeof(Terrain))]
     public class TerrainLeveling : MonoBehaviour
@@ -12,9 +11,9 @@ namespace __Workspaces.Hugoi.Scripts
         [SerializeField] private Vector3 _terrainSize;
         
         [Header("Leveling Settings")]
-        [SerializeField] private float raiseAmount = 1f;
-        [SerializeField] private float rayHeight = 10f;
-        [SerializeField] private string roadTag = "Road";
+        [SerializeField] private float _raiseAmount = 1f;
+        [SerializeField] private float _rayHeight = 10f;
+        [SerializeField] private string _roadTag = "Road";
 
         [Header("References")]
         [SerializeField] private Terrain _terrain;
@@ -42,18 +41,18 @@ namespace __Workspaces.Hugoi.Scripts
                     Vector3 worldPos = HeightmapToWorldPosition(x, y);
 
                     Ray ray = new Ray(worldPos + Vector3.up * 2f, Vector3.down);
-                    RaycastHit[] hits = Physics.RaycastAll(ray, rayHeight);
+                    RaycastHit[] hits = Physics.RaycastAll(ray, _rayHeight);
                     bool hitRoad = false;
                     foreach (var raycastHit in hits)
                     {
-                        if (raycastHit.collider.CompareTag(roadTag))
+                        if (raycastHit.collider.CompareTag(_roadTag))
                         {
                             hitRoad = true;
                             break;
                         }
                     }
 
-                    if (!hitRoad) heights[y, x] = raiseAmount;
+                    if (!hitRoad) heights[y, x] = _raiseAmount;
                 }
             }
 

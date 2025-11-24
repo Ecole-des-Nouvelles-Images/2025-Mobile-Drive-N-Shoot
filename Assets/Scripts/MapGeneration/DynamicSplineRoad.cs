@@ -2,7 +2,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(SplineContainer))]
     public class DynamicSplineRoad : MonoBehaviour

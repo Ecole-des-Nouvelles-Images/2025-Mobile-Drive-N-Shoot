@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Splines;
 using Random = UnityEngine.Random;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     [RequireComponent( typeof(SplineContainer))]
     public class SplineKnotHandler : MonoBehaviour

@@ -1,7 +1,8 @@
 using System.Collections;
+using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     public class MapModuleHandler : MonoBehaviour
     {
