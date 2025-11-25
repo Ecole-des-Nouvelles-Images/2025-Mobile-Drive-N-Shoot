@@ -6044,8 +6044,11 @@ MonoBehaviour:
   steeringRange: 30
   steeringRangeAtMaxSpeed: 10
   centreOfGravityOffset: -1
-  _pickupMeshRenderer: {fileID: 0}
-  _turretMeshRenderers: []
+  _pickupMeshRenderer: {fileID: 7737335015935714734}
+  _turretMeshRenderers:
+  - {fileID: 4876825497210891156}
+  - {fileID: 161308691577071435}
+  - {fileID: 5707212839225971987}
   boostCooldown: 10
   shakeThreshold: 2
   boostDeltaV: 10
