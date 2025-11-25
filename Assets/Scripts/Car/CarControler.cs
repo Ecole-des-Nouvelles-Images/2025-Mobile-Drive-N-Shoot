@@ -62,7 +62,7 @@ public class CarControler : MonoBehaviour
 
     void Start()
     {
-        EventBus.OnGameStart(); // TODO: delete this line if not needed
+        // EventBus.OnGameStart(); // TODO: delete this line if not needed
         _rigidBody = GetComponent<Rigidbody>();
 
         // Adjust center of mass to improve stability and prevent rolling
