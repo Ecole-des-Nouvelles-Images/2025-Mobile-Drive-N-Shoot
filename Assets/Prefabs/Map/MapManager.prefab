@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3340e2c272abe4594377c92342d056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
+  _checkPointFrequency: 2
   _mapModulePrefab: {fileID: 3539874032609928918, guid: ffba084bd9a00d840b432cc28c9b1aec, type: 3}

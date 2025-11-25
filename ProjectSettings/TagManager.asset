@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Road
   - Props
+  - CheckPoint
   - Enemy
   layers:
   - Default

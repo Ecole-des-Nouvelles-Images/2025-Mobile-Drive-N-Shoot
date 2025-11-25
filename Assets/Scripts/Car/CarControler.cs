@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using __Workspaces.Hugoi.Scripts.GameLoop;
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils.Game;
