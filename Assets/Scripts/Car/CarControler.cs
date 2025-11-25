@@ -38,6 +38,11 @@ public class CarControler : MonoBehaviour
     // Low-pass filtered acceleration for shake detection
     private Vector3 _lowPassAcceleration = Vector3.zero;
 
+    // Saved velocity for pause system
+    private Vector3 _savedVelocity;
+    private Vector3 _savedAngularVelocity;
+    private bool _isPaused = false;
+    
     private void Awake()
     {
         _carControls = new CarInputActions();
@@ -53,16 +58,21 @@ public class CarControler : MonoBehaviour
     private void OnEnable()
     {
         _carControls.Enable();
+        EventBus.OnGameOver += HandleGamePause;
+        EventBus.OnGamePause += HandleGamePause;
+        EventBus.OnGameResume += HandleGameResume;
     }
 
     private void OnDisable()
     {
         _carControls.Disable();
+        EventBus.OnGameOver -= HandleGamePause;
+        EventBus.OnGamePause -= HandleGamePause;
+        EventBus.OnGameResume -= HandleGameResume;
     }
 
     void Start()
     {
-        EventBus.OnGameStart(); // TODO: delete this line if not needed
         _rigidBody = GetComponent<Rigidbody>();
 
         // Adjust center of mass to improve stability and prevent rolling
@@ -105,6 +115,7 @@ public class CarControler : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_isPaused) return;
         // --- Input ---
         Vector2 inputVector = _carControls.CarControls.Move.ReadValue<Vector2>();
         float vInput = inputVector.y;
@@ -156,7 +167,7 @@ public class CarControler : MonoBehaviour
 
         if (currentSpeed > maxSpeed)
         {
-            float newSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 0.05f);
+            float newSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 0.01f);
             _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
         }
     }
@@ -169,5 +180,40 @@ public class CarControler : MonoBehaviour
         // Apply an immediate velocity change in the forward direction (mass-independent)
         _rigidBody.AddForce(transform.forward * boostDeltaV, ForceMode.VelocityChange);
         Debug.Log($"Boost applied: +{boostDeltaV} m/s (VelocityChange). Next boost at {_nextBoostTime:F2}");
+    }
+
+    private void HandleGamePause()
+    {
+        // Save Velocity
+        _savedVelocity = _rigidBody.linearVelocity;
+        _savedAngularVelocity = _rigidBody.angularVelocity;
+        
+        // Stop instantly
+        _rigidBody.linearVelocity = Vector3.zero;
+        _rigidBody.angularVelocity = Vector3.zero;
+        
+        // Disable wheel motion
+        foreach (var wheel in _wheels)
+        {
+            wheel.WheelCollider.motorTorque = 0f;
+            wheel.WheelCollider.brakeTorque = brakeTorque;
+        }
+        
+        _isPaused = true;
+    }
+
+    private void HandleGameResume()
+    {
+        // Restore previous velocity
+        _rigidBody.linearVelocity = _savedVelocity;
+        _rigidBody.angularVelocity = _savedAngularVelocity;
+        
+        // Release brakes
+        foreach (var wheel in _wheels)
+        {
+            wheel.WheelCollider.brakeTorque = 0f;
+        }
+
+        _isPaused = false;
     }
 }
