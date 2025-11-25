@@ -11,6 +11,7 @@ public class CarControler : MonoBehaviour
     public float motorTorque = 2000f;
     public float brakeTorque = 2000f;
     public float maxSpeed = 20f;
+    public float baseMaxSpeed = 20f;
     public float steeringRange = 30f;
     public float steeringRangeAtMaxSpeed = 10f;
     public float centreOfGravityOffset = -1f;
@@ -25,8 +26,14 @@ public class CarControler : MonoBehaviour
     public float boostDeltaV = 5f;            // desired instantaneous delta-V in m/s (VelocityChange)
     public float lowPassFilterFactor = 0.1f;  // smoothing factor for low-pass filter on accelerometer
 
+    [Header("Damage behavior")]
+    public float damagedSpeedFactor = 0.8f;
+
     [Header("Input Thresholds")]
     public float reverseThreshold = -0.4f;  // Joystick must go below this to trigger reverse
+    
+    [Header("Cinemachine Camera")]
+    public GameObject _camera;
 
     private WheelControl[] _wheels;
     private Rigidbody _rigidBody;
@@ -42,6 +49,9 @@ public class CarControler : MonoBehaviour
     private Vector3 _savedVelocity;
     private Vector3 _savedAngularVelocity;
     private bool _isPaused = false;
+    
+    // Damage state
+    private bool _isDamaged = false;
     
     private void Awake()
     {
@@ -61,6 +71,7 @@ public class CarControler : MonoBehaviour
         EventBus.OnGameOver += HandleGamePause;
         EventBus.OnGamePause += HandleGamePause;
         EventBus.OnGameResume += HandleGameResume;
+        EventBus.OnPlayerAtHalfHealth += DamageVehicle;
     }
 
     private void OnDisable()
@@ -69,6 +80,7 @@ public class CarControler : MonoBehaviour
         EventBus.OnGameOver -= HandleGamePause;
         EventBus.OnGamePause -= HandleGamePause;
         EventBus.OnGameResume -= HandleGameResume;
+        EventBus.OnPlayerAtHalfHealth -= DamageVehicle;
     }
 
     void Start()
@@ -199,6 +211,9 @@ public class CarControler : MonoBehaviour
             wheel.WheelCollider.brakeTorque = brakeTorque;
         }
         
+        // Disable Camera to avoid its movement
+        _camera.SetActive(false);
+        
         _isPaused = true;
     }
 
@@ -213,7 +228,23 @@ public class CarControler : MonoBehaviour
         {
             wheel.WheelCollider.brakeTorque = 0f;
         }
-
+        // Active camera
+        _camera.SetActive(true);
         _isPaused = false;
+    }
+
+    private void DamageVehicle()
+    {
+        if (_isDamaged) return;
+        _isDamaged = true;
+        // Reduce maxSpeed
+        maxSpeed = baseMaxSpeed * damagedSpeedFactor;
+    }
+
+    private void RestoreVehicle()
+    {
+        if (!_isDamaged) return;
+        _isDamaged = false;
+        maxSpeed = baseMaxSpeed;
     }
 }

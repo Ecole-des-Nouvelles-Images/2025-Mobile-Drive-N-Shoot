@@ -6054,6 +6054,7 @@ MonoBehaviour:
   boostDeltaV: 10
   lowPassFilterFactor: 0.1
   reverseThreshold: -0.4
+  _camera: {fileID: 705840485949641295}
 --- !u!114 &1348605231826912347
 MonoBehaviour:
   m_ObjectHideFlags: 0

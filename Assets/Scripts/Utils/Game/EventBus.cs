@@ -28,6 +28,8 @@ namespace Utils.Game
         /// </summary>
         public static Action<float, float> OnPlayerHealthChange;
 
+        public static Action OnPlayerAtHalfHealth;
+
         // Enemy
         public static Action OnEnemySpawn;
         public static Action OnSpiderEnemySpawn;
