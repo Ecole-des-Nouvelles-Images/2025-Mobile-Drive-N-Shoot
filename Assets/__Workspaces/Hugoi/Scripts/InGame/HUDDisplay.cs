@@ -9,7 +9,7 @@ namespace __Workspaces.Hugoi.Scripts.InGame
         [SerializeField] private TextMeshProUGUI _tmpTimer;
         [SerializeField] private TextMeshProUGUI _tmpDistance;
         
-        [Header("References Logic")]
+        [Header("References Data")]
         [SerializeField] private TimerHandler _timerHandler;
         [SerializeField] private DistanceHandler _distanceHandler;
         

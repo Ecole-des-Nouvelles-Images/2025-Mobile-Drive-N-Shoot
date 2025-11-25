@@ -10,6 +10,7 @@ namespace __Workspaces.Hugoi.Scripts.InGame
         [SerializeField] private float _timeToAdd;
         
         private float _timer;
+        private bool _isActive = true;
 
         private void Awake()
         {
@@ -29,11 +30,14 @@ namespace __Workspaces.Hugoi.Scripts.InGame
 
         private void Update()
         {
+            if (!_isActive) return;
+            
             _timer -= TimeManager.Instance.DeltaTime;
 
             if (_timer <= 0)
             {
                 EventBus.OnGameOver?.Invoke();
+                _isActive = false;
             }
         }
         

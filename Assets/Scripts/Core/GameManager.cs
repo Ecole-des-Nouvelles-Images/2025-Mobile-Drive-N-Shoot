@@ -13,17 +13,17 @@ namespace Core
 
         private void OnEnable()
         {
-            EventBus.OnGameOver += OnGameOver;
+            EventBus.OnLoadScene += LoadScene;
         }
         
         private void OnDisable()
         {
-            EventBus.OnGameOver -= OnGameOver;
+            EventBus.OnLoadScene -= LoadScene;
         }
 
-        private void OnGameOver()
+        private void LoadScene(int index)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(index);
         }
     }
 }

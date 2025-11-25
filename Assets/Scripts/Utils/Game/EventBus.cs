@@ -10,6 +10,7 @@ namespace Utils.Game
         public static Action OnGamePause;
         public static Action OnGameResume;
         public static Action OnGameOver;
+        public static Action<int> OnLoadScene;
         
         // Time
         public static Action<float> OnTimeChange;
