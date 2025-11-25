@@ -117,7 +117,7 @@ namespace Utils.Game
 
         private void OnGameStart()
         {
-            TimeScale = 1;
+            Resume();
         }
     
         private void OnGameResume()
