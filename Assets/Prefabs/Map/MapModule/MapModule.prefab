@@ -643,12 +643,12 @@ MonoBehaviour:
   _seed: 12345
   _density: 50
   _width: 3
-  _heightOffset: 2
+  _heightOffset: 0.29
   _rotationOffset: 90
-  _positionOffset: 0.5
+  _positionOffset: 2
   _scaleOffsetMinMax: {x: 0.6, y: 0.8}
   _props:
-  - {fileID: 7832807813831486515, guid: b120a211d2ab3d940a9bae4af53b3a6a, type: 3}
+  - {fileID: 1612527615959682190, guid: b120a211d2ab3d940a9bae4af53b3a6a, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
   _splineIndex: 0
@@ -667,12 +667,12 @@ MonoBehaviour:
   _seed: 12345
   _density: 100
   _width: 12
-  _heightOffset: 3.2
+  _heightOffset: 4
   _rotationOffset: 90
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.8, y: 1.2}
   _props:
-  - {fileID: 7832807813831486515, guid: 78357090ae9c97f4ca71e8f91d88f42c, type: 3}
+  - {fileID: 3734828456567078036, guid: 78357090ae9c97f4ca71e8f91d88f42c, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
   _splineIndex: 0
@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 4554018285709935882}
   - component: {fileID: 8544518952561437464}
   - component: {fileID: 6335638367325740517}
+  - component: {fileID: 97740809343622279}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -869,3 +870,35 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 3b2d57ad12272f848a355dbb71e81a9b, type: 2}
   m_EnableTreeColliders: 1
+--- !u!114 &97740809343622279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048398075706295006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -27,6 +28,12 @@ namespace MapGeneration
         [SerializeField] private int _splineIndex;
 
         private TerrainData _terrainData;
+        private NavMeshSurface _navMeshSurface;
+
+        private void Awake()
+        {
+            _navMeshSurface = GetComponent<NavMeshSurface>();
+        }
 
         [ContextMenu("RaiseTerrain")]
         public IEnumerator RaiseTerrain()
@@ -62,6 +69,9 @@ namespace MapGeneration
             }
 
             _terrainData.SetHeights(0, 0, heights);
+            
+            yield return null;
+            BakeNavMeshSurface();
         }
 
         private void CreateIndependentTerrain()
@@ -85,6 +95,11 @@ namespace MapGeneration
             float worldY = _terrain.SampleHeight(new Vector3(worldX, 0, worldZ)) + _terrain.transform.position.y;
 
             return new Vector3(worldX, worldY, worldZ);
+        }
+
+        private void BakeNavMeshSurface()
+        {
+            _navMeshSurface.BuildNavMesh();
         }
     }
 }
