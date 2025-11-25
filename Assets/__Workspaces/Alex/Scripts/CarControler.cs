@@ -133,6 +133,17 @@ public class CarControler : MonoBehaviour
                 wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
             }
         }
+        // --- Natural speed decay after boost ---
+        float currentSpeed = _rigidBody.linearVelocity.magnitude;
+
+        if (currentSpeed > maxSpeed)
+        {
+            // Smoothly bring velocity back toward max speed
+            float newSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 0.01f);
+
+            // Reapply velocity direction with reduced magnitude
+            _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
+        }
     }
 
     // Apply an immediate velocity change (VelocityChange) and set the cooldown
