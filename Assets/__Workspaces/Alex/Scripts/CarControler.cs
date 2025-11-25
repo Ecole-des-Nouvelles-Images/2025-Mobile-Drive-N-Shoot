@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using __Workspaces.Hugoi.Scripts.GameLoop;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils.Game;
@@ -12,6 +14,10 @@ public class CarControler : MonoBehaviour
     public float steeringRange = 30f;
     public float steeringRangeAtMaxSpeed = 10f;
     public float centreOfGravityOffset = -1f;
+    
+    [Header("Visual")]
+    [SerializeField] private MeshRenderer _pickupMeshRenderer;
+    [SerializeField] private List<MeshRenderer> _turretMeshRenderers = new();
 
     [Header("Boost")]
     public float boostCooldown = 10f;         // cooldown between boosts (seconds)
@@ -35,6 +41,13 @@ public class CarControler : MonoBehaviour
     private void Awake()
     {
         _carControls = new CarInputActions();
+        
+        // Skin
+        _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
+        foreach (var meshRenderers in _turretMeshRenderers)
+        {
+            meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
+        }
     }
 
     private void OnEnable()
