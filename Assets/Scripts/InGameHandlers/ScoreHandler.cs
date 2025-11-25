@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using EventBus = Utils.Game.EventBus;
 
 namespace InGameHandlers
@@ -13,13 +12,6 @@ namespace InGameHandlers
         
         [Header("References Data")]
         [SerializeField] private DistanceHandler _distanceHandler;
-        
-        private Image _image;
-
-        private void Awake()
-        {
-            _image = GetComponent<Image>();
-        }
 
         private void OnEnable()
         {
@@ -33,7 +25,6 @@ namespace InGameHandlers
         
         private void OnGameOver()
         {
-            _image.raycastTarget = true;
             _panelScore.SetActive(true);
             
             // Set le score
