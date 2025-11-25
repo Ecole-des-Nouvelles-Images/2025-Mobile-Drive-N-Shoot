@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts.InGame
+namespace InGameHandlers
 {
     public class DistanceHandler : MonoBehaviour
     {

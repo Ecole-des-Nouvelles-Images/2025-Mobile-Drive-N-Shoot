@@ -1,7 +1,7 @@
 using UnityEngine;
 using Utils.Game;
 
-namespace __Workspaces.Hugoi.Scripts.InGame
+namespace InGameHandlers
 {
     public class TimerHandler : MonoBehaviour
     {

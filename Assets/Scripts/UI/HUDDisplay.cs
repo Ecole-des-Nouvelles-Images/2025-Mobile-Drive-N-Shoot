@@ -1,7 +1,8 @@
+using InGameHandlers;
 using TMPro;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts.InGame
+namespace UI
 {
     public class HUDDisplay : MonoBehaviour
     {

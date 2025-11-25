@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using EventBus = Utils.Game.EventBus;
 
-namespace __Workspaces.Hugoi.Scripts.InGame
+namespace InGameHandlers
 {
     public class ScoreHandler : MonoBehaviour
     {
