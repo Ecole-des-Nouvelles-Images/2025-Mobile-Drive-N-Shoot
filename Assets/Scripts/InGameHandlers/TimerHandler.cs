@@ -11,11 +11,16 @@ namespace InGameHandlers
         
         private float _timer;
         private bool _isActive = true;
+        
+        public float GetTimerValue()
+        {
+            return _timer;
+        }
 
         private void Awake()
         {
             _timer = _startTimerValue;
-            EventBus.OnGameStart?.Invoke();
+            Invoke(nameof(GameStart), 0.2f);
         }
 
         private void OnEnable()
@@ -46,9 +51,9 @@ namespace InGameHandlers
             _timer += _timeToAdd;
         }
 
-        public float GetTimerValue()
+        private void GameStart()
         {
-            return _timer;
+            EventBus.OnGameStart?.Invoke();
         }
     }
 }
