@@ -232,6 +232,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8131337503076053173, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
+      propertyPath: _tmpScore
+      value: 
+      objectReference: {fileID: 1075615970}
+    - target: {fileID: 8131337503076053173, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
+      propertyPath: _panelScore
+      value: 
+      objectReference: {fileID: 1075615971}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -259,6 +267,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0609142400a2d1d43b3d28e2f399dd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.InGame.TimerHandler
+--- !u!114 &12569033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775684715079250762, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
+  m_PrefabInstance: {fileID: 12569030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125b961686e28504c89a2a7c9a1a76e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PauseHandler
 --- !u!1 &24795462
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +681,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1030721800}
     m_Modifications:
+    - target: {fileID: 1044246700149495178, guid: 3164b5f17e361d54281568b8c5b197fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 12569033}
     - target: {fileID: 2554722234620238784, guid: 3164b5f17e361d54281568b8c5b197fc, type: 3}
       propertyPath: _timerHandler
       value: 
@@ -754,6 +777,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel_HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 7970787090738914135, guid: 3164b5f17e361d54281568b8c5b197fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1030721801}
+    - target: {fileID: 8776003575519846154, guid: 3164b5f17e361d54281568b8c5b197fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 12569033}
+    - target: {fileID: 8886662183954134376, guid: 3164b5f17e361d54281568b8c5b197fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1030721801}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -860,8 +895,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1204903892}
-  - {fileID: 931146220}
   - {fileID: 451651655}
+  - {fileID: 931146220}
   - {fileID: 1075615969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -994,6 +1029,22 @@ PrefabInstance:
 --- !u!224 &1075615969 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8021053561120520386, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
+  m_PrefabInstance: {fileID: 1075615968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1075615970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8889853795532839422, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
+  m_PrefabInstance: {fileID: 1075615968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1075615971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7296374789599386157, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
   m_PrefabInstance: {fileID: 1075615968}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1204903891
