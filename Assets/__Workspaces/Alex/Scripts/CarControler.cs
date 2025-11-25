@@ -19,6 +19,9 @@ public class CarControler : MonoBehaviour
     public float boostDeltaV = 5f;            // desired instantaneous delta-V in m/s (VelocityChange)
     public float lowPassFilterFactor = 0.1f;  // smoothing factor for low-pass filter on accelerometer
 
+    [Header("Input Thresholds")]
+    public float reverseThreshold = -0.4f;  // Joystick must go below this to trigger reverse
+
     private WheelControl[] _wheels;
     private Rigidbody _rigidBody;
     private CarInputActions _carControls;
@@ -89,27 +92,31 @@ public class CarControler : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Read the Vector2 input from the new Input System
+        // --- Input ---
         Vector2 inputVector = _carControls.CarControls.Move.ReadValue<Vector2>();
+        float vInput = inputVector.y;
+        float hInput = inputVector.x;
 
-        // Get player input for acceleration and steering
-        float vInput = inputVector.y; // Forward/backward input
-        float hInput = inputVector.x; // Steering input
+        // --- Reverse threshold handling ---
+        float effectiveVInput = vInput;
 
-        // Calculate current speed along the car's forward axis
+        // Only activate reverse if joystick pushed enough
+        if (vInput < 0 && vInput > reverseThreshold)
+        {
+            effectiveVInput = 0f; // allow turning but no reverse motion
+        }
+
+        // --- Speed & steering logic ---
         float forwardSpeed = Vector3.Dot(transform.forward, _rigidBody.linearVelocity);
-        float speedFactor = Mathf.InverseLerp(0, maxSpeed, Mathf.Abs(forwardSpeed)); // Normalized speed factor
+        float speedFactor = Mathf.InverseLerp(0, maxSpeed, Mathf.Abs(forwardSpeed));
 
-        // Reduce motor torque and steering at high speeds for better handling
         float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
         float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
-        // Determine if the player is accelerating or trying to reverse
-        bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
+        bool isAccelerating = Mathf.Sign(effectiveVInput) == Mathf.Sign(forwardSpeed);
 
         foreach (var wheel in _wheels)
         {
-            // Apply steering to wheels that support steering
             if (wheel.steerable)
             {
                 wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
@@ -117,31 +124,26 @@ public class CarControler : MonoBehaviour
 
             if (isAccelerating)
             {
-                // Apply torque to motorized wheels
                 if (wheel.motorized)
                 {
-                    wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
+                    wheel.WheelCollider.motorTorque = effectiveVInput * currentMotorTorque;
                 }
 
-                // Release brakes when accelerating
                 wheel.WheelCollider.brakeTorque = 0f;
             }
             else
             {
-                // Apply brakes when reversing direction or no throttle
                 wheel.WheelCollider.motorTorque = 0f;
-                wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
+                wheel.WheelCollider.brakeTorque = Mathf.Abs(effectiveVInput) * brakeTorque;
             }
         }
-        // --- Natural speed decay after boost ---
+
+        // --- Speed decay after boost ---
         float currentSpeed = _rigidBody.linearVelocity.magnitude;
 
         if (currentSpeed > maxSpeed)
         {
-            // Smoothly bring velocity back toward max speed
-            float newSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 0.01f);
-
-            // Reapply velocity direction with reduced magnitude
+            float newSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 0.05f);
             _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
         }
     }
