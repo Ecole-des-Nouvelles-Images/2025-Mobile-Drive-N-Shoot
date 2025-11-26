@@ -49,18 +49,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SkinHandler
   _pickupSkins:
+  - {fileID: 11400000, guid: 366eb2e30ee568c4195f60249b153955, type: 2}
   - {fileID: 11400000, guid: 220a39501fbd9f24ca17079651210a94, type: 2}
   - {fileID: 11400000, guid: 46dbcf3984332584788ccd0f99c9296a, type: 2}
   - {fileID: 11400000, guid: 0dfa07c2400b13b4a98c93454f764cc5, type: 2}
   _turretSkins:
+  - {fileID: 11400000, guid: 5a9c41514c74cb64a8ee22769d9f067d, type: 2}
   - {fileID: 11400000, guid: 64e88db6523f8e2409f7250d7c06767a, type: 2}
   - {fileID: 11400000, guid: 36c18422042b0a34d815ff1771499fd6, type: 2}
   - {fileID: 11400000, guid: 2faa138acbe16404489576469d8d200d, type: 2}
   _pickupMeshRenderer: {fileID: 2365090327747207625}
   _turretMeshRenderers:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 3274201499387258311}
   - {fileID: 4494487425449291737}
   - {fileID: 2176882054989697010}
