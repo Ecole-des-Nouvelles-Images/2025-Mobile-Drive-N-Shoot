@@ -35,6 +35,10 @@ public class CarControler : MonoBehaviour
     [Header("Cinemachine Camera")]
     public GameObject _camera;
 
+    [Header("Wheel VFX")] 
+    public float particleMinSpeed = 0.5f; // Minimal speed to activate wheel particles
+    public float particleMaxEmission = 30f; // Max emission
+    
     private WheelControl[] _wheels;
     private Rigidbody _rigidBody;
     private CarInputActions _carControls;
@@ -72,6 +76,7 @@ public class CarControler : MonoBehaviour
         EventBus.OnGamePause += HandleGamePause;
         EventBus.OnGameResume += HandleGameResume;
         EventBus.OnPlayerAtHalfHealth += DamageVehicle;
+        EventBus.OnPlayerRecoveredFromHalf += RestoreVehicle;
     }
 
     private void OnDisable()
@@ -81,6 +86,7 @@ public class CarControler : MonoBehaviour
         EventBus.OnGamePause -= HandleGamePause;
         EventBus.OnGameResume -= HandleGameResume;
         EventBus.OnPlayerAtHalfHealth -= DamageVehicle;
+        EventBus.OnPlayerRecoveredFromHalf -= RestoreVehicle;
     }
 
     void Start()
@@ -182,6 +188,28 @@ public class CarControler : MonoBehaviour
             float newSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 0.01f);
             _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
         }
+        
+        // --- Wheel particle effects ---
+        foreach (var wheel in _wheels)
+        {
+            if (wheel.wheelParticles != null)
+            {
+                var emission = wheel.wheelParticles.emission;
+
+                if (currentSpeed > particleMinSpeed)
+                {
+                    // Enable emission proportionally to speed
+                    emission.rateOverTime = Mathf.Lerp(0, particleMaxEmission, currentSpeed / maxSpeed);
+                    if(!wheel.wheelParticles.isPlaying) wheel.wheelParticles.Play();
+                }
+                else
+                {
+                    // Disable emission when slow or stopped
+                    emission.rateOverTime = 0f;
+                    if (wheel.wheelParticles.isPlaying) wheel.wheelParticles.Stop();
+                }
+            }
+        }
     }
 
     // Apply an immediate velocity change (VelocityChange) and set the cooldown
@@ -245,6 +273,7 @@ public class CarControler : MonoBehaviour
     {
         if (!_isDamaged) return;
         _isDamaged = false;
+        // Restore maxSpeed
         maxSpeed = baseMaxSpeed;
     }
 }

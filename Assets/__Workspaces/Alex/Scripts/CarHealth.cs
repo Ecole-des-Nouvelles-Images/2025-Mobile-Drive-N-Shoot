@@ -9,6 +9,9 @@ public class CarHealth : MonoBehaviour, IDamageable
     public float maxHealth = 100f;
 
     private float CurrentHealth;
+    
+    // internal state to avoid triggering the half repeatedly
+    private bool _hasTriggeredHalf = false;
 
 
     private void Start()
@@ -19,9 +22,10 @@ public class CarHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= maxHealth / 2)
+        if (!_hasTriggeredHalf && CurrentHealth <= maxHealth / 2)
         {
             EventBus.OnPlayerAtHalfHealth?.Invoke();
+            _hasTriggeredHalf = true;
             // TODO: smoke VFX to show the car is starting to be broken
         }
 
@@ -29,5 +33,12 @@ public class CarHealth : MonoBehaviour, IDamageable
         {
             EventBus.OnGameOver?.Invoke();
         }
+    }
+
+    public void Heal()
+    {
+        CurrentHealth = maxHealth;
+        _hasTriggeredHalf = false;
+        EventBus.OnPlayerRecoveredFromHalf?.Invoke();
     }
 }

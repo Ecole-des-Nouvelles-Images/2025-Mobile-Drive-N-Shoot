@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Utils.Game;
 
 public class TurretControler : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class TurretControler : MonoBehaviour
         // Read aim input from controls
         Vector2 input = _carInputActions.CarControls.Aim.ReadValue<Vector2>();
         bool isAiming = input.sqrMagnitude > 0f;
-        float dt = Time.deltaTime;
+        float dt = TimeManager.Instance.DeltaTime;
 
         // Cooling / overheat recovery
         if (_isOverHeated)
