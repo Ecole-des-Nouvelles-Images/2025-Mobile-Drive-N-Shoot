@@ -73,8 +73,9 @@ namespace MapGeneration
         //     }
         // }
 
-        public void SpawnProps()
+        public void SpawnProps(uint seed)
         {
+            _seed = seed;
             _random = new Random(_seed);
             
             foreach (var prop in _propsSpawn)

@@ -1,9 +1,11 @@
 using System.Collections;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.Splines;
 
 namespace MapGeneration
 {
+    [ExecuteAlways]
     [RequireComponent(typeof(Terrain))]
     public class TerrainLeveling : MonoBehaviour
     {
@@ -27,9 +29,15 @@ namespace MapGeneration
         [SerializeField] private int _splineIndex;
 
         private TerrainData _terrainData;
+        private NavMeshSurface _navMeshSurface;
+
+        private void Awake()
+        {
+            _navMeshSurface = GetComponent<NavMeshSurface>();
+        }
 
         [ContextMenu("RaiseTerrain")]
-        public IEnumerator RaiseTerrain()
+        public IEnumerator AsyncTerrainLeveling()
         {
             CreateIndependentTerrain();
 
@@ -43,7 +51,7 @@ namespace MapGeneration
                 {
                     Vector3 worldPos = HeightmapToWorldPosition(x, y);
 
-                    Ray ray = new Ray(worldPos + Vector3.up * 2f, Vector3.down);
+                    Ray ray = new Ray(worldPos + Vector3.up * 8f, Vector3.down);
                     RaycastHit[] hits = Physics.RaycastAll(ray, _rayHeight);
                     bool hitRoad = false;
                     foreach (var raycastHit in hits)
@@ -62,6 +70,9 @@ namespace MapGeneration
             }
 
             _terrainData.SetHeights(0, 0, heights);
+            
+            yield return null;
+            BakeNavMeshSurface();
         }
 
         private void CreateIndependentTerrain()
@@ -85,6 +96,11 @@ namespace MapGeneration
             float worldY = _terrain.SampleHeight(new Vector3(worldX, 0, worldZ)) + _terrain.transform.position.y;
 
             return new Vector3(worldX, worldY, worldZ);
+        }
+
+        private void BakeNavMeshSurface()
+        {
+            _navMeshSurface.BuildNavMesh();
         }
     }
 }
