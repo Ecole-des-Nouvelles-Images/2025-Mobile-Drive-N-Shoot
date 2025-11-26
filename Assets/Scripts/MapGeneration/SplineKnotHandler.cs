@@ -13,17 +13,19 @@ namespace MapGeneration
         [SerializeField] private int _terrainSize;
         [SerializeField] private int _nextPosOffset;
         
-        private SplineContainer _splineContainer;
+        [Header("References")]
+        [SerializeField] private SplineContainer _splineContainer;
+        
         private Vector3 _lastPos;
 
         private Random _random;
         
-        private void Awake()
+        [ContextMenu("DebugBuildRoad")]
+        public void DebugGenerateSpline()
         {
-            _splineContainer = GetComponent<SplineContainer>();
+            GenerateSpline(_seed);
         }
         
-        [ContextMenu("GenerateSpline")]
         public void GenerateSpline(uint seed)
         {
             _seed = seed;

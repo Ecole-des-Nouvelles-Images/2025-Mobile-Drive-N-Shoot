@@ -36,7 +36,7 @@ namespace MapGeneration
             _splineRoadMeshes.Clear();
             for (int i = transform.childCount - 1; i >= 0; i--)
             {
-                DestroyImmediate(transform.GetChild(i).gameObject);
+                Destroy(transform.GetChild(i).gameObject);
             }
             
             _splinesCount = _splineContainer.Splines.Count;

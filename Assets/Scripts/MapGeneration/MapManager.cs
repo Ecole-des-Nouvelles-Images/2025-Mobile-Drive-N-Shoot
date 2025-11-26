@@ -12,6 +12,7 @@ namespace MapGeneration
         
         [Header("Prefabs")]
         [SerializeField] private GameObject _mapModulePrefab;
+        [SerializeField] private List<GameObject> _mapModuleItemPrefabs;
         
         private Queue<GameObject> _mapModules = new();
         private int _lastCheckPoint = 1;
@@ -19,7 +20,7 @@ namespace MapGeneration
         private void Awake()
         {
             GameObject newModule = Instantiate(_mapModulePrefab, transform);
-            newModule.GetComponent<MapModuleHandler>().Setup(this, false);
+            newModule.GetComponent<MapModuleHandler>().Setup(this, false, false);
             _mapModules.Enqueue(newModule);
             _lastCheckPoint++;
         }
@@ -45,14 +46,15 @@ namespace MapGeneration
             if (Random.Range(0, 1) > _itemChanceRate)
             {
                 newModule = Instantiate(_mapModulePrefab, lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
+                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false);
             }
             else
             {
                 // FAIRE SPAWN UN MAPMODULEPREFAB AVEC ITEM
-                newModule = Instantiate(_mapModulePrefab, lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
+                int index = Random.Range(0, _mapModuleItemPrefabs.Count);
+                newModule = Instantiate(_mapModuleItemPrefabs[index], lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
+                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, true);
             }
-            
-            newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint);
             
             _mapModules.Enqueue(newModule);
 

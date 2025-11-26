@@ -22,13 +22,23 @@ namespace MapGeneration
 
         private Random _random;
         
-        public void Setup(MapManager mapManager, bool haveCheckPoint)
+        public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem)
         {
             _mapManager = mapManager;
 
             if (haveCheckPoint)
             {
                 _checkpointGameObject.SetActive(true);
+            }
+
+            if (!haveItem)
+            {
+                StartCoroutine(AsyncGeneration());
+            }
+            else
+            {
+                _splineRoad.BuildRoad(true);
+                _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.AsyncTerrainLeveling));
             }
         }
 
@@ -47,11 +57,6 @@ namespace MapGeneration
             {
                 _random = new Random(_mainSeed);
             }
-        }
-
-        private void Start()
-        {
-            StartCoroutine(AsyncGeneration());
         }
 
         private IEnumerator AsyncGeneration()

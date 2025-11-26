@@ -23,20 +23,20 @@ namespace MapGeneration
 
         [Header("References")]
         [SerializeField] private Terrain _terrain;
+        [SerializeField] private NavMeshSurface _navMeshSurface;
     
         [Header("Spline")]
         [SerializeField] private SplineContainer _splineContainer;
         [SerializeField] private int _splineIndex;
 
         private TerrainData _terrainData;
-        private NavMeshSurface _navMeshSurface;
-
-        private void Awake()
+        
+        [ContextMenu("DebugLevelingTerrain")]
+        public void DebugLevelingTerrain()
         {
-            _navMeshSurface = GetComponent<NavMeshSurface>();
+            StartCoroutine(AsyncTerrainLeveling());
         }
-
-        [ContextMenu("RaiseTerrain")]
+        
         public IEnumerator AsyncTerrainLeveling()
         {
             CreateIndependentTerrain();

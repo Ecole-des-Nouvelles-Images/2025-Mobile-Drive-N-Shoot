@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapModuleHandler
   _isRandomSeed: 1
+  _mainSeed: 0
   _checkpointGameObject: {fileID: 4743556773377785050}
 --- !u!65 &9191153044634136344
 BoxCollider:
@@ -586,6 +587,7 @@ MonoBehaviour:
   _knotCount: 5
   _terrainSize: 100
   _nextPosOffset: 20
+  _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &5431519557754820045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,6 +621,7 @@ MonoBehaviour:
   _seed: 12345
   _density: 100
   _width: 10
+  _localHeightOffset: 0
   _heightOffset: 0
   _rotationOffset: 90
   _positionOffset: 0.1
@@ -627,7 +630,6 @@ MonoBehaviour:
   - {fileID: 6309426883222056376, guid: b76f3199ae083094f9927d83e5d26471, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
-  _splineIndex: 0
 --- !u!114 &6758094386934958848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +645,7 @@ MonoBehaviour:
   _seed: 12345
   _density: 50
   _width: 3
+  _localHeightOffset: 1
   _heightOffset: 0.29
   _rotationOffset: 90
   _positionOffset: 2
@@ -651,7 +654,6 @@ MonoBehaviour:
   - {fileID: 1612527615959682190, guid: b120a211d2ab3d940a9bae4af53b3a6a, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
-  _splineIndex: 0
 --- !u!114 &1971513149779389270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,6 +669,7 @@ MonoBehaviour:
   _seed: 12345
   _density: 100
   _width: 12
+  _localHeightOffset: 1
   _heightOffset: 4
   _rotationOffset: 90
   _positionOffset: 1
@@ -675,7 +678,6 @@ MonoBehaviour:
   - {fileID: 3734828456567078036, guid: 78357090ae9c97f4ca71e8f91d88f42c, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
-  _splineIndex: 0
 --- !u!1 &8048398075706295006
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +732,7 @@ MonoBehaviour:
   _roadTag: Road
   _yieldEveryYRows: 10
   _terrain: {fileID: 8544518952561437464}
+  _navMeshSurface: {fileID: 97740809343622279}
   _splineContainer: {fileID: 5965455809491477312}
   _splineIndex: 0
 --- !u!218 &8544518952561437464
