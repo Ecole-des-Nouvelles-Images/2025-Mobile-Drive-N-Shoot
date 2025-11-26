@@ -7,10 +7,12 @@ namespace MapGeneration
 {
     public class MapModuleHandler : MonoBehaviour
     {
+        [Header("Settings")]
+        [SerializeField] private bool _isRandomSeed;
+        [SerializeField] private uint _mainSeed;
+        
         [Header("References")]
         [SerializeField] private GameObject _checkpointGameObject;
-        
-        private uint _mainSeed;
         
         private MapManager _mapManager;
         private SplineKnotHandler _splineKnotHandler;
@@ -37,7 +39,14 @@ namespace MapGeneration
             _splineProps = GetComponentsInChildren<DynamicSplineProps>();
             _terrainLeveling = GetComponentInChildren<TerrainLeveling>();
 
-            _random = GenerateRandom();
+            if (_isRandomSeed)
+            {
+                _random = GenerateRandom();
+            }
+            else
+            {
+                _random = new Random(_mainSeed);
+            }
         }
 
         private void Start()

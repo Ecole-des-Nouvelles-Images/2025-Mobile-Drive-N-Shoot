@@ -5,6 +5,7 @@ using UnityEngine.Splines;
 
 namespace MapGeneration
 {
+    [ExecuteAlways]
     [RequireComponent(typeof(Terrain))]
     public class TerrainLeveling : MonoBehaviour
     {
@@ -50,7 +51,7 @@ namespace MapGeneration
                 {
                     Vector3 worldPos = HeightmapToWorldPosition(x, y);
 
-                    Ray ray = new Ray(worldPos + Vector3.up * 2f, Vector3.down);
+                    Ray ray = new Ray(worldPos + Vector3.up * 8f, Vector3.down);
                     RaycastHit[] hits = Physics.RaycastAll(ray, _rayHeight);
                     bool hitRoad = false;
                     foreach (var raycastHit in hits)
