@@ -60,13 +60,6 @@ public class CarControler : MonoBehaviour
     private void Awake()
     {
         _carControls = new CarInputActions();
-        
-        // Skin
-        _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
-        foreach (var meshRenderers in _turretMeshRenderers)
-        {
-            meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
-        }
     }
 
     private void OnEnable()
@@ -104,6 +97,13 @@ public class CarControler : MonoBehaviour
         // Initialize accelerometer filter and cooldown so boost can be used immediately
         _lowPassAcceleration = Input.acceleration;
         _nextBoostTime = TimeManager.Instance.Time;
+        
+        // Skin
+        _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
+        foreach (var meshRenderers in _turretMeshRenderers)
+        {
+            meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
+        }
     }
 
     void Update()

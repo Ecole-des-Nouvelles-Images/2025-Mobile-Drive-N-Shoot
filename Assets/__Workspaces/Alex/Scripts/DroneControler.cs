@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Utils.Game;
+using Utils.Interfaces;
 
-public class DroneControler : MonoBehaviour
+public class DroneControler : MonoBehaviour, IEnemy
 {
     [Header("Target")]
     public Transform target;
@@ -111,5 +112,10 @@ public class DroneControler : MonoBehaviour
     void OnDisable()
     {
         StopLaser();
+    }
+
+    public void SetupEnemy(Transform target)
+    {
+        this.target = target;
     }
 }

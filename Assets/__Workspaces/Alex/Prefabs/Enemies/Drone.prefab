@@ -72,9 +72,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DroneControler
   target: {fileID: 0}
   speed: 15
-  weaponPivot: {fileID: 0}
+  weaponPivot: {fileID: 1272585849785910995}
   weaponRotationSpeed: 10
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 51635586945734843}
   lineRenderer: {fileID: 5795879689651502277}
   laserRange: 20
   damagePerSecond: 5
@@ -233,6 +233,37 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &3497965947397149641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 51635586945734843}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &51635586945734843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3497965947397149641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.051, z: 0.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5267488921498312258}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8968002803207729842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,9 +318,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3849836941240511728, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 51635586945734843}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+--- !u!4 &1272585849785910995 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7916656474163180641, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 8968002803207729842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5267488921498312258 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3849836941240511728, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 8968002803207729842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8934585812668519769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
