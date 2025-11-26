@@ -36,7 +36,7 @@ namespace MapGeneration
         }
 
         [ContextMenu("RaiseTerrain")]
-        public IEnumerator RaiseTerrain()
+        public IEnumerator AsyncTerrainLeveling()
         {
             CreateIndependentTerrain();
 

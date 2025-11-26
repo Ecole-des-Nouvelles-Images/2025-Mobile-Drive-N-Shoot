@@ -24,10 +24,10 @@ namespace MapGeneration
 
         private void Start()
         {
-            StartCoroutine(DelayGeneration());
+            StartCoroutine(AsyncGeneration());
         }
 
-        private IEnumerator DelayGeneration()
+        private IEnumerator AsyncGeneration()
         {
             _splineKnotHandler.GenerateSpline();
             yield return new WaitForSeconds(0.1f);
@@ -41,7 +41,7 @@ namespace MapGeneration
                 yield return new WaitForSeconds(0.1f);
             }
             
-            _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.RaiseTerrain));
+            _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.AsyncTerrainLeveling));
         }
 
         public void Setup(MapManager mapManager, bool haveCheckPoint)
