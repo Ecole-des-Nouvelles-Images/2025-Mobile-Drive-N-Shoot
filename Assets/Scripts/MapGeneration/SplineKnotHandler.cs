@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Splines;
-using Random = UnityEngine.Random;
+using Random = Unity.Mathematics.Random;
 
 namespace MapGeneration
 {
@@ -8,12 +8,15 @@ namespace MapGeneration
     public class SplineKnotHandler : MonoBehaviour
     {
         [Header("Settings")]
+        [SerializeField] private uint _seed;
         [SerializeField] private int _knotCount;
         [SerializeField] private int _terrainSize;
         [SerializeField] private int _nextPosOffset;
         
         private SplineContainer _splineContainer;
         private Vector3 _lastPos;
+
+        private Random _random;
         
         private void Awake()
         {
@@ -21,8 +24,11 @@ namespace MapGeneration
         }
         
         [ContextMenu("GenerateSpline")]
-        public void GenerateSpline()
+        public void GenerateSpline(uint seed)
         {
+            _seed = seed;
+            _random = new Random(_seed);
+            
             _splineContainer.Spline.Clear();
             
             float space = _terrainSize / (_knotCount - 1);
@@ -35,7 +41,7 @@ namespace MapGeneration
                 }
                 else
                 {
-                    int xOffset = Random.Range(-_nextPosOffset, _nextPosOffset);
+                    int xOffset = _random.NextInt(-_nextPosOffset, _nextPosOffset);
                     newPos = new Vector3(_lastPos.x + xOffset, 0, i);
                     newPos.x = Mathf.Clamp(newPos.x, -40, 40);
                 }

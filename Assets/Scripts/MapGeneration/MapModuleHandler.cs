@@ -1,10 +1,16 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace MapGeneration
 {
     public class MapModuleHandler : MonoBehaviour
     {
+        [Header("Settings")]
+        [SerializeField] private bool _isRandomSeed;
+        [SerializeField] private uint _mainSeed;
+        
         [Header("References")]
         [SerializeField] private GameObject _checkpointGameObject;
         
@@ -14,36 +20,8 @@ namespace MapGeneration
         private DynamicSplineProps[] _splineProps;
         private TerrainLeveling _terrainLeveling;
 
-        private void Awake()
-        {
-            _splineKnotHandler = GetComponentInChildren<SplineKnotHandler>();
-            _splineRoad = GetComponentInChildren<DynamicSplineRoad>();
-            _splineProps = GetComponentsInChildren<DynamicSplineProps>();
-            _terrainLeveling = GetComponentInChildren<TerrainLeveling>();
-        }
-
-        private void Start()
-        {
-            StartCoroutine(DelayGeneration());
-        }
-
-        private IEnumerator DelayGeneration()
-        {
-            _splineKnotHandler.GenerateSpline();
-            yield return new WaitForSeconds(0.1f);
-            
-            _splineRoad.Rebuild();
-            yield return new WaitForSeconds(0.1f);
-            
-            foreach (var prop in _splineProps)
-            {
-                prop.SpawnProps();
-                yield return new WaitForSeconds(0.1f);
-            }
-            
-            _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.RaiseTerrain));
-        }
-
+        private Random _random;
+        
         public void Setup(MapManager mapManager, bool haveCheckPoint)
         {
             _mapManager = mapManager;
@@ -53,6 +31,45 @@ namespace MapGeneration
                 _checkpointGameObject.SetActive(true);
             }
         }
+
+        private void Awake()
+        {
+            _splineKnotHandler = GetComponentInChildren<SplineKnotHandler>();
+            _splineRoad = GetComponentInChildren<DynamicSplineRoad>();
+            _splineProps = GetComponentsInChildren<DynamicSplineProps>();
+            _terrainLeveling = GetComponentInChildren<TerrainLeveling>();
+
+            if (_isRandomSeed)
+            {
+                _random = GenerateRandom();
+            }
+            else
+            {
+                _random = new Random(_mainSeed);
+            }
+        }
+
+        private void Start()
+        {
+            StartCoroutine(AsyncGeneration());
+        }
+
+        private IEnumerator AsyncGeneration()
+        {
+            _splineKnotHandler.GenerateSpline(_mainSeed);
+            yield return new WaitForSeconds(0.1f);
+            
+            _splineRoad.BuildRoad(true);
+            yield return new WaitForSeconds(0.1f);
+            
+            foreach (var prop in _splineProps)
+            {
+                prop.SpawnProps(_mainSeed);
+                yield return new WaitForSeconds(0.1f);
+            }
+            
+            _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.AsyncTerrainLeveling));
+        }
         
         private void OnTriggerEnter(Collider other)
         {
@@ -60,6 +77,13 @@ namespace MapGeneration
             {
                 _mapManager.SpawnMapModule();
             }
+        }
+        
+        private Random GenerateRandom()
+        {
+            _random = new Random((uint)Environment.TickCount);
+            _mainSeed = _random.NextUInt(0, 99999);
+            return _random = new Random(_mainSeed);
         }
     }
 }
