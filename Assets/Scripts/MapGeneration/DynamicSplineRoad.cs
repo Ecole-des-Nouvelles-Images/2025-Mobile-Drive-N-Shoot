@@ -5,7 +5,6 @@ using UnityEngine.Splines;
 
 namespace MapGeneration
 {
-    [RequireComponent(typeof(SplineContainer))]
     public class DynamicSplineRoad : MonoBehaviour
     {
         [Header("Settings")]

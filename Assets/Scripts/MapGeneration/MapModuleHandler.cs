@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Linq;
+using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
@@ -18,36 +20,39 @@ namespace MapGeneration
         private SplineKnotHandler _splineKnotHandler;
         private DynamicSplineRoad _splineRoad;
         private DynamicSplineProps[] _splineProps;
+        private DynamicSplineProps[] _splineEnemies;
         private TerrainLeveling _terrainLeveling;
+        private EnemiesSpawnerHandler _enemiesSpawnerHandler;
 
         private Random _random;
+        private bool _haveItem;
         
-        public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem)
+        public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem, int difficulty)
         {
             _mapManager = mapManager;
+            _haveItem = haveItem;
+            _enemiesSpawnerHandler.Setup(difficulty);
 
             if (haveCheckPoint)
             {
                 _checkpointGameObject.SetActive(true);
             }
 
-            if (!haveItem)
-            {
-                StartCoroutine(AsyncGeneration());
-            }
-            else
-            {
-                _splineRoad.BuildRoad(true);
-                _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.AsyncTerrainLeveling));
-            }
+            StartCoroutine(AsyncGeneration());
         }
 
         private void Awake()
         {
             _splineKnotHandler = GetComponentInChildren<SplineKnotHandler>();
             _splineRoad = GetComponentInChildren<DynamicSplineRoad>();
-            _splineProps = GetComponentsInChildren<DynamicSplineProps>();
+            _splineProps = GetComponentsInChildren<DynamicSplineProps>(true)
+                .Where(p => p.CompareTag("SplineProps"))
+                .ToArray();
+            _splineEnemies = GetComponentsInChildren<DynamicSplineProps>(true)
+                .Where(p => p.CompareTag("SplineEnemies"))
+                .ToArray();
             _terrainLeveling = GetComponentInChildren<TerrainLeveling>();
+            _enemiesSpawnerHandler = GetComponentInChildren<EnemiesSpawnerHandler>();
 
             if (_isRandomSeed)
             {
@@ -61,15 +66,27 @@ namespace MapGeneration
 
         private IEnumerator AsyncGeneration()
         {
-            _splineKnotHandler.GenerateSpline(_mainSeed);
-            yield return new WaitForSeconds(0.1f);
+            if (!_haveItem)
+            {
+                _splineKnotHandler.GenerateSpline(_mainSeed);
+                yield return new WaitForSeconds(0.1f);
+            }
             
             _splineRoad.BuildRoad(true);
             yield return new WaitForSeconds(0.1f);
-            
-            foreach (var prop in _splineProps)
+
+            if (!_haveItem)
             {
-                prop.SpawnProps(_mainSeed);
+                foreach (var prop in _splineProps)
+                {
+                    prop.SpawnProps(_mainSeed);
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+            
+            foreach (var enemy in _splineEnemies)
+            {
+                enemy.SpawnProps(_mainSeed);
                 yield return new WaitForSeconds(0.1f);
             }
             

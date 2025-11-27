@@ -6,7 +6,6 @@ using Random = Unity.Mathematics.Random;
 
 namespace MapGeneration
 {
-    [RequireComponent( typeof(SplineContainer))]
     public class DynamicSplineProps : MonoBehaviour
     {
         [Header("Settings")]
@@ -47,7 +46,7 @@ namespace MapGeneration
             }
             _propsSpawn.Clear();
             
-            if (_splineContainer == null) return;
+            if (!_splineContainer) return;
             if (_splineContainer.Splines.Count <= 0) return;
             
             _splinesCount = _splineContainer.Splines.Count;
@@ -92,6 +91,11 @@ namespace MapGeneration
                     _propsSpawn.Add(rightObj);
                 }
             }
+        }
+
+        public void SetDensity(int density)
+        {
+            _density = density;
         }
     }
 }

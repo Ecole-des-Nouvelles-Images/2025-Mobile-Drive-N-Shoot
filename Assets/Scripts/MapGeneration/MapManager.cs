@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 
 namespace MapGeneration
@@ -14,13 +15,16 @@ namespace MapGeneration
         [SerializeField] private GameObject _mapModulePrefab;
         [SerializeField] private List<GameObject> _mapModuleItemPrefabs;
         
+        [Header("References")]
+        [SerializeField] private DifficultyHandler _difficultyHandler;
+        
         private Queue<GameObject> _mapModules = new();
         private int _lastCheckPoint = 1;
         
         private void Awake()
-        {
+        {  
             GameObject newModule = Instantiate(_mapModulePrefab, transform);
-            newModule.GetComponent<MapModuleHandler>().Setup(this, false, false);
+            newModule.GetComponent<MapModuleHandler>().Setup(this, false, false, _difficultyHandler.Difficulty);
             _mapModules.Enqueue(newModule);
             _lastCheckPoint++;
         }
@@ -43,24 +47,24 @@ namespace MapGeneration
                 _lastCheckPoint++;
             }
             
-            if (Random.Range(0, 1) > _itemChanceRate)
+            if (Random.Range(0f, 1f) > _itemChanceRate)
             {
                 newModule = Instantiate(_mapModulePrefab, lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
-                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false);
+                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false, _difficultyHandler.Difficulty);
             }
             else
             {
-                // FAIRE SPAWN UN MAPMODULEPREFAB AVEC ITEM
                 int index = Random.Range(0, _mapModuleItemPrefabs.Count);
                 newModule = Instantiate(_mapModuleItemPrefabs[index], lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
-                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, true);
+                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, true, _difficultyHandler.Difficulty);
             }
             
             _mapModules.Enqueue(newModule);
 
             if (_mapModules.Count > 3)
             {
-                Destroy(_mapModules.Dequeue());
+                GameObject oldModule = _mapModules.Dequeue();
+                Destroy(oldModule);
             }
         }
     }

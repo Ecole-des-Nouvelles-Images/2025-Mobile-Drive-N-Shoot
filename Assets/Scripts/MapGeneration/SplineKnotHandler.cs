@@ -4,7 +4,6 @@ using Random = Unity.Mathematics.Random;
 
 namespace MapGeneration
 {
-    [RequireComponent( typeof(SplineContainer))]
     public class SplineKnotHandler : MonoBehaviour
     {
         [Header("Settings")]
