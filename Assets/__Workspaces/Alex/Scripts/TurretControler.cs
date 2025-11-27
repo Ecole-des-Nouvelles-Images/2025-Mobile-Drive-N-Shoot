@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Utils.Game;
+using Utils.Interfaces;
 
 public class TurretControler : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class TurretControler : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 5f;
     [SerializeField] private TurretAimDetector _turretAimDetector;
 
-    [Header("Firing")] [SerializeField] private float _fireRate = 0.1f;
+    [Header("Firing")] 
+    [SerializeField] private float _fireRate = 0.1f;
+
+    [SerializeField] private float damage = 30f;
+    
 
     [Header("Overheat")] [SerializeField] private float _maxHeat = 100f;
     [SerializeField] private float _heatPerSecond = 10f;
@@ -162,12 +167,13 @@ public class TurretControler : MonoBehaviour
         Vector3 direction = _firePoint.forward;
         RaycastHit hit;
         //If enemy detected
-        if (_currentTarget != null)
+        if (_currentTarget)
         {
             direction = (_currentTarget.position - origin).normalized;
             if (Physics.Raycast(origin, direction, out hit, Mathf.Infinity))
             {
                 //Inflict damages to enemy
+                _currentTarget.GetComponent<IDamageable>().TakeDamage(damage);
                 ImpactPool.Instance.PlayImpact(hit.point, hit.normal, ImpactType.Enemy);
             }
         }
@@ -183,7 +189,7 @@ public class TurretControler : MonoBehaviour
 
     private void StartMuzzle()
     {
-        if (_muzzleFlash == null) return;
+        if (!_muzzleFlash) return;
         var emission = _muzzleFlash.emission;
         emission.enabled = true;
         _muzzleFlash.Play();
@@ -191,7 +197,7 @@ public class TurretControler : MonoBehaviour
 
     private void StopMuzzle()
     {
-        if (_muzzleFlash == null) return;
+        if (!_muzzleFlash) return;
         var emission = _muzzleFlash.emission;
         emission.enabled = false;
         // Stop emitting new particles but let existing ones finish
@@ -200,7 +206,7 @@ public class TurretControler : MonoBehaviour
 
     private void StopMuzzleImmediate()
     {
-        if (_muzzleFlash == null) return;
+        if (!_muzzleFlash) return;
         var emission = _muzzleFlash.emission;
         emission.enabled = false;
         // Immediately stop and clear all particles (used on overheat)

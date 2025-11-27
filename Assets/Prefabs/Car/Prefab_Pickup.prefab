@@ -374,6 +374,7 @@ MonoBehaviour:
   _rotationSpeed: 5
   _turretAimDetector: {fileID: 2726558601490807011}
   _fireRate: 0.1
+  damage: 30
   _maxHeat: 50
   _heatPerSecond: 10
   _coolPerSecond: 10
@@ -1290,7 +1291,7 @@ GameObject:
   - component: {fileID: 6903546393642295602}
   - component: {fileID: 9179924094146266610}
   - component: {fileID: 2726558601490807011}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RangeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,15 +1716,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3344917
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9174411
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4110222
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1731,15 +1732,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1752,6 +1753,18 @@ PrefabInstance:
     - target: {fileID: 4626934389321362712, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886230683828546363, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886230683828546363, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886230683828546363, guid: 9992cc6e2cf2c84478e00166c72ab6b1, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
