@@ -10,8 +10,8 @@ public class CarControler : MonoBehaviour
     [Header("Car Controls")]
     public float motorTorque = 2000f;
     public float brakeTorque = 2000f;
-    public float maxSpeed = 20f;
-    public float baseMaxSpeed = 20f;
+    public float maxSpeed = 10f;
+    public float baseMaxSpeed = 10f;
     public float steeringRange = 30f;
     public float steeringRangeAtMaxSpeed = 10f;
     public float centreOfGravityOffset = -1f;

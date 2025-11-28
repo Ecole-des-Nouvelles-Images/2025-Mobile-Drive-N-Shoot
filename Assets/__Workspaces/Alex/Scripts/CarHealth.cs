@@ -8,7 +8,7 @@ public class CarHealth : MonoBehaviour, IDamageable
     [Header("Health")] 
     public float maxHealth = 100f;
 
-    private float CurrentHealth;
+    [SerializeField] private float CurrentHealth;
     
     // internal state to avoid triggering the half repeatedly
     private bool _hasTriggeredHalf = false;
@@ -31,6 +31,7 @@ public class CarHealth : MonoBehaviour, IDamageable
 
         if (CurrentHealth <= 0)
         {
+            // TODO: explosion VFX and car destruction
             EventBus.OnGameOver?.Invoke();
         }
     }

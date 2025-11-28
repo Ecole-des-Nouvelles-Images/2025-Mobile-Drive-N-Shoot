@@ -19,8 +19,8 @@ public class TurretControler : MonoBehaviour
 
     [Header("Firing")] 
     [SerializeField] private float _fireRate = 0.1f;
-
     [SerializeField] private float damage = 10f;
+    
     
 
     [Header("Overheat")] [SerializeField] private float _maxHeat = 100f;
