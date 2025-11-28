@@ -12,6 +12,9 @@ public class WheelControl : MonoBehaviour
     public bool steerable;
     public bool motorized;
 
+    [Header("VFX")]
+    public ParticleSystem wheelParticles;
+
     private Vector3 position;
     private Quaternion rotation;
 
