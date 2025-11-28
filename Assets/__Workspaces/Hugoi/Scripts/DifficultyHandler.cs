@@ -17,7 +17,7 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void Update()
         {
-            int distance = (int)_distanceHandler.GetDistanceValue();
+            int distance = (int)_distanceHandler.Distance;
 
             if (_distanceDifficultyScaling <= distance - _lastDistance)
             {
