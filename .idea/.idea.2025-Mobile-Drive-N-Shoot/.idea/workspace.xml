@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/DistanceHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/DistanceHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/ScoreHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/ScoreHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/TimerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/TimerHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HUDDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HUDDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/DifficultyHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/DifficultyHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +117,7 @@
       <workItem from="1764066185042" duration="2726000" />
       <workItem from="1764144976709" duration="13967000" />
       <workItem from="1764232256071" duration="15948000" />
-      <workItem from="1764325226083" duration="337000" />
+      <workItem from="1764325226083" duration="1142000" />
     </task>
     <servers />
   </component>

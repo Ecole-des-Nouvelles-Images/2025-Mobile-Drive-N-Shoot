@@ -1,7 +1,6 @@
-using InGameHandlers;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace InGameHandlers
 {
     public class DifficultyHandler : MonoBehaviour
     {

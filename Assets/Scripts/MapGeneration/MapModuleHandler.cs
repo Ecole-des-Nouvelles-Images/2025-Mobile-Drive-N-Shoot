@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
-using __Workspaces.Hugoi.Scripts;
+using InGameHandlers;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 

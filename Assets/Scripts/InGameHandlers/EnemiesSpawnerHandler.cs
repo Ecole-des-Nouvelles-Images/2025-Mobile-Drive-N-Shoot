@@ -1,7 +1,7 @@
 using MapGeneration;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace InGameHandlers
 {
     public class EnemiesSpawnerHandler : MonoBehaviour
     {

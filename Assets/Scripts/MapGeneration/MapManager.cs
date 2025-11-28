@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using __Workspaces.Hugoi.Scripts;
+using InGameHandlers;
 using UnityEngine;
 
 namespace MapGeneration
