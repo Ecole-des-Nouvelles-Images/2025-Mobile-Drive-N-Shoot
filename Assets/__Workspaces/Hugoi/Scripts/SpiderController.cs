@@ -18,13 +18,6 @@ namespace __Workspaces.Hugoi.Scripts
                 Debug.Log("Spider Dead");
                 return;
             }
-
-            if (CanAttack())
-            {
-                IsAttacking = true;
-                StartCoroutine(Attack());
-                return;
-            }
             
             if (TargetTransform && NavMeshAgent.isOnNavMesh && !IsAttacking)
             {

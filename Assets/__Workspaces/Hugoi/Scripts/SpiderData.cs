@@ -9,7 +9,11 @@ namespace __Workspaces.Hugoi.Scripts
     public class SpiderData : MonoBehaviour
     {
         [Header("Data")]
-        [Header("Currents")]
+        [Header("Stats")]
+        public float MaxHealth;
+        public float Damage;
+        public float AttackSpeed;
+        public float AttackRange;
         private float _currentHealth;
         public float CurrentHealth
         {
@@ -24,57 +28,65 @@ namespace __Workspaces.Hugoi.Scripts
                 }
             }
         }
-        
-        [Header("Stats")]
-        public float MaxHealth;
-        public float Damage;
-        public float AttackSpeed;
-        public float AttackRange;
 
         [Header("States")]
         public bool IsDead;
         public bool IsAttacking;
+        private bool _canAttack;
+        public bool CanAttack
+        {
+            get => _canAttack;
+            set
+            {
+                _canAttack = value;
+                
+                if (!IsAttacking && _canAttack)
+                {
+                    IsAttacking = true;
+                    NavMeshAgent.ResetPath();
+                    AttackCoroutine = StartCoroutine(Attack());
+                }
+                else
+                {
+                    IsAttacking = false;
+                    if (AttackCoroutine != null) StopCoroutine(AttackCoroutine);
+                }
+            }
+        }
         
         [Header("Target")]
         public Transform TargetTransform;
+        public CarHealth TargetHealth;
         
         [Header("Internal Components")]
         public NavMeshAgent NavMeshAgent;
-        
+
         [Header("External Components")]
+        public SphereCollider AttackRangeCollider;
         public Animator Animator;
+
+        [Header("Coroutines")]
+        public Coroutine AttackCoroutine;
 
         private void Awake()
         {
             NavMeshAgent = GetComponent<NavMeshAgent>();
             
+            AttackRangeCollider.radius = AttackRange;
+            
             CurrentHealth = MaxHealth;
-        }
-        
-        public bool CanAttack()
-        {
-            RaycastHit hit;
             
-            if (Physics.SphereCast(transform.position, 1f, transform.forward, out hit, AttackRange))
-            {
-                if (hit.collider.CompareTag("Player"))
-                {
-                    return true;
-                }
-            }
-            
-            return false;
+            TargetHealth = TargetTransform.GetComponent<CarHealth>();
         }
         
         public IEnumerator Attack()
         {
-            while (CanAttack())
+            while (IsAttacking)
             {
                 yield return new WaitForSeconds(AttackSpeed);
-                // Deal Damage
-                
+                TargetHealth.TakeDamage(Damage);
+                Debug.Log("Attack");
             }
-            IsAttacking = false;
         }
     }
 }
