@@ -5,40 +5,35 @@ using Utils.Interfaces;
 
 public class DroneControler : MonoBehaviour, IEnemy, IDamageable
 {
-    [Header("Target")]
-    public Transform target;
+    [Header("Target")] public Transform target;
 
-    [Header("Health")] 
-    public float health = 50f;
+    [Header("Health")] public float health = 50f;
 
-    [Header("Movement")]
-    public float speed = 15f;
+    [Header("Movement")] public float speed = 15f;
 
-    [Header("Weapon")]
-    public Transform weaponPivot;  // weapon pivot point
+    [Header("Weapon")] public Transform weaponPivot; // weapon pivot point
     public float weaponRotationSpeed = 10f;
     public Transform firePoint;
 
-    [Header("Laser")]
-    public LineRenderer lineRenderer;
+    [Header("Laser")] public LineRenderer lineRenderer;
     public float laserRange = 20f;
     public float damagePerSecond = 5f;
     public LayerMask hitMask = ~0;
-    
+
     // Health
     private float _currentHealth;
-    
+
     private NavMeshAgent agent;
-    
+
     private Vector3 _targetPos;
     private Vector3 _targetOffset = Vector3.zero;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+
         _targetPos = target.transform.position;
-        
+
         agent.updateRotation = true;
         agent.speed = speed;
 
@@ -63,7 +58,7 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
         else
             StopLaser();
     }
-    
+
     void AimWeaponAtTarget()
     {
         if (!weaponPivot || !target)
@@ -89,26 +84,28 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
         _targetPos = target.transform.position;
         if (_targetOffset == Vector3.zero)
         {
-            _targetOffset =  transform.position - target.position;
+            _targetOffset = transform.position - target.position;
         }
+
         _targetPos += _targetOffset;
-        
+
 
         lineRenderer.enabled = true;
 
+        // Fire from the weapon forward direction
         Vector3 origin = firePoint.position;
-        Vector3 toTarget = target.position - origin;
-        float targetDist = toTarget.magnitude;
-        Vector3 dir = toTarget.normalized;
-        float rayLength = Mathf.Min(laserRange, targetDist);
+        Vector3 dir = firePoint.forward;
 
-        RaycastHit hit;
+        // Laser max length
+        float rayLength = laserRange;
         Vector3 endPoint = origin + dir * rayLength;
 
+        RaycastHit hit;
         if (Physics.Raycast(origin, dir, out hit, rayLength, hitMask))
         {
             endPoint = hit.point;
 
+            // Damage only if the hit is the target
             if (hit.transform == target)
             {
                 var health = hit.collider.GetComponent<CarHealth>();
@@ -126,7 +123,7 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
     {
         if (lineRenderer != null)
             lineRenderer.enabled = false;
-        
+
         _targetPos = target.transform.position;
         _targetOffset = Vector3.zero;
     }
