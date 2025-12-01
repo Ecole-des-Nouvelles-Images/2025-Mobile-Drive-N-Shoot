@@ -18,9 +18,16 @@ namespace __Workspaces.Hugoi.Scripts
                 Debug.Log("Spider Dead");
                 return;
             }
+
+            if (CanAttack && IsMoving)
+            {
+                IsMoving = false;
+                NavMeshAgent.ResetPath();
+            }
             
             if (TargetTransform && NavMeshAgent.isOnNavMesh && !IsAttacking)
             {
+                IsMoving = true;
                 NavMeshAgent.SetDestination(TargetTransform.position);
             }
         }

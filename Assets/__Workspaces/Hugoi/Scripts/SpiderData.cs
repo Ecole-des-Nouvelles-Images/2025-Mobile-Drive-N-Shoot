@@ -32,6 +32,7 @@ namespace __Workspaces.Hugoi.Scripts
         [Header("States")]
         public bool IsDead;
         public bool IsAttacking;
+        public bool IsMoving;
         private bool _canAttack;
         public bool CanAttack
         {
@@ -43,7 +44,6 @@ namespace __Workspaces.Hugoi.Scripts
                 if (!IsAttacking && _canAttack)
                 {
                     IsAttacking = true;
-                    NavMeshAgent.ResetPath();
                     AttackCoroutine = StartCoroutine(Attack());
                 }
                 else
