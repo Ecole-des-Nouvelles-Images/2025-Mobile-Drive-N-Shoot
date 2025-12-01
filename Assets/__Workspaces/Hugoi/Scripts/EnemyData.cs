@@ -6,7 +6,7 @@ using UnityEngine.AI;
 namespace __Workspaces.Hugoi.Scripts
 {
     [Serializable]
-    public class SpiderData : MonoBehaviour
+    public class EnemyData : MonoBehaviour
     {
         [Header("Data")]
         [Header("Stats")]

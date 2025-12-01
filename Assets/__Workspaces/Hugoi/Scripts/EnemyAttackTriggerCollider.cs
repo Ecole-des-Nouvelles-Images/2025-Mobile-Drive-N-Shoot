@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace __Workspaces.Hugoi.Scripts
 {
     public class EnemyAttackTriggerCollider : MonoBehaviour
     {
-        [SerializeField] private SpiderData _spiderData;
+        [SerializeField] private EnemyData enemyData;
         [SerializeField] private List<Collider> _colliders = new List<Collider>();
 
         private void OnTriggerEnter(Collider other)
@@ -14,7 +15,7 @@ namespace __Workspaces.Hugoi.Scripts
 
             if (other.CompareTag("Player"))
             {
-                _spiderData.CanAttack = true;
+                enemyData.CanAttack = true;
             }
         }
 
@@ -22,7 +23,7 @@ namespace __Workspaces.Hugoi.Scripts
         {
             if (other.CompareTag("Player"))
             {
-                _spiderData.CanAttack = false;
+                enemyData.CanAttack = false;
             }
             
             _colliders.Remove(other);

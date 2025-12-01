@@ -3,7 +3,7 @@ using Utils.Interfaces;
 
 namespace __Workspaces.Hugoi.Scripts
 {
-    public class SpiderController : SpiderData, IDamageable
+    public class EnemyController : EnemyData, IDamageable
     {
         public void TakeDamage(float damage)
         {
