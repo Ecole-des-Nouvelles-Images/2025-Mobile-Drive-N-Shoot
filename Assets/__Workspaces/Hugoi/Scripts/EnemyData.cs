@@ -10,6 +10,7 @@ namespace __Workspaces.Hugoi.Scripts
     public class EnemyData : MonoBehaviour
     {
         [Header("Data")]
+        public bool HaveAnimation;
         [Header("Stats")]
         public float MaxHealth;
         public float Damage;
@@ -26,6 +27,10 @@ namespace __Workspaces.Hugoi.Scripts
                 if (_currentHealth <= 0)
                 {
                     IsDead = true;
+                    Animator.SetBool("IsDead", IsDead);
+                    // Lance VFX
+                    
+                    Destroy(gameObject, 3f);
                 }
             }
         }
@@ -45,12 +50,12 @@ namespace __Workspaces.Hugoi.Scripts
                 if (!IsAttacking && _canAttack)
                 {
                     IsAttacking = true;
-                    AttackCoroutine = StartCoroutine(Attack());
+                    if (!HaveAnimation) AttackCoroutine = StartCoroutine(CoroutineAttack());
                 }
                 else
                 {
                     IsAttacking = false;
-                    if (AttackCoroutine != null) StopCoroutine(AttackCoroutine);
+                    if (!HaveAnimation && AttackCoroutine != null) StopCoroutine(AttackCoroutine);
                 }
             }
         }
@@ -68,14 +73,19 @@ namespace __Workspaces.Hugoi.Scripts
 
         [Header("Coroutines")]
         public Coroutine AttackCoroutine;
+        
+        public void Attack()
+        {
+            TargetHealth.TakeDamage(Damage);
+            Debug.Log("Data Attack");
+        }
 
         private void Awake()
         {
             NavMeshAgent = GetComponent<NavMeshAgent>();
-            
             AttackRangeCollider.radius = AttackRange;
-            
             CurrentHealth = MaxHealth;
+            if (HaveAnimation) Animator.SetFloat("AttackSpeed", AttackSpeed);
         }
 
         private void Start()
@@ -84,7 +94,7 @@ namespace __Workspaces.Hugoi.Scripts
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
         }
 
-        public IEnumerator Attack()
+        private IEnumerator CoroutineAttack()
         {
             while (IsAttacking)
             {

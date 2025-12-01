@@ -5,6 +5,12 @@ namespace __Workspaces.Hugoi.Scripts
 {
     public class SpiderController : EnemyData, IDamageable
     {
+        [ContextMenu("Test")]
+        public void test()
+        {
+            TakeDamage(1000);
+        }
+        
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
@@ -12,12 +18,7 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void Update()
         {
-            if (IsDead)
-            {
-                // Lance l'annimation de mort / VFX puis se détruit
-                Debug.Log("Spider Dead");
-                return;
-            }
+            if (IsDead) return;
 
             if (CanAttack && IsMoving)
             {
@@ -30,6 +31,9 @@ namespace __Workspaces.Hugoi.Scripts
                 IsMoving = true;
                 NavMeshAgent.SetDestination(TargetTransform.position);
             }
+            
+            Animator.SetBool("IsMoving", IsMoving);
+            Animator.SetBool("IsAttacking", IsAttacking);
         }
     }
 }
