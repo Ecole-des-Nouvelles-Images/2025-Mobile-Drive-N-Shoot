@@ -261,7 +261,7 @@ MonoBehaviour:
   _positionOffset: 0.1
   _scaleOffsetMinMax: {x: 0.6, y: 0.8}
   _props:
-  - {fileID: 6309426883222056376, guid: 8f83b8cf4107aa441bf89a14cd00b8f5, type: 3}
+  - {fileID: 6309426883222056376, guid: b76f3199ae083094f9927d83e5d26471, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &3783710049718952925

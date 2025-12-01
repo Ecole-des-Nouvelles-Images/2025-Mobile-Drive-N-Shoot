@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Core;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -75,10 +76,14 @@ namespace __Workspaces.Hugoi.Scripts
             AttackRangeCollider.radius = AttackRange;
             
             CurrentHealth = MaxHealth;
-            
+        }
+
+        private void Start()
+        {
+            TargetTransform = GameManager.Instance.Player.transform;
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
         }
-        
+
         public IEnumerator Attack()
         {
             while (IsAttacking)

@@ -59,6 +59,7 @@ public class CarControler : MonoBehaviour
     
     private void Awake()
     {
+        GameManager.Instance.Player = gameObject;
         _carControls = new CarInputActions();
     }
 
