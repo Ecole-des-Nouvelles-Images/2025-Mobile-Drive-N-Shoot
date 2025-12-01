@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2341501988004911864, guid: b64aa57c1550e5f4aa7920ad4a7b8014, type: 3}
+      propertyPath: _difficultyHandler
+      value: 
+      objectReference: {fileID: 647975489}
     - target: {fileID: 7057848270715548143, guid: b64aa57c1550e5f4aa7920ad4a7b8014, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -673,6 +677,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8938279771573475023, guid: e50e0c5a8758d334c8861b1e18fc70ff, type: 3}
   m_PrefabInstance: {fileID: 451651654}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &647975489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4148373287973134837, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
+  m_PrefabInstance: {fileID: 12569030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da57a26fedb8cd64f9c278f56185e18b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.EnemiesSpawnerManager
 --- !u!1001 &931146219
 PrefabInstance:
   m_ObjectHideFlags: 0

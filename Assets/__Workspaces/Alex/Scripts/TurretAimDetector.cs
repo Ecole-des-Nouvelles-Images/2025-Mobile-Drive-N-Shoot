@@ -19,10 +19,13 @@ public class TurretAimDetector : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
             EnemiesInSight.Remove(other.transform);
+        EnemiesInSight.RemoveAll(transform => !transform);
     }
 
     public Transform GetClosestEnemy(Vector3 from)
     {
+        EnemiesInSight.RemoveAll(transform => !transform);
+        
         Transform best = null;
         float bestDist = Mathf.Infinity;
         foreach (var enemy in EnemiesInSight)

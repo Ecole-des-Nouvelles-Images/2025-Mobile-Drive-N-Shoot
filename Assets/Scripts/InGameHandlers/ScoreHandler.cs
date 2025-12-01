@@ -28,7 +28,7 @@ namespace InGameHandlers
             _panelScore.SetActive(true);
             
             // Set le score
-            _tmpScore.text = _distanceHandler.GetDistanceValue().ToString("F1");
+            _tmpScore.text = _distanceHandler.Distance.ToString("F1");
         }
     }
 }

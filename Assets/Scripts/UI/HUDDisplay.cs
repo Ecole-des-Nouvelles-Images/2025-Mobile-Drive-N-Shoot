@@ -16,8 +16,8 @@ namespace UI
         
         private void Update()
         {
-            _tmpTimer.text = _timerHandler.GetTimerValue().ToString("F1");
-            _tmpDistance.text = _distanceHandler.GetDistanceValue().ToString("F1");
+            _tmpTimer.text = _timerHandler.Timer.ToString("F1");
+            _tmpDistance.text = _distanceHandler.Distance.ToString("F1");
         }
     }
 }
