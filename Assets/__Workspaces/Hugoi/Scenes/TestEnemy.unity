@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ca3920e9d62464fb57fb3029b5583e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.GameLoop.GameManager
+  Player: {fileID: 0}
   CurrentCarMaterials:
   - {fileID: 2100000, guid: 13123834631b0854baa84a096d5c69b9, type: 2}
   CurrentTurretMaterials:
@@ -587,6 +588,10 @@ PrefabInstance:
     - target: {fileID: 7989771649214069358, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: m_Name
       value: Prefab_TestDrone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989771649214069358, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
