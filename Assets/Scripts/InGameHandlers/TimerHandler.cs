@@ -5,21 +5,17 @@ namespace InGameHandlers
 {
     public class TimerHandler : MonoBehaviour
     {
+        public float Timer {get; private set;}
+        
         [Header("Settings")]
         [SerializeField] private float _startTimerValue;
         [SerializeField] private float _timeToAdd;
         
-        private float _timer;
         private bool _isActive = true;
-        
-        public float GetTimerValue()
-        {
-            return _timer;
-        }
 
         private void Awake()
         {
-            _timer = _startTimerValue;
+            Timer = _startTimerValue;
             Invoke(nameof(GameStart), 0.2f);
         }
 
@@ -37,9 +33,9 @@ namespace InGameHandlers
         {
             if (!_isActive) return;
             
-            _timer -= TimeManager.Instance.DeltaTime;
+            Timer -= TimeManager.Instance.DeltaTime;
 
-            if (_timer <= 0)
+            if (Timer <= 0)
             {
                 EventBus.OnGameOver?.Invoke();
                 _isActive = false;
@@ -48,7 +44,7 @@ namespace InGameHandlers
         
         private void AddTimeToTimer()
         {
-            _timer += _timeToAdd;
+            Timer += _timeToAdd;
         }
 
         private void GameStart()

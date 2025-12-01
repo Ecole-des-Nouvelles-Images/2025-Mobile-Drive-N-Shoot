@@ -9,13 +9,6 @@ namespace SelectionSkins
 
         private float previousX = 0f;
         private bool isSliding = false;
-        
-        private Rigidbody rb;
-
-        private void Awake()
-        {
-            rb = GetComponent<Rigidbody>();
-        }
 
         void Update()
         {
@@ -25,8 +18,6 @@ namespace SelectionSkins
 
                 if (touch.phase == TouchPhase.Began)
                 {
-                    rb.angularVelocity = Vector3.zero;
-                    
                     previousX = touch.position.x;
                     isSliding = true;
                 }
@@ -49,7 +40,7 @@ namespace SelectionSkins
             float rotationAmount = -deltaX * rotationSpeed * Time.deltaTime;
             Vector3 rotation = new Vector3(0, rotationAmount, 0);
 
-            rb.AddRelativeTorque(rotation, ForceMode.Impulse);
+            transform.Rotate(rotation);
         }
     }
 }

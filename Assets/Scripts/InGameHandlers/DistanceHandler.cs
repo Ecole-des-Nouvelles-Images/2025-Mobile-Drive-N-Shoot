@@ -4,10 +4,10 @@ namespace InGameHandlers
 {
     public class DistanceHandler : MonoBehaviour
     {
+        public float Distance {get; private set;}
+        
         [Header("References")]
         [SerializeField] private Transform _player;
-
-        private float _distance;
         
         private Vector2 _playerPosition;
         private Vector2 _lastPlayerPosition;
@@ -23,14 +23,9 @@ namespace InGameHandlers
 
             if ((_lastPlayerPosition - _playerPosition).sqrMagnitude >= 1f && _playerPosition.y > _lastPlayerPosition.y)
             {
-                _distance++;
+                Distance++;
                 _lastPlayerPosition = _playerPosition;
             }
-        }
-        
-        public float GetDistanceValue()
-        {
-            return _distance;
         }
     }
 }

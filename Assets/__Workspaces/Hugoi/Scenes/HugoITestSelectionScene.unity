@@ -559,14 +559,6 @@ PrefabInstance:
       value: SelecteSkinVisualPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 7746744957585024051, guid: 8e3dfe9ec3e56d04fb7dff62b457df97, type: 3}
-      propertyPath: _leftArrow
-      value: 
-      objectReference: {fileID: 752317159}
-    - target: {fileID: 7746744957585024051, guid: 8e3dfe9ec3e56d04fb7dff62b457df97, type: 3}
-      propertyPath: _rightArrow
-      value: 
-      objectReference: {fileID: 637860716}
-    - target: {fileID: 7746744957585024051, guid: 8e3dfe9ec3e56d04fb7dff62b457df97, type: 3}
       propertyPath: _pickupButton
       value: 
       objectReference: {fileID: 111243472}
