@@ -1,3 +1,4 @@
+using UnityEngine;
 using Utils.Interfaces;
 
 namespace __Workspaces.Hugoi.Scripts
@@ -11,7 +12,11 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void Update()
         {
-            if (IsDead) return;
+            if (IsDying && !IsDead)
+            {
+                Die();
+                return;
+            }
 
             if (CanAttack && IsMoving)
             {
@@ -27,6 +32,25 @@ namespace __Workspaces.Hugoi.Scripts
             
             Animator.SetBool("IsMoving", IsMoving);
             Animator.SetBool("IsAttacking", IsAttacking);
+        }
+
+        private void Die()
+        {
+            Animator.SetBool("IsDead", IsDying);
+            
+            Collider[] cols = Physics.OverlapSphere(transform.position, DeathExplosionRange);
+
+            for (int i = 0; i < cols.Length; i++)
+            {
+                if (cols[i].CompareTag("Player"))
+                {
+                    TargetHealth.TakeDamage(DeathExplosionDamage);
+                    break;
+                }
+            }
+            
+            IsDead = true;
+            Destroy(gameObject, 3f);
         }
     }
 }

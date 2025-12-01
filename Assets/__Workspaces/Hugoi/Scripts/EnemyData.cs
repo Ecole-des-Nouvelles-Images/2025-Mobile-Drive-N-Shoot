@@ -16,6 +16,8 @@ namespace __Workspaces.Hugoi.Scripts
         public float Damage;
         public float AttackSpeed;
         public float AttackRange;
+        public float DeathExplosionDamage;
+        public float DeathExplosionRange;
         private float _currentHealth;
         public float CurrentHealth
         {
@@ -26,16 +28,13 @@ namespace __Workspaces.Hugoi.Scripts
 
                 if (_currentHealth <= 0)
                 {
-                    IsDead = true;
-                    Animator.SetBool("IsDead", IsDead);
-                    // Lance VFX
-                    
-                    Destroy(gameObject, 3f);
+                    IsDying = true;
                 }
             }
         }
 
         [Header("States")]
+        public bool IsDying;
         public bool IsDead;
         public bool IsAttacking;
         public bool IsMoving;
