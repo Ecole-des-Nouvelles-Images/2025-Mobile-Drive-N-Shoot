@@ -1,16 +1,9 @@
-using UnityEngine;
 using Utils.Interfaces;
 
 namespace __Workspaces.Hugoi.Scripts
 {
     public class SpiderController : EnemyData, IDamageable
     {
-        [ContextMenu("Test")]
-        public void test()
-        {
-            TakeDamage(1000);
-        }
-        
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
