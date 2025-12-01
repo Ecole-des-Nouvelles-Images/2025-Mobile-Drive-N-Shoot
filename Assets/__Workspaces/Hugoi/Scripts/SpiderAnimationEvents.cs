@@ -10,7 +10,6 @@ namespace __Workspaces.Hugoi.Scripts
         public void Attack()
         {
             _enemyData.Attack();
-            Debug.Log("Animation Attack");
         }
     }
 }

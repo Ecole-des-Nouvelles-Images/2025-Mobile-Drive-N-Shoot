@@ -740,10 +740,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2205203812999137503, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
-      propertyPath: TargetTransform
-      value: 
-      objectReference: {fileID: 129797275}
     - target: {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: m_Name
       value: Prefab_TestSpider

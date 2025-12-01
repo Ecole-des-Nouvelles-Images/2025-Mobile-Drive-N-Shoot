@@ -77,7 +77,6 @@ namespace __Workspaces.Hugoi.Scripts
         public void Attack()
         {
             TargetHealth.TakeDamage(Damage);
-            Debug.Log("Data Attack");
         }
 
         private void Awake()
@@ -100,7 +99,6 @@ namespace __Workspaces.Hugoi.Scripts
             {
                 yield return new WaitForSeconds(AttackSpeed);
                 TargetHealth.TakeDamage(Damage);
-                Debug.Log("Attack");
             }
         }
     }
