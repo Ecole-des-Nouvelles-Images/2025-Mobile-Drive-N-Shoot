@@ -1,12 +1,13 @@
 using System.Collections.Generic;
+using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy
 {
     public class EnemyAttackTriggerCollider : MonoBehaviour
     {
         [SerializeField] private EnemyData enemyData;
-        [SerializeField] private List<Collider> _colliders = new List<Collider>();
+        [SerializeField] private List<Collider> _colliders = new();
 
         private void OnTriggerEnter(Collider other)
         {

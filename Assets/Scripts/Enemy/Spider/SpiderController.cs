@@ -1,13 +1,34 @@
-using UnityEngine;
+using Core;
+using Utils.Game;
 using Utils.Interfaces;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy.Spider
 {
     public class SpiderController : EnemyData, IDamageable
     {
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
+        }
+        
+        private void Start()
+        {
+            TargetTransform = GameManager.Instance.Player.transform;
+            TargetHealth = TargetTransform.GetComponent<CarHealth>();
+        }
+
+        private void OnEnable()
+        {
+            EventBus.OnGameResume += OnGameResume;
+            EventBus.OnGamePause += OnGamePause;
+            EventBus.OnGameOver += OnGamePause;
+        }
+        
+        private void OnDisable()
+        {
+            EventBus.OnGameResume -= OnGameResume;
+            EventBus.OnGamePause -= OnGamePause;
+            EventBus.OnGameOver -= OnGamePause;
         }
 
         private void Update()
@@ -38,19 +59,20 @@ namespace __Workspaces.Hugoi.Scripts
         {
             Animator.SetBool("IsDead", IsDying);
             
-            Collider[] cols = Physics.OverlapSphere(transform.position, DeathExplosionRange);
-
-            for (int i = 0; i < cols.Length; i++)
-            {
-                if (cols[i].CompareTag("Player"))
-                {
-                    TargetHealth.TakeDamage(DeathExplosionDamage);
-                    break;
-                }
-            }
+            // VFX, SFX
             
             IsDead = true;
             Destroy(gameObject, 3f);
+        }
+        
+        private void OnGameResume()
+        {
+            Animator.SetFloat("AttackSpeed", AttackSpeed);
+        }
+
+        private void OnGamePause()
+        {
+            Animator.SetFloat("AttackSpeed", 0f);
         }
     }
 }

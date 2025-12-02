@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy.Spider
 {
     public class SpiderAnimationEvents : MonoBehaviour
     {
