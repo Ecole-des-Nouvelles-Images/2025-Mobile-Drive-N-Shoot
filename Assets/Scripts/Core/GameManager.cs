@@ -8,6 +8,7 @@ namespace Core
     public class GameManager : MonoBehaviourSingletonDontDestroyOnLoad<GameManager>
     {
         [Header("Player Data")]
+        public GameObject Player;
         public Material[] CurrentCarMaterials;
         public Material[] CurrentTurretMaterials;
 
@@ -15,7 +16,7 @@ namespace Core
         {
             EventBus.OnLoadScene += LoadScene;
         }
-        
+
         private void OnDisable()
         {
             EventBus.OnLoadScene -= LoadScene;
