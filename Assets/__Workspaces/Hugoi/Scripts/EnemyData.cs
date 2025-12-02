@@ -74,6 +74,15 @@ namespace __Workspaces.Hugoi.Scripts
         {
             TargetHealth.TakeDamage(Damage);
         }
+        
+        public IEnumerator CoroutineAttack()
+        {
+            while (IsAttacking)
+            {
+                yield return new WaitForSeconds(AttackSpeed);
+                TargetHealth.TakeDamage(Damage);
+            }
+        }
 
         private void Awake()
         {
@@ -81,15 +90,6 @@ namespace __Workspaces.Hugoi.Scripts
             AttackRangeCollider.radius = AttackRange;
             CurrentHealth = MaxHealth;
             if (HaveAnimation) Animator.SetFloat("AttackSpeed", AttackSpeed);
-        }
-
-        private IEnumerator CoroutineAttack()
-        {
-            while (IsAttacking)
-            {
-                yield return new WaitForSeconds(AttackSpeed);
-                TargetHealth.TakeDamage(Damage);
-            }
         }
     }
 }

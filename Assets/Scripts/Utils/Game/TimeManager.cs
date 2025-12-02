@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using Utils.Singletons;
 
 namespace Utils.Game
@@ -28,11 +29,13 @@ namespace Utils.Game
          * API
          */
     
+        [ContextMenu("Pause")]
         public void Pause()
         {
             TimeScale = 0;
         }
 
+        [ContextMenu("Resume")]
         public void Resume()
         {
             TimeScale = 1;

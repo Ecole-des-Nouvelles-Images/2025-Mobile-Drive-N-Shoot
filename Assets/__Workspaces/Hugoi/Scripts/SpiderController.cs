@@ -1,4 +1,6 @@
+using System;
 using Core;
+using Utils.Game;
 using Utils.Interfaces;
 
 namespace __Workspaces.Hugoi.Scripts
@@ -14,6 +16,20 @@ namespace __Workspaces.Hugoi.Scripts
         {
             TargetTransform = GameManager.Instance.Player.transform;
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
+        }
+
+        private void OnEnable()
+        {
+            EventBus.OnGameResume += OnGameResume;
+            EventBus.OnGamePause += OnGamePause;
+            EventBus.OnGameOver += OnGamePause;
+        }
+        
+        private void OnDisable()
+        {
+            EventBus.OnGameResume -= OnGameResume;
+            EventBus.OnGamePause -= OnGamePause;
+            EventBus.OnGameOver -= OnGamePause;
         }
 
         private void Update()
@@ -48,6 +64,16 @@ namespace __Workspaces.Hugoi.Scripts
             
             IsDead = true;
             Destroy(gameObject, 3f);
+        }
+        
+        private void OnGameResume()
+        {
+            Animator.SetFloat("AttackSpeed", AttackSpeed);
+        }
+
+        private void OnGamePause()
+        {
+            Animator.SetFloat("AttackSpeed", 0f);
         }
     }
 }

@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 6317129306135257024}
   - component: {fileID: 5210192218730039623}
   m_Layer: 0
-  m_Name: Prefab_TestDrone
+  m_Name: Prefab_EnemyDrone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

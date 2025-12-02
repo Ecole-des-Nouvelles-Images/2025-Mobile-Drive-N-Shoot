@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using Utils.Game;
 
 namespace __Workspaces.Hugoi.Scripts
 {
@@ -22,8 +23,8 @@ namespace __Workspaces.Hugoi.Scripts
 
         private void Update()
         {
-            _leftHelix.transform.Rotate(0f, _rotationHelixSpeed * Time.deltaTime, 0f);
-            _rightHelix.transform.Rotate(0f, _rotationHelixSpeed * Time.deltaTime, 0f);
+            _leftHelix.transform.Rotate(0f, _rotationHelixSpeed * TimeManager.Instance.DeltaTime, 0f);
+            _rightHelix.transform.Rotate(0f, _rotationHelixSpeed * TimeManager.Instance.DeltaTime, 0f);
 
             _direction = _navMeshAgent.velocity;
             _direction.y = 0;
@@ -32,12 +33,12 @@ namespace __Workspaces.Hugoi.Scripts
             {
                 Vector3 tiltDir = _direction.normalized + Vector3.down * -_bodyRotationMultiplier;
                 Quaternion targetRot = Quaternion.LookRotation(tiltDir);
-                _body.rotation = Quaternion.Lerp(_body.rotation, targetRot, Time.deltaTime * _bodyRotationSpeed);
+                _body.rotation = Quaternion.Lerp(_body.rotation, targetRot, TimeManager.Instance.DeltaTime * _bodyRotationSpeed);
             }
             else
             {
                 Quaternion targetRot = Quaternion.LookRotation(transform.forward, Vector3.up);
-                _body.rotation = Quaternion.Lerp(_body.rotation, targetRot, Time.deltaTime * _bodyRotationSpeed / 2f);
+                _body.rotation = Quaternion.Lerp(_body.rotation, targetRot, TimeManager.Instance.DeltaTime * _bodyRotationSpeed / 2f);
             }
         }
     }

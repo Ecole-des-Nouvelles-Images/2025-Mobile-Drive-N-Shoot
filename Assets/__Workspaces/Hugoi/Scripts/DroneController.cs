@@ -1,5 +1,6 @@
 ﻿using Core;
 using UnityEngine;
+using Utils.Game;
 using Utils.Interfaces;
 using Vector3 = UnityEngine.Vector3;
 
@@ -30,6 +31,20 @@ namespace __Workspaces.Hugoi.Scripts
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
             
             _targetPos = TargetTransform.position;
+        }
+        
+        private void OnEnable()
+        {
+            EventBus.OnGameResume += OnGameResume;
+            EventBus.OnGamePause += OnGamePause;
+            EventBus.OnGameOver += OnGamePause;
+        }
+        
+        private void OnDisable()
+        {
+            EventBus.OnGameResume -= OnGameResume;
+            EventBus.OnGamePause -= OnGamePause;
+            EventBus.OnGameOver -= OnGamePause;
         }
 
         private void Update()
@@ -94,7 +109,7 @@ namespace __Workspaces.Hugoi.Scripts
             _turretTransform.rotation = Quaternion.Slerp(
                 _turretTransform.rotation,
                 targetRot,
-                Time.deltaTime * _rotateSpeed
+                TimeManager.Instance.DeltaTime * _rotateSpeed
             );
         }
 
@@ -105,7 +120,7 @@ namespace __Workspaces.Hugoi.Scripts
             _turretTransform.rotation = Quaternion.Slerp(
                 _turretTransform.rotation,
                 targetRot,
-                Time.deltaTime * _rotateSpeed
+                TimeManager.Instance.DeltaTime * _rotateSpeed
             );
         }
         
@@ -115,6 +130,16 @@ namespace __Workspaces.Hugoi.Scripts
             
             IsDead = true;
             Destroy(gameObject, 3f);
+        }
+        
+        private void OnGameResume()
+        {
+            if (CanAttack) AttackCoroutine = StartCoroutine(CoroutineAttack());
+        }
+
+        private void OnGamePause()
+        {
+            if (CanAttack) StopCoroutine(AttackCoroutine);
         }
     }
 }
