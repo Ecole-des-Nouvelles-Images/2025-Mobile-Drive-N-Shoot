@@ -43,5 +43,9 @@ namespace Utils.Game
         
         // Timer
         public static Action OnAddTimeToTimer;
+        
+        // Items
+        public static Action<Item> OnCollectedItem;
+        public static Action<ItemType> OnUsingItem;
     }
 }

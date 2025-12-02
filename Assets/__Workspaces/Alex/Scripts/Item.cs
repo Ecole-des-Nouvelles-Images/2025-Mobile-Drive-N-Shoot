@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class Item : ScriptableObject
@@ -6,6 +7,7 @@ public abstract class Item : ScriptableObject
     public abstract void Execute(GameObject target);
 }
 
+[Serializable]
 public enum ItemType
 {
     Repair,
