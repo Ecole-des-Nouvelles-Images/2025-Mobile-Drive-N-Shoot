@@ -135,6 +135,8 @@ namespace __Workspaces.Hugoi.Scripts
             StopLaser();
         }
 
+        public Vector3 GetShootPosition { get; }
+
         public void SetupEnemy(Transform target)
         {
             this.target = target;
