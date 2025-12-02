@@ -4,41 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Interfaces/IEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Interfaces/IEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Enemies/Drone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Enemies/Drone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene 2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/TestNavMesh.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/TestNavMesh.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/DroneControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/DroneControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretAimDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretAimDetector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretControler.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DpaMonitoringSettings">
-    <option name="firstShow" value="false" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6ed149864234438ba4f5c9e81db83a9086e00/85/5ec51133/Command.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/63/05a04ca0/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/fa/8c0ea60f/Object.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Interfaces/IEnemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/CarHealth.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/ItemNoOverheat.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TestSpawnEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/20/d1c73411/Mesh.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/ee/ceb0e295/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGameHandlers/PauseHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/Debugs/FPSCounter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshModifier.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/EnemyData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@8017b507cc74/Unity.Mathematics/random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@635feed73fad/Runtime/UniversalRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
@@ -54,18 +34,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "int",
+    "git-widget-placeholder": "Merging HugoI",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -108,15 +85,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15712">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15712" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -141,11 +116,13 @@
       <workItem from="1763716141802" duration="8490000" />
       <workItem from="1763973635516" duration="15545000" />
       <workItem from="1764066185042" duration="2726000" />
-      <workItem from="1764146157505" duration="3699000" />
-      <workItem from="1764150754146" duration="5703000" />
-      <workItem from="1764232952991" duration="11563000" />
-      <workItem from="1764335521675" duration="3407000" />
-      <workItem from="1764577931398" duration="17161000" />
+      <workItem from="1764144976709" duration="13967000" />
+      <workItem from="1764232256071" duration="15948000" />
+      <workItem from="1764325226083" duration="1142000" />
+      <workItem from="1764336166486" duration="3961000" />
+      <workItem from="1764342631512" duration="2856000" />
+      <workItem from="1764577144505" duration="21471000" />
+      <workItem from="1764666051370" duration="664000" />
     </task>
     <servers />
   </component>
@@ -179,13 +156,5 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="github-copilot-workspace">
-    <instructionFileLocations>
-      <option value=".github/instructions" />
-    </instructionFileLocations>
-    <promptFileLocations>
-      <option value=".github/prompts" />
-    </promptFileLocations>
   </component>
 </project>

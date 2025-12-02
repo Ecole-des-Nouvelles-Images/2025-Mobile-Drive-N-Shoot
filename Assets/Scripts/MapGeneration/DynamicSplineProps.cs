@@ -79,8 +79,8 @@ namespace MapGeneration
                         rightPos.y = _heightOffset;
                     }
                     
-                    GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count - 1)], leftPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
-                    GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count - 1)], rightPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
+                    GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
+                    GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
                 
                     float leftScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
                     float rightScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
