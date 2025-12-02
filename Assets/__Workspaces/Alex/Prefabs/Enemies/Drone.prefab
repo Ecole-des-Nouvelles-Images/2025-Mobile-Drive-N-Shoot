@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroneControler
   target: {fileID: 0}
-  health: 50
+  maxHealth: 50
   speed: 15
   weaponPivot: {fileID: 241477236929428505}
   weaponRotationSpeed: 10
@@ -574,6 +574,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  shootTransform: {fileID: 20975581996987594}
 --- !u!120 &6814550469586020727
 LineRenderer:
   serializedVersion: 2

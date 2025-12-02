@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using Utils.Game;
@@ -7,7 +8,7 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
 {
     [Header("Target")] public Transform target;
 
-    [Header("Health")] public float health = 50f;
+    [Header("Health")] public float maxHealth = 50f;
 
     [Header("Movement")] public float speed = 15f;
 
@@ -20,6 +21,8 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
     public float damagePerSecond = 5f;
     public LayerMask hitMask = ~0;
 
+    [SerializeField] private Transform shootTransform;
+    
     // Health
     private float _currentHealth;
 
@@ -27,6 +30,8 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
 
     private Vector3 _targetPos;
     private Vector3 _targetOffset = Vector3.zero;
+
+    public Vector3 GetShootPosition => shootTransform.position;
 
     void Awake()
     {
@@ -41,12 +46,17 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
             lineRenderer = GetComponent<LineRenderer>();
     }
 
+    private void Start()
+    {
+        _currentHealth = maxHealth;
+    }
+
     void Update()
     {
         if (target == null) return;
 
         // Drone follows target
-        agent.SetDestination(_targetPos);
+        if (agent.isOnNavMesh) agent.SetDestination(_targetPos);
 
         // Weapon aims target
         AimWeaponAtTarget();

@@ -10,6 +10,7 @@ public class TurretAimDetector : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+           // other.transform.TransformPoint(other.transform.position);
             if (!EnemiesInSight.Contains(other.transform))
                 EnemiesInSight.Add(other.transform);
         }
