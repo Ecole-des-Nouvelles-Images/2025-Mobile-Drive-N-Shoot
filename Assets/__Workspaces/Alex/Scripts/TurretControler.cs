@@ -6,6 +6,7 @@ using Utils.Interfaces;
 public class TurretControler : MonoBehaviour
 {
     [Header("References")] 
+    [SerializeField] private Transform _rangeColliderTransform;
     [SerializeField] private Transform _turret;
     [SerializeField] private Transform _turretBarrel;
     [SerializeField] private Transform _vehicle;
@@ -15,6 +16,7 @@ public class TurretControler : MonoBehaviour
 
     [Header("Aiming")]
     [SerializeField] private float _rotationSpeed = 5f;
+    [SerializeField] private Transform _defaultAimTransform;
     [SerializeField] private TurretAimDetector _turretAimDetector;
 
     [Header("Firing")] 
@@ -34,7 +36,7 @@ public class TurretControler : MonoBehaviour
     private float _nextFireTime = 0f;
     private bool _isFiring = false;
     private Transform _currentTarget;
-    private Vector3 _currentShootPosition;
+    private Vector3 _currentAimPosition;
 
     private bool _noOverheatActive = false;
     private float _noOverheatTimer = 0f;
@@ -95,6 +97,7 @@ public class TurretControler : MonoBehaviour
 
         _currentHeat = Mathf.Clamp(_currentHeat, 0, _maxHeat);
 
+        RotateRangeCollider(input, dt);
         // --- AIMING & FIRING LOGIC ---
         if (!_isOverHeated && isAiming)
         {
@@ -119,50 +122,65 @@ public class TurretControler : MonoBehaviour
     // ROTATION & TARGETING
     // -------------------------
 
+    /// <summary>
+    /// Used for rotate collider with inputs
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="dt"></param>
+    private void RotateRangeCollider(Vector2 input, float dt)
+    {
+        float vehicleYaw = _vehicle.eulerAngles.y;
+        float targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
+        
+        Quaternion targetRotation = Quaternion.Euler(0, targetAngle + vehicleYaw, 0);
+        _rangeColliderTransform.rotation = Quaternion.Slerp(_rangeColliderTransform.rotation, targetRotation, _rotationSpeed * dt);
+        _currentAimPosition = _defaultAimTransform.position;
+        
+        Transform closestEnemy = _turretAimDetector.GetClosestEnemy(_firePoint.position);
+        _currentTarget = closestEnemy;
+        
+        if (closestEnemy) {
+            IEnemy enemy = closestEnemy.GetComponent<IEnemy>();
+            _currentAimPosition = enemy.GetAimPosition;
+        }
+    }
+    
     private void HandleTurretRotation(Vector2 input, float dt)
     {
         float vehicleYaw = _vehicle.eulerAngles.y;
         float targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
+        
+        if (_currentTarget == null)
+        {
+            Quaternion targetRotation = Quaternion.Euler(0, targetAngle + vehicleYaw, 0);
+            _turret.rotation = Quaternion.Slerp(_turret.rotation, targetRotation, _rotationSpeed * dt);
+            _currentAimPosition = _defaultAimTransform.position;
+        }
+        else
+        { 
+            Vector3 dirToEnemy = _currentTarget.position - _turret.position;
+            dirToEnemy.y = 0f; // keep turret horizontal rotation only
 
-        Quaternion targetRotation = Quaternion.Euler(0, targetAngle + vehicleYaw, 0);
-        _turret.rotation = Quaternion.Slerp(_turret.rotation, targetRotation, _rotationSpeed * dt);
-
-        // _currentTarget = _turretAimDetector.GetClosestEnemy(_firePoint.position);
-        
-        Transform closestEnemy = _turretAimDetector.GetClosestEnemy(_firePoint.position);
-        if (closestEnemy == null) return;
-        
-        _currentTarget = closestEnemy;
-        
-        IEnemy enemy = closestEnemy.GetComponent<IEnemy>();
-        if (enemy == null) return;
-        
-        _currentShootPosition = enemy.GetShootPosition;
+            Quaternion targetRotation = Quaternion.LookRotation(dirToEnemy);
+            _turret.rotation = Quaternion.Slerp(
+                _turret.rotation,
+                targetRotation,
+                _rotationSpeed * dt
+            );
+        }
     }
 
     private void AutoPitchBarrel(float dt)
     {
-        if (_currentShootPosition != Vector3.zero)
-        {
-            Vector3 dir = _currentShootPosition - _firePoint.position;
-            float pitch = Mathf.Atan2(dir.y, new Vector2(dir.x, dir.z).magnitude) * Mathf.Rad2Deg;
-            pitch = Mathf.Clamp(pitch, -30f, 60f);
-
-            _turretBarrel.localRotation = Quaternion.Slerp(
-                _turretBarrel.localRotation,
-                Quaternion.Euler(-pitch, 0, 0),
-                _rotationSpeed * dt
-            );
-        }
-        else
-        {
-            // Reset pitch
-            _turretBarrel.localRotation = Quaternion.Slerp(
-                _turretBarrel.localRotation,
-                Quaternion.Euler(0, 0, 0),
-                _rotationSpeed * dt
-            );
-        }
+        Vector3 dir = _currentAimPosition - _firePoint.position;
+        float pitch = Mathf.Atan2(dir.y, new Vector2(dir.x, dir.z).magnitude) * Mathf.Rad2Deg;
+        pitch = Mathf.Clamp(pitch, -30f, 60f);
+        
+        _turretBarrel.localRotation = Quaternion.Slerp(
+            _turretBarrel.localRotation,
+            Quaternion.Euler(-pitch, 0, 0),
+            _rotationSpeed * dt
+        );
     }
 
     // -------------------------
@@ -204,8 +222,8 @@ public class TurretControler : MonoBehaviour
         Vector3 origin = _firePoint.position;
         Vector3 direction;
 
-        if (_currentShootPosition != Vector3.zero)
-            direction = (_currentShootPosition - origin).normalized;
+        if (_currentAimPosition != Vector3.zero)
+            direction = (_currentAimPosition - origin).normalized;
         else
             direction = _firePoint.forward;
 
@@ -228,15 +246,16 @@ public class TurretControler : MonoBehaviour
 
         _lineRenderer.enabled = true;
         _lineRenderer.SetPosition(0, _firePoint.position);
-
-        Vector3 dir = _currentShootPosition != Vector3.zero
-            ? (_currentShootPosition - _firePoint.position).normalized
-            : _firePoint.forward;
-
-        if (Physics.Raycast(_firePoint.position, dir, out RaycastHit hit))
-            _lineRenderer.SetPosition(1, hit.point);
-        else
-            _lineRenderer.SetPosition(1, _firePoint.position + dir * 100f);
+        _lineRenderer.SetPosition(1, _firePoint.position + _firePoint.forward * 100f);
+        
+        // Vector3 dir = _currentAimPosition != Vector3.zero
+        //     ? (_currentAimPosition - _firePoint.position).normalized
+        //     : _firePoint.forward;
+        //
+        // if (Physics.Raycast(_firePoint.position, dir, out RaycastHit hit))
+        //     _lineRenderer.SetPosition(1, hit.point);
+        // else
+        //     _lineRenderer.SetPosition(1, _firePoint.position + dir * 100f);
     }
 
     private void DisableLaser()

@@ -31,7 +31,7 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
     private Vector3 _targetPos;
     private Vector3 _targetOffset = Vector3.zero;
 
-    public Vector3 GetShootPosition => shootTransform.position;
+    public Vector3 GetAimPosition => shootTransform.position;
 
     void Awake()
     {
@@ -134,7 +134,7 @@ public class DroneControler : MonoBehaviour, IEnemy, IDamageable
         if (lineRenderer != null)
             lineRenderer.enabled = false;
 
-        _targetPos = target.transform.position;
+        if (target) _targetPos = target.transform.position;
         _targetOffset = Vector3.zero;
     }
 
