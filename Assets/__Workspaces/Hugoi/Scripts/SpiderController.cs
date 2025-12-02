@@ -1,4 +1,4 @@
-using UnityEngine;
+using Core;
 using Utils.Interfaces;
 
 namespace __Workspaces.Hugoi.Scripts
@@ -8,6 +8,12 @@ namespace __Workspaces.Hugoi.Scripts
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
+        }
+        
+        private void Start()
+        {
+            TargetTransform = GameManager.Instance.Player.transform;
+            TargetHealth = TargetTransform.GetComponent<CarHealth>();
         }
 
         private void Update()
@@ -38,16 +44,7 @@ namespace __Workspaces.Hugoi.Scripts
         {
             Animator.SetBool("IsDead", IsDying);
             
-            Collider[] cols = Physics.OverlapSphere(transform.position, DeathExplosionRange);
-
-            for (int i = 0; i < cols.Length; i++)
-            {
-                if (cols[i].CompareTag("Player"))
-                {
-                    TargetHealth.TakeDamage(DeathExplosionDamage);
-                    break;
-                }
-            }
+            // VFX, SFX
             
             IsDead = true;
             Destroy(gameObject, 3f);

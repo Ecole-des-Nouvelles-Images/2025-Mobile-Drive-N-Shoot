@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 using Utils.Interfaces;
 using Vector3 = UnityEngine.Vector3;
 
@@ -11,37 +12,53 @@ namespace __Workspaces.Hugoi.Scripts
         [SerializeField] private Transform _startingPos;
         [SerializeField] private float test;
         
-        private Vector3 _targetPosOffset;
+        private Vector3 _targetPos;
+        private Vector3 _targetOffset = Vector3.zero;
 
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
         }
+        
+        private void Start()
+        {
+            TargetTransform = GameManager.Instance.Player.transform;
+            TargetHealth = TargetTransform.GetComponent<CarHealth>();
+            
+            _targetPos = TargetTransform.position;
+        }
 
         private void Update()
         {
-            if (IsDead)
+            if (IsDying && !IsDead)
             {
-                // Lance l'annimation de mort / VFX puis se détruit
-                Debug.Log("Drone Dead");
+                Die();
                 return;
             }
 
             if (CanAttack)
             {
-                _targetPosOffset = transform.position - TargetTransform.position;
+                _targetPos = TargetTransform.position;
+                if (_targetOffset == Vector3.zero)
+                {
+                    _targetOffset = transform.position - TargetTransform.position;
+                }
+
+                _targetPos += _targetOffset;
                 DisplayLaser(true);
             }
             else
             {
-                _targetPosOffset = Vector3.zero;
+                _targetPos = TargetTransform.position;
+                _targetOffset = Vector3.zero;
+                
                 DisplayLaser(false);
             }
             
             if (TargetTransform && NavMeshAgent.isOnNavMesh)
             {
                 IsMoving = true;
-                NavMeshAgent.SetDestination(TargetTransform.position + _targetPosOffset);
+                NavMeshAgent.SetDestination(_targetPos);
             }
         }
 
@@ -58,6 +75,14 @@ namespace __Workspaces.Hugoi.Scripts
             {
                 _laserLine.enabled = false;
             }
+        }
+        
+        private void Die()
+        {
+            // VFX, SFX
+            
+            IsDead = true;
+            Destroy(gameObject, 3f);
         }
     }
 }
