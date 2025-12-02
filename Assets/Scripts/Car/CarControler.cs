@@ -37,7 +37,11 @@ public class CarControler : MonoBehaviour
 
     [Header("Wheel VFX")] 
     public float particleMinSpeed = 0.5f; // Minimal speed to activate wheel particles
-    public float particleMaxEmission = 30f; // Max emission
+    public float particleMaxEmission = 30f; // Max 
+
+    [Header("Nitro Attack")] 
+    [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
+    
     
     private WheelControl[] _wheels;
     private Rigidbody _rigidBody;
@@ -56,6 +60,11 @@ public class CarControler : MonoBehaviour
     
     // Damage state
     private bool _isDamaged = false;
+    
+    // Nitro attack state
+    private bool _hasNitroAttackReady = false;
+    private bool _isNitroAttacking = false;
+    
     
     private void Awake()
     {
@@ -190,6 +199,13 @@ public class CarControler : MonoBehaviour
             _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
         }
         
+        // Disable nitro attack collider after boost
+        if (_isNitroAttacking && currentSpeed <= maxSpeed )
+        {
+            _nitroCollider.SetActive(false);
+            _isNitroAttacking = false;
+        }
+        
         // --- Wheel particle effects ---
         foreach (var wheel in _wheels)
         {
@@ -213,6 +229,13 @@ public class CarControler : MonoBehaviour
         }
     }
 
+    // turn Nitro Attack ready 
+    public void SetNitroAttackReady()
+    {
+        _hasNitroAttackReady = true;
+        Debug.Log("Nitro Attack is ready!");
+    }
+    
     // Apply an immediate velocity change (VelocityChange) and set the cooldown
     private void ApplyVelocityChangeBoost(float now)
     {
@@ -220,7 +243,14 @@ public class CarControler : MonoBehaviour
 
         // Apply an immediate velocity change in the forward direction (mass-independent)
         _rigidBody.AddForce(transform.forward * boostDeltaV, ForceMode.VelocityChange);
-        Debug.Log($"Boost applied: +{boostDeltaV} m/s (VelocityChange). Next boost at {_nextBoostTime:F2}");
+        
+        // Enable nitro attack collider if ready
+        if (_hasNitroAttackReady)
+        {
+            _nitroCollider.SetActive(true);
+            _hasNitroAttackReady = false;
+            _isNitroAttacking = true;
+        }
     }
 
     private void HandleGamePause()

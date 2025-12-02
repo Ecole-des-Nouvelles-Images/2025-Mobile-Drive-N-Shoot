@@ -3,11 +3,12 @@ using System.Collections;
 using Core;
 using UnityEngine;
 using UnityEngine.AI;
+using Utils.Interfaces;
 
 namespace __Workspaces.Hugoi.Scripts
 {
     [Serializable]
-    public class EnemyData : MonoBehaviour
+    public class EnemyData : MonoBehaviour, IEnemy
     {
         [Header("Data")]
         public bool HaveAnimation;
@@ -58,6 +59,10 @@ namespace __Workspaces.Hugoi.Scripts
                 }
             }
         }
+        
+        [Header("IEnemy Interface")]
+        [SerializeField] private Transform aimTransform;
+        public Vector3 GetAimPosition => aimTransform.position;
         
         [Header("Target")]
         public Transform TargetTransform;
