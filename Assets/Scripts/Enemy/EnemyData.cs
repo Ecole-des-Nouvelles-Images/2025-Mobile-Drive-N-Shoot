@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
-using Core;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy
 {
     [Serializable]
     public class EnemyData : MonoBehaviour
@@ -16,8 +15,6 @@ namespace __Workspaces.Hugoi.Scripts
         public float Damage;
         public float AttackSpeed;
         public float AttackRange;
-        public float DeathExplosionDamage;
-        public float DeathExplosionRange;
         private float _currentHealth;
         public float CurrentHealth
         {
@@ -77,6 +74,15 @@ namespace __Workspaces.Hugoi.Scripts
         {
             TargetHealth.TakeDamage(Damage);
         }
+        
+        public IEnumerator CoroutineAttack()
+        {
+            while (IsAttacking)
+            {
+                yield return new WaitForSeconds(AttackSpeed);
+                TargetHealth.TakeDamage(Damage);
+            }
+        }
 
         private void Awake()
         {
@@ -84,21 +90,6 @@ namespace __Workspaces.Hugoi.Scripts
             AttackRangeCollider.radius = AttackRange;
             CurrentHealth = MaxHealth;
             if (HaveAnimation) Animator.SetFloat("AttackSpeed", AttackSpeed);
-        }
-
-        private void Start()
-        {
-            TargetTransform = GameManager.Instance.Player.transform;
-            TargetHealth = TargetTransform.GetComponent<CarHealth>();
-        }
-
-        private IEnumerator CoroutineAttack()
-        {
-            while (IsAttacking)
-            {
-                yield return new WaitForSeconds(AttackSpeed);
-                TargetHealth.TakeDamage(Damage);
-            }
         }
     }
 }
