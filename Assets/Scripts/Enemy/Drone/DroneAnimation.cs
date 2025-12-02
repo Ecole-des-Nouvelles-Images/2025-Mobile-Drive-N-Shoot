@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Utils.Game;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy.Drone
 {
     public class DroneAnimation : MonoBehaviour
     {

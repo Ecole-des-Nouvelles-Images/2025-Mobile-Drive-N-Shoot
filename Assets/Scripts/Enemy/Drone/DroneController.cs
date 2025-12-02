@@ -4,7 +4,7 @@ using Utils.Game;
 using Utils.Interfaces;
 using Vector3 = UnityEngine.Vector3;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy.Drone
 {
     public class DroneController : EnemyData, IDamageable
     {

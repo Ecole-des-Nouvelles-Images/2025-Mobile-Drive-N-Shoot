@@ -1,9 +1,8 @@
-using System;
 using Core;
 using Utils.Game;
 using Utils.Interfaces;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy.Spider
 {
     public class SpiderController : EnemyData, IDamageable
     {

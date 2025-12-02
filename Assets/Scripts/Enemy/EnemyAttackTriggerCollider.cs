@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using __Workspaces.Hugoi.Scripts;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy
 {
     public class EnemyAttackTriggerCollider : MonoBehaviour
     {

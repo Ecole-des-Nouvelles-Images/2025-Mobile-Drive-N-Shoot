@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Enemy
 {
     [Serializable]
     public class EnemyData : MonoBehaviour
