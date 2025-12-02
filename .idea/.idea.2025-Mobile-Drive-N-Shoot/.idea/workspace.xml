@@ -9,13 +9,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Interfaces/IEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Interfaces/IEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Enemies/Drone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Enemies/Drone.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene 2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/TestNavMesh.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/TestNavMesh.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/DroneControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/DroneControler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretAimDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretAimDetector.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretControler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "int",
+    "git-widget-placeholder": "Alex",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,15 +103,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15712">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15712" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -146,6 +139,7 @@
       <workItem from="1764232952991" duration="11563000" />
       <workItem from="1764335521675" duration="3407000" />
       <workItem from="1764577931398" duration="17161000" />
+      <workItem from="1764665496263" duration="6808000" />
     </task>
     <servers />
   </component>
