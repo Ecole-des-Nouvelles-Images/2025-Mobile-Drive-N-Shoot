@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3815371158262187152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1025358269971044260}
+  m_Layer: 0
+  m_Name: LaserStartingPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1025358269971044260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3815371158262187152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9143186363493566316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5398296867364309084
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,10 +150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b3915829664cf4bcb3dcb5fb7dee3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DroneController
+  HaveAnimation: 0
   MaxHealth: 10
   Damage: 1
   AttackSpeed: 0.2
   AttackRange: 5
+  IsDying: 0
   IsDead: 0
   IsAttacking: 0
   IsMoving: 0
@@ -131,9 +164,10 @@ MonoBehaviour:
   NavMeshAgent: {fileID: 0}
   AttackRangeCollider: {fileID: 1117045525075458872}
   Animator: {fileID: 0}
+  _turretTransform: {fileID: 9143186363493566316}
+  _rotateSpeed: 20
   _laserLine: {fileID: 5210192218730039623}
-  _startingPos: {fileID: 9143186363493566316}
-  test: 0
+  _startingPos: {fileID: 1025358269971044260}
 --- !u!114 &6935399262465851280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DroneAnimation
   _rotationHelixSpeed: 200
+  _bodyRotationMultiplier: -0.5
+  _bodyRotationSpeed: 10
   _navMeshAgent: {fileID: 378549184341588446}
   _body: {fileID: 5477776548366290039}
   _leftHelix: {fileID: 8314480480540945637}
@@ -161,8 +197,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 30
-  m_Acceleration: 30
+  m_Speed: 10
+  m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240
   m_StoppingDistance: 0
@@ -271,7 +307,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.10309202
+        value: 0.075
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -376,7 +412,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3849836941240511728, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1025358269971044260}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
 --- !u!4 &853823580515015799 stripped
