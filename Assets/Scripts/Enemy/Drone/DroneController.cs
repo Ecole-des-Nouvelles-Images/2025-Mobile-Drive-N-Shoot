@@ -50,9 +50,12 @@ namespace Enemy.Drone
 
         private void Update()
         {
-            if (IsDying && !IsDead)
+            if (IsDying)
             {
-                Die();
+                if (!IsDead)
+                {
+                    Die();
+                }
                 return;
             }
 
@@ -128,6 +131,7 @@ namespace Enemy.Drone
         private void Die()
         {
             NavMeshAgent.ResetPath();
+            Collider.enabled = false;
             // VFX, SFX
             
             IsDead = true;

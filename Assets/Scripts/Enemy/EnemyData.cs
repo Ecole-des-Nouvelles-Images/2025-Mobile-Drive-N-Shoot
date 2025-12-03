@@ -68,6 +68,7 @@ namespace Enemy
         
         [Header("Internal Components")]
         public NavMeshAgent NavMeshAgent;
+        public Collider Collider;
 
         [Header("External Components")]
         public SphereCollider AttackRangeCollider;
@@ -93,6 +94,7 @@ namespace Enemy
         private void Awake()
         {
             NavMeshAgent = GetComponent<NavMeshAgent>();
+            Collider = GetComponent<Collider>();
             AttackRangeCollider.radius = AttackRange;
             CurrentHealth = MaxHealth;
             if (HaveAnimation) Animator.SetFloat("AttackSpeed", AttackSpeed);

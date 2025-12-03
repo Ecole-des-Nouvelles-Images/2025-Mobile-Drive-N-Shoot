@@ -34,9 +34,12 @@ namespace Enemy.Spider
 
         private void Update()
         {
-            if (IsDying && !IsDead)
+            if (IsDying)
             {
-                Die();
+                if (!IsDead)
+                {
+                    Die();
+                }
                 return;
             }
 
@@ -59,6 +62,7 @@ namespace Enemy.Spider
         private void Die()
         {
             NavMeshAgent.ResetPath();
+            Collider.enabled = false;
             Animator.SetBool("IsDead", IsDying);
             
             // VFX, SFX
