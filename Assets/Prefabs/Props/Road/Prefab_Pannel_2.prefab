@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3375160982790862672}
+  - component: {fileID: 4431796856182830998}
+  - component: {fileID: 6071931757043376936}
   m_Layer: 0
   m_Name: Prefab_Pannel_2
   m_TagString: Untagged
@@ -32,6 +34,41 @@ Transform:
   - {fileID: 8486388140562403836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4431796856182830998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846237715143704720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20287e7ce2047c43a3472bbd638337f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PropsHandler
+  _visual: {fileID: 9119338039967943494}
+  _psDestroy: {fileID: 0}
+--- !u!135 &6071931757043376936
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846237715143704720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1001 &8236815920521164311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,10 +124,68 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -6859976140500135120, guid: 33b2323ca1ef0d348bcf3301c178dadf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2427624684632077209}
+    - targetCorrespondingSourceObject: {fileID: -6859976140500135120, guid: 33b2323ca1ef0d348bcf3301c178dadf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8713332701798852802}
   m_SourcePrefab: {fileID: 100100000, guid: 33b2323ca1ef0d348bcf3301c178dadf, type: 3}
+--- !u!1 &5945724007627597095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6859976140500135120, guid: 33b2323ca1ef0d348bcf3301c178dadf, type: 3}
+  m_PrefabInstance: {fileID: 8236815920521164311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2427624684632077209
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945724007627597095}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7991529392459034694, guid: 33b2323ca1ef0d348bcf3301c178dadf, type: 3}
+--- !u!114 &8713332701798852802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945724007627597095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!4 &8486388140562403836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33b2323ca1ef0d348bcf3301c178dadf, type: 3}
+  m_PrefabInstance: {fileID: 8236815920521164311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9119338039967943494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33b2323ca1ef0d348bcf3301c178dadf, type: 3}
   m_PrefabInstance: {fileID: 8236815920521164311}
   m_PrefabAsset: {fileID: 0}
