@@ -1,10 +1,14 @@
+using Car;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item_Nitro", menuName = "Items/Item Nitro")]
-public class ItemNitro : Item
+namespace __Workspaces.Alex.Scripts
 {
-    public override void Execute(GameObject target)
+    [CreateAssetMenu(fileName = "Item_Nitro", menuName = "Items/Item Nitro")]
+    public class ItemNitro : Item
     {
-        target.GetComponent<CarControler>().SetNitroAttackReady();
+        public override void Execute(GameObject target)
+        {
+            target.GetComponent<CarControler>().SetNitroAttackReady();
+        }
     }
 }

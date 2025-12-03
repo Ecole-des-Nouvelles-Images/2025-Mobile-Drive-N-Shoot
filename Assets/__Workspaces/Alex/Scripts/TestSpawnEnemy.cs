@@ -1,11 +1,13 @@
-using System;
 using UnityEngine;
 
-public class TestSpawnEnemy : MonoBehaviour
+namespace __Workspaces.Alex.Scripts
 {
-    public GameObject Enemy;
-    private void Start()
+    public class TestSpawnEnemy : MonoBehaviour
     {
-        Instantiate(Enemy, transform.position, Quaternion.identity);
+        public GameObject Enemy;
+        private void Start()
+        {
+            Instantiate(Enemy, transform.position, Quaternion.identity);
+        }
     }
 }

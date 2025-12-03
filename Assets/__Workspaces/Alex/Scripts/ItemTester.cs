@@ -1,21 +1,24 @@
 using UnityEngine;
 
-public class ItemTester : MonoBehaviour
+namespace __Workspaces.Alex.Scripts
 {
-    public Item itemToTest;
-    
-    private void Update()
+    public class ItemTester : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        public Item itemToTest;
+    
+        private void Update()
         {
-            Debug.Log("testing item: " + itemToTest.name);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("testing item: " + itemToTest.name);
+                itemToTest.Execute(gameObject);
+            }
+        }
+
+        public void TestItem()
+        {
+            Debug.Log("Testing item: " + itemToTest.name);
             itemToTest.Execute(gameObject);
         }
-    }
-
-    public void TestItem()
-    {
-        Debug.Log("Testing item: " + itemToTest.name);
-        itemToTest.Execute(gameObject);
     }
 }

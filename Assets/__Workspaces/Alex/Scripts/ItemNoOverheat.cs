@@ -1,14 +1,17 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item_NoOverheat", menuName = "Items/Item No Overheat")]
-public class ItemNoOverheat : Item
+namespace __Workspaces.Alex.Scripts
 {
-    public float Duration = 30f;
-    
-    public override void Execute(GameObject target)
+    [CreateAssetMenu(fileName = "Item_NoOverheat", menuName = "Items/Item No Overheat")]
+    public class ItemNoOverheat : Item
     {
-        TurretControler turret = target.GetComponent<TurretControler>();
-        turret.ActivateNoOverheat(Duration);
-        Debug.Log("Item_NoOverheat");
+        public float Duration = 30f;
+    
+        public override void Execute(GameObject target)
+        {
+            TurretControler turret = target.GetComponent<TurretControler>();
+            turret.ActivateNoOverheat(Duration);
+            Debug.Log("Item_NoOverheat");
+        }
     }
 }
