@@ -43,16 +43,19 @@ namespace Enemy.Spider
                 return;
             }
 
-            if (CanAttack && IsMoving)
+            if (SeeTarget)
             {
-                IsMoving = false;
-                NavMeshAgent.ResetPath();
-            }
+                if (CanAttack && IsMoving)
+                {
+                    IsMoving = false;
+                    NavMeshAgent.ResetPath();
+                }
             
-            if (TargetTransform && NavMeshAgent.isOnNavMesh && !IsAttacking)
-            {
-                IsMoving = true;
-                NavMeshAgent.SetDestination(TargetTransform.position);
+                if (TargetTransform && NavMeshAgent.isOnNavMesh && !IsAttacking)
+                {
+                    IsMoving = true;
+                    NavMeshAgent.SetDestination(TargetTransform.position);
+                }
             }
             
             Animator.SetBool("IsMoving", IsMoving);

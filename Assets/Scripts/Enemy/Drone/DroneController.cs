@@ -59,6 +59,8 @@ namespace Enemy.Drone
                 return;
             }
 
+            if (!SeeTarget) return;
+
             if (CanAttack)
             {
                 _targetPos = TargetTransform.position;

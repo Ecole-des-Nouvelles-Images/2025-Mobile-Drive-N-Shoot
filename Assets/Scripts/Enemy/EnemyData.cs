@@ -33,6 +33,7 @@ namespace Enemy
         }
 
         [Header("States")]
+        public bool SeeTarget;
         public bool IsDying;
         public bool IsDead;
         public bool IsAttacking;

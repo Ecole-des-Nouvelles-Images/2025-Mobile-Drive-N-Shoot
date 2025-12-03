@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyAttackTriggerCollider : MonoBehaviour
+    public class EnemySightTriggerCollider : MonoBehaviour
     {
         [SerializeField] private EnemyData enemyData;
         [SerializeField] private List<Collider> _colliders = new();
@@ -14,7 +14,7 @@ namespace Enemy
 
             if (other.CompareTag("Player"))
             {
-                enemyData.CanAttack = true;
+                enemyData.SeeTarget = true;
             }
         }
 
@@ -22,7 +22,7 @@ namespace Enemy
         {
             if (other.CompareTag("Player"))
             {
-                enemyData.CanAttack = false;
+                enemyData.SeeTarget = false;
             }
             
             _colliders.Remove(other);
