@@ -1,15 +1,17 @@
-using System;
 using UnityEngine;
 using Utils.Interfaces;
 
-public class NitroAttackCollider : MonoBehaviour
+namespace __Workspaces.Alex.Scripts
 {
-    [SerializeField] private float damage = 500f;
-    private void OnTriggerEnter(Collider other)
+    public class NitroAttackCollider : MonoBehaviour
     {
-        if (other.CompareTag("Enemy"))
+        [SerializeField] private float damage = 500f;
+        private void OnTriggerEnter(Collider other)
         {
-            other.GetComponent<IDamageable>().TakeDamage(damage);
+            if (other.CompareTag("Enemy"))
+            {
+                other.GetComponent<IDamageable>().TakeDamage(damage);
+            }
         }
     }
 }
