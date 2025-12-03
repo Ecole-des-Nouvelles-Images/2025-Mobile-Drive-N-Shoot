@@ -1,17 +1,19 @@
 using System;
 using UnityEngine;
 
-public abstract class Item : ScriptableObject
+namespace __Workspaces.Alex.Scripts
 {
-    public ItemType ItemType;
-    public abstract void Execute(GameObject target);
-}
+    public abstract class Item : ScriptableObject
+    {
+        public ItemType ItemType;
+        public abstract void Execute(GameObject target);
+    }
 
-[Serializable]
-public enum ItemType
-{
-    Repair,
-    Boost,
-    Overheat,
-    BigBlast
+    public enum ItemType
+    {
+        Repair,
+        Boost,
+        Overheat,
+        BigBlast
+    }
 }

@@ -1,12 +1,14 @@
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "Item_Repair", menuName = "Items/Item Repair")]
-public class ItemRepair : Item
+namespace __Workspaces.Alex.Scripts
 {
-    public override void Execute(GameObject target)
+    [CreateAssetMenu(fileName = "Item_Repair", menuName = "Items/Item Repair")]
+    public class ItemRepair : Item
     {
-        var health = target.GetComponent<CarHealth>();
-        health.Heal();
+        public override void Execute(GameObject target)
+        {
+            var health = target.GetComponent<CarHealth>();
+            health.Heal();
+        }
     }
 }
