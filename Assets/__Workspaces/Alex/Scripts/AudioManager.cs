@@ -3,6 +3,7 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 using Utils;
+using Utils.Singletons;
 
 public class AudioManager : MonoBehaviourSingletonDontDestroyOnLoad<AudioManager>
 {
