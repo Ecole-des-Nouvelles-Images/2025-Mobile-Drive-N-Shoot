@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 4738008987439203036}
   m_Layer: 0
   m_Name: Prefab_EnemySpider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,12 +122,11 @@ MonoBehaviour:
   Damage: 5
   AttackSpeed: 2
   AttackRange: 1
-  DeathExplosionDamage: 10
-  DeathExplosionRange: 3
   IsDying: 0
   IsDead: 0
   IsAttacking: 0
   IsMoving: 0
+  aimTransform: {fileID: 9082122380062286667}
   TargetTransform: {fileID: 0}
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}

@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5210192218730039623}
   m_Layer: 0
   m_Name: Prefab_EnemyDrone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   IsDead: 0
   IsAttacking: 0
   IsMoving: 0
+  aimTransform: {fileID: 0}
   TargetTransform: {fileID: 0}
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}
