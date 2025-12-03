@@ -126,6 +126,7 @@ namespace Enemy.Drone
         
         private void Die()
         {
+            NavMeshAgent.ResetPath();
             // VFX, SFX
             
             IsDead = true;

@@ -57,6 +57,7 @@ namespace Enemy.Spider
 
         private void Die()
         {
+            NavMeshAgent.ResetPath();
             Animator.SetBool("IsDead", IsDying);
             
             // VFX, SFX
