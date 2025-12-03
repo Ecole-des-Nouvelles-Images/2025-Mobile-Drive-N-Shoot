@@ -1,3 +1,4 @@
+using System;
 using InGameHandlers;
 using TMPro;
 using UnityEngine;
@@ -19,22 +20,24 @@ namespace UI
         [SerializeField] private TimerHandler _timerHandler;
         [SerializeField] private DistanceHandler _distanceHandler;
 
-        // public void UseItem(string itemType)
-        // {
-        //     switch (itemType)
-        //     {
-        //         case ItemType.BigBlast:
-        //             _buttonItemIEM.interactable = false;
-        //             break;
-        //         case ItemType.Overheat:
-        //             _buttonItemNoOverheat.interactable = false;
-        //             break;
-        //         case ItemType.Repair:
-        //             _buttonItemRepair.interactable = false;
-        //             break;
-        //     }
-        //     EventBus.OnUsingItem?.Invoke(itemType);
-        // }
+        public void UseItem(string itemName)
+        {
+            Enum.TryParse(itemName, true, out ItemType itemType);
+            
+            switch (itemType)
+            {
+                case ItemType.BigBlast:
+                    _buttonItemIEM.interactable = false;
+                    break;
+                case ItemType.Overheat:
+                    _buttonItemNoOverheat.interactable = false;
+                    break;
+                case ItemType.Repair:
+                    _buttonItemRepair.interactable = false;
+                    break;
+            }
+            EventBus.OnUsingItem?.Invoke(itemType);
+        }
         
         private void Update()
         {

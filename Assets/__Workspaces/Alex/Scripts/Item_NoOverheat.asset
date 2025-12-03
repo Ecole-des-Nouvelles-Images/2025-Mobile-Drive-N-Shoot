@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f565ba083a20124cb1eebe61f175122, type: 3}
   m_Name: Item_NoOverheat
   m_EditorClassIdentifier: Assembly-CSharp::ItemNoOverheat
-  ItemType: 0
+  ItemType: 2
   Duration: 30

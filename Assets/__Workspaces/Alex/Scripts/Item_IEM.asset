@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9152262276afacb40a1fbb504281124b, type: 3}
   m_Name: Item_IEM
   m_EditorClassIdentifier: Assembly-CSharp::ItemIEM
-  ItemType: 0
+  ItemType: 3
   Radius: 20
   Damage: 100
