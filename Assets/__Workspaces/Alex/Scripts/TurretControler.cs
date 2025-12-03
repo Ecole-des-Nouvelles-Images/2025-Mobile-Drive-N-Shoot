@@ -202,9 +202,9 @@ public class TurretControler : MonoBehaviour
 
     private void HandleFiring()
     {
-        if (Time.time >= _nextFireTime)
+        if (TimeManager.Instance.Time >= _nextFireTime)
         {
-            _nextFireTime = Time.time + _fireRate;
+            _nextFireTime = TimeManager.Instance.Time + _fireRate;
             Fire();
         }
 

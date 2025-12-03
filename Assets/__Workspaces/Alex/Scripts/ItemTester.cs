@@ -6,10 +6,16 @@ public class ItemTester : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            itemToTest.Execute(gameObject);
             Debug.Log("testing item: " + itemToTest.name);
+            itemToTest.Execute(gameObject);
         }
+    }
+
+    public void TestItem()
+    {
+        Debug.Log("Testing item: " + itemToTest.name);
+        itemToTest.Execute(gameObject);
     }
 }
