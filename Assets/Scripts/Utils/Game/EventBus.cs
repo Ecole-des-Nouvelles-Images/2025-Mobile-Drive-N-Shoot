@@ -43,8 +43,8 @@ namespace Utils.Game
         public static Action<GameObject> OnEnemyDie;
         public static Action<float> OnEnemyTakeDamage;
         
-        // Terrain
-        public static Action<Terrain> GenerationTerrainFinished;
+        // Module
+        public static Action OnModuleFinishedGeneration;
         
         // Timer
         public static Action OnAddTimeToTimer;

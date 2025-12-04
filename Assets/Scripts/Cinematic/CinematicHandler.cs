@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils.Game;
 
 namespace Cinematic
 {
@@ -24,8 +26,28 @@ namespace Cinematic
         private Rigidbody _playerRigidBody;
         private bool _playerDetected;
 
-        private void Start()
+        // private void Start()
+        // {
+        //     _canvasBackgroundBlack.DOFade(0.0f, 0.5f);
+        //     
+        //     _playerRigidBody = _player.GetComponent<Rigidbody>();
+        //     StartCoroutine(WaitForBlendEnd(2f));
+        // }
+
+        private void OnEnable()
         {
+            EventBus.OnModuleFinishedGeneration += OnModuleFinishedGeneration;
+        }
+        
+        private void OnDisable()
+        {
+            EventBus.OnModuleFinishedGeneration -= OnModuleFinishedGeneration;
+        }
+
+        private void OnModuleFinishedGeneration()
+        {
+            if (_playerDetected) return;
+            
             _canvasBackgroundBlack.DOFade(0.0f, 0.5f);
             
             _playerRigidBody = _player.GetComponent<Rigidbody>();
