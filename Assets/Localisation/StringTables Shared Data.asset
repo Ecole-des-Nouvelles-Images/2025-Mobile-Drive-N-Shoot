@@ -19,6 +19,38 @@ MonoBehaviour:
     m_Key: play
     m_Metadata:
       m_Items: []
+  - m_Id: 3496035229696
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4985130590208
+    m_Key: turret
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6051658211328
+    m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6214854385664
+    m_Key: languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6543197085696
+    m_Key: audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6752706764800
+    m_Key: music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7140184956928
+    m_Key: sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7836431032320
+    m_Key: pickup
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
