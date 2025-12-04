@@ -75,3 +75,67 @@
 [LOG] SoundI::release                          : 3000_loop (000001A8A6091AB8)
 [LOG] SoundI::release                          :     3000_loop (000001A7E31A90F8)
 [LOG] SoundI::release                          :     3000_loop (000001A8A6092F08)
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] BankLoader::serializeBank                : fileversion = 146, compatVersion = 146 (oldest = 44, newest = 146)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSound                     : filename = Assets/StreamingAssets/Audio/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001A8A6093098, queue head = 000001A8A60923D8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001A8A6093098
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/StreamingAssets/Audio/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1410944
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 13792
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001A7429AFB38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='3000_loop', format=5, channels=2, frequency=48000, lengthbytes=154528, lengthpcm=576000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.327667.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001A8A6093098
+[LOG] SystemI::createSound                     : filename = Assets/StreamingAssets/Audio/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001A8A6090668, queue head = 000001A8A60923D8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001A8A6090668
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/StreamingAssets/Audio/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1410944
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 13792
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001A7429AFC98
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='3000_loop', format=5, channels=2, frequency=48000, lengthbytes=154528, lengthpcm=576000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.327667.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001A8A6090668
+[LOG] SoundI::release                          : 3000_loop (000001A8A6093098)
+[LOG] SoundI::release                          :     3000_loop (000001A741F38708)
+[LOG] SoundI::release                          :     3000_loop (000001A8A6093228)
+[LOG] SystemI::createSound                     : filename = Assets/StreamingAssets/Audio/Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::getAsyncThread              : index = 0 / 5
+[LOG] AsyncThread::add                         : add sound to async queue : soundi = 000001A8A6093098, queue head = 000001A8A60923D8, queue count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001A8A6093098
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/StreamingAssets/Audio/Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1410944
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 13792
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001A7429AFB38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='3000_loop', format=5, channels=2, frequency=48000, lengthbytes=154528, lengthpcm=576000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.327667.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001A8A6093098
+[LOG] SoundI::release                          : 3000_loop (000001A8A6090668)
+[LOG] SoundI::release                          :     3000_loop (000001A741F37508)
+[LOG] SoundI::release                          :     3000_loop (000001A8A60907F8)
+[LOG] SoundI::release                          : 3000_loop (000001A8A6093098)
+[LOG] SoundI::release                          :     3000_loop (000001A741F38708)
+[LOG] SoundI::release                          :     3000_loop (000001A8A6093228)
