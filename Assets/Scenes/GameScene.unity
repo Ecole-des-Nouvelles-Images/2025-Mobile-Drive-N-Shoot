@@ -735,6 +735,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineReference.Path
+      value: event:/SFX/Engine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineReference.Guid.Data1
+      value: -1614297975
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineReference.Guid.Data2
+      value: 1084661984
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineReference.Guid.Data3
+      value: 410444979
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineReference.Guid.Data4
+      value: -6529491
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1531,6 +1551,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 467301584341341033, guid: 37f85285ef8474642899e0f6655159e4, type: 3}
   m_PrefabInstance: {fileID: 1792903581}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2044835021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044835023}
+  - component: {fileID: 2044835022}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2044835022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044835021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59904eaad02040f4b989aaf8c3530f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Alex.Scripts.AudioManager
+--- !u!4 &2044835023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044835021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.38844, y: 4.481, z: -1.83227}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9177435871252653502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1602,3 +1666,4 @@ SceneRoots:
   - {fileID: 1030721800}
   - {fileID: 24795465}
   - {fileID: 558933894}
+  - {fileID: 2044835023}
