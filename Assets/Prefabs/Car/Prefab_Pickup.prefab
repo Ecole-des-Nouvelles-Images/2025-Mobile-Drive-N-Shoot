@@ -284,7 +284,6 @@ GameObject:
   - component: {fileID: 2160105197508392314}
   - component: {fileID: 5525036185201538663}
   - component: {fileID: 8847901439806859517}
-  - component: {fileID: 4955191046648869143}
   m_Layer: 0
   m_Name: Prefab_Pickup
   m_TagString: Player
@@ -486,19 +485,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &4955191046648869143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546494360475675740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e7a454ca1442143aae767549a04f78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemTester
-  itemToTest: {fileID: 11400000, guid: 3bc7566fb964a9f4fa326d945d77f7f2, type: 2}
 --- !u!1 &1728030710496205890
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +546,7 @@ MonoBehaviour:
     FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 100
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -590,7 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 1
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 1.25, y: 0.5, z: 1.25}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1

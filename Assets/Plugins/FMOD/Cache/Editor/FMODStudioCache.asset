@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2916704335151674200
+--- !u!114 &-4346389124774074721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: BuildFMOD/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 639003621894635409
+  Path: ../2025-Mobile-Drive-N-Shoot-FMOD/DriveNShoot/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639003618142080169
   FileSizes:
-  - Name: 
-    Value: 724
+  - Name: Desktop
+    Value: 1074
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -33,18 +33,18 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: -2916704335151674200}
-  - {fileID: 8275259378240422762}
+  - {fileID: 6769709957629809825}
+  - {fileID: 100426024628491440}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8275259378240422762}
+  - {fileID: 100426024628491440}
   StringsBanks:
-  - {fileID: -2916704335151674200}
+  - {fileID: 6769709957629809825}
   cacheVersion: 131857
-  cacheTime: 639003621894635409
+  cacheTime: 639004456368120133
   SerializableEventsDict: []
---- !u!114 &8275259378240422762
+--- !u!114 &100426024628491440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,6 +59,46 @@ MonoBehaviour:
   Path: BuildFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639003621894635409
+  lastModified: 639004456368110121
   FileSizes: []
+  Exists: 1
+--- !u!114 &3307161014873688868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: ../2025-Mobile-Drive-N-Shoot-FMOD/DriveNShoot/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639003618142090142
+  FileSizes:
+  - Name: Desktop
+    Value: 724
+  Exists: 1
+--- !u!114 &6769709957629809825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: BuildFMOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639004456368120133
+  FileSizes:
+  - Name: 
+    Value: 724
   Exists: 1
