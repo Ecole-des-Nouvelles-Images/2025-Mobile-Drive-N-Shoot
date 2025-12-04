@@ -1,4 +1,5 @@
 using System;
+using __Workspaces.Alex.Scripts;
 using UnityEngine;
 
 namespace Utils.Game
@@ -43,5 +44,9 @@ namespace Utils.Game
         
         // Timer
         public static Action OnAddTimeToTimer;
+        
+        // Items
+        public static Action<Item> OnCollectedItem;
+        public static Action<ItemType> OnUsingItem;
     }
 }

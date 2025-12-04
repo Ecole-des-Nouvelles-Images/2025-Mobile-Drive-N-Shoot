@@ -179,6 +179,13 @@
 		{
 			"isExternal" : true,
 			"path" : "D:/h.isambart/LocalRepo/2025-Mobile-Drive-N-Shoot/.utmp/RelWithDebInfo/o4e5p1q2/prefab/armeabi-v7a/prefab/lib/arm-linux-androideabi/cmake/game-activity/game-activityConfig.cmake"
+		},
+		{
+			"path" : "FramePacing/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "D:/h.isambart/LocalRepo/2025-Mobile-Drive-N-Shoot/.utmp/RelWithDebInfo/o4e5p1q2/prefab/armeabi-v7a/prefab/lib/arm-linux-androideabi/cmake/games-frame-pacing/games-frame-pacingConfig.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

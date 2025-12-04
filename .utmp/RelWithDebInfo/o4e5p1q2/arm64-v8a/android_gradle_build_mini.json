@@ -1,6 +1,7 @@
 {
   "buildFiles": [
     "D:\\h.isambart\\LocalRepo\\2025-Mobile-Drive-N-Shoot\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\CMakeLists.txt",
+    "D:\\h.isambart\\LocalRepo\\2025-Mobile-Drive-N-Shoot\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\FramePacing\\CMakeLists.txt",
     "D:\\h.isambart\\LocalRepo\\2025-Mobile-Drive-N-Shoot\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\GameActivity\\CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
@@ -22,6 +23,12 @@
       "artifactName": "game",
       "abi": "arm64-v8a",
       "output": "D:\\h.isambart\\LocalRepo\\2025-Mobile-Drive-N-Shoot\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\RelWithDebInfo\\o4e5p1q2\\obj\\arm64-v8a\\libgame.so",
+      "runtimeFiles": []
+    },
+    "swappywrapper::@7e25bd1f32ce224db4e9": {
+      "artifactName": "swappywrapper",
+      "abi": "arm64-v8a",
+      "output": "D:\\h.isambart\\LocalRepo\\2025-Mobile-Drive-N-Shoot\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\RelWithDebInfo\\o4e5p1q2\\obj\\arm64-v8a\\libswappywrapper.so",
       "runtimeFiles": []
     }
   }

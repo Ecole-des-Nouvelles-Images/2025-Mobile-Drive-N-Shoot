@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9152262276afacb40a1fbb504281124b, type: 3}
-  m_Name: Item_IEM
-  m_EditorClassIdentifier: Assembly-CSharp::ItemIEM
-  ItemType: 0
-  Radius: 20
-  Damage: 100
+  m_Script: {fileID: 11500000, guid: 6c446f940841748488eae999fe9398e1, type: 3}
+  m_Name: Item_Nitro
+  m_EditorClassIdentifier: Assembly-CSharp::ItemNitro
+  ItemType: 1

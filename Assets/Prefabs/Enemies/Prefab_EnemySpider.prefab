@@ -1,5 +1,73 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &343027227578561054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3358309781830421202}
+  - component: {fileID: 4192724593775038414}
+  - component: {fileID: 2982283505184604792}
+  m_Layer: 0
+  m_Name: SightTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3358309781830421202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343027227578561054}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1847727359040202330}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &4192724593775038414
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343027227578561054}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2982283505184604792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343027227578561054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d23e2d8bc3450f9c0d2399a0a41a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemySightTriggerCollider
+  enemyData: {fileID: 2205203812999137503}
+  _colliders: []
 --- !u!1 &1747185081717804813
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +80,7 @@ GameObject:
   - component: {fileID: 4523451132106172580}
   - component: {fileID: 9023715347566299116}
   m_Layer: 0
-  m_Name: SightTrigger
+  m_Name: AttackRangeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +147,7 @@ GameObject:
   - component: {fileID: 1847727359040202330}
   - component: {fileID: 2205203812999137503}
   - component: {fileID: 7111640776458576405}
-  - component: {fileID: 5511590151963420873}
+  - component: {fileID: 1279313413151312451}
   - component: {fileID: 4738008987439203036}
   m_Layer: 0
   m_Name: Prefab_EnemySpider
@@ -103,6 +171,7 @@ Transform:
   m_Children:
   - {fileID: 9082122380062286667}
   - {fileID: 7126929747449538846}
+  - {fileID: 3358309781830421202}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2205203812999137503
@@ -122,6 +191,7 @@ MonoBehaviour:
   Damage: 5
   AttackSpeed: 2
   AttackRange: 1
+  SeeTarget: 0
   IsDying: 0
   IsDead: 0
   IsAttacking: 0
@@ -130,6 +200,7 @@ MonoBehaviour:
   TargetTransform: {fileID: 0}
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}
+  Collider: {fileID: 0}
   AttackRangeCollider: {fileID: 4523451132106172580}
   Animator: {fileID: 3225174371836797544}
 --- !u!195 &7111640776458576405
@@ -154,8 +225,8 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &5511590151963420873
-BoxCollider:
+--- !u!136 &1279313413151312451
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -172,9 +243,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Height: 0.8
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.25, z: -0.15}
 --- !u!114 &4738008987439203036
 MonoBehaviour:
   m_ObjectHideFlags: 0

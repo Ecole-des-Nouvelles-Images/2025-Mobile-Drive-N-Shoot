@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1117045525075458872}
   - component: {fileID: 3596197607216418857}
   m_Layer: 0
-  m_Name: SightTrigger
+  m_Name: AttackRangeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.TriggerCollider
   enemyData: {fileID: 5791760298487775020}
   _colliders: []
+--- !u!1 &5631075543405917513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6790507379032277088}
+  - component: {fileID: 2533758205809347238}
+  - component: {fileID: 4504476302702731842}
+  m_Layer: 0
+  m_Name: SightTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6790507379032277088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631075543405917513}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1847727359040202330}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2533758205809347238
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631075543405917513}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4504476302702731842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631075543405917513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d23e2d8bc3450f9c0d2399a0a41a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemySightTriggerCollider
+  enemyData: {fileID: 5791760298487775020}
+  _colliders: []
 --- !u!1 &7989771649214069358
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +204,7 @@ Transform:
   m_Children:
   - {fileID: 5477776548366290039}
   - {fileID: 4894661238239726356}
+  - {fileID: 6790507379032277088}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5791760298487775020
@@ -154,15 +223,17 @@ MonoBehaviour:
   MaxHealth: 10
   Damage: 1
   AttackSpeed: 0.2
-  AttackRange: 5
+  AttackRange: 4
+  SeeTarget: 0
   IsDying: 0
   IsDead: 0
   IsAttacking: 0
   IsMoving: 0
-  aimTransform: {fileID: 0}
+  aimTransform: {fileID: 6595863270384219775}
   TargetTransform: {fileID: 0}
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}
+  Collider: {fileID: 0}
   AttackRangeCollider: {fileID: 1117045525075458872}
   Animator: {fileID: 0}
   _turretTransform: {fileID: 9143186363493566316}
@@ -427,6 +498,11 @@ Transform:
 --- !u!4 &5477776548366290039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6595863270384219775 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8068348883406168605, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
   m_PrefabInstance: {fileID: 5444361305092516764}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8314480480540945637 stripped
