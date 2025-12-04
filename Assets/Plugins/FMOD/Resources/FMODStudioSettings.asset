@@ -683,7 +683,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../2025-Mobile-Drive-N-Shoot-FMOD/DriveNShoot/DriveNShoot.fspro
-  sourceBankPath: BuildFMOD/Desktop
+  sourceBankPath: Assets/StreamingAssets/Audio/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
