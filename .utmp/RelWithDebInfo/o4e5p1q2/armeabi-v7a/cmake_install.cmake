@@ -45,6 +45,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("D:/h.isambart/LocalRepo/2025-Mobile-Drive-N-Shoot/.utmp/RelWithDebInfo/o4e5p1q2/armeabi-v7a/GameActivity/cmake_install.cmake")
+  include("D:/h.isambart/LocalRepo/2025-Mobile-Drive-N-Shoot/.utmp/RelWithDebInfo/o4e5p1q2/armeabi-v7a/FramePacing/cmake_install.cmake")
 
 endif()
 

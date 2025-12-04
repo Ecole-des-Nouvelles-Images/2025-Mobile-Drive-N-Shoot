@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ca3920e9d62464fb57fb3029b5583e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.GameLoop.GameManager
+  Player: {fileID: 0}
   CurrentCarMaterials: []
   CurrentTurretMaterials: []
 --- !u!4 &561172853
@@ -521,8 +522,8 @@ GameObject:
   m_Component:
   - component: {fileID: 982467433}
   - component: {fileID: 982467432}
-  - component: {fileID: 982467431}
   - component: {fileID: 982467430}
+  - component: {fileID: 982467434}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -574,14 +575,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &982467431
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982467429}
-  m_Enabled: 1
 --- !u!20 &982467432
 Camera:
   m_ObjectHideFlags: 0
@@ -648,6 +641,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982467434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982467429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1043038669
 GameObject:
   m_ObjectHideFlags: 0
