@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Core;
+using FMOD.Studio;
 using UnityEngine;
 using Utils.Game;
 
@@ -41,6 +42,9 @@ namespace Car
 
         [Header("Nitro Attack")] 
         [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
+
+        [Header("SFX")] 
+        [SerializeField] private EventInstance _engineSound;
     
     
         private WheelControl[] _wheels;
