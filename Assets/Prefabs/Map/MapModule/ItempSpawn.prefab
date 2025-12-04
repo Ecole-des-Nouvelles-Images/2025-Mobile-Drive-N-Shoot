@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7540906880933574646}
   - component: {fileID: 7371177782886339263}
+  - component: {fileID: 7838440416464097389}
   m_Layer: 0
   m_Name: ItempSpawn
   m_TagString: Untagged
@@ -51,6 +52,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca48df8f20469a3458a04299cba29ca1, type: 2}
   - {fileID: 11400000, guid: 45eedb7f8a95baa4e9f3bf2470924b39, type: 2}
   _itemVisual: {fileID: 8123554460896647131}
+--- !u!135 &7838440416464097389
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174210718395250885}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8123554460896647131
 GameObject:
   m_ObjectHideFlags: 0

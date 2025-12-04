@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7146444490794897819}
   - component: {fileID: 6409341939932815925}
-  - component: {fileID: 9109885370874555234}
+  - component: {fileID: 5658761444864915815}
   m_Layer: 0
   m_Name: Prefab_DeadTree
   m_TagString: Untagged
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PropsHandler
   _visual: {fileID: 6153002395939540785}
   _psDestroy: {fileID: 0}
---- !u!135 &9109885370874555234
-SphereCollider:
+--- !u!136 &5658761444864915815
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -63,12 +63,14 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Height: 1.5
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1001 &6458921377534030432
 PrefabInstance:
   m_ObjectHideFlags: 0

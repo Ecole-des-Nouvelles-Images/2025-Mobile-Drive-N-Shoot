@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace __Workspaces.Hugoi.Scripts
 {
-    [RequireComponent(typeof(SphereCollider))]
     public class PropsHandler : MonoBehaviour
     {
         [Header("References")]

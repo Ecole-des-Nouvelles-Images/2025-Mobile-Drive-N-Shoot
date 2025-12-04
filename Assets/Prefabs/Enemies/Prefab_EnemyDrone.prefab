@@ -223,13 +223,13 @@ MonoBehaviour:
   MaxHealth: 10
   Damage: 1
   AttackSpeed: 0.2
-  AttackRange: 5
+  AttackRange: 4
   SeeTarget: 0
   IsDying: 0
   IsDead: 0
   IsAttacking: 0
   IsMoving: 0
-  aimTransform: {fileID: 0}
+  aimTransform: {fileID: 6595863270384219775}
   TargetTransform: {fileID: 0}
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}
@@ -498,6 +498,11 @@ Transform:
 --- !u!4 &5477776548366290039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6595863270384219775 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8068348883406168605, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
   m_PrefabInstance: {fileID: 5444361305092516764}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8314480480540945637 stripped

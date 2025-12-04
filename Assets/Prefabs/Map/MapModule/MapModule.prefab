@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 898583420212954918}
   - component: {fileID: 6661033002391680170}
   - component: {fileID: 1496061003287026968}
+  - component: {fileID: 745243863289202029}
   m_Layer: 0
   m_Name: EnemiesSpawner
   m_TagString: SplineEnemies
@@ -68,6 +69,30 @@ MonoBehaviour:
   _scaleOffsetMinMax: {x: 1, y: 1}
   _props:
   - {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
+  _transformParent: {fileID: 898583420212954918}
+  _splineContainer: {fileID: 5965455809491477312}
+--- !u!114 &745243863289202029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894137569202864007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
+  _seed: 0
+  _density: 10
+  _width: 15
+  _localHeightOffset: 0
+  _heightOffset: 4
+  _rotationOffset: 0
+  _positionOffset: 1
+  _scaleOffsetMinMax: {x: 1, y: 1}
+  _props:
+  - {fileID: 7989771649214069358, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
   _transformParent: {fileID: 898583420212954918}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!1 &1026718382666539485
@@ -1116,8 +1141,8 @@ MonoBehaviour:
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.2
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
