@@ -2767,8 +2767,8 @@ GameObject:
   m_Component:
   - component: {fileID: 588896765}
   - component: {fileID: 588896764}
-  - component: {fileID: 588896763}
   - component: {fileID: 588896766}
+  - component: {fileID: 588896767}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2776,14 +2776,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &588896763
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588896762}
-  m_Enabled: 1
 --- !u!20 &588896764
 Camera:
   m_ObjectHideFlags: 0
@@ -2894,6 +2886,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &588896767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588896762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &597195551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,15 +3726,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6313930039e445c4199a960150a5db53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.0750186
+      value: 2.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6313930039e445c4199a960150a5db53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0015080571
+      value: 3.62
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6313930039e445c4199a960150a5db53, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.9808826
+      value: -7.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6313930039e445c4199a960150a5db53, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3758,6 +3764,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6313930039e445c4199a960150a5db53, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6313930039e445c4199a960150a5db53, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d149e20d40df39c4e81b1b2a1ee71614, type: 2}
     - target: {fileID: 919132149155446097, guid: 6313930039e445c4199a960150a5db53, type: 3}
       propertyPath: m_Name
       value: Barrel_v1
@@ -7712,7 +7726,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a77644c2e78958d488b6de4070e8a02b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
