@@ -4,7 +4,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Cinematic
 {
     public class CinematicHandler : MonoBehaviour
     {
