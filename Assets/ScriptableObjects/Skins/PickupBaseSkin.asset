@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PickupBaseSkin
   m_EditorClassIdentifier: Assembly-CSharp::SelectionSkins.Skin
   SkinType: 0
-  Material: {fileID: 2100000, guid: 068e1d87106c3b84fad72e3ff1bc73f1, type: 2}
+  Material: {fileID: 2100000, guid: ddc9d777c3afeb841873eebbf3233844, type: 2}
