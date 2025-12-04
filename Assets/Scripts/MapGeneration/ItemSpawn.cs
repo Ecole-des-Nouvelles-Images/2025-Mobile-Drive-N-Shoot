@@ -4,7 +4,7 @@ using UnityEngine;
 using Utils.Game;
 using Random = UnityEngine.Random;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     public class ItemSpawn : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using Core;
 using UnityEngine;
 using Utils.Game;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace InGameHandlers
 {
     public class InventoryHandler : MonoBehaviour
     {

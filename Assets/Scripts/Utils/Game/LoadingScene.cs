@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Utils.Game
 {
     public class LoadingScene : MonoBehaviour
     {

@@ -28,6 +28,10 @@ namespace Utils.Game
         /// Current Health, Max Health
         /// </summary>
         public static Action<float, float> OnPlayerHealthChange;
+        /// <summary>
+        /// Timer, Cooldown
+        /// </summary>
+        public static Action<float, float> OnPlayerBoostCooldown;
 
         public static Action OnPlayerAtHalfHealth;
         public static Action OnPlayerRecoveredFromHalf;

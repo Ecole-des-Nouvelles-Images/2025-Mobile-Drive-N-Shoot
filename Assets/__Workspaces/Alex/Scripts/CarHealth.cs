@@ -18,11 +18,14 @@ namespace __Workspaces.Alex.Scripts
         private void Start()
         {
             CurrentHealth = maxHealth;
+            EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
         }
 
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
+            EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
+            
             if (!_hasTriggeredHalf && CurrentHealth <= maxHealth / 2)
             {
                 EventBus.OnPlayerAtHalfHealth?.Invoke();
@@ -42,6 +45,7 @@ namespace __Workspaces.Alex.Scripts
             CurrentHealth = maxHealth;
             _hasTriggeredHalf = false;
             EventBus.OnPlayerRecoveredFromHalf?.Invoke();
+            EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
         }
     }
 }

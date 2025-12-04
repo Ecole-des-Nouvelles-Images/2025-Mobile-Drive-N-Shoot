@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace MapGeneration
 {
     public class PropsHandler : MonoBehaviour
     {
