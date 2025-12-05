@@ -28,6 +28,10 @@ namespace Utils.Game
         /// Current Health, Max Health
         /// </summary>
         public static Action<float, float> OnPlayerHealthChange;
+        /// <summary>
+        /// Timer, Cooldown
+        /// </summary>
+        public static Action<float, float> OnPlayerBoostCooldown;
 
         public static Action OnPlayerAtHalfHealth;
         public static Action OnPlayerRecoveredFromHalf;
@@ -39,8 +43,8 @@ namespace Utils.Game
         public static Action<GameObject> OnEnemyDie;
         public static Action<float> OnEnemyTakeDamage;
         
-        // Terrain
-        public static Action<Terrain> GenerationTerrainFinished;
+        // Module
+        public static Action OnModuleFinishedGeneration;
         
         // Timer
         public static Action OnAddTimeToTimer;

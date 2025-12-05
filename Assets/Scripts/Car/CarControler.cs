@@ -114,7 +114,7 @@ namespace Car
 
             // Initialize accelerometer filter and cooldown so boost can be used immediately
             _lowPassAcceleration = Input.acceleration;
-            _nextBoostTime = TimeManager.Instance.Time;
+            // _nextBoostTime = TimeManager.Instance.Time;
         
             // Skin
             _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
@@ -137,10 +137,16 @@ namespace Car
             Vector3 highFreq = currentAccel - _lowPassAcceleration;
 
             // If the high-frequency magnitude exceeds the threshold and cooldown has passed, trigger boost immediately
-            float now = TimeManager.Instance.Time;
-            if (highFreq.magnitude > shakeThreshold && now >= _nextBoostTime)
+            // float now = TimeManager.Instance.Time;
+            if (_nextBoostTime <= boostCooldown)
             {
-                ApplyVelocityChangeBoost(now);
+                _nextBoostTime += TimeManager.Instance.DeltaTime;
+                _nextBoostTime = Mathf.Clamp(_nextBoostTime, 0f, boostCooldown);
+                EventBus.OnPlayerBoostCooldown?.Invoke(_nextBoostTime, boostCooldown);
+            }
+            if (highFreq.magnitude > shakeThreshold && _nextBoostTime >= boostCooldown)
+            {
+                ApplyVelocityChangeBoost();
             }
             
             // Sound gestion
@@ -152,9 +158,9 @@ namespace Car
 
 #if UNITY_EDITOR || UNITY_STANDALONE
             // Editor / standalone shortcut for testing: press B to trigger boost
-            if (Input.GetKeyDown(KeyCode.B) && now >= _nextBoostTime)
+            if (Input.GetKeyDown(KeyCode.B) && _nextBoostTime >= boostCooldown)
             {
-                ApplyVelocityChangeBoost(now);
+                ApplyVelocityChangeBoost();
             }
 #endif
         }
@@ -255,9 +261,9 @@ namespace Car
         }
     
         // Apply an immediate velocity change (VelocityChange) and set the cooldown
-        private void ApplyVelocityChangeBoost(float now)
+        private void ApplyVelocityChangeBoost()
         {
-            _nextBoostTime = now + boostCooldown;
+            _nextBoostTime = 0f;
 
             // Apply an immediate velocity change in the forward direction (mass-independent)
             _rigidBody.AddForce(transform.forward * boostDeltaV, ForceMode.VelocityChange);

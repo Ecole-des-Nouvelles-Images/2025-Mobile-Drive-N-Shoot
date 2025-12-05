@@ -16,6 +16,8 @@ namespace UI
         [SerializeField] private Button _buttonItemIEM;
         [SerializeField] private Button _buttonItemNoOverheat;
         [SerializeField] private Button _buttonItemRepair;
+        [SerializeField] private Image _imageCarHealth;
+        [SerializeField] private Image _imageBoost;
         
         [Header("References Data")]
         [SerializeField] private TimerHandler _timerHandler;
@@ -49,8 +51,20 @@ namespace UI
         private void OnEnable()
         {
             EventBus.OnCollectedItem += OnCollectedItem;
+            EventBus.OnPlayerHealthChange += OnPlayerHealthChange;
+            EventBus.OnPlayerBoostCooldown += OnPlayerBoostCooldown;
+        }
+
+        private void OnPlayerHealthChange(float currentHealth, float maxHealth)
+        {
+            _imageCarHealth.fillAmount = currentHealth / maxHealth;
         }
         
+        private void OnPlayerBoostCooldown(float timer, float cooldown)
+        {
+            _imageBoost.fillAmount = timer / cooldown;
+        }
+
         private void OnCollectedItem(Item item)
         {
             switch (item.ItemType)
@@ -70,6 +84,8 @@ namespace UI
         private void OnDisable()
         {
             EventBus.OnCollectedItem -= OnCollectedItem;
+            EventBus.OnPlayerHealthChange -= OnPlayerHealthChange;
+            EventBus.OnPlayerBoostCooldown -= OnPlayerBoostCooldown;
         }
     }
 }

@@ -1049,7 +1049,7 @@ MonoBehaviour:
   _raiseAmount: 1
   _rayHeight: 10
   _roadTag: Road
-  _yieldEveryYRows: 10
+  _yieldEveryYRows: 1
   _terrain: {fileID: 8544518952561437464}
   _navMeshSurface: {fileID: 97740809343622279}
   _splineContainer: {fileID: 5965455809491477312}
