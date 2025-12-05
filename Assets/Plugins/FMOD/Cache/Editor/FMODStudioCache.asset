@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8677583146976431509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Overheat
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Overheat
+  Guid:
+    Data1: 518155304
+    Data2: 1137448522
+    Data3: 1052307105
+    Data4: 1719854015
+  Banks:
+  - {fileID: -3879233190755949785}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8479444971409021016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +331,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639005253988995647
+  lastModified: 639005323714608497
   FileSizes: []
   Exists: 1
 --- !u!114 &-3466563315964292131
@@ -361,6 +388,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-754407963637244680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SpiderAttack
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SpiderAttack
+  Guid:
+    Data1: -1789921049
+    Data2: 1287353610
+    Data3: -485739596
+    Data4: -441787038
+  Banks:
+  - {fileID: -3879233190755949785}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,13 +439,15 @@ MonoBehaviour:
   - {fileID: -8022369940148289675}
   - {fileID: -7725516629102310901}
   - {fileID: 1282383273517870839}
+  - {fileID: -8677583146976431509}
+  - {fileID: -754407963637244680}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3879233190755949785}
   StringsBanks:
   - {fileID: 1377373580052299033}
   cacheVersion: 131857
-  cacheTime: 639005253989005704
+  cacheTime: 639005323714608497
   SerializableEventsDict:
   - key: event:/SFX/MachineGun
     index: 0
@@ -409,6 +465,10 @@ MonoBehaviour:
     index: 6
   - key: event:/SFX/DroneLazer
     index: 7
+  - key: event:/SFX/Overheat
+    index: 8
+  - key: event:/SFX/SpiderAttack
+    index: 9
 --- !u!114 &100426024628491440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,10 +630,10 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639005253989005704
+  lastModified: 639005323714608497
   FileSizes:
   - Name: 
-    Value: 1290
+    Value: 1378
   Exists: 1
 --- !u!114 &1537596362936121937
 MonoBehaviour:

@@ -695,6 +695,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 1610068028593143259, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _fireSound.Path
+      value: event:/SFX/MachineGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610068028593143259, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _fireSound.Guid.Data1
+      value: -1715683056
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610068028593143259, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _fireSound.Guid.Data2
+      value: 1170695769
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610068028593143259, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _fireSound.Guid.Data3
+      value: 10241200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610068028593143259, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _fireSound.Guid.Data4
+      value: 1196966569
+      objectReference: {fileID: 0}
     - target: {fileID: 2238183935687377848, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 50
@@ -736,8 +756,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineSound.Path
+      value: event:/SFX/Engine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
       propertyPath: _engineReference.Path
       value: event:/SFX/Engine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineSound.Guid.Data1
+      value: -1614297975
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineSound.Guid.Data2
+      value: 1084661984
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineSound.Guid.Data3
+      value: 410444979
+      objectReference: {fileID: 0}
+    - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _engineSound.Guid.Data4
+      value: -6529491
       objectReference: {fileID: 0}
     - target: {fileID: 8895617970435745943, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
       propertyPath: _engineReference.Guid.Data1

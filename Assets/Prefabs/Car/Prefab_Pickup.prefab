@@ -343,6 +343,20 @@ MonoBehaviour:
   particleMinSpeed: 0.5
   particleMaxEmission: 30
   _nitroCollider: {fileID: 8607140759603224826}
+  _engineSound:
+    Guid:
+      Data1: -1614297975
+      Data2: 1084661984
+      Data3: 410444979
+      Data4: -6529491
+    Path: event:/SFX/Engine
+  _boostSound:
+    Guid:
+      Data1: 98524276
+      Data2: 1140100832
+      Data3: 650117277
+      Data4: -454054144
+    Path: event:/SFX/Boost
 --- !u!114 &2524738207651137503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +399,20 @@ MonoBehaviour:
   _heatPerSecond: 10
   _coolPerSecond: 10
   _overheatCooldownPerSecond: 20
+  _fireSound:
+    Guid:
+      Data1: -1715683056
+      Data2: 1170695769
+      Data3: 10241200
+      Data4: 1196966569
+    Path: event:/SFX/MachineGun
+  _overheatSound:
+    Guid:
+      Data1: 518155304
+      Data2: 1137448522
+      Data3: 1052307105
+      Data4: 1719854015
+    Path: event:/SFX/Overheat
 --- !u!114 &145836792616463274
 MonoBehaviour:
   m_ObjectHideFlags: 0

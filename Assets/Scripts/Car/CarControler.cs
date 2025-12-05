@@ -4,6 +4,7 @@ using Core;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils.Game;
 
 namespace Car
@@ -46,7 +47,8 @@ namespace Car
         [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
 
         [Header("SFX")] 
-        [SerializeField] private EventReference _engineReference;
+        [SerializeField] private EventReference _engineSound;
+        [SerializeField] private EventReference _boostSound;
 
         private EventInstance _engineInstance;
     
@@ -124,7 +126,7 @@ namespace Car
             }
             
             // Start engine sound
-            _engineInstance = AudioManager.Instance.Play(_engineReference, loop: true, follow: gameObject);
+            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
         }
 
         void Update()
@@ -257,6 +259,9 @@ namespace Car
         // Apply an immediate velocity change (VelocityChange) and set the cooldown
         private void ApplyVelocityChangeBoost(float now)
         {
+            // Play boost sound
+            AudioManager.Instance.Play(_boostSound, follow: gameObject);
+            
             _nextBoostTime = now + boostCooldown;
 
             // Apply an immediate velocity change in the forward direction (mass-independent)
