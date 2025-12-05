@@ -304,7 +304,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639004650405216754
+  lastModified: 639005253988995647
   FileSizes: []
   Exists: 1
 --- !u!114 &-3466563315964292131
@@ -391,7 +391,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 1377373580052299033}
   cacheVersion: 131857
-  cacheTime: 639004650405226763
+  cacheTime: 639005253989005704
   SerializableEventsDict:
   - key: event:/SFX/MachineGun
     index: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639004650405226763
+  lastModified: 639005253989005704
   FileSizes:
   - Name: 
     Value: 1290
@@ -851,7 +851,7 @@ MonoBehaviour:
     Data4: -6529491
   Banks:
   - {fileID: -3879233190755949785}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
