@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using DG.Tweening;
 using Unity.Cinemachine;
@@ -26,13 +25,10 @@ namespace Cinematic
         private Rigidbody _playerRigidBody;
         private bool _playerDetected;
 
-        // private void Start()
-        // {
-        //     _canvasBackgroundBlack.DOFade(0.0f, 0.5f);
-        //     
-        //     _playerRigidBody = _player.GetComponent<Rigidbody>();
-        //     StartCoroutine(WaitForBlendEnd(2f));
-        // }
+        private void Awake()
+        {
+            _playerRigidBody = _player.GetComponent<Rigidbody>();
+        }
 
         private void OnEnable()
         {
@@ -49,8 +45,6 @@ namespace Cinematic
             if (_playerDetected) return;
             
             _canvasBackgroundBlack.DOFade(0.0f, 0.5f);
-            
-            _playerRigidBody = _player.GetComponent<Rigidbody>();
             StartCoroutine(WaitForBlendEnd(2f));
         }
 
