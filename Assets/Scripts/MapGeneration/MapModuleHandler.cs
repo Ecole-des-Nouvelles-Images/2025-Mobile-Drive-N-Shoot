@@ -69,25 +69,25 @@ namespace MapGeneration
             if (!_haveItem)
             {
                 _splineKnotHandler.GenerateSpline(_mainSeed);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.2f);
             }
             
             _splineRoad.BuildRoad(true);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
 
             if (!_haveItem)
             {
                 foreach (var prop in _splineProps)
                 {
                     prop.SpawnProps(_mainSeed);
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.2f);
                 }
             }
             
             foreach (var enemy in _splineEnemies)
             {
                 enemy.SpawnProps(_mainSeed);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.2f);
             }
             
             _terrainLeveling.StartCoroutine(nameof(_terrainLeveling.AsyncTerrainLeveling));

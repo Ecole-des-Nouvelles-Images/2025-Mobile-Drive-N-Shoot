@@ -242,8 +242,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 639668451116081020}
-        m_TargetAssemblyTypeName: __Workspaces.Hugoi.Scripts.UIMethods, Assembly-CSharp
+      - m_Target: {fileID: 7855740105657890612}
+        m_TargetAssemblyTypeName: __Workspaces.Hugoi.Scripts.LoadingScene, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 5165483617222883254}
   - component: {fileID: 2962194861390584540}
   - component: {fileID: 639668451116081020}
+  - component: {fileID: 7855740105657890612}
   m_Layer: 5
   m_Name: Canvas_OverlaySelectionSkin
   m_TagString: Untagged
@@ -716,6 +717,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280a101b405653040b641deb3ee9dc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.UIMethods
+--- !u!114 &7855740105657890612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939929967447458729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb40baee1e67c144b72c9c4c393e390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.LoadingScene
+  _loadingBarMaxSpeed: 1
+  _pointsSpeed: 0.3
+  _loadingScreen: {fileID: 0}
+  _loadingBarFill: {fileID: 0}
+  _loadingText: {fileID: 0}
 --- !u!1 &4465220603367514974
 GameObject:
   m_ObjectHideFlags: 0
