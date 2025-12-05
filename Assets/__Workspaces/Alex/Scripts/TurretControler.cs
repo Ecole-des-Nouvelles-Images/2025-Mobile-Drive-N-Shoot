@@ -231,16 +231,18 @@ namespace __Workspaces.Alex.Scripts
             
             Vector3 origin = _firePoint.position;
             Vector3 direction;
-
-            if (_currentAimPosition != Vector3.zero)
-                direction = (_currentAimPosition - origin).normalized;
-            else
+            
+            // In note cause not aiming the right direction :
+            // if (_currentAimPosition != Vector3.zero)
+            //     direction = (_currentAimPosition - origin).normalized;
+            // else
                 direction = _firePoint.forward;
 
             if (Physics.Raycast(origin, direction, out RaycastHit hit, Mathf.Infinity))
             {
                 if (_currentTarget)
                     _currentTarget.GetComponent<IDamageable>()?.TakeDamage(damage);
+                Debug.DrawRay(origin, direction * hit.distance, Color.yellow, 3f);
 
                 ImpactPool.Instance.PlayImpact(hit.point, hit.normal, ImpactType.Default);
             }
