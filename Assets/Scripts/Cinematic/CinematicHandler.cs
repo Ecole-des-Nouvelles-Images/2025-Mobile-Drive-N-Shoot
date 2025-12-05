@@ -72,6 +72,8 @@ namespace Cinematic
             }
             yield return new WaitForSeconds(time);
             _canvasOverlay.SetActive(true);
+            
+            EventBus.OnCinematicEnd?.Invoke();
         }
     }
 }

@@ -6,14 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_Laser.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_Laser.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Panels/Canvas_LoadingScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Panels/Canvas_LoadingScreen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SelectionSkin/Canvas_OverlaySelectionSkin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SelectionSkin/Canvas_OverlaySelectionSkin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SelectionSkinScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SelectionSkinScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cinematic/CinematicHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cinematic/CinematicHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/SG_HitObject.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/SG_HitObject.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/S_TilingTexture2D.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/S_TilingTexture2D.shadergraph.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/TimerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/TimerHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIMethods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Game/EventBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Game/EventBus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestEnemy.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestEnemy.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
