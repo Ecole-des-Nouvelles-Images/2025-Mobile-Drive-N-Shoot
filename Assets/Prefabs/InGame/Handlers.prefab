@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7002962222005310161}
-  - component: {fileID: 4775684715079250762}
   - component: {fileID: 6117318404852176583}
   - component: {fileID: 4695599650932629280}
-  - component: {fileID: 8131337503076053173}
+  - component: {fileID: 1389215542006559055}
   - component: {fileID: 4148373287973134837}
+  - component: {fileID: 8131337503076053173}
+  - component: {fileID: 4775684715079250762}
   m_Layer: 0
   m_Name: Handlers
   m_TagString: Untagged
@@ -36,18 +37,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4775684715079250762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3286346133974709888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 125b961686e28504c89a2a7c9a1a76e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PauseHandler
 --- !u!114 &6117318404852176583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +64,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreHandler
   _player: {fileID: 0}
+--- !u!114 &1389215542006559055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286346133974709888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ea4dc19499f8744acadf7afeae78bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.InventoryHandler
+  _items: []
+--- !u!114 &4148373287973134837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286346133974709888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da57a26fedb8cd64f9c278f56185e18b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.EnemiesSpawnerManager
+  _distanceDifficultyScaling: 100
+  _distanceHandler: {fileID: 4695599650932629280}
 --- !u!114 &8131337503076053173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +106,7 @@ MonoBehaviour:
   _panelScore: {fileID: 0}
   _tmpScore: {fileID: 0}
   _distanceHandler: {fileID: 4695599650932629280}
---- !u!114 &4148373287973134837
+--- !u!114 &4775684715079250762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,8 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3286346133974709888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da57a26fedb8cd64f9c278f56185e18b, type: 3}
+  m_Script: {fileID: 11500000, guid: 125b961686e28504c89a2a7c9a1a76e4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.EnemiesSpawnerManager
-  _distanceDifficultyScaling: 100
-  _distanceHandler: {fileID: 4695599650932629280}
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PauseHandler

@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using __Workspaces.Alex.Scripts;
+using Core;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -49,11 +50,16 @@ namespace Enemy.Drone
 
         private void Update()
         {
-            if (IsDying && !IsDead)
+            if (IsDying)
             {
-                Die();
+                if (!IsDead)
+                {
+                    Die();
+                }
                 return;
             }
+
+            if (!SeeTarget) return;
 
             if (CanAttack)
             {
@@ -126,6 +132,8 @@ namespace Enemy.Drone
         
         private void Die()
         {
+            NavMeshAgent.ResetPath();
+            Collider.enabled = false;
             // VFX, SFX
             
             IsDead = true;

@@ -284,7 +284,6 @@ GameObject:
   - component: {fileID: 2160105197508392314}
   - component: {fileID: 5525036185201538663}
   - component: {fileID: 8847901439806859517}
-  - component: {fileID: 4955191046648869143}
   m_Layer: 0
   m_Name: Prefab_Pickup
   m_TagString: Player
@@ -307,6 +306,7 @@ Transform:
   m_Children:
   - {fileID: 7983019399365026301}
   - {fileID: 2075321241377096133}
+  - {fileID: 8615237467484823135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8895617970435745943
@@ -342,6 +342,7 @@ MonoBehaviour:
   _camera: {fileID: 1728030710496205890}
   particleMinSpeed: 0.5
   particleMaxEmission: 30
+  _nitroCollider: {fileID: 8607140759603224826}
 --- !u!114 &2524738207651137503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,19 +485,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &4955191046648869143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546494360475675740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e7a454ca1442143aae767549a04f78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemTester
-  itemToTest: {fileID: 11400000, guid: 69d3c398f7b8ce147ae8df391250f06c, type: 2}
 --- !u!1 &1728030710496205890
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +546,7 @@ MonoBehaviour:
     FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FarClipPlane: 100
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -588,7 +576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 1
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 1.25, y: 0.5, z: 1.25}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -1715,6 +1703,59 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8607140759603224826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8615237467484823135}
+  - component: {fileID: 3109382025109316500}
+  m_Layer: 0
+  m_Name: NitroCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8615237467484823135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607140759603224826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2238183935687377848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3109382025109316500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607140759603224826}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 2.8}
+  m_Center: {x: 0, y: 0.5, z: -0.05}
 --- !u!1 &8841451380340124489
 GameObject:
   m_ObjectHideFlags: 0

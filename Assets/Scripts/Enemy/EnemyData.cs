@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
+using __Workspaces.Alex.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
+using Utils.Interfaces;
 
 namespace Enemy
 {
     [Serializable]
-    public class EnemyData : MonoBehaviour
+    public class EnemyData : MonoBehaviour, IEnemy
     {
         [Header("Data")]
         public bool HaveAnimation;
@@ -31,6 +33,7 @@ namespace Enemy
         }
 
         [Header("States")]
+        public bool SeeTarget;
         public bool IsDying;
         public bool IsDead;
         public bool IsAttacking;
@@ -56,12 +59,17 @@ namespace Enemy
             }
         }
         
+        [Header("IEnemy Interface")]
+        [SerializeField] private Transform aimTransform;
+        public Vector3 GetAimPosition => aimTransform.position;
+        
         [Header("Target")]
         public Transform TargetTransform;
         public CarHealth TargetHealth;
         
         [Header("Internal Components")]
         public NavMeshAgent NavMeshAgent;
+        public Collider Collider;
 
         [Header("External Components")]
         public SphereCollider AttackRangeCollider;
@@ -87,6 +95,7 @@ namespace Enemy
         private void Awake()
         {
             NavMeshAgent = GetComponent<NavMeshAgent>();
+            Collider = GetComponent<Collider>();
             AttackRangeCollider.radius = AttackRange;
             CurrentHealth = MaxHealth;
             if (HaveAnimation) Animator.SetFloat("AttackSpeed", AttackSpeed);

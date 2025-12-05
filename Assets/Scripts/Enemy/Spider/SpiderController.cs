@@ -1,3 +1,4 @@
+using __Workspaces.Alex.Scripts;
 using Core;
 using Utils.Game;
 using Utils.Interfaces;
@@ -33,22 +34,28 @@ namespace Enemy.Spider
 
         private void Update()
         {
-            if (IsDying && !IsDead)
+            if (IsDying)
             {
-                Die();
+                if (!IsDead)
+                {
+                    Die();
+                }
                 return;
             }
 
-            if (CanAttack && IsMoving)
+            if (SeeTarget)
             {
-                IsMoving = false;
-                NavMeshAgent.ResetPath();
-            }
+                if (CanAttack && IsMoving)
+                {
+                    IsMoving = false;
+                    NavMeshAgent.ResetPath();
+                }
             
-            if (TargetTransform && NavMeshAgent.isOnNavMesh && !IsAttacking)
-            {
-                IsMoving = true;
-                NavMeshAgent.SetDestination(TargetTransform.position);
+                if (TargetTransform && NavMeshAgent.isOnNavMesh && !IsAttacking)
+                {
+                    IsMoving = true;
+                    NavMeshAgent.SetDestination(TargetTransform.position);
+                }
             }
             
             Animator.SetBool("IsMoving", IsMoving);
@@ -57,6 +64,8 @@ namespace Enemy.Spider
 
         private void Die()
         {
+            NavMeshAgent.ResetPath();
+            Collider.enabled = false;
             Animator.SetBool("IsDead", IsDying);
             
             // VFX, SFX
