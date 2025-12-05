@@ -52,5 +52,8 @@ namespace Utils.Game
         // Items
         public static Action<Item> OnCollectedItem;
         public static Action<ItemType> OnUsingItem;
+        
+        // Cinematic
+        public static Action OnCinematicEnd;
     }
 }

@@ -11,7 +11,7 @@ namespace InGameHandlers
         [SerializeField] private float _startTimerValue;
         [SerializeField] private float _timeToAdd;
         
-        private bool _isActive = true;
+        private bool _isActive;
 
         private void Awake()
         {
@@ -21,11 +21,13 @@ namespace InGameHandlers
 
         private void OnEnable()
         {
+            EventBus.OnCinematicEnd += OnCinematicEnd;
             EventBus.OnAddTimeToTimer += AddTimeToTimer;
         }
 
         private void OnDisable()
         {
+            EventBus.OnCinematicEnd -= OnCinematicEnd;
             EventBus.OnAddTimeToTimer -= AddTimeToTimer;
         }
 
@@ -40,6 +42,11 @@ namespace InGameHandlers
                 EventBus.OnGameOver?.Invoke();
                 _isActive = false;
             }
+        }
+        
+        private void OnCinematicEnd()
+        {
+            _isActive = true;
         }
         
         private void AddTimeToTimer()

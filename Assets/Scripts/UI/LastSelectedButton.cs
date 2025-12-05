@@ -1,0 +1,45 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace UI
+{
+    public class LastSelectedButton : MonoBehaviour
+    {
+        [Header("Sprites")]
+        [SerializeField] private Sprite _spriteLeftSelected;
+        [SerializeField] private Sprite _spriteLeftNotSelected;
+        [SerializeField] private Sprite _spriteRightSelected;
+        [SerializeField] private Sprite _spriteRightNotSelected;
+        
+        [Header("Text")]
+        [SerializeField] private Sprite _spriteTextPickup;
+        [SerializeField] private Sprite _spriteTextTurret;
+        
+        [Header("References")]
+        [SerializeField] private Button _buttonLeft;
+        [SerializeField] private Button _buttonRight;
+        [SerializeField] private Image _imageButtonSelected;
+        
+        private void OnEnable()
+        {
+            _buttonLeft.onClick.AddListener(() => ButtonIsClicked(_buttonLeft));
+            _buttonRight.onClick.AddListener(() => ButtonIsClicked(_buttonRight));
+        }
+
+        private void ButtonIsClicked(Button button)
+        {
+            if (button == _buttonLeft)
+            {
+                _buttonLeft.image.overrideSprite = _spriteLeftSelected;
+                _buttonRight.image.overrideSprite = _spriteRightNotSelected;
+                _imageButtonSelected.sprite = _spriteTextPickup;
+            }
+            else
+            {
+                _buttonRight.image.overrideSprite = _spriteRightSelected;
+                _buttonLeft.image.overrideSprite = _spriteLeftNotSelected;
+                _imageButtonSelected.sprite = _spriteTextTurret;
+            }
+        }
+    }
+}
