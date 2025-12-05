@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -54,7 +54,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -106,14 +106,379 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 529
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3ffcce3caab214abb5bcfb1bc1164c
+      internalID: -375433051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 529
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5efaf59128b0bea44b07cd04999557bc
+      internalID: 1491901134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 529
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c020d880aba474d8735ba68316b0de
+      internalID: -1591720338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_3
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 529
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11dc89379f8aa8c478c3452c51c5deaf
+      internalID: -338102238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 353
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cdaf263ec154949bbfe15b4bd6f3a0
+      internalID: 370882655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_5
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 353
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767990c5ff331b94cb6fc2a80f45d3f1
+      internalID: 1499601624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_6
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 353
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4708a9e6b6992a14d819f401c6e4ef24
+      internalID: 895991962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_7
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 353
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919fd84fb9c6b57488051eea975bcc11
+      internalID: 283611535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 177
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9aa5f99164d8b449aedd630775b52d
+      internalID: -376072112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_9
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 177
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04fb0741959a71b46941a13c892c81d5
+      internalID: -121853137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_10
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 177
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83679cd79bc8cc54691e5d0cd3da0d67
+      internalID: 214893826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_11
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 177
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8092261e9b96a4fae099db6b8a1c57
+      internalID: 689989649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9c1490b2f451345a5bf4f44aeb48cf
+      internalID: -1667770718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_13
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 1
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729c713542c72e349adf037c7a4e8df5
+      internalID: 1061368853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_14
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d5974683972e54883256f2a8ffcc3f
+      internalID: 82981640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_Smoke_Chekpoint_AL_15
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 1
+        width: 184
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b3ccda5b95ca0a4bb8e2295b62f582e
+      internalID: -1327708603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 289e9d135fdcaf546abfd63e619bf9b3
     internalID: 0
     vertices: []
     indices: 
@@ -121,8 +486,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":184.0,"y":176.0},"gridSpriteOffset":{"x":0.0,"y":31.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      T_Smoke_Chekpoint_AL_0: -375433051
+      T_Smoke_Chekpoint_AL_1: 1491901134
+      T_Smoke_Chekpoint_AL_10: 214893826
+      T_Smoke_Chekpoint_AL_11: 689989649
+      T_Smoke_Chekpoint_AL_12: -1667770718
+      T_Smoke_Chekpoint_AL_13: 1061368853
+      T_Smoke_Chekpoint_AL_14: 82981640
+      T_Smoke_Chekpoint_AL_15: -1327708603
+      T_Smoke_Chekpoint_AL_2: -1591720338
+      T_Smoke_Chekpoint_AL_3: -338102238
+      T_Smoke_Chekpoint_AL_4: 370882655
+      T_Smoke_Chekpoint_AL_5: 1499601624
+      T_Smoke_Chekpoint_AL_6: 895991962
+      T_Smoke_Chekpoint_AL_7: 283611535
+      T_Smoke_Chekpoint_AL_8: -376072112
+      T_Smoke_Chekpoint_AL_9: -121853137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
