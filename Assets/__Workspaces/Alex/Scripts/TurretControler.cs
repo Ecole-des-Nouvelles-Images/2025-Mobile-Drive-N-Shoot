@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -29,6 +30,10 @@ namespace __Workspaces.Alex.Scripts
         [SerializeField] private float _heatPerSecond = 10f;
         [SerializeField] private float _coolPerSecond = 10f;
         [SerializeField] private float _overheatCooldownPerSecond = 20f;
+        
+        [Header("Sounds")]
+        [SerializeField] private EventReference _fireSound;
+        [SerializeField] private EventReference _overheatSound;
 
         private CarInputActions _carInputActions;
 
@@ -195,6 +200,7 @@ namespace __Workspaces.Alex.Scripts
             {
                 _currentHeat = _maxHeat;
                 _isOverHeated = true;
+                AudioManager.Instance.PlayAtPosition(_overheatSound, _firePoint.position);
                 StopMuzzleImmediate();
                 DisableLaser();
                 _isFiring = false;
@@ -220,6 +226,9 @@ namespace __Workspaces.Alex.Scripts
 
         private void Fire()
         {
+            // Play fire sound
+            AudioManager.Instance.PlayAtPosition(_fireSound, _firePoint.position);
+            
             Vector3 origin = _firePoint.position;
             Vector3 direction;
 

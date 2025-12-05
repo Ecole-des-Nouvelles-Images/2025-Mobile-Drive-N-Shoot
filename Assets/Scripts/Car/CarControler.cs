@@ -4,6 +4,7 @@ using Core;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils.Game;
 
 namespace Car
@@ -46,7 +47,8 @@ namespace Car
         [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
 
         [Header("SFX")] 
-        [SerializeField] private EventReference _engineReference;
+        [SerializeField] private EventReference _engineSound;
+        [SerializeField] private EventReference _boostSound;
 
         private EventInstance _engineInstance;
     
@@ -124,7 +126,7 @@ namespace Car
             }
             
             // Start engine sound
-            _engineInstance = AudioManager.Instance.Play(_engineReference, loop: true, follow: gameObject);
+            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
         }
 
         void Update()
@@ -151,7 +153,7 @@ namespace Car
             
             // Sound gestion
             // Normalize speed to 0–1 for FMOD
-            float speed01 = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 40f);
+            float speed01 = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 20f);
 
             if (_engineInstance.isValid())
                 _engineInstance.setParameterByName("RPM", speed01);
@@ -263,6 +265,9 @@ namespace Car
         // Apply an immediate velocity change (VelocityChange) and set the cooldown
         private void ApplyVelocityChangeBoost()
         {
+            // Play boost sound
+            AudioManager.Instance.Play(_boostSound, follow: gameObject);
+            
             _nextBoostTime = 0f;
 
             // Apply an immediate velocity change in the forward direction (mass-independent)
@@ -330,6 +335,14 @@ namespace Car
             _isDamaged = false;
             // Restore maxSpeed
             maxSpeed = baseMaxSpeed;
+        }
+        private void OnDestroy()
+        {
+            if (_engineInstance.isValid())
+            {
+                _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _engineInstance.release();
+            }
         }
     }
 }
