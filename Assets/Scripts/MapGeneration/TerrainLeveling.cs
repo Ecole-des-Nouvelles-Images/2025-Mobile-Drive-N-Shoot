@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.Splines;
+using Utils.Game;
 
 namespace MapGeneration
 {
@@ -73,6 +74,9 @@ namespace MapGeneration
             
             yield return null;
             BakeNavMeshSurface();
+            
+            yield return null;
+            EventBus.OnModuleFinishedGeneration?.Invoke();
         }
 
         private void CreateIndependentTerrain()
