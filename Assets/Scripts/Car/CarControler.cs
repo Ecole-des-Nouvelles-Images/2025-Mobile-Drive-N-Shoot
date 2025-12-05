@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using __Workspaces.Alex.Scripts;
 using Core;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 
@@ -41,6 +44,11 @@ namespace Car
 
         [Header("Nitro Attack")] 
         [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
+
+        [Header("SFX")] 
+        [SerializeField] private EventReference _engineReference;
+
+        private EventInstance _engineInstance;
     
     
         private WheelControl[] _wheels;
@@ -114,6 +122,9 @@ namespace Car
             {
                 meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
             }
+            
+            // Start engine sound
+            _engineInstance = AudioManager.Instance.Play(_engineReference, loop: true, follow: gameObject);
         }
 
         void Update()
@@ -137,6 +148,13 @@ namespace Car
             {
                 ApplyVelocityChangeBoost();
             }
+            
+            // Sound gestion
+            // Normalize speed to 0–1 for FMOD
+            float speed01 = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 40f);
+
+            if (_engineInstance.isValid())
+                _engineInstance.setParameterByName("RPM", speed01);
 
 #if UNITY_EDITOR || UNITY_STANDALONE
             // Editor / standalone shortcut for testing: press B to trigger boost
