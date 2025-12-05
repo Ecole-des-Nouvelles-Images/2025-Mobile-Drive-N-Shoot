@@ -268,7 +268,6 @@ namespace Car
             // Play boost sound
             AudioManager.Instance.Play(_boostSound, follow: gameObject);
             
-            _nextBoostTime = now + boostCooldown;
             _nextBoostTime = 0f;
 
             // Apply an immediate velocity change in the forward direction (mass-independent)
