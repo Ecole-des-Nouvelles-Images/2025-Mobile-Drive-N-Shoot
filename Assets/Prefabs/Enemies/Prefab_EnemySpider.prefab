@@ -200,7 +200,10 @@ MonoBehaviour:
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}
   Collider: {fileID: 0}
+  Renderers:
+  - {fileID: 6984185819767786981}
   AttackRangeCollider: {fileID: 4523451132106172580}
+  Materials: []
   _explosionRange: 2
   _explosionDamage: 15
   _animator: {fileID: 3225174371836797544}
@@ -317,6 +320,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7391435384878151355, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1592d695c563098479b63b1d740aebe1, type: 2}
     - target: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
       propertyPath: m_Name
       value: SK_Spider
@@ -329,6 +336,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3225174371836797544}
   m_SourcePrefab: {fileID: 100100000, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
+--- !u!137 &6984185819767786981 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7391435384878151355, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
+  m_PrefabInstance: {fileID: 8755164054059844768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8449314218352359921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}

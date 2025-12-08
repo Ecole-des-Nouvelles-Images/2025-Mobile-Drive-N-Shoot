@@ -1,3 +1,5 @@
+using Core;
+using DG.Tweening;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -43,6 +45,27 @@ namespace __Workspaces.Alex.Scripts
                 // TODO: explosion VFX and car destruction
                 EventBus.OnGameOver?.Invoke();
             }
+            
+            // Change material
+            float targetValue;
+            if (damage <= 10f)
+            {
+                targetValue = 0.5f;
+            }
+            else
+            {
+                targetValue = 1f;
+            }
+            DOTween.To(
+                () => 0f,
+                value =>
+                {
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_HitProgress", value);
+                    GameManager.Instance.CurrentCarMaterials[0].SetFloat("_HitProgress", value);
+                },
+                targetValue,
+                0.1f
+            ).SetLoops(2, LoopType.Yoyo);
         }
 
         public void Heal()
