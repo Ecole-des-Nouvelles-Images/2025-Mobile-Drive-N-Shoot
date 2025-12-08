@@ -13,6 +13,9 @@ namespace __Workspaces.Alex.Scripts
     
         // internal state to avoid triggering the half repeatedly
         private bool _hasTriggeredHalf = false;
+        
+        // Is shield active
+        public bool IsShieldActive = false;
 
 
         private void Start()
@@ -23,6 +26,8 @@ namespace __Workspaces.Alex.Scripts
 
         public void TakeDamage(float damage)
         {
+            if (IsShieldActive)
+                return;
             CurrentHealth -= damage;
             EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
             

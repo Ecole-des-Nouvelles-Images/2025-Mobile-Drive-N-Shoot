@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
 using Core;
@@ -29,6 +30,8 @@ namespace Car
         public float shakeThreshold = 2.0f;       // threshold for detecting a shake (high-frequency component)
         public float boostDeltaV = 5f;            // desired instantaneous delta-V in m/s (VelocityChange)
         public float lowPassFilterFactor = 0.1f;  // smoothing factor for low-pass filter on accelerometer
+        [SerializeField] private CarHealth _carHealth;   // Reference to CarHealth component
+        [SerializeField] private float _shieldDuration = 2f; // Duration of shield after boost
 
         [Header("Damage behavior")]
         public float damagedSpeedFactor = 0.8f;
@@ -70,10 +73,9 @@ namespace Car
     
         // Damage state
         private bool _isDamaged = false;
-    
-        // Nitro attack state
-        private bool _hasNitroAttackReady = false;
-        private bool _isNitroAttacking = false;
+        
+        // Coroutine handle for shield timeout
+        private Coroutine _shieldCoroutine;
     
     
         private void Awake()
@@ -225,13 +227,6 @@ namespace Car
                 _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
             }
         
-            // Disable nitro attack collider after boost
-            if (_isNitroAttacking && currentSpeed <= maxSpeed )
-            {
-                _nitroCollider.SetActive(false);
-                _isNitroAttacking = false;
-            }
-        
             // --- Wheel particle effects ---
             foreach (var wheel in _wheels)
             {
@@ -255,12 +250,7 @@ namespace Car
             }
         }
 
-        // turn Nitro Attack ready 
-        public void SetNitroAttackReady()
-        {
-            _hasNitroAttackReady = true;
-            Debug.Log("Nitro Attack is ready!");
-        }
+ 
     
         // Apply an immediate velocity change (VelocityChange) and set the cooldown
         private void ApplyVelocityChangeBoost()
@@ -272,14 +262,28 @@ namespace Car
 
             // Apply an immediate velocity change in the forward direction (mass-independent)
             _rigidBody.AddForce(transform.forward * boostDeltaV, ForceMode.VelocityChange);
-        
-            // Enable nitro attack collider if ready
-            if (_hasNitroAttackReady)
+
+
+            _carHealth.IsShieldActive = true;
+            if (_shieldCoroutine != null)
             {
-                _nitroCollider.SetActive(true);
-                _hasNitroAttackReady = false;
-                _isNitroAttacking = true;
+                StopCoroutine(_shieldCoroutine);
             }
+            _shieldCoroutine = StartCoroutine(ShieldTimeOutCoroutine());
+
+
+        }
+
+        private IEnumerator ShieldTimeOutCoroutine()
+        {
+            float elapsed = 0f;
+            while (elapsed < _shieldDuration)
+            {
+                elapsed += TimeManager.Instance.DeltaTime;
+                yield return null;
+            }
+            _carHealth.IsShieldActive = false;
+            _shieldCoroutine = null;
         }
 
         private void HandleGamePause()

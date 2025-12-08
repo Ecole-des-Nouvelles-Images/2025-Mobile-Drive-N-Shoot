@@ -337,6 +337,8 @@ MonoBehaviour:
   shakeThreshold: 2
   boostDeltaV: 10
   lowPassFilterFactor: 0.1
+  _carHealth: {fileID: 2524738207651137503}
+  _shieldDuration: 2
   damagedSpeedFactor: 0.8
   reverseThreshold: -0.4
   _camera: {fileID: 1728030710496205890}
@@ -371,6 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarHealth
   maxHealth: 100
   CurrentHealth: 0
+  IsShieldActive: 0
 --- !u!114 &1610068028593143259
 MonoBehaviour:
   m_ObjectHideFlags: 0
