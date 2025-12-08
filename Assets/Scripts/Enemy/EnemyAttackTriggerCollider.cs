@@ -5,7 +5,7 @@ namespace Enemy
 {
     public class EnemyAttackTriggerCollider : MonoBehaviour
     {
-        [SerializeField] private EnemyData enemyData;
+        [SerializeField] private EnemyData _enemyData;
         [SerializeField] private List<Collider> _colliders = new();
 
         private void OnTriggerEnter(Collider other)
@@ -14,7 +14,7 @@ namespace Enemy
 
             if (other.CompareTag("Player"))
             {
-                enemyData.CanAttack = true;
+                _enemyData.CanAttack = true;
             }
         }
 
@@ -22,7 +22,7 @@ namespace Enemy
         {
             if (other.CompareTag("Player"))
             {
-                enemyData.CanAttack = false;
+                _enemyData.CanAttack = false;
             }
             
             _colliders.Remove(other);

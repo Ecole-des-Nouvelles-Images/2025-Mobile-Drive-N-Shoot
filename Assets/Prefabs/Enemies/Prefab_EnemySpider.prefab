@@ -120,7 +120,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9023715347566299116
 MonoBehaviour:
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0646baddb687de747a6dd6e9a9b05b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.TriggerCollider
-  enemyData: {fileID: 2205203812999137503}
+  _enemyData: {fileID: 2205203812999137503}
   _colliders: []
 --- !u!1 &7989771649214069358
 GameObject:
@@ -186,11 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b6c887407c8034388b6dcc9e439cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SpiderController
-  HaveAnimation: 1
   MaxHealth: 10
   Damage: 5
-  AttackSpeed: 2
-  AttackRange: 1
+  AttackSpeed: 0
+  AttackRange: 0.75
   SeeTarget: 0
   IsDying: 0
   IsDead: 0
@@ -202,7 +201,9 @@ MonoBehaviour:
   NavMeshAgent: {fileID: 0}
   Collider: {fileID: 0}
   AttackRangeCollider: {fileID: 4523451132106172580}
-  Animator: {fileID: 3225174371836797544}
+  _explosionRange: 2
+  _explosionDamage: 15
+  _animator: {fileID: 3225174371836797544}
 --- !u!195 &7111640776458576405
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -327,9 +328,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3225174371836797544}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8335734686272256143}
   m_SourcePrefab: {fileID: 100100000, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
 --- !u!1 &8449314218352359921 stripped
 GameObject:
@@ -358,19 +356,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8335734686272256143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8449314218352359921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b75f6f8668d4a178a806081610468a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.Test
-  _enemyData: {fileID: 2205203812999137503}
 --- !u!4 &9082122380062286667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}

@@ -176,10 +176,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prefab_EnemyDrone
       objectReference: {fileID: 0}
-    - target: {fileID: 7989771649214069358, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1509,10 +1505,6 @@ PrefabInstance:
     - target: {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: m_Name
       value: Prefab_EnemySpider
-      objectReference: {fileID: 0}
-    - target: {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

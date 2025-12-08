@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using __Workspaces.Alex.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,8 +9,6 @@ namespace Enemy
     [Serializable]
     public class EnemyData : MonoBehaviour, IEnemy
     {
-        [Header("Data")]
-        public bool HaveAnimation;
         [Header("Stats")]
         public float MaxHealth;
         public float Damage;
@@ -49,12 +46,10 @@ namespace Enemy
                 if (!IsAttacking && _canAttack)
                 {
                     IsAttacking = true;
-                    if (!HaveAnimation) AttackCoroutine = StartCoroutine(CoroutineAttack());
                 }
                 else
                 {
                     IsAttacking = false;
-                    if (!HaveAnimation && AttackCoroutine != null) StopCoroutine(AttackCoroutine);
                 }
             }
         }
@@ -73,24 +68,6 @@ namespace Enemy
 
         [Header("External Components")]
         public SphereCollider AttackRangeCollider;
-        public Animator Animator;
-
-        [Header("Coroutines")]
-        public Coroutine AttackCoroutine;
-        
-        public void Attack()
-        {
-            TargetHealth.TakeDamage(Damage);
-        }
-        
-        public IEnumerator CoroutineAttack()
-        {
-            while (IsAttacking)
-            {
-                yield return new WaitForSeconds(AttackSpeed);
-                TargetHealth.TakeDamage(Damage);
-            }
-        }
 
         private void Awake()
         {
@@ -98,7 +75,6 @@ namespace Enemy
             Collider = GetComponent<Collider>();
             AttackRangeCollider.radius = AttackRange;
             CurrentHealth = MaxHealth;
-            if (HaveAnimation) Animator.SetFloat("AttackSpeed", AttackSpeed);
         }
     }
 }

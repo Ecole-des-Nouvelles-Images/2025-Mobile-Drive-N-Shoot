@@ -1,4 +1,5 @@
-﻿using __Workspaces.Alex.Scripts;
+﻿using System.Collections;
+using __Workspaces.Alex.Scripts;
 using Core;
 using UnityEngine;
 using Utils.Game;
@@ -17,6 +18,7 @@ namespace Enemy.Drone
         [SerializeField] private LineRenderer _laserLine;
         [SerializeField] private Transform _startingPos;
 
+        private Coroutine _attackCoroutine;
         private bool _laserEnabled;
         private Vector3 _targetPos;
         private Vector3 _targetOffset = Vector3.zero;
@@ -32,20 +34,6 @@ namespace Enemy.Drone
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
             
             _targetPos = TargetTransform.position;
-        }
-        
-        private void OnEnable()
-        {
-            EventBus.OnGameResume += OnGameResume;
-            EventBus.OnGamePause += OnGamePause;
-            EventBus.OnGameOver += OnGamePause;
-        }
-        
-        private void OnDisable()
-        {
-            EventBus.OnGameResume -= OnGameResume;
-            EventBus.OnGamePause -= OnGamePause;
-            EventBus.OnGameOver -= OnGamePause;
         }
 
         private void Update()
@@ -63,6 +51,11 @@ namespace Enemy.Drone
 
             if (CanAttack)
             {
+                if (_attackCoroutine == null)
+                {
+                    _attackCoroutine = StartCoroutine(CoroutineAttack());
+                }
+                
                 _targetPos = TargetTransform.position;
                 if (_targetOffset == Vector3.zero) _targetOffset = transform.position - TargetTransform.position;
                 _targetPos += _targetOffset;
@@ -72,6 +65,11 @@ namespace Enemy.Drone
             }
             else
             {
+                if (_attackCoroutine != null)
+                {
+                    StopCoroutine(CoroutineAttack());
+                }
+                
                 _targetPos = TargetTransform.position;
                 _targetOffset = Vector3.zero;
 
@@ -87,6 +85,32 @@ namespace Enemy.Drone
                 IsMoving = true;
                 NavMeshAgent.SetDestination(_targetPos);
             }
+        }
+        
+        private IEnumerator CoroutineAttack()
+        {
+            while (IsAttacking)
+            {
+                yield return new WaitForSeconds(AttackSpeed);
+                TargetHealth.TakeDamage(Damage);
+                Debug.Log("Drone Done Damage");
+            }
+        }
+        
+        private void Die()
+        {
+            IsMoving = false;
+            CanAttack = false;
+            IsAttacking = false;
+            NavMeshAgent.ResetPath();
+            StopCoroutine(CoroutineAttack());
+            DisplayLaser(false);
+            Collider.enabled = false;
+            
+            // VFX, SFX
+            
+            IsDead = true;
+            Destroy(gameObject, 3f);
         }
 
         private void DisplayLaser(bool isActive)
@@ -130,24 +154,32 @@ namespace Enemy.Drone
             );
         }
         
-        private void Die()
+        private void OnEnable()
         {
-            NavMeshAgent.ResetPath();
-            Collider.enabled = false;
-            // VFX, SFX
-            
-            IsDead = true;
-            Destroy(gameObject, 3f);
+            EventBus.OnGameResume += OnGameResume;
+            EventBus.OnGamePause += OnGamePause;
+            EventBus.OnGameOver += OnGamePause;
         }
         
         private void OnGameResume()
         {
-            if (CanAttack) AttackCoroutine = StartCoroutine(CoroutineAttack());
+            IsMoving = true;
+            NavMeshAgent.SetDestination(TargetTransform.position);
+            if (CanAttack) _attackCoroutine = StartCoroutine(CoroutineAttack());
         }
 
         private void OnGamePause()
         {
-            if (CanAttack) StopCoroutine(AttackCoroutine);
+            IsMoving = false;
+            NavMeshAgent.ResetPath();
+            if (CanAttack) StopCoroutine(_attackCoroutine);
+        }
+        
+        private void OnDisable()
+        {
+            EventBus.OnGameResume -= OnGameResume;
+            EventBus.OnGamePause -= OnGamePause;
+            EventBus.OnGameOver -= OnGamePause;
         }
     }
 }
