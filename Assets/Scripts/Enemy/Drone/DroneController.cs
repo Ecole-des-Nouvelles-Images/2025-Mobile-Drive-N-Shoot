@@ -134,7 +134,7 @@ namespace Enemy.Drone
             Collider.enabled = false;
             
             // VFX, SFX
-            
+            AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             IsDead = true;
             Destroy(gameObject, 3f);
         }

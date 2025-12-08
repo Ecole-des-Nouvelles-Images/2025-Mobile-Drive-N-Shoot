@@ -204,6 +204,13 @@ MonoBehaviour:
   _explosionRange: 2
   _explosionDamage: 15
   _animator: {fileID: 3225174371836797544}
+  _deathSFX:
+    Guid:
+      Data1: -1737381714
+      Data2: 1098323874
+      Data3: 1274623378
+      Data4: 1872321656
+    Path: event:/SFX/SpiderExplosion
 --- !u!195 &7111640776458576405
 NavMeshAgent:
   m_ObjectHideFlags: 0
