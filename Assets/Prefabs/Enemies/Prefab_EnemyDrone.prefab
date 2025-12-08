@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0646baddb687de747a6dd6e9a9b05b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.TriggerCollider
-  enemyData: {fileID: 5791760298487775020}
+  _enemyData: {fileID: 5791760298487775020}
   _colliders: []
 --- !u!1 &5631075543405917513
 GameObject:
@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b3915829664cf4bcb3dcb5fb7dee3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DroneController
-  HaveAnimation: 0
   MaxHealth: 10
   Damage: 1
   AttackSpeed: 0.2
@@ -235,7 +234,6 @@ MonoBehaviour:
   NavMeshAgent: {fileID: 0}
   Collider: {fileID: 0}
   AttackRangeCollider: {fileID: 1117045525075458872}
-  Animator: {fileID: 0}
   _turretTransform: {fileID: 9143186363493566316}
   _rotateSpeed: 20
   _laserLine: {fileID: 5210192218730039623}
