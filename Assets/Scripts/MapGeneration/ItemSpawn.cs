@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 using Random = UnityEngine.Random;
@@ -13,6 +14,7 @@ namespace MapGeneration
         
         [Header("References")]
         [SerializeField] private GameObject _itemVisual;
+        [SerializeField] private EventReference _collectSFX;
         
         private Item _selectedItem;
 
@@ -27,8 +29,9 @@ namespace MapGeneration
             if (other.CompareTag("Player"))
             {
                 EventBus.OnCollectedItem?.Invoke(_selectedItem);
-                
                 _itemVisual.SetActive(false);
+                // Play SFX
+                AudioManager.Instance.PlayAtPosition(_collectSFX, transform.position);
                 Destroy(gameObject, 2f);
             }
         }

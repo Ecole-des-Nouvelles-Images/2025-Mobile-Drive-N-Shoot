@@ -13,3 +13,10 @@ MonoBehaviour:
   m_Name: Item_Repair
   m_EditorClassIdentifier: Assembly-CSharp::ItemRepair
   ItemType: 0
+  _useSFX:
+    Guid:
+      Data1: 1741991733
+      Data2: 1249162259
+      Data3: 267859638
+      Data4: -1178241119
+    Path: event:/SFX/Repair

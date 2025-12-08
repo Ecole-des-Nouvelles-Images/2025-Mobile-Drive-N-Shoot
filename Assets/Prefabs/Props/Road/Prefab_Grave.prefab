@@ -48,6 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PropsHandler
   _visual: {fileID: 1716260092948481917}
   _psDestroy: {fileID: 0}
+  _destroySFX:
+    Guid:
+      Data1: -1019433349
+      Data2: 1227649701
+      Data3: -1799561053
+      Data4: 514881849
+    Path: event:/SFX/PropsDestruct
 --- !u!135 &290267242165365444
 SphereCollider:
   m_ObjectHideFlags: 0
