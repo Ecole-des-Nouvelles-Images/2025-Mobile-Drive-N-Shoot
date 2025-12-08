@@ -1,5 +1,8 @@
-﻿using __Workspaces.Alex.Scripts;
+﻿using System.Collections.Generic;
+using __Workspaces.Alex.Scripts;
 using Core;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -16,10 +19,17 @@ namespace Enemy.Drone
         [Header("Laser")]
         [SerializeField] private LineRenderer _laserLine;
         [SerializeField] private Transform _startingPos;
+        
+        [Header("SFX")]
+        [SerializeField] private EventReference _laserSFX;
+        [SerializeField] private EventReference _deathSFX;
 
         private bool _laserEnabled;
         private Vector3 _targetPos;
         private Vector3 _targetOffset = Vector3.zero;
+        
+        private EventInstance _laserInstance = default;
+
 
         public void TakeDamage(float damage)
         {
@@ -69,6 +79,16 @@ namespace Enemy.Drone
                 
                 DroneTurretLookAt(TargetTransform);
                 DisplayLaser(true);
+                // play laser sound only once and keep the instance
+                if (EqualityComparer<EventInstance>.Default.Equals(_laserInstance, default(EventInstance)))
+                {
+                    _laserInstance = AudioManager.Instance.PlayAtPosition(_laserSFX, transform.position, true);
+                }
+                else
+                {
+                    // update 3D position of the instance so sound follows the drone
+                    _laserInstance.set3DAttributes(transform.position.To3DAttributes());
+                }
             }
             else
             {
@@ -79,6 +99,12 @@ namespace Enemy.Drone
                 if (_laserEnabled)
                 {
                     DisplayLaser(false);
+                }
+                // stop and release the laser sound if it was playing
+                if (!EqualityComparer<EventInstance>.Default.Equals(_laserInstance, default(EventInstance)))
+                {
+                    AudioManager.Instance.Stop(_laserInstance);
+                    _laserInstance = default;
                 }
             }
             
@@ -135,6 +161,7 @@ namespace Enemy.Drone
             NavMeshAgent.ResetPath();
             Collider.enabled = false;
             // VFX, SFX
+            AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             
             IsDead = true;
             Destroy(gameObject, 3f);
