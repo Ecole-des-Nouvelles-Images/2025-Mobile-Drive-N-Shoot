@@ -15,3 +15,10 @@ MonoBehaviour:
   ItemType: 3
   Radius: 20
   Damage: 100
+  _useSFX:
+    Guid:
+      Data1: -827115925
+      Data2: 1150477001
+      Data3: 1028348288
+      Data4: -126139324
+    Path: event:/SFX/IEM

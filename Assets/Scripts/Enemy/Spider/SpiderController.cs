@@ -1,6 +1,7 @@
 using __Workspaces.Alex.Scripts;
 using Core;
 using DG.Tweening;
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -15,6 +16,9 @@ namespace Enemy.Spider
         
         [Header("External Components")]
         [SerializeField] private Animator _animator;
+
+        [Header("SFX")] 
+        [SerializeField] private EventReference _deathSFX;
         
         public void TakeDamage(float damage)
         {
@@ -80,6 +84,7 @@ namespace Enemy.Spider
             }
             
             // VFX, SFX
+            AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             
             IsDead = true;
             Destroy(gameObject, 1f);

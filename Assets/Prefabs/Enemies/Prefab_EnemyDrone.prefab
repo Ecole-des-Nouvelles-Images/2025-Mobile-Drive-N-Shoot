@@ -245,6 +245,20 @@ MonoBehaviour:
   _rotateSpeed: 20
   _laserLine: {fileID: 5210192218730039623}
   _startingPos: {fileID: 1025358269971044260}
+  _laserSFX:
+    Guid:
+      Data1: 94752967
+      Data2: 1339287791
+      Data3: -1737999960
+      Data4: 890469649
+    Path: event:/SFX/DroneLazer
+  _deathSFX:
+    Guid:
+      Data1: 1855464604
+      Data2: 1230473388
+      Data3: 2072302978
+      Data4: -726708132
+    Path: event:/SFX/DroneExplosion
 --- !u!114 &6935399262465851280
 MonoBehaviour:
   m_ObjectHideFlags: 0

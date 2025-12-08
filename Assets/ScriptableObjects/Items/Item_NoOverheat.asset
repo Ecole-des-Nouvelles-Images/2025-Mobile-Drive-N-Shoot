@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemNoOverheat
   ItemType: 2
   Duration: 30
+  _useSFX:
+    Guid:
+      Data1: 606039060
+      Data2: 1174884649
+      Data3: -176544075
+      Data4: 1899268826
+    Path: event:/SFX/NoOverheat
