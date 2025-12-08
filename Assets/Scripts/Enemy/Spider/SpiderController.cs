@@ -1,5 +1,6 @@
 using __Workspaces.Alex.Scripts;
 using Core;
+using DG.Tweening;
 using FMODUnity;
 using UnityEngine;
 using Utils.Game;
@@ -22,6 +23,21 @@ namespace Enemy.Spider
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
+            
+            // Change material
+            float targetValue = 0.5f;
+            DOTween.To(
+                () => 0f,
+                value =>
+                {
+                    foreach (var material in Materials)
+                    {
+                        material.SetFloat("_HitProgress", value);
+                    }
+                },
+                targetValue,
+                0.1f
+            ).SetLoops(2, LoopType.Yoyo);
         }
         
         private void Start()

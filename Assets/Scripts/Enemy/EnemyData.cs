@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
@@ -65,9 +66,13 @@ namespace Enemy
         [Header("Internal Components")]
         public NavMeshAgent NavMeshAgent;
         public Collider Collider;
+        public Renderer[] Renderers;
 
         [Header("External Components")]
         public SphereCollider AttackRangeCollider;
+        
+        [Header("Material")]
+        public List<Material> Materials;
 
         private void Awake()
         {
@@ -75,6 +80,11 @@ namespace Enemy
             Collider = GetComponent<Collider>();
             AttackRangeCollider.radius = AttackRange;
             CurrentHealth = MaxHealth;
+
+            foreach (var renderer in Renderers)
+            {
+                Materials.Add(renderer.material);
+            }
         }
     }
 }

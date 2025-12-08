@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
 using Core;
+using DG.Tweening;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils.Game;
 
 namespace Car
@@ -272,6 +272,18 @@ namespace Car
             _shieldCoroutine = StartCoroutine(ShieldTimeOutCoroutine());
 
 
+            // Change Material
+            float targetValue = 0.3f;
+            DOTween.To(
+                () => 0f,
+                value =>
+                {
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
+                    GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
+                },
+                targetValue,
+                0.5f
+            );
         }
 
         private IEnumerator ShieldTimeOutCoroutine()
@@ -284,6 +296,19 @@ namespace Car
             }
             _carHealth.IsShieldActive = false;
             _shieldCoroutine = null;
+            
+            // Change Color
+            float targetValue = 0f;
+            DOTween.To(
+                () => 0.6f,
+                value =>
+                {
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
+                    GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
+                },
+                targetValue,
+                0.75f
+            );
         }
 
         private void HandleGamePause()
