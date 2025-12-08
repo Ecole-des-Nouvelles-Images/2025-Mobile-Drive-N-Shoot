@@ -18,20 +18,6 @@ namespace Enemy.Spider
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
         }
 
-        private void OnEnable()
-        {
-            EventBus.OnGameResume += OnGameResume;
-            EventBus.OnGamePause += OnGamePause;
-            EventBus.OnGameOver += OnGamePause;
-        }
-        
-        private void OnDisable()
-        {
-            EventBus.OnGameResume -= OnGameResume;
-            EventBus.OnGamePause -= OnGamePause;
-            EventBus.OnGameOver -= OnGamePause;
-        }
-
         private void Update()
         {
             if (IsDying)
@@ -64,6 +50,7 @@ namespace Enemy.Spider
 
         private void Die()
         {
+            IsMoving = false;
             NavMeshAgent.ResetPath();
             Collider.enabled = false;
             Animator.SetBool("IsDead", IsDying);
@@ -74,14 +61,36 @@ namespace Enemy.Spider
             Destroy(gameObject, 3f);
         }
         
+        #region Subscriptions
+        
+        private void OnEnable()
+        {
+            EventBus.OnGameResume += OnGameResume;
+            EventBus.OnGamePause += OnGamePause;
+            EventBus.OnGameOver += OnGamePause;
+        }
+        
         private void OnGameResume()
         {
+            IsMoving = true;
+            NavMeshAgent.SetDestination(TargetTransform.position);
             Animator.SetFloat("AttackSpeed", AttackSpeed);
         }
 
         private void OnGamePause()
         {
+            IsMoving = false;
+            NavMeshAgent.ResetPath();
             Animator.SetFloat("AttackSpeed", 0f);
         }
+        
+        private void OnDisable()
+        {
+            EventBus.OnGameResume -= OnGameResume;
+            EventBus.OnGamePause -= OnGamePause;
+            EventBus.OnGameOver -= OnGamePause;
+        }
+        
+        #endregion
     }
 }
