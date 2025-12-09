@@ -62,6 +62,7 @@ namespace __Workspaces.Alex.Scripts
                 {
                     GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_HitProgress", value);
                     GameManager.Instance.CurrentCarMaterials[0].SetFloat("_HitProgress", value);
+                    GameManager.Instance.CurrentIemExhaustPipeMaterials[0].SetFloat("_HitProgress", value);
                 },
                 targetValue,
                 0.1f

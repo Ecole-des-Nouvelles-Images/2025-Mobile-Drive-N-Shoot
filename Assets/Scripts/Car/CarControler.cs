@@ -22,7 +22,7 @@ namespace Car
         public float centreOfGravityOffset = -1f;
     
         [Header("Visual")]
-        [SerializeField] private MeshRenderer _pickupMeshRenderer;
+        [SerializeField] private List<MeshRenderer> _pickupMeshRenderers;
         [SerializeField] private List<MeshRenderer> _turretMeshRenderers = new();
 
         [Header("Boost")]
@@ -121,7 +121,10 @@ namespace Car
             // _nextBoostTime = TimeManager.Instance.Time;
         
             // Skin
-            _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
+            foreach (var meshRenderers in _pickupMeshRenderers)
+            {
+                meshRenderers.materials = GameManager.Instance.CurrentCarMaterials;
+            }
             foreach (var meshRenderers in _turretMeshRenderers)
             {
                 meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
@@ -280,6 +283,7 @@ namespace Car
                 {
                     GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
                     GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
+                    GameManager.Instance.CurrentIemExhaustPipeMaterials[0].SetFloat("_ResistanceProgress", value);
                 },
                 targetValue,
                 0.5f
@@ -305,6 +309,7 @@ namespace Car
                 {
                     GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
                     GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
+                    GameManager.Instance.CurrentIemExhaustPipeMaterials[0].SetFloat("_ResistanceProgress", value);
                 },
                 targetValue,
                 0.75f

@@ -11,6 +11,7 @@ namespace Core
         public GameObject Player;
         public Material[] CurrentCarMaterials;
         public Material[] CurrentTurretMaterials;
+        public Material[] CurrentIemExhaustPipeMaterials;
 
         private void OnEnable()
         {

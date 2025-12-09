@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5faf0826d2b747441854e0fd136e5675, type: 3}
-  m_Name: PickupBaseSkin
+  m_Name: Pickup_FireSkin
   m_EditorClassIdentifier: Assembly-CSharp::SelectionSkins.Skin
   SkinType: 0
-  Material: {fileID: 2100000, guid: ddc9d777c3afeb841873eebbf3233844, type: 2}
+  Material: {fileID: 2100000, guid: fc7714c504ee8e14db4d986bab8e38fb, type: 2}

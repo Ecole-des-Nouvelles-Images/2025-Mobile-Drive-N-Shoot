@@ -227,6 +227,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   CurrentCarMaterials: []
   CurrentTurretMaterials: []
+  CurrentIemExhaustPipeMaterials:
+  - {fileID: 2100000, guid: ac9436737c5ab1d4f9a2cb6c81c1547e, type: 2}
 --- !u!4 &561172853
 Transform:
   m_ObjectHideFlags: 0
