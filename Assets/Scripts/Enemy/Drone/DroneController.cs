@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
 using Core;
 using DG.Tweening;

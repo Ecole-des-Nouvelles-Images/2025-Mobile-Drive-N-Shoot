@@ -21,7 +21,7 @@ namespace Enemy.Spider
         [SerializeField] private ParticleSystem _explosionVFX;
         
         [Header("SFX")] 
-        [SerializeField] private EventReference _deathSFX;
+        [SerializeField] private EventReference _explosionSFX;
         
         public void TakeDamage(float damage)
         {
@@ -87,7 +87,7 @@ namespace Enemy.Spider
             }
             
             // VFX, SFX
-            AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
+            // AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             if (_explosionVFX) _explosionVFX.Play();
             
             IsDead = true;
