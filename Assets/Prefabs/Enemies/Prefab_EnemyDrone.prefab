@@ -261,8 +261,8 @@ MonoBehaviour:
       Data3: 2072302978
       Data4: -726708132
     Path: event:/SFX/DroneExplosion
-  _deathVFX: {fileID: 0}
-  _visual: {fileID: 0}
+  _deathVFX: {fileID: 2628477338921762141}
+  _visual: {fileID: 5138369762306741965}
 --- !u!114 &6935399262465851280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +545,11 @@ PrefabInstance:
 --- !u!4 &714880542181256850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1677510273169940373, guid: 38d59345dbb8ebd4f95c84de0ae2cd6e, type: 3}
+  m_PrefabInstance: {fileID: 2210267567557292295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2628477338921762141 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4239655894344387674, guid: 38d59345dbb8ebd4f95c84de0ae2cd6e, type: 3}
   m_PrefabInstance: {fileID: 2210267567557292295}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5444361305092516764
