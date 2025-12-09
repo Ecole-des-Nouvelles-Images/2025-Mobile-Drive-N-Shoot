@@ -134,7 +134,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ResistanceCycleTime: 1.5
-    - _ResistanceProgress: 0.40930086
+    - _ResistanceProgress: 0
     - _ResistanceRotation: 0.5
     - _ResistanceSmoothnessStrenght: 1
     - _ResistanceWaveSpeed: 1.5
