@@ -55,5 +55,37 @@ namespace Utils.Game
         
         // Cinematic
         public static Action OnCinematicEnd;
+        
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void Init()
+        {
+            OnGameStart = null;
+            OnGamePause = null;
+            OnGameResume = null;
+            OnGameOver = null;
+            OnLoadScene = null;
+            OnTimeChange = null;
+            OnStartTime = null;
+            OnStopTime = null;
+            OnResetTime = null;
+            OnPlayerSpawn = null;
+            OnPlayerDie = null;
+            OnPlayerTakeDamage = null;
+            OnPlayerDealCritDamage = null;
+            OnPlayerHealthChange = null;
+            OnPlayerBoostCooldown = null;
+            OnPlayerAtHalfHealth = null;
+            OnPlayerRecoveredFromHalf = null;
+            OnEnemySpawn = null;
+            OnSpiderEnemySpawn = null;
+            OnDroneEnemySpawn = null;
+            OnEnemyDie = null; 
+            OnEnemyTakeDamage = null;
+            OnModuleFinishedGeneration = null;
+            OnAddTimeToTimer = null;
+            OnCollectedItem = null; 
+            OnUsingItem = null;
+            OnCinematicEnd = null;
+        }
     }
 }

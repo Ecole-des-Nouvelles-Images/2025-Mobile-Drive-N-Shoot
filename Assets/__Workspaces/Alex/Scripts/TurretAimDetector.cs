@@ -5,7 +5,8 @@ namespace __Workspaces.Alex.Scripts
 {
     public class TurretAimDetector : MonoBehaviour
     {
-        public List<Transform> EnemiesInSight = new List<Transform>();
+        [Header("Enemies")]
+        [SerializeField] private List<Transform> EnemiesInSight = new();
 
         private void OnTriggerEnter(Collider other)
         {

@@ -12,7 +12,7 @@ namespace SelectionSkins
         [SerializeField] private List<Skin> _turretSkins =  new();
         
         [Header("Visual")]
-        [SerializeField] private MeshRenderer _pickupMeshRenderer;
+        [SerializeField] private List<MeshRenderer> _pickupMeshRenderers = new();
         [SerializeField] private List<MeshRenderer> _turretMeshRenderers = new();
 
         [Header("Buttons")]
@@ -121,7 +121,11 @@ namespace SelectionSkins
                 Material[] materials = {
                     _pickupSkins[_currentPickupSkinId].Material
                 };
-                _pickupMeshRenderer.materials = materials;
+
+                foreach (var meshRenderer in _pickupMeshRenderers)
+                {
+                    meshRenderer.materials = materials;
+                }
 
                 if (GameManager.Instance) GameManager.Instance.CurrentCarMaterials = materials;
             }
@@ -132,9 +136,9 @@ namespace SelectionSkins
                     _turretSkins[_currentTurretSkinId].Material
                 };
                 
-                foreach (var meshRenderers in _turretMeshRenderers)
+                foreach (var meshRenderer in _turretMeshRenderers)
                 {
-                    meshRenderers.materials = materials;
+                    meshRenderer.materials = materials;
                 }
                 
                 if (GameManager.Instance) GameManager.Instance.CurrentTurretMaterials = materials;

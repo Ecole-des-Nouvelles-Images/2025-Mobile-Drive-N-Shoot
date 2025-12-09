@@ -204,12 +204,13 @@ MonoBehaviour:
   Renderers:
   - {fileID: 6984185819767786981}
   AttackRangeCollider: {fileID: 4523451132106172580}
+  Visual: {fileID: 8449314218352359921}
   Materials: []
   _explosionRange: 2
   _explosionDamage: 15
   _animator: {fileID: 3225174371836797544}
   _explosionVFX: {fileID: 23285534807771120}
-  _deathSFX:
+  _explosionSFX:
     Guid:
       Data1: -1737381714
       Data2: 1098323874
@@ -419,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
       propertyPath: m_Name
       value: SK_Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
