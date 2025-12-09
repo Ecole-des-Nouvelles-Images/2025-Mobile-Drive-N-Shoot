@@ -31,9 +31,9 @@ namespace __Workspaces.Alex.Scripts
             _enemyPool = new Queue<ParticleSystem>();
         
             for (int i = 0; i < PoolSizeDefault; i++)
-                _defaultPool.Enqueue(Instantiate(DefaultImpactPrefab));
+                _defaultPool.Enqueue(Instantiate(DefaultImpactPrefab, transform));
             for (int i = 0; i < PoolSizeEnemy; i++)
-                _enemyPool.Enqueue(Instantiate(EnemyImpactPrefab));
+                _enemyPool.Enqueue(Instantiate(EnemyImpactPrefab, transform));
         }
 
         private ParticleSystem CreateInstance(ParticleSystem prefab)
