@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_BasePickup.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_BasePickup.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_BaseTurret.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_BaseTurret.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_FirePickup.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_FirePickup.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_FireTurret.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_FireTurret.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_IEMCoil.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_IEMCoil.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/M_IemExhaustPipe.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/M_IemExhaustPipe.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestEnemy.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestEnemy.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretAimDetector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TurretAimDetector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
