@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using Utils.Interfaces;
 
@@ -8,6 +9,9 @@ namespace __Workspaces.Alex.Scripts
     {
         public float Radius = 30f;
         public float Damage = 100f;
+        
+        [Header("SFX")]
+        [SerializeField] private EventReference _useSFX;
 
         public override void Execute(GameObject target)
         {
@@ -27,6 +31,8 @@ namespace __Workspaces.Alex.Scripts
                     Debug.Log("Item_IEM damaged " + enemy.name);
                 }
             }
+            // Play SFX
+            AudioManager.Instance.PlayAtPosition(_useSFX, center);
         }
 
         private void DebugDrawWireSphere(Vector3 center, float radius, Color color, float duration = 0f)

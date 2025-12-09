@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TurretBaseSkin
   m_EditorClassIdentifier: Assembly-CSharp::SelectionSkins.Skin
   SkinType: 1
-  Material: {fileID: 2100000, guid: 727ce20c213b75046a115652a0ecc831, type: 2}
+  Material: {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}

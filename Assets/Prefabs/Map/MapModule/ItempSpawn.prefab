@@ -48,10 +48,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SpawnItem
   _items:
   - {fileID: 11400000, guid: 69d3c398f7b8ce147ae8df391250f06c, type: 2}
-  - {fileID: 11400000, guid: 3bc7566fb964a9f4fa326d945d77f7f2, type: 2}
   - {fileID: 11400000, guid: ca48df8f20469a3458a04299cba29ca1, type: 2}
   - {fileID: 11400000, guid: 45eedb7f8a95baa4e9f3bf2470924b39, type: 2}
   _itemVisual: {fileID: 8123554460896647131}
+  _collectSFX:
+    Guid:
+      Data1: 2118189499
+      Data2: 1283212555
+      Data3: 1462361218
+      Data4: 9388584
+    Path: event:/SFX/ItemPicked
 --- !u!135 &7838440416464097389
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
 using Core;
+using DG.Tweening;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
@@ -28,6 +30,8 @@ namespace Car
         public float shakeThreshold = 2.0f;       // threshold for detecting a shake (high-frequency component)
         public float boostDeltaV = 5f;            // desired instantaneous delta-V in m/s (VelocityChange)
         public float lowPassFilterFactor = 0.1f;  // smoothing factor for low-pass filter on accelerometer
+        [SerializeField] private CarHealth _carHealth;   // Reference to CarHealth component
+        [SerializeField] private float _shieldDuration = 2f; // Duration of shield after boost
 
         [Header("Damage behavior")]
         public float damagedSpeedFactor = 0.8f;
@@ -46,7 +50,8 @@ namespace Car
         [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
 
         [Header("SFX")] 
-        [SerializeField] private EventReference _engineReference;
+        [SerializeField] private EventReference _engineSound;
+        [SerializeField] private EventReference _boostSound;
 
         private EventInstance _engineInstance;
     
@@ -68,10 +73,9 @@ namespace Car
     
         // Damage state
         private bool _isDamaged = false;
-    
-        // Nitro attack state
-        private bool _hasNitroAttackReady = false;
-        private bool _isNitroAttacking = false;
+        
+        // Coroutine handle for shield timeout
+        private Coroutine _shieldCoroutine;
     
     
         private void Awake()
@@ -114,7 +118,7 @@ namespace Car
 
             // Initialize accelerometer filter and cooldown so boost can be used immediately
             _lowPassAcceleration = Input.acceleration;
-            _nextBoostTime = TimeManager.Instance.Time;
+            // _nextBoostTime = TimeManager.Instance.Time;
         
             // Skin
             _pickupMeshRenderer.materials = GameManager.Instance.CurrentCarMaterials;
@@ -124,7 +128,7 @@ namespace Car
             }
             
             // Start engine sound
-            _engineInstance = AudioManager.Instance.Play(_engineReference, loop: true, follow: gameObject);
+            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
         }
 
         void Update()
@@ -137,24 +141,30 @@ namespace Car
             Vector3 highFreq = currentAccel - _lowPassAcceleration;
 
             // If the high-frequency magnitude exceeds the threshold and cooldown has passed, trigger boost immediately
-            float now = TimeManager.Instance.Time;
-            if (highFreq.magnitude > shakeThreshold && now >= _nextBoostTime)
+            // float now = TimeManager.Instance.Time;
+            if (_nextBoostTime <= boostCooldown)
             {
-                ApplyVelocityChangeBoost(now);
+                _nextBoostTime += TimeManager.Instance.DeltaTime;
+                _nextBoostTime = Mathf.Clamp(_nextBoostTime, 0f, boostCooldown);
+                EventBus.OnPlayerBoostCooldown?.Invoke(_nextBoostTime, boostCooldown);
+            }
+            if (highFreq.magnitude > shakeThreshold && _nextBoostTime >= boostCooldown)
+            {
+                ApplyVelocityChangeBoost();
             }
             
             // Sound gestion
             // Normalize speed to 0–1 for FMOD
-            float speed01 = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 40f);
+            float speed01 = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 20f);
 
             if (_engineInstance.isValid())
                 _engineInstance.setParameterByName("RPM", speed01);
 
 #if UNITY_EDITOR || UNITY_STANDALONE
             // Editor / standalone shortcut for testing: press B to trigger boost
-            if (Input.GetKeyDown(KeyCode.B) && now >= _nextBoostTime)
+            if (Input.GetKeyDown(KeyCode.B) && _nextBoostTime >= boostCooldown)
             {
-                ApplyVelocityChangeBoost(now);
+                ApplyVelocityChangeBoost();
             }
 #endif
         }
@@ -217,13 +227,6 @@ namespace Car
                 _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
             }
         
-            // Disable nitro attack collider after boost
-            if (_isNitroAttacking && currentSpeed <= maxSpeed )
-            {
-                _nitroCollider.SetActive(false);
-                _isNitroAttacking = false;
-            }
-        
             // --- Wheel particle effects ---
             foreach (var wheel in _wheels)
             {
@@ -247,28 +250,65 @@ namespace Car
             }
         }
 
-        // turn Nitro Attack ready 
-        public void SetNitroAttackReady()
-        {
-            _hasNitroAttackReady = true;
-            Debug.Log("Nitro Attack is ready!");
-        }
+ 
     
         // Apply an immediate velocity change (VelocityChange) and set the cooldown
-        private void ApplyVelocityChangeBoost(float now)
+        private void ApplyVelocityChangeBoost()
         {
-            _nextBoostTime = now + boostCooldown;
+            // Play boost sound
+            AudioManager.Instance.Play(_boostSound, follow: gameObject);
+            
+            _nextBoostTime = 0f;
 
             // Apply an immediate velocity change in the forward direction (mass-independent)
             _rigidBody.AddForce(transform.forward * boostDeltaV, ForceMode.VelocityChange);
-        
-            // Enable nitro attack collider if ready
-            if (_hasNitroAttackReady)
+
+
+            _carHealth.IsShieldActive = true;
+            if (_shieldCoroutine != null)
             {
-                _nitroCollider.SetActive(true);
-                _hasNitroAttackReady = false;
-                _isNitroAttacking = true;
+                StopCoroutine(_shieldCoroutine);
             }
+            _shieldCoroutine = StartCoroutine(ShieldTimeOutCoroutine());
+
+
+            // Change Material
+            float targetValue = 0.3f;
+            DOTween.To(
+                () => 0f,
+                value =>
+                {
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
+                    GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
+                },
+                targetValue,
+                0.5f
+            );
+        }
+
+        private IEnumerator ShieldTimeOutCoroutine()
+        {
+            float elapsed = 0f;
+            while (elapsed < _shieldDuration)
+            {
+                elapsed += TimeManager.Instance.DeltaTime;
+                yield return null;
+            }
+            _carHealth.IsShieldActive = false;
+            _shieldCoroutine = null;
+            
+            // Change Color
+            float targetValue = 0f;
+            DOTween.To(
+                () => 0.6f,
+                value =>
+                {
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
+                    GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
+                },
+                targetValue,
+                0.75f
+            );
         }
 
         private void HandleGamePause()
@@ -324,6 +364,14 @@ namespace Car
             _isDamaged = false;
             // Restore maxSpeed
             maxSpeed = baseMaxSpeed;
+        }
+        private void OnDestroy()
+        {
+            if (_engineInstance.isValid())
+            {
+                _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _engineInstance.release();
+            }
         }
     }
 }

@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0646baddb687de747a6dd6e9a9b05b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.TriggerCollider
-  enemyData: {fileID: 5791760298487775020}
+  _enemyData: {fileID: 5791760298487775020}
   _colliders: []
 --- !u!1 &5631075543405917513
 GameObject:
@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b3915829664cf4bcb3dcb5fb7dee3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DroneController
-  HaveAnimation: 0
   MaxHealth: 10
   Damage: 1
   AttackSpeed: 0.2
@@ -234,12 +233,32 @@ MonoBehaviour:
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}
   Collider: {fileID: 0}
+  Renderers:
+  - {fileID: 6902566844698648638}
+  - {fileID: 868041913241539348}
+  - {fileID: 8626711477716391784}
+  - {fileID: 4015276029830604341}
+  - {fileID: 2231376494427346957}
   AttackRangeCollider: {fileID: 1117045525075458872}
-  Animator: {fileID: 0}
+  Materials: []
   _turretTransform: {fileID: 9143186363493566316}
   _rotateSpeed: 20
   _laserLine: {fileID: 5210192218730039623}
   _startingPos: {fileID: 1025358269971044260}
+  _laserSFX:
+    Guid:
+      Data1: 94752967
+      Data2: 1339287791
+      Data3: -1737999960
+      Data4: 890469649
+    Path: event:/SFX/DroneLazer
+  _deathSFX:
+    Guid:
+      Data1: 1855464604
+      Data2: 1230473388
+      Data3: 2072302978
+      Data4: -726708132
+    Path: event:/SFX/DroneExplosion
 --- !u!114 &6935399262465851280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +367,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b6ef1f5d943542a4891263a13b8822cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -478,10 +497,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3064364351665966191, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d1975efaa3f88b54896cf10eac2b56bb, type: 2}
+    - target: {fileID: -272642030522708567, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d1975efaa3f88b54896cf10eac2b56bb, type: 2}
     - target: {fileID: 919132149155446097, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
       propertyPath: m_Name
       value: NTS_Drone
       objectReference: {fileID: 0}
+    - target: {fileID: 1460457362045078434, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d1975efaa3f88b54896cf10eac2b56bb, type: 2}
+    - target: {fileID: 4338793430252125428, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d1975efaa3f88b54896cf10eac2b56bb, type: 2}
+    - target: {fileID: 5153708174917925000, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d1975efaa3f88b54896cf10eac2b56bb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -495,6 +534,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4587156158227613717, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
   m_PrefabInstance: {fileID: 5444361305092516764}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &868041913241539348 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5153708174917925000, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2231376494427346957 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3064364351665966191, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4015276029830604341 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -272642030522708567, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5477776548366290039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
@@ -505,9 +559,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8068348883406168605, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
   m_PrefabInstance: {fileID: 5444361305092516764}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &6902566844698648638 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1460457362045078434, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8314480480540945637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5121518345591191687, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8626711477716391784 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4338793430252125428, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
   m_PrefabInstance: {fileID: 5444361305092516764}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &9143186363493566316 stripped

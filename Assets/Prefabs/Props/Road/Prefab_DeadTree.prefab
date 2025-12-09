@@ -48,6 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PropsHandler
   _visual: {fileID: 6153002395939540785}
   _psDestroy: {fileID: 0}
+  _destroySFX:
+    Guid:
+      Data1: -1019433349
+      Data2: 1227649701
+      Data3: -1799561053
+      Data4: 514881849
+    Path: event:/SFX/PropsDestruct
 --- !u!136 &5658761444864915815
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -63,12 +70,12 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.5
+  m_Radius: 0.6
+  m_Height: 1.6
   m_Direction: 2
   m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1001 &6458921377534030432

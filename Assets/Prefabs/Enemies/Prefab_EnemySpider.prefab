@@ -120,7 +120,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9023715347566299116
 MonoBehaviour:
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0646baddb687de747a6dd6e9a9b05b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.TriggerCollider
-  enemyData: {fileID: 2205203812999137503}
+  _enemyData: {fileID: 2205203812999137503}
   _colliders: []
 --- !u!1 &7989771649214069358
 GameObject:
@@ -186,11 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b6c887407c8034388b6dcc9e439cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SpiderController
-  HaveAnimation: 1
   MaxHealth: 10
   Damage: 5
-  AttackSpeed: 2
-  AttackRange: 1
+  AttackSpeed: 0
+  AttackRange: 0.75
   SeeTarget: 0
   IsDying: 0
   IsDead: 0
@@ -201,8 +200,20 @@ MonoBehaviour:
   TargetHealth: {fileID: 0}
   NavMeshAgent: {fileID: 0}
   Collider: {fileID: 0}
+  Renderers:
+  - {fileID: 6984185819767786981}
   AttackRangeCollider: {fileID: 4523451132106172580}
-  Animator: {fileID: 3225174371836797544}
+  Materials: []
+  _explosionRange: 2
+  _explosionDamage: 15
+  _animator: {fileID: 3225174371836797544}
+  _deathSFX:
+    Guid:
+      Data1: -1737381714
+      Data2: 1098323874
+      Data3: 1274623378
+      Data4: 1872321656
+    Path: event:/SFX/SpiderExplosion
 --- !u!195 &7111640776458576405
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -316,6 +327,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7391435384878151355, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1592d695c563098479b63b1d740aebe1, type: 2}
     - target: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
       propertyPath: m_Name
       value: SK_Spider
@@ -327,10 +342,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3225174371836797544}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8335734686272256143}
   m_SourcePrefab: {fileID: 100100000, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
+--- !u!137 &6984185819767786981 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7391435384878151355, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
+  m_PrefabInstance: {fileID: 8755164054059844768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8449314218352359921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
@@ -358,19 +375,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8335734686272256143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8449314218352359921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b75f6f8668d4a178a806081610468a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.Test
-  _enemyData: {fileID: 2205203812999137503}
 --- !u!4 &9082122380062286667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}

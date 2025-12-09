@@ -9,7 +9,7 @@ namespace Enemy.Spider
         
         public void Attack()
         {
-            _enemyData.Attack();
+            // _enemyData.Attack();
         }
     }
 }
