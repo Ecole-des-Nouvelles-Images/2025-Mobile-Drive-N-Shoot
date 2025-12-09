@@ -6,24 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Map/MapModule/ItempSpawn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Map/MapModule/ItempSpawn.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusBranches.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusBranches.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusGrand.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusGrand.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusPetit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusPetit.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusRond.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusRond.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Bush.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Bush.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_DeadBush.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_DeadBush.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_DeadTree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_DeadTree.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Grave.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Grave.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/Item_IEM.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/Item_IEM.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/Item_Repair.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/Item_Repair.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/ItemSpawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/ItemSpawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/PropsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/PropsHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/ItemNoOverheat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/ItemNoOverheat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Prefab_EnemySpider.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Prefab_EnemySpider.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Spider/SpiderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Spider/SpiderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Materials/M_MuzzleFlash.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Materials/M_MuzzleFlash.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Scenes/GameScene 2.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +132,7 @@
       <updated>1764923825161</updated>
       <workItem from="1764923827122" duration="3121000" />
       <workItem from="1765184325497" duration="1517000" />
+      <workItem from="1765272207316" duration="1939000" />
     </task>
     <servers />
   </component>

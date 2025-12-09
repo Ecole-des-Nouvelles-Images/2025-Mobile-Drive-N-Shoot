@@ -17,6 +17,9 @@ namespace Enemy.Spider
         [Header("External Components")]
         [SerializeField] private Animator _animator;
 
+        [Header("VFX")]
+        [SerializeField] private ParticleSystem _explosionVFX;
+        
         [Header("SFX")] 
         [SerializeField] private EventReference _deathSFX;
         
@@ -85,6 +88,7 @@ namespace Enemy.Spider
             
             // VFX, SFX
             AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
+            if (_explosionVFX) _explosionVFX.Play();
             
             IsDead = true;
             Destroy(gameObject, 1f);
