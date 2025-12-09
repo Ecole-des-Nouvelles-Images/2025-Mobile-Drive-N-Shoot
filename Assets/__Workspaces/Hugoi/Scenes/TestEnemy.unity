@@ -670,10 +670,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.GameLoop.GameManager
   Player: {fileID: 0}
   CurrentCarMaterials:
-  - {fileID: 2100000, guid: 13123834631b0854baa84a096d5c69b9, type: 2}
+  - {fileID: 2100000, guid: ddc9d777c3afeb841873eebbf3233844, type: 2}
   CurrentTurretMaterials:
-  - {fileID: 2100000, guid: 181b8fc526483c04f9746f645c123c9e, type: 2}
-  CurrentIemExhaustPipeMaterials: []
+  - {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
+  CurrentIemExhaustPipeMaterials:
+  - {fileID: 2100000, guid: ac9436737c5ab1d4f9a2cb6c81c1547e, type: 2}
 --- !u!4 &812140793
 Transform:
   m_ObjectHideFlags: 0
