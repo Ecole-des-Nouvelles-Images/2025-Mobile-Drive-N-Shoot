@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5faf0826d2b747441854e0fd136e5675, type: 3}
-  m_Name: TurretBaseSkin
+  m_Name: Pickup_BaseSkin
   m_EditorClassIdentifier: Assembly-CSharp::SelectionSkins.Skin
-  SkinType: 1
-  Material: {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
+  SkinType: 0
+  Material: {fileID: 2100000, guid: ddc9d777c3afeb841873eebbf3233844, type: 2}

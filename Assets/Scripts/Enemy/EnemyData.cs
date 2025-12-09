@@ -71,7 +71,8 @@ namespace Enemy
         [Header("External Components")]
         public SphereCollider AttackRangeCollider;
         
-        [Header("Material")]
+        [Header("Visual")]
+        public GameObject Visual;
         public List<Material> Materials;
 
         private void Awake()

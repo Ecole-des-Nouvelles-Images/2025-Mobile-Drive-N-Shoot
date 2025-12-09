@@ -21,3 +21,5 @@
 24	925	7866528790416338	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	19f321471443e03e
 19	972	7866528790872401	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c8759ae145f5b2d6
 973	1040	7866528791598442	D:/h.isambart/LocalRepo/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o4e5p1q2/obj/armeabi-v7a/libgame.so	7f6981cbc1ae5edc
+3	73	7869066716692843	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	b150f55cee24482b
+73	153	7869066717393287	D:/h.isambart/LocalRepo/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/o4e5p1q2/obj/armeabi-v7a/libswappywrapper.so	aaa79c1cf6dce13e
