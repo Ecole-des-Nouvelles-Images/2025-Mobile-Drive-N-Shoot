@@ -169,19 +169,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: _deathSFX.Guid.Data1
-      value: -1789921049
+      value: 1855464604
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: _deathSFX.Guid.Data2
-      value: 1287353610
+      value: 1230473388
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: _deathSFX.Guid.Data3
-      value: -485739596
+      value: 2072302978
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: _deathSFX.Guid.Data4
-      value: -441787038
+      value: -726708132
       objectReference: {fileID: 0}
     - target: {fileID: 7989771649214069358, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: m_Name
@@ -1631,23 +1631,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2205203812999137503, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: _explosionSFX.Path
-      value: 
+      value: event:/SFX/SpiderExplosion
       objectReference: {fileID: 0}
     - target: {fileID: 2205203812999137503, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: _explosionSFX.Guid.Data1
-      value: 0
+      value: -1737381714
       objectReference: {fileID: 0}
     - target: {fileID: 2205203812999137503, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: _explosionSFX.Guid.Data2
-      value: 0
+      value: 1098323874
       objectReference: {fileID: 0}
     - target: {fileID: 2205203812999137503, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: _explosionSFX.Guid.Data3
-      value: 0
+      value: 1274623378
       objectReference: {fileID: 0}
     - target: {fileID: 2205203812999137503, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: _explosionSFX.Guid.Data4
-      value: 0
+      value: 1872321656
       objectReference: {fileID: 0}
     - target: {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: m_Name

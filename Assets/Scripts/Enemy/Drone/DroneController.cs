@@ -148,6 +148,7 @@ namespace Enemy.Drone
             StopCoroutine(CoroutineAttack());
             DisplayLaser(false);
             Collider.enabled = false;
+            Visual.SetActive(false);
             
             // VFX, SFX
             AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);

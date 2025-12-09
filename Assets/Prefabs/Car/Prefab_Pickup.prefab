@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 727ce20c213b75046a115652a0ecc831, type: 2}
+  - {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -770,7 +770,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 727ce20c213b75046a115652a0ecc831, type: 2}
+  - {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1069,7 +1069,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 727ce20c213b75046a115652a0ecc831, type: 2}
+  - {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1984,8 +1984,4 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a8bfa9c202ac294bb859fdf4d868f49, type: 3}
   m_PrefabInstance: {fileID: 7689057777105019431}
---- !u!198 &8322145597122362279 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8365867778170367030, guid: 365114ebf78b475478d28d046e7dca8d, type: 3}
-  m_PrefabInstance: {fileID: 533600932042381201}
   m_PrefabAsset: {fileID: 0}

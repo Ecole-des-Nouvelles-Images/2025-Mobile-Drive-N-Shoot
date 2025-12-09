@@ -70,7 +70,8 @@ namespace __Workspaces.Hugoi.Scripts
             if (_isAiming)
             {
                 // Rotate on y the turret support
-                Quaternion supportTargetRot = Quaternion.LookRotation(new Vector3(input.x, 0f, input.y));
+                Vector3 dir = new Vector3(input.x, 0f, input.y);
+                Quaternion supportTargetRot = Quaternion.LookRotation(transform.TransformDirection(dir));
                 _turretSupport.rotation = Quaternion.Slerp(
                     _turretSupport.rotation, 
                     supportTargetRot, 
@@ -92,7 +93,7 @@ namespace __Workspaces.Hugoi.Scripts
                         _shootTimerCooldown += TimeManager.Instance.DeltaTime;
                         if (_shootTimerCooldown >= _shootingSpeed)
                         {
-                            closesEnemyTransform.GetComponent<IDamageable>().TakeDamage(_damage);
+                            closesEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
                             _shootTimerCooldown = 0f;
                         }
                     }

@@ -75,7 +75,7 @@ namespace Enemy.Spider
             IsMoving = false;
             NavMeshAgent.ResetPath();
             Collider.enabled = false;
-            _animator.SetBool("IsDead", IsDying);
+            Visual.SetActive(false);
             
             Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRange);
             foreach (Collider hit in colliders)

@@ -240,6 +240,7 @@ MonoBehaviour:
   - {fileID: 4015276029830604341}
   - {fileID: 2231376494427346957}
   AttackRangeCollider: {fileID: 1117045525075458872}
+  Visual: {fileID: 5138369762306741965}
   Materials: []
   _turretTransform: {fileID: 9143186363493566316}
   _rotateSpeed: 20
@@ -547,6 +548,11 @@ MeshRenderer:
 --- !u!23 &4015276029830604341 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -272642030522708567, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
+  m_PrefabInstance: {fileID: 5444361305092516764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5138369762306741965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f08a32e7c3c530d47bc7ead6b22e5d89, type: 3}
   m_PrefabInstance: {fileID: 5444361305092516764}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5477776548366290039 stripped
