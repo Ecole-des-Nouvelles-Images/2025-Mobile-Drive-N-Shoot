@@ -211,13 +211,6 @@ namespace Enemy.Drone
             EventBus.OnGameResume += OnGameResume;
             EventBus.OnGamePause += OnGamePause;
             EventBus.OnGameOver += OnGamePause;
-            NavMeshAgent.ResetPath();
-            Collider.enabled = false;
-            // VFX, SFX
-            AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
-            
-            IsDead = true;
-            Destroy(gameObject, 3f);
         }
         
         private void OnGameResume()
