@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
+using Core;
+using DG.Tweening;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -27,7 +30,11 @@ namespace __Workspaces.Hugoi.Scripts
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
         
+        // [Header("Renderers")]
+        // [SerializeField] private Renderer[] _renderers;
+        
         private CarInputActions _carInputActions;
+        // private Material _material;
         
         [Header("DEBUG")]
         // States
@@ -47,6 +54,8 @@ namespace __Workspaces.Hugoi.Scripts
         private void Awake()
         {
             _carInputActions = new CarInputActions();
+            
+            // _material = _renderers[0].material;
             
             // Debug
             TimeManager.Instance.Resume();
@@ -121,6 +130,10 @@ namespace __Workspaces.Hugoi.Scripts
                         _isOverheating = true;
                         DisplayLaser(false, _targetTransform.position);
                     }
+                    
+                    // VISUAL MATERIAL
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_HitProgress", _currentOverheatValue / _maxOverheatValue / 2f);
+                    
                 }
             }
             else
@@ -139,6 +152,9 @@ namespace __Workspaces.Hugoi.Scripts
                 {
                     _isOverheating = false;
                 }
+                
+                // VISUAL MATERIAL
+                GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_HitProgress", _currentOverheatValue / _maxOverheatValue / 2f);
             }
         }
         
