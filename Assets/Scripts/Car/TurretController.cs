@@ -1,12 +1,10 @@
-using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
 using Core;
-using DG.Tweening;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Car
 {
     public class TurretController : MonoBehaviour
     {
@@ -30,11 +28,7 @@ namespace __Workspaces.Hugoi.Scripts
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
         
-        // [Header("Renderers")]
-        // [SerializeField] private Renderer[] _renderers;
-        
         private CarInputActions _carInputActions;
-        // private Material _material;
         
         [Header("DEBUG")]
         // States
@@ -55,10 +49,8 @@ namespace __Workspaces.Hugoi.Scripts
         {
             _carInputActions = new CarInputActions();
             
-            // _material = _renderers[0].material;
-            
             // Debug
-            TimeManager.Instance.Resume();
+            // TimeManager.Instance.Resume();
         }
 
         private void OnEnable()
