@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 34445957}
+  - component: {fileID: 34445960}
   - component: {fileID: 34445959}
   - component: {fileID: 34445958}
   m_Layer: 5
@@ -194,6 +195,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34445956}
   m_CullTransparentMesh: 1
+--- !u!114 &34445960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34445956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56320e1414629444984b6bdd65e0179c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.UIEmissive
+  _durationFade: 2
+  _minAlpha: 0.2
+  _maxAlpha: 0.6
 --- !u!1 &320918349
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 320918350}
+  - component: {fileID: 320918353}
   - component: {fileID: 320918352}
   - component: {fileID: 320918351}
   m_Layer: 5
@@ -269,6 +286,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320918349}
   m_CullTransparentMesh: 1
+--- !u!114 &320918353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320918349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56320e1414629444984b6bdd65e0179c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.UIEmissive
+  _durationFade: 1.2
+  _minAlpha: 0.5
+  _maxAlpha: 1
 --- !u!1 &434836673
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +486,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.GameLoop.GameManager
   Player: {fileID: 0}
-  CurrentCarMaterials: []
-  CurrentTurretMaterials: []
+  CurrentCarMaterials:
+  - {fileID: 2100000, guid: ddc9d777c3afeb841873eebbf3233844, type: 2}
+  CurrentTurretMaterials:
+  - {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
   CurrentIemExhaustPipeMaterials:
   - {fileID: 2100000, guid: ac9436737c5ab1d4f9a2cb6c81c1547e, type: 2}
 --- !u!4 &561172853

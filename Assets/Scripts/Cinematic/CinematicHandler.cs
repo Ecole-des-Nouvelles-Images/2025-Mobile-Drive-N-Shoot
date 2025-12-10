@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,13 @@ namespace Cinematic
         
         [Header("Canvas")]
         [SerializeField] private Image _canvasBackgroundBlack;
+        [SerializeField] private Transform _textGo;
         [SerializeField] private GameObject _canvasOverlay;
+        
+        [Header("Animation GO")]
+        [SerializeField] private float _endScaleValue;
+        [SerializeField] private float _duration;
+        [SerializeField] private AnimationCurve _animationCurve;
         
         [Header("Cinemachine Camera")]
         [SerializeField] private CinemachineBrain _cinemachineBrain;
@@ -54,6 +61,8 @@ namespace Cinematic
             {
                 SwitchCinemachineCamera(_activeCinemachineCamera, _nextCinemachineCamera);
                 _playerDetected = true;
+                _textGo.DOScale(_endScaleValue, _duration).SetEase(_animationCurve).SetLoops(2, LoopType.Yoyo);
+                Invoke(nameof(FadeOut), _duration * 1.2f);
             }
         }
 
@@ -72,8 +81,14 @@ namespace Cinematic
             }
             yield return new WaitForSeconds(time);
             _canvasOverlay.SetActive(true);
+            _activeCinemachineCamera.gameObject.SetActive(false);
             
             EventBus.OnCinematicEnd?.Invoke();
+        }
+
+        private void FadeOut()
+        {
+            _textGo.GetComponent<TextMeshProUGUI>().DOFade(0.0f, _duration * 0.4f);
         }
     }
 }
