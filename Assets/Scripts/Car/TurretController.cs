@@ -124,9 +124,9 @@ namespace Car
                     _shootTimerCooldown += TimeManager.Instance.DeltaTime;
                     if (_shootTimerCooldown >= _shootingSpeed)
                     {
-                        if (closesEnemyTransform)
+                        if (closestEnemyTransform)
                         {
-                            closesEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
+                            closestEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
                         }
                         _shootTimerCooldown = 0f;
                         Debug.Log("Turret Shoot");
