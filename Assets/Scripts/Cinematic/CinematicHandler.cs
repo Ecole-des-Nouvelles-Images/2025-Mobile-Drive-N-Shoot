@@ -1,4 +1,5 @@
 using System.Collections;
+using Car;
 using DG.Tweening;
 using TMPro;
 using Unity.Cinemachine;
@@ -12,7 +13,7 @@ namespace Cinematic
     {
         [Header("Player")]
         [SerializeField] private GameObject _player;
-        [SerializeField] private Vector3 _speed;
+        [SerializeField] private float _speed;
         
         [Header("Canvas")]
         [SerializeField] private Image _canvasBackgroundBlack;
@@ -29,12 +30,14 @@ namespace Cinematic
         [SerializeField] private CinemachineCamera _activeCinemachineCamera;
         [SerializeField] private CinemachineCamera _nextCinemachineCamera;
         
-        private Rigidbody _playerRigidBody;
+        private WheelControl[] _wheelsRb;
+        private CarControler _carControler;
         private bool _playerDetected;
 
-        private void Awake()
+        private void Start()
         {
-            _playerRigidBody = _player.GetComponent<Rigidbody>();
+            _wheelsRb = _player.GetComponentsInChildren<WheelControl>();
+            _carControler = _player.GetComponentInChildren<CarControler>();
         }
 
         private void OnEnable()
@@ -74,13 +77,22 @@ namespace Cinematic
         
         private IEnumerator WaitForBlendEnd(float time)
         {
+            _carControler.enabled = false;
             while (!_playerDetected)
             {
-                // _playerRigidBody.AddForce(_speed, ForceMode.Impulse);
-                _player.transform.position += _speed * TimeManager.Instance.DeltaTime;
-                yield return new WaitForSeconds(TimeManager.Instance.DeltaTime);
+                foreach (var wheel in _wheelsRb)
+                {
+                    if (wheel.motorized)
+                    {
+                        wheel.WheelCollider.motorTorque = _speed;
+                    }
+                    wheel.WheelCollider.brakeTorque = 0f;
+                }
+
+                yield return null;
             }
             yield return new WaitForSeconds(time);
+            _carControler.enabled = true;
             _canvasOverlay.SetActive(true);
             _activeCinemachineCamera.gameObject.SetActive(false);
             
