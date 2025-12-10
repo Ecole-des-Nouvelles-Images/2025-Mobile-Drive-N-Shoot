@@ -88,7 +88,7 @@ namespace Enemy.Spider
             }
             
             // VFX, SFX
-            // AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
+            AudioManager.Instance.PlayAtPosition(_explosionSFX, transform.position);
             if (_explosionVFX) _explosionVFX.Play();
             
             IsDead = true;

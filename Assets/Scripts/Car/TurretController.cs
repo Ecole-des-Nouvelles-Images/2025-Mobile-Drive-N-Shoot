@@ -1,4 +1,5 @@
 using __Workspaces.Alex.Scripts;
+using FMODUnity;
 using Core;
 using UnityEngine;
 using Utils.Game;
@@ -27,6 +28,10 @@ namespace Car
         [Header("References")]
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
+
+        [Header("SFX")] 
+        [SerializeField] private EventReference _shootSFX;
+        [SerializeField] private EventReference _overheatSFX;
         
         private CarInputActions _carInputActions;
         
@@ -80,13 +85,24 @@ namespace Car
                 );
                 
                 // Rotate on x and z the turret gun
-                Transform closesEnemyTransform = _turretAimDetector.GetClosestEnemy(transform.position);
+                Transform closestEnemyTransform = _turretAimDetector.GetClosestEnemy(transform.position);
                 Quaternion gunTargetRot;
                 
-                if (closesEnemyTransform)
+                if (closestEnemyTransform)
                 {
-                    _targetTransform = closesEnemyTransform;
+                    _targetTransform = closestEnemyTransform;
                     gunTargetRot = Quaternion.LookRotation(_targetTransform.position - transform.position);
+                    
+                    if (!_isOverheating)
+                    {
+                        // DONE DAMAGE
+                        _shootTimerCooldown += TimeManager.Instance.DeltaTime;
+                        if (_shootTimerCooldown >= _shootingSpeed)
+                        {
+                            closestEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
+                            _shootTimerCooldown = 0f;
+                        }
+                    }
                 }
                 else
                 {
@@ -122,6 +138,7 @@ namespace Car
                     {
                         _isOverheating = true;
                         DisplayLaser(false, _targetTransform.position);
+                        AudioManager.Instance.PlayAtPosition(_overheatSFX, transform.position);
                     }
                     
                     // VISUAL MATERIAL
