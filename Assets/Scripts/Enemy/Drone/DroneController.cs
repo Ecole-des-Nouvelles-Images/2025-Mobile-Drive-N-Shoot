@@ -82,7 +82,7 @@ namespace Enemy.Drone
 
             if (!SeeTarget) return;
 
-            if (CanAttack)
+            if (CanAttack && IsMoving)
             {
                 if (_attackCoroutine == null)
                 {
@@ -216,15 +216,19 @@ namespace Enemy.Drone
         private void OnGameResume()
         {
             IsMoving = true;
-            NavMeshAgent.SetDestination(TargetTransform.position);
-            if (CanAttack) _attackCoroutine = StartCoroutine(CoroutineAttack());
+            // NavMeshAgent.SetDestination(TargetTransform.position);
+            // if (CanAttack) _attackCoroutine = StartCoroutine(CoroutineAttack());
         }
 
         private void OnGamePause()
         {
             IsMoving = false;
             NavMeshAgent.ResetPath();
-            if (CanAttack) StopCoroutine(_attackCoroutine);
+            if (CanAttack)
+            {
+                StopCoroutine(_attackCoroutine);
+                _attackCoroutine = null;
+            }
         }
         
         private void OnDisable()
