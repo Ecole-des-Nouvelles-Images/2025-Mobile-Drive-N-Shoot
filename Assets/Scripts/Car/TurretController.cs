@@ -32,6 +32,10 @@ namespace Car
         [Header("SFX")] 
         [SerializeField] private EventReference _shootSFX;
         [SerializeField] private EventReference _overheatSFX;
+
+        [Header("VFX")]
+        [SerializeField] private ParticleSystem _shootVFX;
+        [SerializeField] private ParticleSystem _overheatVFX;
         
         private CarInputActions _carInputActions;
         
@@ -72,6 +76,9 @@ namespace Car
         {
             Vector2 input = _carInputActions.CarControls.Aim.ReadValue<Vector2>();
             _isAiming = input.sqrMagnitude > 0f;
+            
+            if (_shootVFX) _shootVFX.Stop();
+
 
             if (_isAiming)
             {
@@ -117,6 +124,10 @@ namespace Car
                         }
                         _shootTimerCooldown = 0f;
                         Debug.Log("Turret Shoot");
+                        // SFX
+                        AudioManager.Instance.PlayAtPosition(_shootSFX, transform.position);
+                        // VFX
+                        if (_shootVFX) _shootVFX.Play();
                     }
                     
                     // OVERHEATING
@@ -125,7 +136,11 @@ namespace Car
                     {
                         _isOverheating = true;
                         DisplayLaser(false, _targetTransform);
+                        // SFX
                         AudioManager.Instance.PlayAtPosition(_overheatSFX, transform.position);
+                        // VFX
+                        if (_shootVFX) _shootVFX.Stop();
+                        if (_overheatVFX) _overheatVFX.Play();
                     }
                     
                     // VISUAL MATERIAL
@@ -147,6 +162,8 @@ namespace Car
                 if (_currentOverheatValue <= 0f)
                 {
                     _isOverheating = false;
+                    //VFX
+                    if (_overheatVFX) _overheatVFX.Stop();
                 }
                 
                 // VISUAL MATERIAL
