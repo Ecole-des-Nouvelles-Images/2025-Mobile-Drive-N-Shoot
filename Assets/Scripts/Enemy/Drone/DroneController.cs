@@ -66,6 +66,7 @@ namespace Enemy.Drone
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
             
             _targetPos = TargetTransform.position;
+            IsMoving = true;
         }
 
         private void Update()
@@ -128,9 +129,8 @@ namespace Enemy.Drone
                 }
             }
             
-            if (TargetTransform && NavMeshAgent.isOnNavMesh)
+            if (SeeTarget && TargetTransform && NavMeshAgent.isOnNavMesh && IsMoving)
             {
-                IsMoving = true;
                 NavMeshAgent.SetDestination(_targetPos);
             }
         }
