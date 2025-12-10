@@ -12,7 +12,7 @@ namespace Cinematic
     {
         [Header("Player")]
         [SerializeField] private GameObject _player;
-        [SerializeField] private Vector3 _force;
+        [SerializeField] private Vector3 _speed;
         
         [Header("Canvas")]
         [SerializeField] private Image _canvasBackgroundBlack;
@@ -76,8 +76,9 @@ namespace Cinematic
         {
             while (!_playerDetected)
             {
-                _playerRigidBody.AddForce(_force, ForceMode.Impulse);
-                yield return new WaitForSeconds(time / 10f);
+                // _playerRigidBody.AddForce(_speed, ForceMode.Impulse);
+                _player.transform.position += _speed * TimeManager.Instance.DeltaTime;
+                yield return new WaitForSeconds(TimeManager.Instance.DeltaTime);
             }
             yield return new WaitForSeconds(time);
             _canvasOverlay.SetActive(true);
