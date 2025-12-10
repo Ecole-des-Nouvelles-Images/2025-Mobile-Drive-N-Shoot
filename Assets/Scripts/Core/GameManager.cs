@@ -1,3 +1,5 @@
+using __Workspaces.Alex.Scripts;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Utils.Game;
@@ -13,10 +15,20 @@ namespace Core
         public Material[] CurrentTurretMaterials;
         public Material[] CurrentIemExhaustPipeMaterials;
 
+        [Header("Sounds")] 
+        [SerializeField] private EventReference _ambiantSound;
+
+        [SerializeField] private EventReference _musicSound;
+        
+
         private void OnEnable()
         {
             EventBus.OnLoadScene += LoadScene;
             SceneManager.sceneLoaded += SceneManagerOnsceneLoaded;
+            // Play ambiant sound
+            AudioManager.Instance.Play(_ambiantSound, true);
+            // Play music sound
+            AudioManager.Instance.Play(_musicSound, true);
         }
         
         private void LoadScene(int index)
