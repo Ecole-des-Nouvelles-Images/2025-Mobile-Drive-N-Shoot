@@ -42,7 +42,7 @@ namespace Car
         
         // Aiming
         [SerializeField] private bool _lineRendererIsActive;
-        [SerializeField] private Transform _targetTransform;
+        [SerializeField] private Vector3 _targetTransform;
         
         // Shooting
         [SerializeField] private float _shootTimerCooldown;
@@ -55,7 +55,7 @@ namespace Car
             _carInputActions = new CarInputActions();
             
             // Debug
-            // TimeManager.Instance.Resume();
+            TimeManager.Instance.Resume();
         }
 
         private void OnEnable()
@@ -86,29 +86,16 @@ namespace Car
                 
                 // Rotate on x and z the turret gun
                 Transform closestEnemyTransform = _turretAimDetector.GetClosestEnemy(transform.position);
-                Quaternion gunTargetRot;
                 
                 if (closestEnemyTransform)
                 {
-                    _targetTransform = closestEnemyTransform;
-                    gunTargetRot = Quaternion.LookRotation(_targetTransform.position - transform.position);
-                    
-                    if (!_isOverheating)
-                    {
-                        // DONE DAMAGE
-                        _shootTimerCooldown += TimeManager.Instance.DeltaTime;
-                        if (_shootTimerCooldown >= _shootingSpeed)
-                        {
-                            closestEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
-                            _shootTimerCooldown = 0f;
-                        }
-                    }
+                    _targetTransform = closestEnemyTransform.GetComponent<IEnemy>().GetAimPosition;
                 }
                 else
                 {
-                    _targetTransform = _turretDefaultAimTransform;
-                    gunTargetRot = Quaternion.LookRotation(_turretDefaultAimTransform.position - transform.position);
+                    _targetTransform = _turretDefaultAimTransform.position;
                 }
+                Quaternion gunTargetRot = Quaternion.LookRotation(_targetTransform - transform.position);
                 
                 _turretGun.rotation = Quaternion.Slerp(
                     _turretGun.rotation,
@@ -118,7 +105,7 @@ namespace Car
                 
                 if (!_isOverheating)
                 {
-                    DisplayLaser(true, _targetTransform.position);
+                    DisplayLaser(true, _targetTransform);
                     
                     // DONE DAMAGE
                     _shootTimerCooldown += TimeManager.Instance.DeltaTime;
@@ -137,7 +124,7 @@ namespace Car
                     if (_currentOverheatValue >= _maxOverheatValue)
                     {
                         _isOverheating = true;
-                        DisplayLaser(false, _targetTransform.position);
+                        DisplayLaser(false, _targetTransform);
                         AudioManager.Instance.PlayAtPosition(_overheatSFX, transform.position);
                     }
                     
@@ -147,7 +134,7 @@ namespace Car
             }
             else
             {
-                if (_lineRendererIsActive) DisplayLaser(false, _targetTransform.position);
+                if (_lineRendererIsActive) DisplayLaser(false, _targetTransform);
             }
             
             
