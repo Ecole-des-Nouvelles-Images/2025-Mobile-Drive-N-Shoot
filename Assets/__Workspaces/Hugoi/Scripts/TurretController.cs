@@ -1,4 +1,5 @@
 using __Workspaces.Alex.Scripts;
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -26,6 +27,10 @@ namespace __Workspaces.Hugoi.Scripts
         [Header("References")]
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
+
+        [Header("SFX")] 
+        [SerializeField] private EventReference _shootSFX;
+        [SerializeField] private EventReference _overheatSFX;
         
         private CarInputActions _carInputActions;
         
@@ -79,12 +84,12 @@ namespace __Workspaces.Hugoi.Scripts
                 );
                 
                 // Rotate on x and z the turret gun
-                Transform closesEnemyTransform = _turretAimDetector.GetClosestEnemy(transform.position);
+                Transform closestEnemyTransform = _turretAimDetector.GetClosestEnemy(transform.position);
                 Quaternion gunTargetRot;
                 
-                if (closesEnemyTransform)
+                if (closestEnemyTransform)
                 {
-                    _targetTransform = closesEnemyTransform;
+                    _targetTransform = closestEnemyTransform;
                     gunTargetRot = Quaternion.LookRotation(_targetTransform.position - transform.position);
                     
                     if (!_isOverheating)
@@ -93,7 +98,7 @@ namespace __Workspaces.Hugoi.Scripts
                         _shootTimerCooldown += TimeManager.Instance.DeltaTime;
                         if (_shootTimerCooldown >= _shootingSpeed)
                         {
-                            closesEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
+                            closestEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
                             _shootTimerCooldown = 0f;
                         }
                     }
@@ -120,6 +125,7 @@ namespace __Workspaces.Hugoi.Scripts
                     {
                         _isOverheating = true;
                         DisplayLaser(false, _targetTransform.position);
+                        AudioManager.Instance.PlayAtPosition(_overheatSFX, transform.position);
                     }
                 }
             }
