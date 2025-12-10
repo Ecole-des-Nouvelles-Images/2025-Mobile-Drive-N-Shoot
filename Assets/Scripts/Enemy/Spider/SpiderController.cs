@@ -47,6 +47,8 @@ namespace Enemy.Spider
         {
             TargetTransform = GameManager.Instance.Player.transform;
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
+            
+            IsMoving = true;
         }
 
         private void Update()
@@ -61,9 +63,8 @@ namespace Enemy.Spider
                 return;
             }
 
-            if (SeeTarget && TargetTransform && NavMeshAgent.isOnNavMesh)
+            if (SeeTarget && TargetTransform && NavMeshAgent.isOnNavMesh && IsMoving)
             {
-                IsMoving = true;
                 NavMeshAgent.SetDestination(TargetTransform.position);
             }
             
@@ -105,14 +106,16 @@ namespace Enemy.Spider
         
         private void OnGameResume()
         {
-            IsMoving = true;
             NavMeshAgent.SetDestination(TargetTransform.position);
+            IsMoving = true;
+            _animator.SetFloat("WalkSpeedMultiplicator", 1f);
         }
 
         private void OnGamePause()
         {
-            IsMoving = false;
             NavMeshAgent.ResetPath();
+            IsMoving = false;
+            _animator.SetFloat("WalkSpeedMultiplicator", 0f);
         }
         
         private void OnDisable()
