@@ -212,8 +212,6 @@ namespace Enemy.Drone
         private void OnGameResume()
         {
             IsMoving = true;
-            // NavMeshAgent.SetDestination(TargetTransform.position);
-            // if (CanAttack) _attackCoroutine = StartCoroutine(CoroutineAttack());
         }
 
         private void OnGamePause()
