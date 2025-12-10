@@ -29,9 +29,6 @@ namespace Enemy.Drone
         [Header("VFX")] 
         [SerializeField] private ParticleSystem _deathVFX;
         
-        [Header("Visual")]
-        [SerializeField] private GameObject _visual;
-        
         private Coroutine _attackCoroutine;
         private bool _laserEnabled;
         private Vector3 _targetPos;
@@ -159,7 +156,6 @@ namespace Enemy.Drone
             
             // VFX, SFX
             if (_deathVFX) _deathVFX.Play();
-            _visual.SetActive(false);
             AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             IsDead = true;
             Destroy(gameObject, 3f);

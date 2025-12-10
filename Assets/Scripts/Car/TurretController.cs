@@ -87,17 +87,6 @@ namespace Car
                 {
                     _targetTransform = closesEnemyTransform;
                     gunTargetRot = Quaternion.LookRotation(_targetTransform.position - transform.position);
-                    
-                    if (!_isOverheating)
-                    {
-                        // DONE DAMAGE
-                        _shootTimerCooldown += TimeManager.Instance.DeltaTime;
-                        if (_shootTimerCooldown >= _shootingSpeed)
-                        {
-                            closesEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
-                            _shootTimerCooldown = 0f;
-                        }
-                    }
                 }
                 else
                 {
@@ -110,10 +99,22 @@ namespace Car
                     gunTargetRot,
                     TimeManager.Instance.DeltaTime * _turretRotationSpeed
                 );
-
+                
                 if (!_isOverheating)
                 {
                     DisplayLaser(true, _targetTransform.position);
+                    
+                    // DONE DAMAGE
+                    _shootTimerCooldown += TimeManager.Instance.DeltaTime;
+                    if (_shootTimerCooldown >= _shootingSpeed)
+                    {
+                        if (closesEnemyTransform)
+                        {
+                            closesEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
+                        }
+                        _shootTimerCooldown = 0f;
+                        Debug.Log("Turret Shoot");
+                    }
                     
                     // OVERHEATING
                     _currentOverheatValue += _overheatSpeed * TimeManager.Instance.DeltaTime;
@@ -125,7 +126,6 @@ namespace Car
                     
                     // VISUAL MATERIAL
                     GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_HitProgress", _currentOverheatValue / _maxOverheatValue / 2f);
-                    
                 }
             }
             else
