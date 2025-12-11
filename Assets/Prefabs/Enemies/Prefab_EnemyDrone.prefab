@@ -221,9 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DroneController
   MaxHealth: 10
-  Damage: 1
-  AttackSpeed: 0.2
-  AttackRange: 4
+  Damage: 1.5
+  AttackSpeed: 0.5
+  AttackRange: 3
   SeeTarget: 0
   IsDying: 0
   IsDead: 0
@@ -262,7 +262,6 @@ MonoBehaviour:
       Data4: -726708132
     Path: event:/SFX/DroneExplosion
   _deathVFX: {fileID: 2628477338921762141}
-  _visual: {fileID: 5138369762306741965}
 --- !u!114 &6935399262465851280
 MonoBehaviour:
   m_ObjectHideFlags: 0

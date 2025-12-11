@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b6c887407c8034388b6dcc9e439cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SpiderController
-  MaxHealth: 10
+  MaxHealth: 15
   Damage: 5
   AttackSpeed: 0
   AttackRange: 0.75
