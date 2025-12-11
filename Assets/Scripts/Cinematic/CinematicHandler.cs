@@ -18,12 +18,17 @@ namespace Cinematic
         [Header("Canvas")]
         [SerializeField] private Image _canvasBackgroundBlack;
         [SerializeField] private Transform _textGo;
+        [SerializeField] private Transform _textReady;
         [SerializeField] private GameObject _canvasOverlay;
         
         [Header("Animation GO")]
-        [SerializeField] private float _endScaleValue;
-        [SerializeField] private float _duration;
-        [SerializeField] private AnimationCurve _animationCurve;
+        [SerializeField] private float _endScaleGo;
+        [SerializeField] private float _durationGo;
+        [SerializeField] private AnimationCurve _animationCurveGo;
+        
+        [Header("Animation READY")]
+        [SerializeField] private float _endScaleReady;
+        [SerializeField] private AnimationCurve _animationCurveReady;
         
         [Header("Cinemachine Camera")]
         [SerializeField] private CinemachineBrain _cinemachineBrain;
@@ -64,8 +69,8 @@ namespace Cinematic
             {
                 SwitchCinemachineCamera(_activeCinemachineCamera, _nextCinemachineCamera);
                 _playerDetected = true;
-                _textGo.DOScale(_endScaleValue, _duration).SetEase(_animationCurve).SetLoops(2, LoopType.Yoyo);
-                Invoke(nameof(FadeOut), _duration * 1.2f);
+                _textGo.DOScale(_endScaleGo, _durationGo).SetEase(_animationCurveGo).SetLoops(2, LoopType.Yoyo);
+                Invoke(nameof(FadeOut), _durationGo * 1.2f);
             }
         }
 
@@ -78,6 +83,7 @@ namespace Cinematic
         private IEnumerator WaitForBlendEnd(float time)
         {
             _carControler.enabled = false;
+            _textReady.DOScale(_endScaleReady, time / 2f).SetEase(_animationCurveReady).SetLoops(2, LoopType.Yoyo);
             while (!_playerDetected)
             {
                 foreach (var wheel in _wheelsRb)
@@ -101,7 +107,7 @@ namespace Cinematic
 
         private void FadeOut()
         {
-            _textGo.GetComponent<TextMeshProUGUI>().DOFade(0.0f, _duration * 0.4f);
+            _textGo.GetComponent<TextMeshProUGUI>().DOFade(0.0f, _durationGo * 0.4f);
         }
     }
 }

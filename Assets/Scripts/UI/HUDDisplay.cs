@@ -1,6 +1,5 @@
 using System;
 using __Workspaces.Alex.Scripts;
-using DG.Tweening;
 using InGameHandlers;
 using TMPro;
 using UnityEngine;
@@ -13,7 +12,7 @@ namespace UI
     {
         [Header("References Display")]
         [SerializeField] private TextMeshProUGUI _tmpTimer;
-        [SerializeField] private Transform _tmpTimerAdd;
+        [SerializeField] private GameObject _tmpTimerAdd;
         [SerializeField] private TextMeshProUGUI _tmpDistance;
         [SerializeField] private Button _buttonItemIEM;
         [SerializeField] private Button _buttonItemNoOverheat;
@@ -46,8 +45,16 @@ namespace UI
         
         private void Update()
         {
-            if (_timerHandler) _tmpTimer.text = _timerHandler.Timer.ToString("F1");
-            if (_distanceHandler) _tmpDistance.text = _distanceHandler.Distance.ToString("F1");
+            if (_timerHandler)
+            {
+                float time = _timerHandler.Timer;
+
+                int seconds = Mathf.FloorToInt(time);
+                int tenth = Mathf.FloorToInt((time - seconds) * 10f);
+
+                _tmpTimer.text = $"{seconds}:{tenth}";
+            }
+            if (_distanceHandler) _tmpDistance.text = _distanceHandler.Distance.ToString();
         }
 
         private void OnEnable()
@@ -60,8 +67,7 @@ namespace UI
         
         private void AddTimeToTimer()
         {
-            _tmpTimerAdd.DOScale(1f, 1f).SetLoops(2, LoopType.Yoyo);
-            _tmpTimerAdd.GetComponent<TextMeshProUGUI>().DOFade(0f, 2f);
+            _tmpTimerAdd.SetActive(true);
         }
 
         private void OnPlayerHealthChange(float currentHealth, float maxHealth)
