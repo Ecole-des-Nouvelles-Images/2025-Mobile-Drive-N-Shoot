@@ -1,5 +1,6 @@
 using System;
 using __Workspaces.Alex.Scripts;
+using DG.Tweening;
 using InGameHandlers;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace UI
     {
         [Header("References Display")]
         [SerializeField] private TextMeshProUGUI _tmpTimer;
+        [SerializeField] private Transform _tmpTimerAdd;
         [SerializeField] private TextMeshProUGUI _tmpDistance;
         [SerializeField] private Button _buttonItemIEM;
         [SerializeField] private Button _buttonItemNoOverheat;
@@ -50,9 +52,16 @@ namespace UI
 
         private void OnEnable()
         {
+            EventBus.OnAddTimeToTimer += AddTimeToTimer;
             EventBus.OnCollectedItem += OnCollectedItem;
             EventBus.OnPlayerHealthChange += OnPlayerHealthChange;
             EventBus.OnPlayerBoostCooldown += OnPlayerBoostCooldown;
+        }
+        
+        private void AddTimeToTimer()
+        {
+            _tmpTimerAdd.DOScale(1f, 1f).SetLoops(2, LoopType.Yoyo);
+            _tmpTimerAdd.GetComponent<TextMeshProUGUI>().DOFade(0f, 2f);
         }
 
         private void OnPlayerHealthChange(float currentHealth, float maxHealth)
@@ -83,6 +92,7 @@ namespace UI
 
         private void OnDisable()
         {
+            EventBus.OnAddTimeToTimer -= AddTimeToTimer;
             EventBus.OnCollectedItem -= OnCollectedItem;
             EventBus.OnPlayerHealthChange -= OnPlayerHealthChange;
             EventBus.OnPlayerBoostCooldown -= OnPlayerBoostCooldown;
