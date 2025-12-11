@@ -1,4 +1,5 @@
 using __Workspaces.Alex.Scripts;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,9 @@ namespace Core
         [SerializeField] private EventReference _ambiantSound;
 
         [SerializeField] private EventReference _musicSound;
+
+        private EventInstance _musicInstance;
+        private EventInstance _ambiantSoundInstance;
         
 
         private void OnEnable()
@@ -26,8 +30,10 @@ namespace Core
             EventBus.OnLoadScene += LoadScene;
             SceneManager.sceneLoaded += SceneManagerOnsceneLoaded;
             // Play ambiant sound
+           if(!_ambiantSoundInstance.isValid())
             AudioManager.Instance.Play(_ambiantSound, true);
             // Play music sound
+            if(!_musicInstance.isValid())
             AudioManager.Instance.Play(_musicSound, true);
         }
         
