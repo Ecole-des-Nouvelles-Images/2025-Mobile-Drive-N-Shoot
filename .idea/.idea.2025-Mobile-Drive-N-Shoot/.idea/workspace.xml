@@ -6,15 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Panels/Canvas_LoadingScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Panels/Canvas_LoadingScreen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SelectionSkin/Canvas_OverlaySelectionSkin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SelectionSkin/Canvas_OverlaySelectionSkin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SelectionSkinScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SelectionSkinScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cinematic/CinematicHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cinematic/CinematicHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/TimerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/TimerHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIMethods.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/Game/EventBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/Game/EventBus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/WheelParticles.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/VFX/PS_CarDustTrail.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/VFX/PS_CarDustTrail.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Car/TurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Car/TurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/Turret/MuzzleFlash.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Alex/Prefabs/Car/Turret/MuzzleFlash.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,15 +23,16 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/20/d1c73411/Mesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/ee/ceb0e295/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Car/TurretController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGameHandlers/PauseHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FitCanvasToCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIEmissive.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Interfaces/IEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/CarHealth.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/ItemNitro.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/ItemNoOverheat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Alex/Scripts/TestSpawnEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/Debugs/FPSCounter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/LastSelectedButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshModifier.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@8017b507cc74/Unity.Mathematics/random.cs" root0="SKIP_HIGHLIGHTING" />
@@ -51,22 +48,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;HugoI&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "Alex",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.3f1\Editor\Unity.exe" />
@@ -149,6 +147,10 @@
       <workItem from="1764867063456" duration="26000" />
       <workItem from="1764868113458" duration="821000" />
       <workItem from="1764926623962" duration="5403000" />
+      <workItem from="1765183119696" duration="4938000" />
+      <workItem from="1765268808013" duration="11874000" />
+      <workItem from="1765355741318" duration="67000" />
+      <workItem from="1765355822887" duration="5395000" />
     </task>
     <servers />
   </component>

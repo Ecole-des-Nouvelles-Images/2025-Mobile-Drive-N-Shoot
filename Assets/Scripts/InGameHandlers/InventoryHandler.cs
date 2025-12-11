@@ -11,17 +11,29 @@ namespace InGameHandlers
     {
         [Header("Debug")]
         [SerializeField] private List<Item> _items;
+
+        [ContextMenu("Use IEM")]
+        public void UseIEM()
+        {
+            EventBus.OnUsingItem?.Invoke(ItemType.BigBlast);
+        }
+        
+        [ContextMenu("Use Repair")]
+        public void UseRepair()
+        {
+            EventBus.OnUsingItem?.Invoke(ItemType.Repair);
+        }
+        
+        [ContextMenu("Use Overheat")]
+        public void UseOverheat()
+        {
+            EventBus.OnUsingItem?.Invoke(ItemType.Overheat);
+        }
         
         private void OnEnable()
         {
             EventBus.OnCollectedItem += OnCollectedItem;
             EventBus.OnUsingItem += OnUsingItem;
-        }
-
-        private void OnDisable()
-        {
-            EventBus.OnCollectedItem -= OnCollectedItem;
-            EventBus.OnUsingItem -= OnUsingItem;
         }
         
         private void OnCollectedItem(Item item)
@@ -36,6 +48,12 @@ namespace InGameHandlers
             
             item.Execute(GameManager.Instance.Player);
             _items.Remove(item);
+        }
+        
+        private void OnDisable()
+        {
+            EventBus.OnCollectedItem -= OnCollectedItem;
+            EventBus.OnUsingItem -= OnUsingItem;
         }
     }
 }

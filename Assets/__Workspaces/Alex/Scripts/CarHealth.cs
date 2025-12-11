@@ -1,3 +1,5 @@
+using Core;
+using DG.Tweening;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -13,6 +15,9 @@ namespace __Workspaces.Alex.Scripts
     
         // internal state to avoid triggering the half repeatedly
         private bool _hasTriggeredHalf = false;
+        
+        // Is shield active
+        public bool IsShieldActive = false;
 
 
         private void Start()
@@ -23,6 +28,8 @@ namespace __Workspaces.Alex.Scripts
 
         public void TakeDamage(float damage)
         {
+            if (IsShieldActive)
+                return;
             CurrentHealth -= damage;
             EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
             
@@ -38,6 +45,28 @@ namespace __Workspaces.Alex.Scripts
                 // TODO: explosion VFX and car destruction
                 EventBus.OnGameOver?.Invoke();
             }
+            
+            // Change material
+            float targetValue;
+            if (damage <= 10f)
+            {
+                targetValue = 0.5f;
+            }
+            else
+            {
+                targetValue = 1f;
+            }
+            DOTween.To(
+                () => 0f,
+                value =>
+                {
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_HitProgress", value);
+                    GameManager.Instance.CurrentCarMaterials[0].SetFloat("_HitProgress", value);
+                    GameManager.Instance.CurrentIemExhaustPipeMaterials[0].SetFloat("_HitProgress", value);
+                },
+                targetValue,
+                0.1f
+            ).SetLoops(2, LoopType.Yoyo);
         }
 
         public void Heal()

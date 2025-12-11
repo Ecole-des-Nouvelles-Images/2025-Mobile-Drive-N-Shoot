@@ -1,5 +1,10 @@
-﻿using __Workspaces.Alex.Scripts;
+﻿using System.Collections;
+using System.Collections.Generic;
+using __Workspaces.Alex.Scripts;
 using Core;
+using DG.Tweening;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 using Utils.Interfaces;
@@ -16,14 +21,40 @@ namespace Enemy.Drone
         [Header("Laser")]
         [SerializeField] private LineRenderer _laserLine;
         [SerializeField] private Transform _startingPos;
+        
+        [Header("SFX")]
+        [SerializeField] private EventReference _laserSFX;
+        [SerializeField] private EventReference _deathSFX;
 
+        [Header("VFX")] 
+        [SerializeField] private ParticleSystem _deathVFX;
+        
+        private Coroutine _attackCoroutine;
         private bool _laserEnabled;
         private Vector3 _targetPos;
         private Vector3 _targetOffset = Vector3.zero;
+        
+        private EventInstance _laserInstance = default;
+
 
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
+            
+            // Change material
+            float targetValue = 0.5f;
+            DOTween.To(
+                () => 0f,
+                value =>
+                {
+                    foreach (var material in Materials)
+                    {
+                        material.SetFloat("_HitProgress", value);
+                    }
+                },
+                targetValue,
+                0.1f
+            ).SetLoops(2, LoopType.Yoyo);
         }
         
         private void Start()
@@ -32,20 +63,7 @@ namespace Enemy.Drone
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
             
             _targetPos = TargetTransform.position;
-        }
-        
-        private void OnEnable()
-        {
-            EventBus.OnGameResume += OnGameResume;
-            EventBus.OnGamePause += OnGamePause;
-            EventBus.OnGameOver += OnGamePause;
-        }
-        
-        private void OnDisable()
-        {
-            EventBus.OnGameResume -= OnGameResume;
-            EventBus.OnGamePause -= OnGamePause;
-            EventBus.OnGameOver -= OnGamePause;
+            IsMoving = true;
         }
 
         private void Update()
@@ -61,17 +79,37 @@ namespace Enemy.Drone
 
             if (!SeeTarget) return;
 
-            if (CanAttack)
+            if (CanAttack && IsMoving)
             {
+                if (_attackCoroutine == null)
+                {
+                    _attackCoroutine = StartCoroutine(CoroutineAttack());
+                }
+                
                 _targetPos = TargetTransform.position;
                 if (_targetOffset == Vector3.zero) _targetOffset = transform.position - TargetTransform.position;
                 _targetPos += _targetOffset;
                 
                 DroneTurretLookAt(TargetTransform);
                 DisplayLaser(true);
+                // play laser sound only once and keep the instance
+                if (EqualityComparer<EventInstance>.Default.Equals(_laserInstance, default(EventInstance)))
+                {
+                    _laserInstance = AudioManager.Instance.PlayAtPosition(_laserSFX, transform.position, true);
+                }
+                else
+                {
+                    // update 3D position of the instance so sound follows the drone
+                    _laserInstance.set3DAttributes(transform.position.To3DAttributes());
+                }
             }
             else
             {
+                if (_attackCoroutine != null)
+                {
+                    StopCoroutine(CoroutineAttack());
+                }
+                
                 _targetPos = TargetTransform.position;
                 _targetOffset = Vector3.zero;
 
@@ -80,13 +118,47 @@ namespace Enemy.Drone
                 {
                     DisplayLaser(false);
                 }
+                // stop and release the laser sound if it was playing
+                if (!EqualityComparer<EventInstance>.Default.Equals(_laserInstance, default(EventInstance)))
+                {
+                    AudioManager.Instance.Stop(_laserInstance);
+                    _laserInstance = default;
+                }
             }
             
-            if (TargetTransform && NavMeshAgent.isOnNavMesh)
+            if (SeeTarget && TargetTransform && NavMeshAgent.isOnNavMesh && IsMoving)
             {
-                IsMoving = true;
                 NavMeshAgent.SetDestination(_targetPos);
             }
+        }
+        
+        private IEnumerator CoroutineAttack()
+        {
+            while (IsAttacking)
+            {
+                yield return new WaitForSeconds(AttackSpeed);
+                TargetHealth.TakeDamage(Damage);
+                Debug.Log("Drone Done Damage");
+            }
+        }
+        
+        private void Die()
+        {
+            IsMoving = false;
+            CanAttack = false;
+            IsAttacking = false;
+            NavMeshAgent.ResetPath();
+            StopCoroutine(CoroutineAttack());
+            DisplayLaser(false);
+            Collider.enabled = false;
+            Visual.SetActive(false);
+            
+            
+            // VFX, SFX
+            if (_deathVFX) _deathVFX.Play();
+            AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
+            IsDead = true;
+            Destroy(gameObject, 3f);
         }
 
         private void DisplayLaser(bool isActive)
@@ -130,24 +202,34 @@ namespace Enemy.Drone
             );
         }
         
-        private void Die()
+        private void OnEnable()
         {
-            NavMeshAgent.ResetPath();
-            Collider.enabled = false;
-            // VFX, SFX
-            
-            IsDead = true;
-            Destroy(gameObject, 3f);
+            EventBus.OnGameResume += OnGameResume;
+            EventBus.OnGamePause += OnGamePause;
+            EventBus.OnGameOver += OnGamePause;
         }
         
         private void OnGameResume()
         {
-            if (CanAttack) AttackCoroutine = StartCoroutine(CoroutineAttack());
+            IsMoving = true;
         }
 
         private void OnGamePause()
         {
-            if (CanAttack) StopCoroutine(AttackCoroutine);
+            IsMoving = false;
+            NavMeshAgent.ResetPath();
+            if (CanAttack)
+            {
+                StopCoroutine(_attackCoroutine);
+                _attackCoroutine = null;
+            }
+        }
+        
+        private void OnDisable()
+        {
+            EventBus.OnGameResume -= OnGameResume;
+            EventBus.OnGamePause -= OnGamePause;
+            EventBus.OnGameOver -= OnGamePause;
         }
     }
 }

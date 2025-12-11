@@ -52,6 +52,25 @@ namespace __Workspaces.Alex.Scripts
 
             return instance;
         }
+        
+        public void Stop(EventInstance instance, FMOD.Studio.STOP_MODE mode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
+        {
+            if (EqualityComparer<EventInstance>.Default.Equals(instance, default(EventInstance)))
+                return;
+
+            // stop and release
+            instance.stop(mode);
+            instance.release();
+
+            // remove from _active if present
+            for (int i = _active.Count - 1; i >= 0; i--)
+            {
+                if (EqualityComparer<EventInstance>.Default.Equals(_active[i], instance))
+                {
+                    _active.RemoveAt(i);
+                }
+            }
+        }
 
         public void StopAll(FMOD.Studio.STOP_MODE mode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
         {
