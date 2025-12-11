@@ -102,7 +102,7 @@ namespace Car
                 {
                     _targetTransform = _turretDefaultAimTransform.position;
                 }
-                Quaternion gunTargetRot = Quaternion.LookRotation(_targetTransform - transform.position);
+                Quaternion gunTargetRot = Quaternion.LookRotation(_targetTransform - _turretGun.position);
                 
                 _turretGun.rotation = Quaternion.Slerp(
                     _turretGun.rotation,
