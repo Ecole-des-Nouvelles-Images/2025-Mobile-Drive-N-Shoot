@@ -156,6 +156,12 @@ namespace Enemy.Drone
             
             // VFX, SFX
             if (_deathVFX) _deathVFX.Play();
+            if (!EqualityComparer<EventInstance>.Default.Equals(_laserInstance, default(EventInstance)))
+            {
+                _laserInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _laserInstance.release();
+                _laserInstance = default;
+            }
             AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             IsDead = true;
             Destroy(gameObject, 3f);
