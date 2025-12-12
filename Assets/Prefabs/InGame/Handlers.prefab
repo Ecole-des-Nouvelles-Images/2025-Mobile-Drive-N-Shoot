@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da57a26fedb8cd64f9c278f56185e18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.EnemiesSpawnerManager
-  _distanceDifficultyScaling: 100
+  _distanceDifficultyScaling: 200
   _distanceHandler: {fileID: 4695599650932629280}
 --- !u!114 &8131337503076053173
 MonoBehaviour:

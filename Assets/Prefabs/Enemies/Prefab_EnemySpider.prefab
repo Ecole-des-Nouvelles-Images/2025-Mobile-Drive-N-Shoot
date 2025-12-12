@@ -120,7 +120,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.75
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9023715347566299116
 MonoBehaviour:
@@ -187,10 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b6c887407c8034388b6dcc9e439cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.SpiderController
-  MaxHealth: 10
+  MaxHealth: 15
   Damage: 5
   AttackSpeed: 0
-  AttackRange: 0.75
+  AttackRange: 0.5
   SeeTarget: 0
   IsDying: 0
   IsDead: 0

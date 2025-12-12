@@ -29,9 +29,6 @@ namespace Enemy.Drone
         [Header("VFX")] 
         [SerializeField] private ParticleSystem _deathVFX;
         
-        [Header("Visual")]
-        [SerializeField] private GameObject _visual;
-        
         private Coroutine _attackCoroutine;
         private bool _laserEnabled;
         private Vector3 _targetPos;
@@ -66,6 +63,7 @@ namespace Enemy.Drone
             TargetHealth = TargetTransform.GetComponent<CarHealth>();
             
             _targetPos = TargetTransform.position;
+            IsMoving = true;
         }
 
         private void Update()
@@ -81,7 +79,7 @@ namespace Enemy.Drone
 
             if (!SeeTarget) return;
 
-            if (CanAttack)
+            if (CanAttack && IsMoving)
             {
                 if (_attackCoroutine == null)
                 {
@@ -128,9 +126,8 @@ namespace Enemy.Drone
                 }
             }
             
-            if (TargetTransform && NavMeshAgent.isOnNavMesh)
+            if (SeeTarget && TargetTransform && NavMeshAgent.isOnNavMesh && IsMoving)
             {
-                IsMoving = true;
                 NavMeshAgent.SetDestination(_targetPos);
             }
         }
@@ -141,7 +138,17 @@ namespace Enemy.Drone
             {
                 yield return new WaitForSeconds(AttackSpeed);
                 TargetHealth.TakeDamage(Damage);
-                Debug.Log("Drone Done Damage");
+                
+                // RAYCAST
+                Vector3 start = _startingPos.position;
+                Vector3 end = TargetTransform.position + Vector3.up * 0.8f;
+                Vector3 direction = (end - start).normalized;
+                float distance = Vector3.Distance(start, end);
+
+                if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
+                {
+                    // hit.point
+                }
             }
         }
         
@@ -159,7 +166,6 @@ namespace Enemy.Drone
             
             // VFX, SFX
             if (_deathVFX) _deathVFX.Play();
-            _visual.SetActive(false);
             AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             IsDead = true;
             Destroy(gameObject, 3f);
@@ -216,15 +222,17 @@ namespace Enemy.Drone
         private void OnGameResume()
         {
             IsMoving = true;
-            NavMeshAgent.SetDestination(TargetTransform.position);
-            if (CanAttack) _attackCoroutine = StartCoroutine(CoroutineAttack());
         }
 
         private void OnGamePause()
         {
             IsMoving = false;
             NavMeshAgent.ResetPath();
-            if (CanAttack) StopCoroutine(_attackCoroutine);
+            if (CanAttack)
+            {
+                StopCoroutine(_attackCoroutine);
+                _attackCoroutine = null;
+            }
         }
         
         private void OnDisable()
