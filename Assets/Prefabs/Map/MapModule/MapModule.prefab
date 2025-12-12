@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 1
+  _typeSpawning: 0
   _density: 10
   _width: 1
   _localHeightOffset: 1
@@ -84,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 0
+  _typeSpawning: 0
   _density: 10
   _width: 15
   _localHeightOffset: 0
@@ -109,8 +111,6 @@ GameObject:
   - component: {fileID: 3783710049718952925}
   - component: {fileID: 3298139716297054600}
   - component: {fileID: 821704023778619988}
-  - component: {fileID: 8041931223163796518}
-  - component: {fileID: 2912734412126029350}
   - component: {fileID: 5962279831852304828}
   - component: {fileID: 6119279397816311779}
   - component: {fileID: 2490898864605186262}
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 100
   _width: 12
   _localHeightOffset: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 10
   _width: 10
   _localHeightOffset: 0
@@ -202,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 50
   _width: 9
   _localHeightOffset: 1
@@ -210,9 +213,7 @@ MonoBehaviour:
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.9, y: 1.2}
   _props:
-  - {fileID: 1612527615959682190, guid: b120a211d2ab3d940a9bae4af53b3a6a, type: 3}
-  - {fileID: 1612527615959682190, guid: 5627316f606d1fe458245d36c4647a6a, type: 3}
-  - {fileID: 1612527615959682190, guid: 329bdf272c7656a47976c3744a07199d, type: 3}
+  - {fileID: 5161216386637765027, guid: 46b4140ebaae6a945a74cf28833c9e18, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &3298139716297054600
@@ -228,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 5
   _width: 2
   _localHeightOffset: 1
@@ -253,7 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 12345
-  _density: 30
+  _typeSpawning: 0
+  _density: 10
   _width: 15
   _localHeightOffset: 0
   _heightOffset: 4
@@ -261,62 +264,8 @@ MonoBehaviour:
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.9, y: 1.2}
   _props:
-  - {fileID: 5017159615024599370, guid: 88367454f71b9b948812e4de3b1a612e, type: 3}
-  - {fileID: 6671829077847000264, guid: d0f804c701206d14ea9a0dad98d6b27f, type: 3}
-  - {fileID: 8609305779943020327, guid: 5f09d333c90afdf4fb595aa9917d83d9, type: 3}
-  - {fileID: 1622018206705476654, guid: b56a0a5c8045a3b43bd645bd49119a76, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &8041931223163796518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  _seed: 12345
-  _density: 100
-  _width: 15
-  _localHeightOffset: 0
-  _heightOffset: 4
-  _rotationOffset: 90
-  _positionOffset: 1.5
-  _scaleOffsetMinMax: {x: 0.9, y: 1.2}
-  _props:
-  - {fileID: 5489865309931224674, guid: 7077374897cff5649b938e6fa763ee91, type: 3}
-  - {fileID: 8913410019453691409, guid: e925cb69fae773f40aba4c60b8034fc1, type: 3}
-  - {fileID: 482149236283104903, guid: b6060c82a5632124fb3448f036be02ac, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &2912734412126029350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
-  _seed: 12345
-  _density: 50
-  _width: 15
-  _localHeightOffset: 0
-  _heightOffset: 4
-  _rotationOffset: 90
-  _positionOffset: 1.5
-  _scaleOffsetMinMax: {x: 0.8, y: 1}
-  _props:
-  - {fileID: 861158402046415158, guid: 5ecc64ff9f52905479875e43462856c5, type: 3}
-  - {fileID: 3205048574040650182, guid: 43452272b21025b45838647479a93da6, type: 3}
-  - {fileID: 7244364707113374070, guid: 839b8908f88db2e4389fba45f5d7da3e, type: 3}
+  - {fileID: 5893728369188330734, guid: 7d4a2eab82144474b8869abcd9df5304, type: 3}
+  - {fileID: 93932886524337324, guid: d39b9d786a4219a419e44a52aaa65dee, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &5962279831852304828
@@ -332,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 10
   _width: 5
   _localHeightOffset: 1
@@ -359,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 20
   _width: 5
   _localHeightOffset: 1
@@ -385,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 30
   _width: 5
   _localHeightOffset: 1
@@ -411,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 10
   _width: 7
   _localHeightOffset: 1

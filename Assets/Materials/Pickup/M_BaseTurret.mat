@@ -125,7 +125,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HitProgress: 0
+    - _HitProgress: -0.00049317605
     - _IsBoosting: 0
     - _Metallic: 0
     - _NormalStrength: 1
@@ -135,7 +135,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _ResistanceCycleTime: 1.5
-    - _ResistanceProgress: 0
+    - _ResistanceProgress: 0.3
     - _ResistanceRotation: 0.5
     - _ResistanceSmoothnessStrenght: 1
     - _ResistanceWaveSpeed: 1.5
