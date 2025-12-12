@@ -138,7 +138,17 @@ namespace Enemy.Drone
             {
                 yield return new WaitForSeconds(AttackSpeed);
                 TargetHealth.TakeDamage(Damage);
-                Debug.Log("Drone Done Damage");
+                
+                // RAYCAST
+                Vector3 start = _startingPos.position;
+                Vector3 end = TargetTransform.position + Vector3.up * 0.8f;
+                Vector3 direction = (end - start).normalized;
+                float distance = Vector3.Distance(start, end);
+
+                if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
+                {
+                    // hit.point
+                }
             }
         }
         

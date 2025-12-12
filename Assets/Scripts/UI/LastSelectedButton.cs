@@ -30,6 +30,8 @@ namespace UI
         {
             _buttonLeft.onClick.AddListener(() => ButtonIsClicked(_buttonLeft));
             _buttonRight.onClick.AddListener(() => ButtonIsClicked(_buttonRight));
+            
+            ButtonIsClicked(_buttonLeft);
         }
 
         private void ButtonIsClicked(Button button)

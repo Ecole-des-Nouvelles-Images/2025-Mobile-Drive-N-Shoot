@@ -6,11 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Panels/Panel_HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Panels/Panel_HUD.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Pickup/M_ScoobyPickup.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Pickup/M_ScoobyPickup.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Pickup/M_ScoobyTurret.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Pickup/M_ScoobyTurret.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Prefab_EnemySpider.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Prefab_EnemySpider.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenuScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SelectionSkinScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SelectionSkinScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Car/TurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Car/TurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Drone/DroneController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Drone/DroneController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LastSelectedButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LastSelectedButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Font/Font_Designer SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Font/Font_Designer SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIMethods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIMethods.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +29,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/20/d1c73411/Mesh.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/ee/ceb0e295/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Car/IEMActivation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Car/TurretController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InGameHandlers/PauseHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FitCanvasToCamera.cs" root0="FORCE_HIGHLIGHTING" />
@@ -153,7 +160,7 @@
       <workItem from="1765355822887" duration="5395000" />
       <workItem from="1765381875295" duration="3000" />
       <workItem from="1765442420565" duration="2219000" />
-      <workItem from="1765527600982" duration="751000" />
+      <workItem from="1765527600982" duration="2717000" />
     </task>
     <servers />
   </component>
