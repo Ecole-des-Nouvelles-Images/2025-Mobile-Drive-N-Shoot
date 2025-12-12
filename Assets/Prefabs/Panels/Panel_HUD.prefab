@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIAddedTimer
   _scaleEndValue: 1
-  _duration: 0.75
+  _duration: 0.6
   _animationCurve:
     serializedVersion: 2
     m_Curve:

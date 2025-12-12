@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class LastSelectedButton : MonoBehaviour
+    public class UILastSelectedButton : MonoBehaviour
     {
         [Header("Sprites")]
         [SerializeField] private Sprite _spriteLeftSelected;
