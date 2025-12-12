@@ -12,6 +12,7 @@ namespace Core
         public Material[] CurrentCarMaterials;
         public Material[] CurrentTurretMaterials;
         public Material[] CurrentIemExhaustPipeMaterials;
+        public Material IemMaterial;
 
         private void OnEnable()
         {
@@ -32,6 +33,7 @@ namespace Core
             CurrentCarMaterials[0].SetFloat("_HitProgress", 0f);
             CurrentTurretMaterials[0].SetFloat("_HitProgress", 0f);
             CurrentIemExhaustPipeMaterials[0].SetFloat("_HitProgress", 0f);
+            IemMaterial.SetFloat("_GlowStrength", 0f);
         }
 
         private void OnDisable()

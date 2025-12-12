@@ -12,6 +12,7 @@ namespace UI
     {
         [Header("References Display")]
         [SerializeField] private TextMeshProUGUI _tmpTimer;
+        [SerializeField] private GameObject _tmpTimerAdd;
         [SerializeField] private TextMeshProUGUI _tmpDistance;
         [SerializeField] private Button _buttonItemIEM;
         [SerializeField] private Button _buttonItemNoOverheat;
@@ -44,15 +45,29 @@ namespace UI
         
         private void Update()
         {
-            if (_timerHandler) _tmpTimer.text = _timerHandler.Timer.ToString("F1");
-            if (_distanceHandler) _tmpDistance.text = _distanceHandler.Distance.ToString("F1");
+            if (_timerHandler)
+            {
+                float time = _timerHandler.Timer;
+
+                int seconds = Mathf.FloorToInt(time);
+                int tenth = Mathf.FloorToInt((time - seconds) * 10f);
+
+                _tmpTimer.text = $"{seconds}:{tenth}";
+            }
+            if (_distanceHandler) _tmpDistance.text = _distanceHandler.Distance.ToString();
         }
 
         private void OnEnable()
         {
+            EventBus.OnAddTimeToTimer += AddTimeToTimer;
             EventBus.OnCollectedItem += OnCollectedItem;
             EventBus.OnPlayerHealthChange += OnPlayerHealthChange;
             EventBus.OnPlayerBoostCooldown += OnPlayerBoostCooldown;
+        }
+        
+        private void AddTimeToTimer()
+        {
+            _tmpTimerAdd.SetActive(true);
         }
 
         private void OnPlayerHealthChange(float currentHealth, float maxHealth)
@@ -83,6 +98,7 @@ namespace UI
 
         private void OnDisable()
         {
+            EventBus.OnAddTimeToTimer -= AddTimeToTimer;
             EventBus.OnCollectedItem -= OnCollectedItem;
             EventBus.OnPlayerHealthChange -= OnPlayerHealthChange;
             EventBus.OnPlayerBoostCooldown -= OnPlayerBoostCooldown;
