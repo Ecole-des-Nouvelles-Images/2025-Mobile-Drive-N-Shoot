@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 8895617970435745943}
   - component: {fileID: 2524738207651137503}
   - component: {fileID: 355360313880875959}
+  - component: {fileID: 6681710411235896838}
   - component: {fileID: 145836792616463274}
   - component: {fileID: 2160105197508392314}
   - component: {fileID: 5525036185201538663}
@@ -427,6 +428,19 @@ MonoBehaviour:
   _targetTransform: {x: 0, y: 0, z: 0}
   _shootTimerCooldown: 0
   _currentOverheatValue: 0
+--- !u!114 &6681710411235896838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546494360475675740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32528f6087c522744a4e3d56a3fe79fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IEMActivation
+  _material: {fileID: 2100000, guid: 5c2ee2f62c26fa14a8d4eedda468ec26, type: 2}
 --- !u!114 &145836792616463274
 MonoBehaviour:
   m_ObjectHideFlags: 0
