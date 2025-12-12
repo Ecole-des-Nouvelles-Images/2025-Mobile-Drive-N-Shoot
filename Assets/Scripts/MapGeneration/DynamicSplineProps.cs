@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -12,9 +13,11 @@ namespace MapGeneration
         [SerializeField] private uint _seed;
         [SerializeField] private TypeSpawningProps _typeSpawning;
         [SerializeField] [Min(2)] private int _density = 50;
+        [SerializeField] [Range(0f, 1f)] private float _spawnChance = 1f;
         [SerializeField] [Min(0.01f)] private float _width = 2f;
         [SerializeField] private bool _localHeightOffset;
         [SerializeField] private float _heightOffset;
+        [SerializeField] private bool _rotationBasedOnSplineDir;
         [SerializeField] [Range(0f, 90f)] private float _rotationOffset;
         [SerializeField] private float _positionOffset;
         [SerializeField] private Vector2 _scaleOffsetMinMax;
@@ -29,7 +32,14 @@ namespace MapGeneration
 
         private Random _random;
         private List<GameObject> _propsSpawn = new();
-        
+        private int _randomForOnSideSpawn;
+
+        private void Awake()
+        {
+            _randomForOnSideSpawn = Mathf.RoundToInt(Mathf.Lerp(100f, 2f, _spawnChance));
+            Debug.Log(_randomForOnSideSpawn);
+        }
+
         [ContextMenu("SpawnProps")]
         public void DebugSpawnProps()
         {
@@ -58,20 +68,38 @@ namespace MapGeneration
             {
                 for (int j = 0; j < _density; ++j)
                 {
+                    if (_random.NextFloat(0f, 1f) > _spawnChance) continue;
+                    
                     float t = j * step;
                     _splineContainer.Evaluate(i, t, out float3 pos, out float3 tan, out float3 up);
                     
                     Vector3 position = pos;
                     Vector3 forward = math.normalize(tan);
                     Vector3 right = Vector3.Cross(up, forward).normalized;
+                    
+                    // ROTATION
+                    float leftRotationY;
+                    float rightRotationY;
+                    if (_rotationBasedOnSplineDir)
+                    {
+                        float splineYaw = Mathf.Atan2(forward.x, forward.z) * Mathf.Rad2Deg;
 
+                        leftRotationY = splineYaw + _random.NextFloat(-_rotationOffset, _rotationOffset);
+                        rightRotationY = splineYaw + 180f + _random.NextFloat(-_rotationOffset, _rotationOffset);
+                    }
+                    else
+                    {
+                        leftRotationY = _random.NextFloat(-_rotationOffset, _rotationOffset);
+                        rightRotationY = _random.NextFloat(-_rotationOffset, _rotationOffset);
+                    }
+                    
                     int randomSide = 0;
                     if (_typeSpawning == TypeSpawningProps.OneSideRandom)
                     {
-                        randomSide = _random.NextInt(1, 3);
+                        randomSide = _random.NextInt(0, 2);
                     }
                     
-                    if (_typeSpawning == TypeSpawningProps.Symmetrical)
+                    if (_typeSpawning == TypeSpawningProps.BothSide)
                     {
                         Vector3 leftPos = position - right * (_width * 0.5f);
                         Vector3 rightPos = position + right * (_width * 0.5f);
@@ -88,8 +116,8 @@ namespace MapGeneration
                             rightPos.y = _heightOffset;
                         }
                     
-                        GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
-                        GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
+                        GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, leftRotationY, 0), _transformParent);
+                        GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, rightRotationY, 0), _transformParent);
                 
                         float leftScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
                         float rightScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
@@ -99,7 +127,7 @@ namespace MapGeneration
                         _propsSpawn.Add(leftObj);
                         _propsSpawn.Add(rightObj);
                     }
-                    else if (_typeSpawning == TypeSpawningProps.Left || randomSide == 1)
+                    else if (_typeSpawning == TypeSpawningProps.Left || randomSide == 0)
                     {
                         Vector3 leftPos = position - right * (_width * 0.5f);
 
@@ -112,14 +140,14 @@ namespace MapGeneration
                             leftPos.y = _heightOffset;
                         }
                     
-                        GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
+                        GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, leftRotationY, 0), _transformParent);
                 
                         float leftScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
                         leftObj.transform.localScale *= leftScaleModifier;
                                     
                         _propsSpawn.Add(leftObj);
                     }
-                    else if (_typeSpawning == TypeSpawningProps.Right || randomSide == 2)
+                    else if (_typeSpawning == TypeSpawningProps.Right || randomSide == 1)
                     {
                         Vector3 rightPos = position + right * (_width * 0.5f);
 
@@ -132,7 +160,7 @@ namespace MapGeneration
                             rightPos.y = _heightOffset;
                         }
                     
-                        GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, _random.NextFloat(-_rotationOffset, _rotationOffset), 0), _transformParent);
+                        GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, rightRotationY, 0), _transformParent);
                 
                         float rightScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
                         rightObj.transform.localScale *= rightScaleModifier;
@@ -151,7 +179,7 @@ namespace MapGeneration
 
     public enum TypeSpawningProps
     {
-        Symmetrical,
+        BothSide,
         Left,
         Right,
         OneSideRandom
