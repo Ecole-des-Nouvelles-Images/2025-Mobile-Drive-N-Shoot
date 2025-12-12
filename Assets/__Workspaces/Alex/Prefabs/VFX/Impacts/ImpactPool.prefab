@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950db13d76bfc5f469e5018a7e6b1059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ImpactPool
-  DefaultImpactPrefab: {fileID: 6434926502647618709, guid: 95ac2ad61cdb5ba44a368f417cacba0a, type: 3}
-  EnemyImpactPrefab: {fileID: 6434926502647618709, guid: 8b810a29b3490014895e9deb4285db3c, type: 3}
+  DefaultImpactPrefab: {fileID: 6299204832456151755, guid: ab64da3edf3afce40b7a5e23a9802da3, type: 3}
+  EnemyImpactPrefab: {fileID: 3853756905099807708, guid: 12ab97b4985903a4ba3494ff91a2df24, type: 3}
   PoolSizeDefault: 20
   PoolSizeEnemy: 10

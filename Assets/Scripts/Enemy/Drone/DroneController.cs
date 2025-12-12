@@ -28,6 +28,7 @@ namespace Enemy.Drone
 
         [Header("VFX")] 
         [SerializeField] private ParticleSystem _deathVFX;
+        [SerializeField] private ParticleSystem _hitVFX;
         
         private Coroutine _attackCoroutine;
         private bool _laserEnabled;
@@ -107,7 +108,8 @@ namespace Enemy.Drone
             {
                 if (_attackCoroutine != null)
                 {
-                    StopCoroutine(CoroutineAttack());
+                    StopCoroutine(_attackCoroutine);
+                    _attackCoroutine = null;
                 }
                 
                 _targetPos = TargetTransform.position;
@@ -147,7 +149,7 @@ namespace Enemy.Drone
 
                 if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
                 {
-                    // hit.point
+                    Instantiate(_hitVFX, hit.point, Quaternion.LookRotation(hit.normal));
                 }
             }
         }
@@ -158,8 +160,11 @@ namespace Enemy.Drone
             CanAttack = false;
             IsAttacking = false;
             NavMeshAgent.ResetPath();
-            StopCoroutine(CoroutineAttack());
-            DisplayLaser(false);
+            if (_attackCoroutine != null)
+            {
+                StopCoroutine(_attackCoroutine);
+                _attackCoroutine = null;
+            }            DisplayLaser(false);
             Collider.enabled = false;
             Visual.SetActive(false);
             
