@@ -123,7 +123,18 @@ namespace Car
                             closestEnemyTransform.gameObject.GetComponent<IDamageable>().TakeDamage(_damage);
                         }
                         _shootTimerCooldown = 0f;
-                        Debug.Log("Turret Shoot");
+                        
+                        // RAYCAST
+                        Vector3 start = _turretGun.position;
+                        Vector3 end = _targetTransform;
+                        Vector3 direction = (end - start).normalized;
+                        float distance = Vector3.Distance(start, end);
+
+                        if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
+                        {
+                            // hit.point
+                        }
+                        
                         // SFX
                         AudioManager.Instance.PlayAtPosition(_shootSFX, transform.position);
                         // VFX
@@ -136,6 +147,7 @@ namespace Car
                     {
                         _isOverheating = true;
                         DisplayLaser(false, _targetTransform);
+                        
                         // SFX
                         AudioManager.Instance.PlayAtPosition(_overheatSFX, transform.position);
                         // VFX
