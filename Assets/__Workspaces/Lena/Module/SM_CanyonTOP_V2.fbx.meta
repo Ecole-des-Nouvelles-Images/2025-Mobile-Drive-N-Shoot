@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bccf86ec26232754abd51bd1ee7c844c
+guid: bc3bc4359fec6b543bfdf8fb6334ece5
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 26317eadae2cd0a4999cfb8d470b65b5, type: 2}
+      name: M_Cactus
+    second: {fileID: 2100000, guid: cc92bade969ffd541b26c74925d11b4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Plants
+    second: {fileID: 2100000, guid: 832134ab9d64b84428b2f10c166f4e7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rock
+    second: {fileID: 2100000, guid: a7d3519771dcb7e43b32283106ad3930, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

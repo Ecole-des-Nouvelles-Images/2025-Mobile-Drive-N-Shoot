@@ -1,9 +1,39 @@
 fileFormatVersion: 2
-guid: 12f7fb608e54a83468f971849c42a65f
+guid: 4bc7febb5012cd4439783b601471c0fe
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Cactus
+    second: {fileID: 2100000, guid: cc92bade969ffd541b26c74925d11b4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Ground
+    second: {fileID: 2100000, guid: a77644c2e78958d488b6de4070e8a02b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Plants
+    second: {fileID: 2100000, guid: 832134ab9d64b84428b2f10c166f4e7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Props_road
+    second: {fileID: 2100000, guid: 6b0d6d55725ae4142bbaecc82507a713, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rock
+    second: {fileID: 2100000, guid: a7d3519771dcb7e43b32283106ad3930, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_carcasse
+    second: {fileID: 2100000, guid: 90730f6c446dbd940a0a0b394e5526ae, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
