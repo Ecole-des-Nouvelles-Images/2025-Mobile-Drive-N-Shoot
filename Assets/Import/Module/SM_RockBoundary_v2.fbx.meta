@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ddaf48919ce67284dbdfaa794633f969
+guid: 8aee324ae3002864ba1e582aaec4f0b3
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Ground
-    second: {fileID: 2100000, guid: a77644c2e78958d488b6de4070e8a02b, type: 2}
+    second: {fileID: 2100000, guid: e259bb3a09c8b6749afc4c7302d65962, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

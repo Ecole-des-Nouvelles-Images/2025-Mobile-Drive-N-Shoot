@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b378ba8c77136ad438e8a29da1b1c2d8
+guid: 9b303b97cf6d7eb4cb3a07447e4f4564
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Ground
-    second: {fileID: 2100000, guid: e259bb3a09c8b6749afc4c7302d65962, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Plants
-    second: {fileID: 2100000, guid: 832134ab9d64b84428b2f10c166f4e7f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Rock
-    second: {fileID: 2100000, guid: a7d3519771dcb7e43b32283106ad3930, type: 2}
+      name: M_Props_Road
+    second: {fileID: 2100000, guid: 6b0d6d55725ae4142bbaecc82507a713, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
