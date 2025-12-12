@@ -60,10 +60,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 1
+  _typeSpawning: 0
   _density: 10
+  _spawnChance: 1
   _width: 1
   _localHeightOffset: 1
   _heightOffset: 0
+  _rotationBasedOnSplineDir: 0
   _rotationOffset: 0
   _positionOffset: 5
   _scaleOffsetMinMax: {x: 1, y: 1}
@@ -84,10 +87,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 0
+  _typeSpawning: 0
   _density: 10
+  _spawnChance: 1
   _width: 15
   _localHeightOffset: 0
   _heightOffset: 4
+  _rotationBasedOnSplineDir: 0
   _rotationOffset: 0
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 1, y: 1}
@@ -95,6 +101,37 @@ MonoBehaviour:
   - {fileID: 7989771649214069358, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
   _transformParent: {fileID: 898583420212954918}
   _splineContainer: {fileID: 5965455809491477312}
+--- !u!1 &1623591405247487795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2390942047658220984}
+  m_Layer: 0
+  m_Name: Props_Height
+  m_TagString: SplineProps
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2390942047658220984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623591405247487795}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5640243950555269481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3017809395264232997
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,17 +143,8 @@ GameObject:
   - component: {fileID: 6264254432998931550}
   - component: {fileID: 5627601326609164507}
   - component: {fileID: 2558862024174877588}
-  - component: {fileID: 3783710049718952925}
-  - component: {fileID: 3298139716297054600}
-  - component: {fileID: 821704023778619988}
-  - component: {fileID: 8041931223163796518}
-  - component: {fileID: 2912734412126029350}
-  - component: {fileID: 5962279831852304828}
-  - component: {fileID: 6119279397816311779}
-  - component: {fileID: 2490898864605186262}
-  - component: {fileID: 2034975257645221153}
   m_Layer: 0
-  m_Name: Props
+  m_Name: Props_Cliffs
   m_TagString: SplineProps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,10 +178,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 0
   _density: 100
+  _spawnChance: 1
   _width: 12
   _localHeightOffset: 0
   _heightOffset: 0
+  _rotationBasedOnSplineDir: 0
   _rotationOffset: 90
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
@@ -176,10 +207,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
+  _typeSpawning: 3
   _density: 10
+  _spawnChance: 0.75
   _width: 10
   _localHeightOffset: 0
   _heightOffset: -2
+  _rotationBasedOnSplineDir: 0
   _rotationOffset: 90
   _positionOffset: 0.5
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
@@ -187,241 +221,6 @@ MonoBehaviour:
   - {fileID: 6309426883222056376, guid: b76f3199ae083094f9927d83e5d26471, type: 3}
   - {fileID: 6309426883222056376, guid: 02f44bc898d46904faf350a7c0d6b9a1, type: 3}
   - {fileID: 6309426883222056376, guid: a0fa50b60380acd4f9a251a2decaaed2, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &3783710049718952925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  _seed: 12345
-  _density: 50
-  _width: 9
-  _localHeightOffset: 1
-  _heightOffset: 0
-  _rotationOffset: 90
-  _positionOffset: 1
-  _scaleOffsetMinMax: {x: 0.9, y: 1.2}
-  _props:
-  - {fileID: 1612527615959682190, guid: b120a211d2ab3d940a9bae4af53b3a6a, type: 3}
-  - {fileID: 1612527615959682190, guid: 5627316f606d1fe458245d36c4647a6a, type: 3}
-  - {fileID: 1612527615959682190, guid: 329bdf272c7656a47976c3744a07199d, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &3298139716297054600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  _seed: 12345
-  _density: 5
-  _width: 2
-  _localHeightOffset: 1
-  _heightOffset: 0
-  _rotationOffset: 90
-  _positionOffset: 3
-  _scaleOffsetMinMax: {x: 0.9, y: 1.1}
-  _props:
-  - {fileID: 3026735371325414904, guid: 239ddd92186f8944d9b979108134b0bb, type: 3}
-  - {fileID: 2156347104938769760, guid: defa1226df34b0949aba1ecafaa8de7f, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &821704023778619988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
-  _seed: 12345
-  _density: 30
-  _width: 15
-  _localHeightOffset: 0
-  _heightOffset: 4
-  _rotationOffset: 90
-  _positionOffset: 1
-  _scaleOffsetMinMax: {x: 0.9, y: 1.2}
-  _props:
-  - {fileID: 5017159615024599370, guid: 88367454f71b9b948812e4de3b1a612e, type: 3}
-  - {fileID: 6671829077847000264, guid: d0f804c701206d14ea9a0dad98d6b27f, type: 3}
-  - {fileID: 8609305779943020327, guid: 5f09d333c90afdf4fb595aa9917d83d9, type: 3}
-  - {fileID: 1622018206705476654, guid: b56a0a5c8045a3b43bd645bd49119a76, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &8041931223163796518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  _seed: 12345
-  _density: 100
-  _width: 15
-  _localHeightOffset: 0
-  _heightOffset: 4
-  _rotationOffset: 90
-  _positionOffset: 1.5
-  _scaleOffsetMinMax: {x: 0.9, y: 1.2}
-  _props:
-  - {fileID: 5489865309931224674, guid: 7077374897cff5649b938e6fa763ee91, type: 3}
-  - {fileID: 8913410019453691409, guid: e925cb69fae773f40aba4c60b8034fc1, type: 3}
-  - {fileID: 482149236283104903, guid: b6060c82a5632124fb3448f036be02ac, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &2912734412126029350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
-  _seed: 12345
-  _density: 50
-  _width: 15
-  _localHeightOffset: 0
-  _heightOffset: 4
-  _rotationOffset: 90
-  _positionOffset: 1.5
-  _scaleOffsetMinMax: {x: 0.8, y: 1}
-  _props:
-  - {fileID: 861158402046415158, guid: 5ecc64ff9f52905479875e43462856c5, type: 3}
-  - {fileID: 3205048574040650182, guid: 43452272b21025b45838647479a93da6, type: 3}
-  - {fileID: 7244364707113374070, guid: 839b8908f88db2e4389fba45f5d7da3e, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &5962279831852304828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
-  _seed: 12345
-  _density: 10
-  _width: 5
-  _localHeightOffset: 1
-  _heightOffset: 0
-  _rotationOffset: 90
-  _positionOffset: 4
-  _scaleOffsetMinMax: {x: 0.9, y: 1.2}
-  _props:
-  - {fileID: 5017159615024599370, guid: 88367454f71b9b948812e4de3b1a612e, type: 3}
-  - {fileID: 6671829077847000264, guid: d0f804c701206d14ea9a0dad98d6b27f, type: 3}
-  - {fileID: 8609305779943020327, guid: 5f09d333c90afdf4fb595aa9917d83d9, type: 3}
-  - {fileID: 1622018206705476654, guid: b56a0a5c8045a3b43bd645bd49119a76, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &6119279397816311779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
-  _seed: 12345
-  _density: 20
-  _width: 5
-  _localHeightOffset: 1
-  _heightOffset: 0
-  _rotationOffset: 90
-  _positionOffset: 4
-  _scaleOffsetMinMax: {x: 0.9, y: 1.2}
-  _props:
-  - {fileID: 5489865309931224674, guid: 7077374897cff5649b938e6fa763ee91, type: 3}
-  - {fileID: 8913410019453691409, guid: e925cb69fae773f40aba4c60b8034fc1, type: 3}
-  - {fileID: 482149236283104903, guid: b6060c82a5632124fb3448f036be02ac, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &2490898864605186262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
-  _seed: 12345
-  _density: 30
-  _width: 5
-  _localHeightOffset: 1
-  _heightOffset: 0
-  _rotationOffset: 90
-  _positionOffset: 4
-  _scaleOffsetMinMax: {x: 0.8, y: 1}
-  _props:
-  - {fileID: 861158402046415158, guid: 5ecc64ff9f52905479875e43462856c5, type: 3}
-  - {fileID: 3205048574040650182, guid: 43452272b21025b45838647479a93da6, type: 3}
-  - {fileID: 7244364707113374070, guid: 839b8908f88db2e4389fba45f5d7da3e, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
-  _splineContainer: {fileID: 5965455809491477312}
---- !u!114 &2034975257645221153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017809395264232997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
-  _seed: 12345
-  _density: 10
-  _width: 7
-  _localHeightOffset: 1
-  _heightOffset: 0
-  _rotationOffset: 90
-  _positionOffset: 0.5
-  _scaleOffsetMinMax: {x: 0.9, y: 1.1}
-  _props:
-  - {fileID: 4857736684079876985, guid: 713d8c8cbf159224aa1e81886a504122, type: 3}
-  - {fileID: 7846237715143704720, guid: 5e177e319b1eb7243a489544bca22765, type: 3}
-  - {fileID: 6765942630976665267, guid: 20224946e5817db478e5a75715fbef17, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!1 &3539874032609928918
@@ -458,6 +257,8 @@ Transform:
   - {fileID: 2778602007510608308}
   - {fileID: 3684699524607765317}
   - {fileID: 6264254432998931550}
+  - {fileID: 8609845499456673262}
+  - {fileID: 2390942047658220984}
   - {fileID: 898583420212954918}
   - {fileID: 3293176318540988671}
   m_Father: {fileID: 0}
@@ -525,7 +326,7 @@ Transform:
   m_GameObject: {fileID: 4743556773377785050}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: 0}
+  m_LocalPosition: {x: 50, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -755,7 +556,7 @@ MonoBehaviour:
   _seed: 0
   _knotCount: 5
   _terrainSize: 100
-  _nextPosOffset: 20
+  _nextPosOffset: 10
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &5431519557754820045
 MonoBehaviour:
@@ -775,6 +576,122 @@ MonoBehaviour:
   _materialRoad: {fileID: 2100000, guid: a77644c2e78958d488b6de4070e8a02b, type: 2}
   _splineContainer: {fileID: 5965455809491477312}
   _splineRoadMeshes: []
+--- !u!1 &6164301078006077775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8609845499456673262}
+  - component: {fileID: 9108657725563144977}
+  - component: {fileID: 1286942253197324386}
+  - component: {fileID: 3723475762492737643}
+  m_Layer: 0
+  m_Name: Props_Road
+  m_TagString: SplineProps
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8609845499456673262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164301078006077775}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5640243950555269481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9108657725563144977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164301078006077775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
+  _seed: 12345
+  _typeSpawning: 0
+  _density: 30
+  _spawnChance: 0.8
+  _width: 9
+  _localHeightOffset: 1
+  _heightOffset: 0
+  _rotationBasedOnSplineDir: 1
+  _rotationOffset: 20
+  _positionOffset: 1
+  _scaleOffsetMinMax: {x: 0.8, y: 1.1}
+  _props:
+  - {fileID: 8459920982313930829, guid: 07729c368538756418239df96ceacb12, type: 3}
+  - {fileID: 5161216386637765027, guid: 46b4140ebaae6a945a74cf28833c9e18, type: 3}
+  _transformParent: {fileID: 8609845499456673262}
+  _splineContainer: {fileID: 5965455809491477312}
+--- !u!114 &1286942253197324386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164301078006077775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
+  _seed: 12345
+  _typeSpawning: 3
+  _density: 4
+  _spawnChance: 0.5
+  _width: 4.5
+  _localHeightOffset: 1
+  _heightOffset: 0
+  _rotationBasedOnSplineDir: 1
+  _rotationOffset: 20
+  _positionOffset: 0
+  _scaleOffsetMinMax: {x: 1, y: 1.2}
+  _props:
+  - {fileID: 7769190505009400, guid: a810b76a3d586bd4e9500da766971a5b, type: 3}
+  _transformParent: {fileID: 8609845499456673262}
+  _splineContainer: {fileID: 5965455809491477312}
+--- !u!114 &3723475762492737643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164301078006077775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
+  _seed: 12345
+  _typeSpawning: 3
+  _density: 3
+  _spawnChance: 0.05
+  _width: 0.01
+  _localHeightOffset: 1
+  _heightOffset: 0
+  _rotationBasedOnSplineDir: 0
+  _rotationOffset: 90
+  _positionOffset: 1
+  _scaleOffsetMinMax: {x: 1, y: 1}
+  _props:
+  - {fileID: 2176892742850792974, guid: a864bd86e1c4e824fb2deef8c10ea6f7, type: 3}
+  _transformParent: {fileID: 8609845499456673262}
+  _splineContainer: {fileID: 5965455809491477312}
 --- !u!1 &8048398075706295006
 GameObject:
   m_ObjectHideFlags: 0
