@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
   _typeSpawning: 0
-  _density: 50
+  _density: 30
   _width: 9
   _localHeightOffset: 1
   _heightOffset: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.9, y: 1.2}
   _props:
-  - {fileID: 5161216386637765027, guid: 46b4140ebaae6a945a74cf28833c9e18, type: 3}
+  - {fileID: 8459920982313930829, guid: 07729c368538756418239df96ceacb12, type: 3}
   _transformParent: {fileID: 6264254432998931550}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &3298139716297054600
