@@ -675,6 +675,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
   CurrentIemExhaustPipeMaterials:
   - {fileID: 2100000, guid: ac9436737c5ab1d4f9a2cb6c81c1547e, type: 2}
+  IemMaterial: {fileID: 0}
 --- !u!4 &812140793
 Transform:
   m_ObjectHideFlags: 0
