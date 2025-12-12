@@ -407,18 +407,18 @@ MonoBehaviour:
   _turretGun: {fileID: 2628030001952147073}
   _shootSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1715683056
+      Data2: 1170695769
+      Data3: 10241200
+      Data4: 1196966569
+    Path: event:/SFX/MachineGun
   _overheatSFX:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 518155304
+      Data2: 1137448522
+      Data3: 1052307105
+      Data4: 1719854015
+    Path: event:/SFX/Overheat
   _shootVFX: {fileID: 6679868664318379857}
   _overheatVFX: {fileID: 7128002279772468727}
   _isAiming: 0
