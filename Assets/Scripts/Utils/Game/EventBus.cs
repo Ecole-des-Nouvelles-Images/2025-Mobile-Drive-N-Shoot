@@ -56,6 +56,11 @@ namespace Utils.Game
         // Cinematic
         public static Action OnCinematicEnd;
         
+        // Camera
+        public static Action OnBigExplosion;
+        public static Action OnSmallExplosion;
+
+        
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void Init()
         {
@@ -86,6 +91,8 @@ namespace Utils.Game
             OnCollectedItem = null; 
             OnUsingItem = null;
             OnCinematicEnd = null;
+            OnBigExplosion = null;
+            OnSmallExplosion = null;
         }
     }
 }

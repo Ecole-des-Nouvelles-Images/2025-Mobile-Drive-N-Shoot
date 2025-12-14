@@ -163,6 +163,8 @@ namespace Enemy.Drone
             Collider.enabled = false;
             Visual.SetActive(false);
             
+            // Camera Shake
+            EventBus.OnSmallExplosion?.Invoke();
             
             // VFX, SFX
             if (_deathVFX) _deathVFX.Play();

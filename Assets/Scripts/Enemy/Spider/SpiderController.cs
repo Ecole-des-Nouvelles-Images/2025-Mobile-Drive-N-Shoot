@@ -87,6 +87,9 @@ namespace Enemy.Spider
                 }
             }
             
+            // Camera Shake
+            EventBus.OnBigExplosion?.Invoke();
+            
             // VFX, SFX
             AudioManager.Instance.PlayAtPosition(_explosionSFX, transform.position);
             if (_explosionVFX) _explosionVFX.Play();
