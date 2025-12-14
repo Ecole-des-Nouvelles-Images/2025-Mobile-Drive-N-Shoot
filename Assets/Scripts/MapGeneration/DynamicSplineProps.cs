@@ -36,7 +36,7 @@ namespace MapGeneration
         private void Awake()
         {
             _randomForOnSideSpawn = Mathf.RoundToInt(Mathf.Lerp(100f, 2f, _spawnChance));
-            Debug.Log(_randomForOnSideSpawn);
+            // Debug.Log(_randomForOnSideSpawn);
         }
 
         [ContextMenu("SpawnProps")]

@@ -26,6 +26,12 @@ namespace Enemy.Spider
         public void TakeDamage(float damage)
         {
             CurrentHealth -= damage;
+
+            // Event
+            if (CurrentHealth <= 0)
+            {
+                EventBus.OnSpiderIsKilled?.Invoke();
+            }
             
             // Change material
             float targetValue = 0.5f;

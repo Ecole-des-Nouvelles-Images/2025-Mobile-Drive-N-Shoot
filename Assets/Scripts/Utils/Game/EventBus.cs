@@ -32,15 +32,16 @@ namespace Utils.Game
         /// Timer, Cooldown
         /// </summary>
         public static Action<float, float> OnPlayerBoostCooldown;
-
         public static Action OnPlayerAtHalfHealth;
         public static Action OnPlayerRecoveredFromHalf;
+        public static Action OnPlayerPassCheckpoint;
 
         // Enemy
         public static Action OnEnemySpawn;
         public static Action OnSpiderEnemySpawn;
         public static Action OnDroneEnemySpawn;
-        public static Action<GameObject> OnEnemyDie;
+        public static Action OnSpiderIsKilled;
+        public static Action OnDroneIsKilled;
         public static Action<float> OnEnemyTakeDamage;
         
         // Module
@@ -81,10 +82,12 @@ namespace Utils.Game
             OnPlayerBoostCooldown = null;
             OnPlayerAtHalfHealth = null;
             OnPlayerRecoveredFromHalf = null;
+            OnPlayerPassCheckpoint = null;
             OnEnemySpawn = null;
             OnSpiderEnemySpawn = null;
             OnDroneEnemySpawn = null;
-            OnEnemyDie = null; 
+            OnSpiderIsKilled = null;
+            OnDroneIsKilled = null; 
             OnEnemyTakeDamage = null;
             OnModuleFinishedGeneration = null;
             OnAddTimeToTimer = null;
