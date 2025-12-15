@@ -11,6 +11,7 @@ namespace MapGeneration
         [Header("Settings")]
         [SerializeField] private uint _seed;
         [SerializeField] private TypeSpawningProps _typeSpawning;
+        [SerializeField] private bool _firstAndLastSpawn = true;
         [SerializeField] [Min(2)] private int _density = 50;
         [SerializeField] [Range(0f, 1f)] private float _spawnChance = 1f;
         [SerializeField] [Min(0.01f)] private float _width = 2f;
@@ -70,6 +71,10 @@ namespace MapGeneration
                     if (_random.NextFloat(0f, 1f) > _spawnChance) continue;
                     
                     float t = j * step;
+                    if (_firstAndLastSpawn)
+                    {
+                        if (t == 0f || Mathf.Approximately(t, 1f)) continue;
+                    }
                     _splineContainer.Evaluate(i, t, out float3 pos, out float3 tan, out float3 up);
                     
                     Vector3 position = pos;

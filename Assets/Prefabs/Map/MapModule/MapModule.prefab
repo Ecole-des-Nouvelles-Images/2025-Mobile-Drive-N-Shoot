@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 1
   _typeSpawning: 0
+  _firstAndLastSpawn: 1
   _density: 10
   _spawnChance: 1
   _width: 1
@@ -88,6 +89,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 0
   _typeSpawning: 0
+  _firstAndLastSpawn: 1
   _density: 10
   _spawnChance: 1
   _width: 15
@@ -179,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
   _typeSpawning: 0
+  _firstAndLastSpawn: 1
   _density: 100
   _spawnChance: 1
   _width: 12
@@ -208,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
   _typeSpawning: 3
+  _firstAndLastSpawn: 1
   _density: 10
   _spawnChance: 0.75
   _width: 10
@@ -624,6 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
   _typeSpawning: 0
+  _firstAndLastSpawn: 1
   _density: 30
   _spawnChance: 0.8
   _width: 9
@@ -652,8 +657,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
   _typeSpawning: 3
-  _density: 4
-  _spawnChance: 0.5
+  _firstAndLastSpawn: 0
+  _density: 6
+  _spawnChance: 0.3
   _width: 4.5
   _localHeightOffset: 1
   _heightOffset: 0
@@ -679,8 +685,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DynamicSplineProps
   _seed: 12345
   _typeSpawning: 3
-  _density: 3
-  _spawnChance: 0.05
+  _firstAndLastSpawn: 0
+  _density: 5
+  _spawnChance: 0.1
   _width: 0.01
   _localHeightOffset: 1
   _heightOffset: 0
