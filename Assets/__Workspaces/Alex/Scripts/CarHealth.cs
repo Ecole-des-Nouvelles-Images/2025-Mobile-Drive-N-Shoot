@@ -8,7 +8,7 @@ namespace __Workspaces.Alex.Scripts
 {
     public class CarHealth : MonoBehaviour, IDamageable
     {
-        [Header("Health")] 
+        [Header("Health")]
         public float maxHealth = 100f;
 
         [SerializeField] private float CurrentHealth;
