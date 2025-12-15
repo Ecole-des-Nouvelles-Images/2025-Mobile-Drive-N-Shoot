@@ -262,6 +262,7 @@ MonoBehaviour:
       Data4: -726708132
     Path: event:/SFX/DroneExplosion
   _deathVFX: {fileID: 2628477338921762141}
+  _hitVFX: {fileID: 3853756905099807708, guid: 12ab97b4985903a4ba3494ff91a2df24, type: 3}
 --- !u!114 &6935399262465851280
 MonoBehaviour:
   m_ObjectHideFlags: 0
