@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 1
-  _typeSpawning: 0
+  _typeSpawning: 3
   _firstAndLastSpawn: 1
   _density: 10
   _spawnChance: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
   _localHeightOffset: 1
   _heightOffset: 0
   _typeRotationProps: 0
-  _rotationOffset: 0
+  _rotationOffset: 90
   _positionOffset: 5
   _scaleOffsetMinMax: {x: 1, y: 1}
   _props:
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
   _seed: 0
-  _typeSpawning: 0
+  _typeSpawning: 3
   _firstAndLastSpawn: 1
   _density: 10
   _spawnChance: 1
@@ -96,7 +96,7 @@ MonoBehaviour:
   _localHeightOffset: 0
   _heightOffset: 4
   _typeRotationProps: 0
-  _rotationOffset: 0
+  _rotationOffset: 14.9
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 1, y: 1}
   _props:
