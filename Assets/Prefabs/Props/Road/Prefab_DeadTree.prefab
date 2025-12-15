@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PropsHandler
   _visual: {fileID: 6153002395939540785}
-  _psDestroy: {fileID: 3872373110030933050, guid: 52e0e910eff231a4f848078d7e443afb, type: 3}
+  _psDestroy: {fileID: 6342261576063876592}
   _destroySFX:
     Guid:
       Data1: -1019433349
@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1882369715178550761, guid: 52e0e910eff231a4f848078d7e443afb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1882369715178550761, guid: 52e0e910eff231a4f848078d7e443afb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -256,6 +256,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52e0e910eff231a4f848078d7e443afb, type: 3}
+--- !u!198 &6342261576063876592 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3872373110030933050, guid: 52e0e910eff231a4f848078d7e443afb, type: 3}
+  m_PrefabInstance: {fileID: 7906442564613333450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8621814756457960483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1882369715178550761, guid: 52e0e910eff231a4f848078d7e443afb, type: 3}

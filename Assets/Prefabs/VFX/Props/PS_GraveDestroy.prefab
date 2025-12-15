@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3872373110030933050}
   - component: {fileID: 5474399204774283641}
   m_Layer: 0
-  m_Name: PS_CactusDestroy
+  m_Name: PS_GraveDestroy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,7 +980,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 3
+        scalar: 1
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -3869,8 +3869,13 @@ ParticleSystem:
     primitives: []
   SubModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     subEmitters:
+    - serializedVersion: 3
+      emitter: {fileID: 0}
+      type: 0
+      properties: 0
+      emitProbability: 1
     - serializedVersion: 3
       emitter: {fileID: 0}
       type: 0
@@ -4840,7 +4845,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc92bade969ffd541b26c74925d11b4d, type: 2}
+  - {fileID: 2100000, guid: 6b0d6d55725ae4142bbaecc82507a713, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4885,9 +4890,9 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 3967556254738666930, guid: 501c46d0cb5d2264cabf564c948a77b0, type: 3}
-  m_Mesh1: {fileID: 7513517456601734192, guid: 86f83d349782c7b489f68abe9ed5548a, type: 3}
-  m_Mesh2: {fileID: 744858050196212832, guid: ad0179ec760d31c4383467b1562ae123, type: 3}
+  m_Mesh: {fileID: 6650049747654117406, guid: de39e78fbc1057a4f92a75ecd274b57f, type: 3}
+  m_Mesh1: {fileID: 0}
+  m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1

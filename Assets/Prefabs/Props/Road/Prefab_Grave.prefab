@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2061155331566722503}
+  - {fileID: 5119661419004586667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &8836192335393622400
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PropsHandler
   _visual: {fileID: 1716260092948481917}
-  _psDestroy: {fileID: 0}
+  _psDestroy: {fileID: 7543066982720652152}
   _destroySFX:
     Guid:
       Data1: -1019433349
@@ -196,3 +197,70 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 0
   m_AffectedAgents: ffffffff
+--- !u!1001 &6706763261915815746
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 941867014763261620}
+    m_Modifications:
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01491
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22978
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481137644493032116, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+      propertyPath: m_Name
+      value: PS_GraveDestroy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+--- !u!4 &5119661419004586667 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1882369715178550761, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+  m_PrefabInstance: {fileID: 6706763261915815746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7543066982720652152 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3872373110030933050, guid: 3bdf483f884f1404da4a4d5a147b05ba, type: 3}
+  m_PrefabInstance: {fileID: 6706763261915815746}
+  m_PrefabAsset: {fileID: 0}
