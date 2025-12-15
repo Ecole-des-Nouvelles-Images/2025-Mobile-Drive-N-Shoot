@@ -17,7 +17,7 @@ MonoBehaviour:
     passTag: PickupInFront
     Event: 300
     filterSettings:
-      RenderQueueType: 1
+      RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
         m_Bits: 1024
@@ -59,7 +59,7 @@ MonoBehaviour:
     passTag: PickupBehind
     Event: 300
     filterSettings:
-      RenderQueueType: 1
+      RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
         m_Bits: 1024
@@ -122,7 +122,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 831
   m_TransparentLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
