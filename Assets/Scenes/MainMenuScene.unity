@@ -492,7 +492,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 7df3c8156e1631647bd4f8e30d914466, type: 2}
   CurrentIemExhaustPipeMaterials:
   - {fileID: 2100000, guid: ac9436737c5ab1d4f9a2cb6c81c1547e, type: 2}
-  IemMaterial: {fileID: 2100000, guid: 5c2ee2f62c26fa14a8d4eedda468ec26, type: 2}
+  _ambiantSound:
+    Guid:
+      Data1: 91253427
+      Data2: 1162435664
+      Data3: -973426506
+      Data4: 681029211
+    Path: event:/Ambient/Desert Ambient
+  _musicSound:
+    Guid:
+      Data1: -1802625607
+      Data2: 1117046581
+      Data3: -1018661756
+      Data4: -649066805
+    Path: event:/Music/Music
 --- !u!4 &561172853
 Transform:
   m_ObjectHideFlags: 0

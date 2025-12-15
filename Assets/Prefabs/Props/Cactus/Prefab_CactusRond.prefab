@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3386341563180016487}
+  - {fileID: 617663701255783194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2713370138472321186
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.PropsHandler
   _visual: {fileID: 2717186910619187677}
-  _psDestroy: {fileID: 0}
+  _psDestroy: {fileID: 2823909003573177033}
   _destroySFX:
     Guid:
       Data1: -1019433349
@@ -76,6 +77,73 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1336975994093483763
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1982881005200670117}
+    m_Modifications:
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481137644493032116, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+      propertyPath: m_Name
+      value: PS_CactusRondDestroy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+--- !u!4 &617663701255783194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1882369715178550761, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+  m_PrefabInstance: {fileID: 1336975994093483763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2823909003573177033 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3872373110030933050, guid: 427defe1c5a787b418602f177a30e989, type: 3}
+  m_PrefabInstance: {fileID: 1336975994093483763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2987024310046098572
 PrefabInstance:
   m_ObjectHideFlags: 0

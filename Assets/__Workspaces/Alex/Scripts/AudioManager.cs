@@ -10,6 +10,12 @@ namespace __Workspaces.Alex.Scripts
     {
         private readonly List<EventInstance> _active = new();
 
+        // Store looped unique events (music, ambiance…)
+        private readonly Dictionary<EventReference, EventInstance> _uniqueInstances = new();
+
+        // ----------------------------------------------------------------------
+        // PLAY (MAIN METHOD)
+        // ----------------------------------------------------------------------
         public EventInstance Play(EventReference eventRef, bool loop = false, GameObject follow = null)
         {
             if (eventRef.IsNull)
@@ -18,6 +24,28 @@ namespace __Workspaces.Alex.Scripts
                 return default;
             }
 
+            // ---------------------------------------------------------
+            // UNIQUE LOOPED EVENTS (MUSIC, AMBIANCE…)
+            // ---------------------------------------------------------
+            if (loop)
+            {
+                if (_uniqueInstances.TryGetValue(eventRef, out var existing))
+                {
+                    existing.getPlaybackState(out var state);
+
+                    // If already playing → return it
+                    if (state != PLAYBACK_STATE.STOPPED)
+                        return existing;
+
+                    // If stopped → restart
+                    existing.start();
+                    return existing;
+                }
+            }
+
+            // ---------------------------------------------------------
+            // NORMAL BEHAVIOUR (create new instance)
+            // ---------------------------------------------------------
             var instance = RuntimeManager.CreateInstance(eventRef);
 
             if (follow != null)
@@ -26,13 +54,23 @@ namespace __Workspaces.Alex.Scripts
             instance.start();
 
             if (!loop)
+            {
+                // Non-looping events are released after playback
                 instance.release();
+            }
             else
+            {
+                // Looped events are managed manually
                 _active.Add(instance);
+                _uniqueInstances[eventRef] = instance;
+            }
 
             return instance;
         }
 
+        // ----------------------------------------------------------------------
+        // PLAY AT POSITION
+        // ----------------------------------------------------------------------
         public EventInstance PlayAtPosition(EventReference eventRef, Vector3 position, bool loop = false)
         {
             if (eventRef.IsNull)
@@ -52,17 +90,19 @@ namespace __Workspaces.Alex.Scripts
 
             return instance;
         }
-        
+
+        // ----------------------------------------------------------------------
+        // STOP SINGLE INSTANCE
+        // ----------------------------------------------------------------------
         public void Stop(EventInstance instance, FMOD.Studio.STOP_MODE mode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
         {
-            if (EqualityComparer<EventInstance>.Default.Equals(instance, default(EventInstance)))
+            if (EqualityComparer<EventInstance>.Default.Equals(instance, default))
                 return;
 
-            // stop and release
             instance.stop(mode);
             instance.release();
 
-            // remove from _active if present
+            // Remove from active list
             for (int i = _active.Count - 1; i >= 0; i--)
             {
                 if (EqualityComparer<EventInstance>.Default.Equals(_active[i], instance))
@@ -70,22 +110,40 @@ namespace __Workspaces.Alex.Scripts
                     _active.RemoveAt(i);
                 }
             }
+
+            // Remove from unique dictionary
+            foreach (var kvp in _uniqueInstances)
+            {
+                if (EqualityComparer<EventInstance>.Default.Equals(kvp.Value, instance))
+                {
+                    _uniqueInstances.Remove(kvp.Key);
+                    break;
+                }
+            }
         }
 
+        // ----------------------------------------------------------------------
+        // STOP ALL
+        // ----------------------------------------------------------------------
         public void StopAll(FMOD.Studio.STOP_MODE mode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
         {
             foreach (var e in _active)
                 e.stop(mode);
 
             _active.Clear();
+            _uniqueInstances.Clear();
         }
 
+        // ----------------------------------------------------------------------
+        // CLEANUP LOOPED INSTANCES
+        // ----------------------------------------------------------------------
         private void Update()
         {
             for (int i = _active.Count - 1; i >= 0; i--)
             {
                 var e = _active[i];
                 e.getPlaybackState(out var state);
+
                 if (state == PLAYBACK_STATE.STOPPED)
                 {
                     e.release();
@@ -94,11 +152,9 @@ namespace __Workspaces.Alex.Scripts
             }
         }
 
-        /// <summary>
-        /// Define the bus volume (0-1)
-        /// </summary>
-        /// <param name="bus">Bus to modify</param>
-        /// <param name="volume">Normalized float value for volume</param>
+        // ----------------------------------------------------------------------
+        // BUS CONTROL
+        // ----------------------------------------------------------------------
         public void SetBusVolume(AudioBus bus, float volume)
         {
             string busPath = GetPath(bus);
@@ -107,12 +163,7 @@ namespace __Workspaces.Alex.Scripts
             else
                 Debug.LogWarning($"[AudioManager] Bus not found: {busPath}");
         }
-    
-        /// <summary>
-        /// Mute the bus
-        /// </summary>
-        /// <param name="bus">Bus to mute</param>
-        /// <param name="mute">Boolean value for mute or demute</param>
+
         public void MuteBus(AudioBus bus, bool mute)
         {
             string busPath = GetPath(bus);
@@ -121,20 +172,20 @@ namespace __Workspaces.Alex.Scripts
             else
                 Debug.LogWarning($"[AudioManager] Bus not found: {busPath}");
         }
-    
+
         private string GetPath(AudioBus bus)
         {
             return bus switch
             {
-                AudioBus.Master  => "bus:/",
-                AudioBus.Music   => "bus:/Music",
-                AudioBus.SFX     => "bus:/SFX",
-                AudioBus.UI      => "bus:/UI",
+                AudioBus.Master => "bus:/",
+                AudioBus.Music => "bus:/Music",
+                AudioBus.SFX => "bus:/SFX",
+                AudioBus.UI => "bus:/UI",
                 AudioBus.Ambient => "bus:/Ambient",
-                _                => "bus:/"
+                _ => "bus:/"
             };
         }
-    
+
         public enum AudioBus
         {
             Master,
