@@ -15,6 +15,13 @@ namespace UI
         private RectTransform _rectTransform;
         private TextMeshProUGUI _text;
 
+        public void Setup(Vector3 position, Vector3 nextPosition, int value)
+        {
+            GetComponent<RectTransform>().anchoredPosition = position;
+            _nextPosition = nextPosition;
+            GetComponent<TextMeshProUGUI>().text = value.ToString();
+        }
+
         private void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();

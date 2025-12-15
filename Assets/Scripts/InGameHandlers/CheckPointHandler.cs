@@ -12,6 +12,7 @@ namespace InGameHandlers
             if (other.gameObject.CompareTag("Player") && !_alreadyPass)
             {
                 EventBus.OnAddTimeToTimer?.Invoke();
+                EventBus.OnPlayerPassCheckpoint?.Invoke();
                 _alreadyPass = true;
             }
         }

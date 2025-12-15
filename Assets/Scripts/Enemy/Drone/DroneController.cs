@@ -168,6 +168,8 @@ namespace Enemy.Drone
             Collider.enabled = false;
             Visual.SetActive(false);
             
+            // Camera Shake
+            EventBus.OnSmallExplosion?.Invoke();
             
             // VFX, SFX
             if (_deathVFX) _deathVFX.Play();
@@ -180,6 +182,9 @@ namespace Enemy.Drone
             AudioManager.Instance.PlayAtPosition(_deathSFX, transform.position);
             IsDead = true;
             Destroy(gameObject, 3f);
+            
+            // Event
+            EventBus.OnDroneIsKilled?.Invoke();
         }
 
         private void DisplayLaser(bool isActive)

@@ -5,7 +5,7 @@ namespace UI
     [ExecuteAlways]
     public class FitCanvasToCamera : MonoBehaviour
     {
-        public Camera targetCamera;
+        public UnityEngine.Camera targetCamera;
         public float distance = 5f;
 
         private void Update()
