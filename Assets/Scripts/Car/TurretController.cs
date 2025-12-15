@@ -36,6 +36,7 @@ namespace Car
         [Header("VFX")]
         [SerializeField] private ParticleSystem _shootVFX;
         [SerializeField] private ParticleSystem _overheatVFX;
+        [SerializeField] private ParticleSystem _bulletVFX;
         
         private CarInputActions _carInputActions;
         
@@ -149,6 +150,7 @@ namespace Car
                         AudioManager.Instance.PlayAtPosition(_shootSFX, transform.position);
                         // VFX
                         if (_shootVFX) _shootVFX.Play();
+                        if (_bulletVFX) _bulletVFX.Play();
                     }
                     
                     // OVERHEATING
