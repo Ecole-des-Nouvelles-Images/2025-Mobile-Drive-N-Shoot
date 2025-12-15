@@ -1,29 +1,29 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Utils.Game
 {
     public class LoadingScene : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private float _loadingBarMaxSpeed;
-        [SerializeField] private float _pointsSpeed;
+        [SerializeField] private float _loadingBarMaxSpeed = 1f;
+        [SerializeField] private float _pointsSpeed = 0.3f;
         
         [Header("References")]
         [SerializeField] private GameObject _loadingScreen;
         [SerializeField] private Image _loadingBarFill;
         [SerializeField] private TextMeshProUGUI _loadingText;
 
-        public void LoadScene(int sceneId)
+        private void Start()
         {
-            StartCoroutine(LoadSceneAsync(sceneId));
+            StartCoroutine(LoadSceneAsync());
             StartCoroutine(TextAnimation());
         }
         
-        private IEnumerator LoadSceneAsync(int sceneId)
+        private IEnumerator LoadSceneAsync()
         {
             _loadingScreen.SetActive(true);
 
@@ -32,8 +32,8 @@ namespace Utils.Game
                 _loadingBarFill.fillAmount += Random.Range(0f, _loadingBarMaxSpeed) * Time.deltaTime;
                 yield return null;
             }
-
-            SceneManager.LoadScene(sceneId);
+            
+            _loadingScreen.SetActive(false);
         }
 
         private IEnumerator TextAnimation()
@@ -49,18 +49,5 @@ namespace Utils.Game
                 yield return new WaitForSeconds(_pointsSpeed);
             }
         }
-
-        // private IEnumerator LoadSceneAsync(int sceneId)
-        // {
-        //     AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
-        //     _loadingScreen.SetActive(true);
-        //
-        //     while (!operation.isDone)
-        //     {
-        //         float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-        //         _loadingBarFill.fillAmount = progressValue;
-        //         yield return null;
-        //     }
-        // }
     }
 }

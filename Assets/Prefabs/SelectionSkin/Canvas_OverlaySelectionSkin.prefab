@@ -281,8 +281,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7855740105657890612}
-        m_TargetAssemblyTypeName: __Workspaces.Hugoi.Scripts.LoadingScene, Assembly-CSharp
+      - m_Target: {fileID: 639668451116081020}
+        m_TargetAssemblyTypeName: UI.UIMethods, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
