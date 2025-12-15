@@ -6,6 +6,9 @@ namespace Car
 {
     public class IemActivation : MonoBehaviour
     {
+        [Header("Particle System")]
+        [SerializeField] private ParticleSystem _psIem;
+        
         [Header("Material")]
         [SerializeField] private Material _material;
 
@@ -28,6 +31,7 @@ namespace Car
             if (itemType == ItemType.BigBlast)
             {
                 _material.SetFloat("_GlowStrength", 0f);
+                _psIem.Play();
             }
         }
         
