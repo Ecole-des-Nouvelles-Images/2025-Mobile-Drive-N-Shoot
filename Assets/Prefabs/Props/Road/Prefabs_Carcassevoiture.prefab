@@ -87,10 +87,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83c68732dd8d451408f29aba081629c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2994784634641929801}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83c68732dd8d451408f29aba081629c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6928399676605609553}
   m_SourcePrefab: {fileID: 100100000, guid: 83c68732dd8d451408f29aba081629c2, type: 3}
 --- !u!4 &7378078089661387693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83c68732dd8d451408f29aba081629c2, type: 3}
   m_PrefabInstance: {fileID: 7056731133737792582}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7867755847435962647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 83c68732dd8d451408f29aba081629c2, type: 3}
+  m_PrefabInstance: {fileID: 7056731133737792582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2994784634641929801
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867755847435962647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Height: 2.6
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6928399676605609553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867755847435962647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff

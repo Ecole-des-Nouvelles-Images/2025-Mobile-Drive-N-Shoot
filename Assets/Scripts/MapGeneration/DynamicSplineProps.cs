@@ -17,7 +17,7 @@ namespace MapGeneration
         [SerializeField] [Min(0.01f)] private float _width = 2f;
         [SerializeField] private bool _localHeightOffset;
         [SerializeField] private float _heightOffset;
-        [SerializeField] private bool _rotationBasedOnSplineDir;
+        [SerializeField] private TypeRotationProps _typeRotationProps;
         [SerializeField] [Range(0f, 90f)] private float _rotationOffset;
         [SerializeField] private float _positionOffset;
         [SerializeField] private Vector2 _scaleOffsetMinMax;
@@ -71,7 +71,7 @@ namespace MapGeneration
                     if (_random.NextFloat(0f, 1f) > _spawnChance) continue;
                     
                     float t = j * step;
-                    if (_firstAndLastSpawn)
+                    if (!_firstAndLastSpawn)
                     {
                         if (t == 0f || Mathf.Approximately(t, 1f)) continue;
                     }
@@ -82,19 +82,26 @@ namespace MapGeneration
                     Vector3 right = Vector3.Cross(up, forward).normalized;
                     
                     // ROTATION
-                    float leftRotationY;
-                    float rightRotationY;
-                    if (_rotationBasedOnSplineDir)
+                    float leftRotationY = 0f;
+                    float rightRotationY = 0f;
+                    if (_typeRotationProps == TypeRotationProps.Local)
+                    {
+                        leftRotationY = _random.NextFloat(-_rotationOffset, _rotationOffset);
+                        rightRotationY = _random.NextFloat(-_rotationOffset, _rotationOffset);
+                    }
+                    else if (_typeRotationProps == TypeRotationProps.BasedOnSplineInvert)
                     {
                         float splineYaw = Mathf.Atan2(forward.x, forward.z) * Mathf.Rad2Deg;
 
                         leftRotationY = splineYaw + _random.NextFloat(-_rotationOffset, _rotationOffset);
                         rightRotationY = splineYaw + 180f + _random.NextFloat(-_rotationOffset, _rotationOffset);
                     }
-                    else
+                    else if (_typeRotationProps == TypeRotationProps.BasedOnSplineSameDirection)
                     {
-                        leftRotationY = _random.NextFloat(-_rotationOffset, _rotationOffset);
-                        rightRotationY = _random.NextFloat(-_rotationOffset, _rotationOffset);
+                        float splineYaw = Mathf.Atan2(forward.x, forward.z) * Mathf.Rad2Deg;
+
+                        leftRotationY = splineYaw + 180f + _random.NextFloat(-_rotationOffset, _rotationOffset);
+                        rightRotationY = splineYaw + 180f + _random.NextFloat(-_rotationOffset, _rotationOffset);
                     }
                     
                     int randomSide = 0;
@@ -187,5 +194,12 @@ namespace MapGeneration
         Left,
         Right,
         OneSideRandom
+    }
+
+    public enum TypeRotationProps
+    {
+        Local,
+        BasedOnSplineInvert,
+        BasedOnSplineSameDirection
     }
 }

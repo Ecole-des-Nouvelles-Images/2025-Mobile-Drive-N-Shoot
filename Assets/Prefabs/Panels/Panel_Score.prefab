@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f635d15046a7348bed2c824dcdefd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIAddedTimer
-  _scaleEndValue: 2
+  _scaleEndValue: 3
   _duration: 0.3
   _animationCurve:
     serializedVersion: 2
@@ -1406,7 +1406,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c0d512b70265ed48bf70d69eca3daf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 73d6389790d04b84c98655d47c8d3224, type: 2}
   m_sharedMaterial: {fileID: -8901005938142353746, guid: 3c0d512b70265ed48bf70d69eca3daf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3986642069205830007
