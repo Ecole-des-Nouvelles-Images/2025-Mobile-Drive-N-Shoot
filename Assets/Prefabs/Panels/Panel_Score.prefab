@@ -2016,7 +2016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3497bab494aabe43b3f6a3ca2953590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.ScoreDisplay
-  _animationDuration: 2
+  _animationDuration: 1
   _scoreTextPos: {x: 150, y: 480, z: 0}
   _distanceTextPos: {x: -300, y: 125, z: 0}
   _checkpointTextPos: {x: 400, y: 125, z: 0}

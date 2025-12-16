@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &340545165212370420
 RectTransform:
   m_ObjectHideFlags: 0
@@ -267,6 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722cbc976320f3c4399b667acc0066ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadingScreen.LoadingScreen
+  _sprites:
+  - {fileID: 21300000, guid: 0a87676669e3a0842b21214db511046f, type: 3}
+  - {fileID: 21300000, guid: 0b2ac90b30e2277408b2998400c4096d, type: 3}
   _sentences:
   - Je la touche il la touche.
   - "Pensez \xE0 manger 5 fruits et c\xF4te de porc par jour."
@@ -277,6 +280,7 @@ MonoBehaviour:
   - "Tu ressembles trop \xE0 mon frere il est roux pareil."
   - Les squeezos sont pas content.
   - "Vous avez trouv\xE9 l'easter egg ? Il est juste la. Ha ouais... prochain groupe."
+  _imageBackground: {fileID: 5958550903086442570}
   _tmpSentence: {fileID: 3077367931418464633}
 --- !u!1 &2295123535111007043
 GameObject:
