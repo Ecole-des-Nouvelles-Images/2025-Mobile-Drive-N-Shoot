@@ -150,7 +150,7 @@ namespace Car
                         AudioManager.Instance.PlayAtPosition(_shootSFX, transform.position);
                         // VFX
                         if (_shootVFX) _shootVFX.Play();
-                        if (_bulletVFX) _bulletVFX.Play();
+                        if (_bulletVFX) _bulletVFX.Emit(1);
                     }
                     
                     // OVERHEATING
