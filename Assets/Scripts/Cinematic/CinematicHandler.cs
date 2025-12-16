@@ -20,6 +20,7 @@ namespace Cinematic
         [SerializeField] private Transform _textGo;
         [SerializeField] private Transform _textReady;
         [SerializeField] private GameObject _canvasOverlay;
+        [SerializeField] private GameObject _panelTuto;
         
         [Header("Animation GO")]
         [SerializeField] private float _endScaleGo;
@@ -100,14 +101,22 @@ namespace Cinematic
             yield return new WaitForSeconds(time);
             _carControler.enabled = true;
             _canvasOverlay.SetActive(true);
+            _panelTuto.SetActive(true);
             _activeCinemachineCamera.gameObject.SetActive(false);
             
             EventBus.OnCinematicEnd?.Invoke();
+            StartCoroutine(DisableGo(_panelTuto, 5f));
         }
 
         private void FadeOut()
         {
             _textGo.GetComponent<TextMeshProUGUI>().DOFade(0.0f, _durationGo * 0.4f);
+        }
+
+        private IEnumerator DisableGo(GameObject go, float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            go.SetActive(false);
         }
     }
 }

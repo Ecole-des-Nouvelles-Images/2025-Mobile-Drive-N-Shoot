@@ -51,6 +51,18 @@ MonoBehaviour:
     m_Key: pickup
     m_Metadata:
       m_Items: []
+  - m_Id: 4326181689286656
+    m_Key: drive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4326235045027840
+    m_Key: shoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4326318922719232
+    m_Key: boost
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -25,14 +25,13 @@ namespace Utils.Game
         
         private IEnumerator LoadSceneAsync()
         {
-            _loadingScreen.SetActive(true);
-
             while (_loadingBarFill.fillAmount < 1f)
             {
                 _loadingBarFill.fillAmount += Random.Range(0f, _loadingBarMaxSpeed) * Time.deltaTime;
                 yield return null;
             }
             
+            yield return new WaitForSeconds(0.5f);
             _loadingScreen.SetActive(false);
         }
 
