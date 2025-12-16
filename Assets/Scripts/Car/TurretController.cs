@@ -132,7 +132,17 @@ namespace Car
 
                         if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
                         {
-                            // hit.point
+                            // Detect if it's an enemy
+                            ImpactType type = hit.collider.GetComponent<IEnemy>() != null 
+                                ? ImpactType.Enemy 
+                                : ImpactType.Default;
+
+                            // Call the pool to play the impact
+                            ImpactPool.Instance.PlayImpact(
+                                hit.point,
+                                hit.normal,
+                                type
+                            );
                         }
                         
                         // SFX

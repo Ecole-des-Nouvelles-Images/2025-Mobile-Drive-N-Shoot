@@ -15,6 +15,7 @@ MonoBehaviour:
   ItemType: 3
   Radius: 20
   Damage: 100
+  _IEMGameObject: {fileID: 8485128358223707151, guid: 78668d9bff9e6744aa1e873fd4860ae4, type: 3}
   _useSFX:
     Guid:
       Data1: -827115925

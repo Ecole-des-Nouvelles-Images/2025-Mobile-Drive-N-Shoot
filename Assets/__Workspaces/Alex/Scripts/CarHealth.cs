@@ -1,6 +1,7 @@
 using Core;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utils.Game;
 using Utils.Interfaces;
 
@@ -8,10 +9,13 @@ namespace __Workspaces.Alex.Scripts
 {
     public class CarHealth : MonoBehaviour, IDamageable
     {
-        [Header("Health")] 
+        [Header("Health")]
         public float maxHealth = 100f;
 
-        [SerializeField] private float CurrentHealth;
+        [SerializeField] private float _currentHealth;
+        
+        [Header("VFX")]
+        [SerializeField] private ParticleSystem _healVFX;
     
         // internal state to avoid triggering the half repeatedly
         private bool _hasTriggeredHalf = false;
@@ -22,25 +26,25 @@ namespace __Workspaces.Alex.Scripts
 
         private void Start()
         {
-            CurrentHealth = maxHealth;
-            EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
+            _currentHealth = maxHealth;
+            EventBus.OnPlayerHealthChange?.Invoke(_currentHealth, maxHealth);
         }
 
         public void TakeDamage(float damage)
         {
             if (IsShieldActive)
                 return;
-            CurrentHealth -= damage;
-            EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
+            _currentHealth -= damage;
+            EventBus.OnPlayerHealthChange?.Invoke(_currentHealth, maxHealth);
             
-            if (!_hasTriggeredHalf && CurrentHealth <= maxHealth / 2)
+            if (!_hasTriggeredHalf && _currentHealth <= maxHealth / 2)
             {
                 EventBus.OnPlayerAtHalfHealth?.Invoke();
                 _hasTriggeredHalf = true;
                 // TODO: smoke VFX to show the car is starting to be broken
             }
 
-            if (CurrentHealth <= 0)
+            if (_currentHealth <= 0)
             {
                 // TODO: explosion VFX and car destruction
                 EventBus.OnGameOver?.Invoke();
@@ -71,10 +75,12 @@ namespace __Workspaces.Alex.Scripts
 
         public void Heal()
         {
-            CurrentHealth = maxHealth;
+            _currentHealth = maxHealth;
             _hasTriggeredHalf = false;
             EventBus.OnPlayerRecoveredFromHalf?.Invoke();
-            EventBus.OnPlayerHealthChange?.Invoke(CurrentHealth, maxHealth);
+            EventBus.OnPlayerHealthChange?.Invoke(_currentHealth, maxHealth);
+            // VFX
+            if (_healVFX) _healVFX.Play();
         }
     }
 }
