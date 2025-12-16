@@ -134,7 +134,7 @@ namespace Car
                         if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
                         {
                             // Detect if it's an enemy
-                            ImpactType type = hit.collider.GetComponent<IEnemy>() != null 
+                            ImpactType type = hit.collider.GetComponentInParent<IEnemy>() != null 
                                 ? ImpactType.Enemy 
                                 : ImpactType.Default;
 
