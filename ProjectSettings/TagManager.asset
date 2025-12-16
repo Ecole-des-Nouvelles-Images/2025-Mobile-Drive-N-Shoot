@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - SplineProps
   - SplineEnemies
+  - Cliff
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Ground
   - Enemies
   - Player
-  - 
+  - SeeThrough
   - 
   - 
   - 

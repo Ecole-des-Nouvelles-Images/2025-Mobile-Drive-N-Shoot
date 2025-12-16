@@ -52,6 +52,7 @@ MonoBehaviour:
   CurrentIemExhaustPipeMaterials:
   - {fileID: 2100000, guid: ac9436737c5ab1d4f9a2cb6c81c1547e, type: 2}
   IemMaterial: {fileID: 2100000, guid: 5c2ee2f62c26fa14a8d4eedda468ec26, type: 2}
+  SeeThroughMaterial: {fileID: 2100000, guid: c48dc9b86fd9e8740a6293750081bc04, type: 2}
   _ambiantSound:
     Guid:
       Data1: 91253427

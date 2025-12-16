@@ -16,6 +16,9 @@ namespace Core
         public Material[] CurrentTurretMaterials;
         public Material[] CurrentIemExhaustPipeMaterials;
         public Material IemMaterial;
+        
+        [Header("Material to reset")]
+        public Material SeeThroughMaterial;
 
         [Header("Sounds")] 
         [SerializeField] private EventReference _ambiantSound;
@@ -52,6 +55,7 @@ namespace Core
             CurrentTurretMaterials[0].SetFloat("_HitProgress", 0f);
             CurrentIemExhaustPipeMaterials[0].SetFloat("_HitProgress", 0f);
             IemMaterial.SetFloat("_GlowStrength", 0f);
+            SeeThroughMaterial.SetFloat("_Opacity", 0f);
         }
 
         private void OnDisable()
