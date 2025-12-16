@@ -108,6 +108,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8263448850195816380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Music
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/Music
+  Guid:
+    Data1: -1802625607
+    Data2: 1117046581
+    Data3: -1018661756
+    Data4: -649066805
+  Banks:
+  - {fileID: -3879233190755949785}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 169008
 --- !u!114 &-7725516629102310901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +439,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639010449868846605
+  lastModified: 639014832453468634
   FileSizes: []
   Exists: 1
 --- !u!114 &-3466563315964292131
@@ -558,7 +585,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 1377373580052299033}
   cacheVersion: 131857
-  cacheTime: 639010449868846605
+  cacheTime: 639014832453468634
   SerializableEventsDict:
   - key: event:/SFX/MachineGun
     index: 0
@@ -747,7 +774,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639010449868846605
+  lastModified: 639014832453468634
   FileSizes:
   - Name: 
     Value: 1498
