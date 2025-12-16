@@ -16,7 +16,7 @@ namespace LoadingScreen
         [SerializeField] private Image _imageBackground;
         [SerializeField] private TextMeshProUGUI _tmpSentence;
 
-        private void Awake()
+        private void OnEnable()
         {
             _imageBackground.sprite = _sprites[Random.Range(0, _sprites.Count)];
             _tmpSentence.text = _sentences[Random.Range(0, _sentences.Count)];
