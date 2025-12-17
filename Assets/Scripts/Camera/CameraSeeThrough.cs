@@ -2,7 +2,7 @@ using Core;
 using DG.Tweening;
 using UnityEngine;
 
-namespace __Workspaces.Hugoi.Scripts
+namespace Camera
 {
     public class CameraSeeThrough : MonoBehaviour
     {

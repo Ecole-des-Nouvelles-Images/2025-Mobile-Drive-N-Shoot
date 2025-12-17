@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using Object = UnityEngine.Object;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Utils.Pooling
 {
@@ -199,11 +201,11 @@ namespace Utils.Pooling
 
         #region SetParent
     
-        static void CreatePool(GameObject prefab, Transform parent, Quaternion rotation,
+        static void CreatePool(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation,
             PoolType poolType = PoolType.GameObjects)
         {
             ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
-                createFunc: () => CreateObject(prefab, parent, rotation, poolType),
+                createFunc: () => CreateObject(prefab, parent, position, rotation, poolType),
                 actionOnGet: GetObject,
                 actionOnRelease: ReleaseObject,
                 actionOnDestroy: DestroyObject
@@ -212,14 +214,14 @@ namespace Utils.Pooling
             _objectPools.Add(prefab, pool);
         }
     
-        static GameObject CreateObject(GameObject prefab, Transform parent, Quaternion rotation,
+        static GameObject CreateObject(GameObject prefab, Transform parent, Vector3 position, Quaternion rotation,
             PoolType poolType = PoolType.GameObjects)
         {
             prefab.SetActive(false);
         
             GameObject obj = Instantiate(prefab, parent);
         
-            obj.transform.localPosition = Vector3.zero;
+            obj.transform.localPosition = position;
             obj.transform.localRotation = rotation;
             obj.transform.localScale = Vector3.one;
         
@@ -228,10 +230,10 @@ namespace Utils.Pooling
             return obj;
         }
 
-        static T SpawnObject<T>(GameObject objectToSpawn, Transform parent, Quaternion spawnRotation,
+        static T SpawnObject<T>(GameObject objectToSpawn, Transform parent, Vector3 spawnPosition, Quaternion spawnRotation,
             PoolType poolType = PoolType.GameObjects) where T : Object
         {
-            if (!_objectPools.ContainsKey(objectToSpawn)) CreatePool(objectToSpawn, parent, spawnRotation, poolType);
+            if (!_objectPools.ContainsKey(objectToSpawn)) CreatePool(objectToSpawn, parent, spawnPosition, spawnRotation, poolType);
 
             GameObject obj = _objectPools[objectToSpawn].Get();
 
@@ -243,7 +245,7 @@ namespace Utils.Pooling
                 }
             
                 obj.transform.SetParent(parent);
-                obj.transform.localPosition = Vector3.zero;
+                obj.transform.localPosition = spawnPosition;
                 obj.transform.localRotation = spawnRotation;
                 obj.SetActive(true);
             
@@ -262,15 +264,15 @@ namespace Utils.Pooling
             return null;
         }
     
-        public static T SpawnObject<T>(T typePrefab, Transform parent, Quaternion spawnRotation,
+        public static T SpawnObject<T>(T typePrefab, Transform parent, Vector3 spawnPosition, Quaternion spawnRotation,
             PoolType poolType = PoolType.GameObjects) where T : Component
         {
-            return SpawnObject<T>(typePrefab.gameObject, parent, spawnRotation, poolType);
+            return SpawnObject<T>(typePrefab.gameObject, parent, spawnPosition, spawnRotation, poolType);
         }    
-        public static GameObject SpawnObject(GameObject objectToSpawn, Transform parent, Quaternion spawnRotation,
+        public static GameObject SpawnObject(GameObject objectToSpawn, Transform parent, Vector3 spawnPosition, Quaternion spawnRotation,
             PoolType poolType = PoolType.GameObjects)
         {
-            return SpawnObject<GameObject>(objectToSpawn, parent, spawnRotation, poolType);
+            return SpawnObject<GameObject>(objectToSpawn, parent, spawnPosition, spawnRotation, poolType);
         }
 
         #endregion
