@@ -131,6 +131,12 @@ namespace Car
             }
             
             // Start engine sound
+            if (_engineInstance.isValid())
+            {
+                _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _engineInstance.release();
+            }
+
             _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
         }
 
