@@ -80,6 +80,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5729268230820425157, guid: b26ab922179cc094daf52fa3b6f1f754, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -5729268230820425157, guid: b26ab922179cc094daf52fa3b6f1f754, type: 3}
+      propertyPath: m_TagString
+      value: Cliff
+      objectReference: {fileID: 0}
+    - target: {fileID: -5636099618876437644, guid: b26ab922179cc094daf52fa3b6f1f754, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c48dc9b86fd9e8740a6293750081bc04, type: 2}
     - target: {fileID: 919132149155446097, guid: b26ab922179cc094daf52fa3b6f1f754, type: 3}
       propertyPath: m_Name
       value: ST_Rock_Canyon_1

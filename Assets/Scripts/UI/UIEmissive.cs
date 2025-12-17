@@ -1,4 +1,6 @@
+using System;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,19 +14,38 @@ namespace UI
         [SerializeField] private float _maxAlpha = 1f;
         
         private Image _image;
+        private TextMeshProUGUI _tmp;
 
         private void Awake()
         {
             _image = GetComponent<Image>();
+            _tmp = GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            Color color = _image.color;
-            color.a = _minAlpha;
-            _image.color = color;
+            if (_image)
+            {
+                Color color = _image.color;
+                color.a = _minAlpha;
+                _image.color = color;
             
-            _image.DOFade(_maxAlpha, _durationFade).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+                _image.DOFade(_maxAlpha, _durationFade).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+            }
+
+            if (_tmp)
+            {
+                Color color = _tmp.color;
+                color.a = _minAlpha;
+                _tmp.color = color;
+            
+                _tmp.DOFade(_maxAlpha, _durationFade).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            DOTween.Kill(this);
         }
     }
 }
