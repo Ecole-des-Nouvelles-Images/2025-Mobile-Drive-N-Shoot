@@ -35,7 +35,6 @@ namespace MapGeneration
         private readonly List<GameObject> _propsSpawn = new();
 
         private Transform _cachedTransform;
-        private Vector3 _cachedTransformPos;
 
         private void Awake()
         {
@@ -58,19 +57,26 @@ namespace MapGeneration
             _seed = seed;
             _random = new Random(_seed);
 
-            for (int i = 0; i < _propsSpawn.Count; i++)
+            // Return objects to pool
+            int spawnCount = _propsSpawn.Count;
+            for (int i = 0; i < spawnCount; i++)
                 ObjectPoolingManager.ReturnObjectToPool(_propsSpawn[i]);
             _propsSpawn.Clear();
 
             if (!_splineContainer || _splineContainer.Splines.Count == 0)
                 return;
 
-            _cachedTransformPos = _cachedTransform.position;
-
             int splineCount = _splineContainer.Splines.Count;
             int propsCount = _props.Count;
             float step = 1f / (_density - 1);
             float halfWidth = _width * 0.5f;
+            int densityMinusOne = _density - 1;
+
+            // Cache spawn conditions
+            bool spawnFirstLast = _firstAndLastSpawn;
+            bool isOneSideRandom = _typeSpawning == TypeSpawningProps.OneSideRandom;
+            bool canSpawnLeft = _typeSpawning != TypeSpawningProps.Right;
+            bool canSpawnRight = _typeSpawning != TypeSpawningProps.Left;
 
             for (int i = 0; i < splineCount; i++)
             {
@@ -79,17 +85,17 @@ namespace MapGeneration
                     if (_random.NextFloat() > _spawnChance)
                         continue;
 
-                    if (!_firstAndLastSpawn && (j == 0 || j == _density - 1))
+                    if (!spawnFirstLast && (j == 0 || j == densityMinusOne))
                         continue;
 
                     float t = j * step;
                     _splineContainer.Evaluate(i, t, out float3 pos, out float3 tan, out float3 up);
 
-                    Vector3 position = (Vector3)pos - _modulePosition;
-                    Vector3 forward = math.normalize(tan);
-                    Vector3 right = Vector3.Cross(up, forward);
+                    float3 position = pos;
+                    float3 forward = math.normalize(tan);
+                    float3 right = math.cross(up, forward);
 
-                    float splineYaw = Mathf.Atan2(forward.x, forward.z) * Mathf.Rad2Deg;
+                    float splineYaw = math.atan2(forward.x, forward.z) * Mathf.Rad2Deg;
 
                     float leftRotY = splineYaw;
                     float rightRotY = splineYaw;
@@ -112,10 +118,10 @@ namespace MapGeneration
                             break;
                     }
 
-                    bool spawnLeft = _typeSpawning != TypeSpawningProps.Right;
-                    bool spawnRight = _typeSpawning != TypeSpawningProps.Left;
+                    bool spawnLeft = canSpawnLeft;
+                    bool spawnRight = canSpawnRight;
 
-                    if (_typeSpawning == TypeSpawningProps.OneSideRandom)
+                    if (isOneSideRandom)
                     {
                         spawnLeft = _random.NextBool();
                         spawnRight = !spawnLeft;
@@ -132,9 +138,12 @@ namespace MapGeneration
 
         private void SpawnProp(Vector3 worldPos, float rotY, int propsCount)
         {
-            Vector3 localPos = _cachedTransform.InverseTransformPoint(worldPos);
-            localPos.x += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.x;
-            localPos.z += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.z;
+            Vector3 finalWorldPos = worldPos;
+            finalWorldPos.x += _random.NextFloat(-_positionOffset, _positionOffset);
+            finalWorldPos.z += _random.NextFloat(-_positionOffset, _positionOffset);
+    
+            Vector3 localPos = _transformParent.InverseTransformPoint(finalWorldPos);
+    
             localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset;
 
             GameObject obj = ObjectPoolingManager.SpawnObject(
@@ -144,7 +153,8 @@ namespace MapGeneration
                 Quaternion.Euler(0f, rotY, 0f)
             );
 
-            obj.transform.localScale *= _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
+            float scale = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
+            obj.transform.localScale = Vector3.one * scale;
             _propsSpawn.Add(obj);
         }
 
@@ -155,7 +165,8 @@ namespace MapGeneration
 
         public void DestroyProps()
         {
-            for (int i = 0; i < _propsSpawn.Count; i++)
+            int count = _propsSpawn.Count;
+            for (int i = 0; i < count; i++)
             {
                 if (_propsSpawn[i] != null)
                     ObjectPoolingManager.ReturnObjectToPool(_propsSpawn[i]);
