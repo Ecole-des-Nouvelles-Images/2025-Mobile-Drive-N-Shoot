@@ -115,14 +115,17 @@ namespace MapGeneration
                 for (int i = 0; i < _splineProps.Length; i++)
                 {
                     _splineProps[i].Setup(_cachedPosition);
-                    _splineProps[i].SpawnProps(_mainSeed);
+                    _splineProps[i].StartCoroutine(_splineProps[i].AsyncSpawnProps(_mainSeed));
+                    // _splineProps[i].AsyncSpawnProps(_mainSeed);
                     yield return _waitStep;
                 }
             }
 
             for (int i = 0; i < _splineEnemies.Length; i++)
             {
-                _splineEnemies[i].SpawnProps(_mainSeed);
+                _splineEnemies[i].Setup(_cachedPosition);
+                _splineEnemies[i].StartCoroutine(_splineEnemies[i].AsyncSpawnProps(_mainSeed));
+                // _splineEnemies[i].AsyncSpawnProps(_mainSeed);
                 yield return _waitStep;
             }
 

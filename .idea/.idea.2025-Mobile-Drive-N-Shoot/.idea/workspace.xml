@@ -6,52 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.utmp/tools/release/arm64-v8a/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/.utmp/tools/release/arm64-v8a/compile_commands.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.utmp/tools/release/armeabi-v7a/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/.utmp/tools/release/armeabi-v7a/compile_commands.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Pickup/M_BaseTurret.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Pickup/M_BaseTurret.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Car/Prefab_Pickup.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/Cinematic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/Cinematic.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/Handlers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/Handlers.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/Main Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusBranches.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusBranches.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusGrand.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusGrand.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusPetit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusPetit.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusRond.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cactus/Prefab_CactusRond.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cliffs/Prefab_Cliff_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cliffs/Prefab_Cliff_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cliffs/Prefab_Cliff_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cliffs/Prefab_Cliff_2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Cliffs/Prefab_Cliff_3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Cliffs/Prefab_Cliff_3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_CanyonTOP_V2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_CanyonTOP_V2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_CanyonTOP_V3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_CanyonTOP_V3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_PileRock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_PileRock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_RockBoundary.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_RockBoundary.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_RockBoundary_v2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_RockBoundary_v2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_RockBoundary_v3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_RockBoundary_v3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_carcasse_rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Modules/Prefab_carcasse_rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Bush.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Bush.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_DeadBush.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_DeadBush.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Grass_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Grass_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Grass_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Grass_2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Grass_3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Grass_3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Plant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Plants/Prefab_Plant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_DeadTree.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_DeadTree.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Grave.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Grave.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefab_Pannel_3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefabs_Rouelot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefabs_Rouelot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefabs_Roueseul.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Road/Prefabs_Roueseul.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Rocks/Prefab_Rock_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Rocks/Prefab_Rock_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Rocks/Prefab_Rock_2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Rocks/Prefab_Rock_2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Props/Rocks/Prefab_Rock_3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Props/Rocks/Prefab_Rock_3.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/Mobile_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Mobile_RPAsset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestHugoIGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestHugoIGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ScriptableBuildPipeline.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ScriptableBuildPipeline.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/DynamicSplineProps.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/DynamicSplineProps.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapModuleHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapModuleHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +143,7 @@
       <workItem from="1765744500356" duration="2726000" />
       <workItem from="1765788157913" duration="8801000" />
       <workItem from="1765874315778" duration="7895000" />
-      <workItem from="1765996107890" duration="595000" />
+      <workItem from="1765996107890" duration="1246000" />
     </task>
     <servers />
   </component>

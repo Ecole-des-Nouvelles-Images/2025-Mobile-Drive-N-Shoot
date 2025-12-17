@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -22,6 +23,9 @@ namespace MapGeneration
         [SerializeField, Range(0f, 90f)] private float _rotationOffset;
         [SerializeField] private float _positionOffset;
         [SerializeField] private Vector2 _scaleOffsetMinMax;
+        
+        [Header("ASync Settings")]
+        [SerializeField] private int _yieldEveryProps = 10;
 
         [Header("Prefabs")]
         [SerializeField] private List<GameObject> _props = new();
@@ -44,7 +48,7 @@ namespace MapGeneration
         [ContextMenu("SpawnProps")]
         public void DebugSpawnProps()
         {
-            SpawnProps(_seed);
+            AsyncSpawnProps(_seed);
         }
 
         public void Setup(Vector3 parentPos)
@@ -52,7 +56,7 @@ namespace MapGeneration
             _modulePosition = parentPos;
         }
 
-        public void SpawnProps(uint seed)
+        public IEnumerator AsyncSpawnProps(uint seed)
         {
             _seed = seed;
             _random = new Random(_seed);
@@ -64,7 +68,7 @@ namespace MapGeneration
             _propsSpawn.Clear();
 
             if (!_splineContainer || _splineContainer.Splines.Count == 0)
-                return;
+                yield break;
 
             int splineCount = _splineContainer.Splines.Count;
             int propsCount = _props.Count;
@@ -132,6 +136,9 @@ namespace MapGeneration
 
                     if (spawnRight)
                         SpawnProp(position + right * halfWidth, rightRotY, propsCount);
+
+                    if (_propsSpawn.Count % _yieldEveryProps == 0)
+                        yield return null;
                 }
             }
         }
