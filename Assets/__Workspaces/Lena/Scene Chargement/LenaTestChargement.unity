@@ -733,7 +733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &195691971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,11 +1304,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280453869}
   m_Mesh: {fileID: -8135001911654357380, guid: 92994869800277646b1f76b64a633502, type: 3}
---- !u!4 &284921002 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-  m_PrefabInstance: {fileID: 1160448915}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &299103901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5792,7 +5787,6 @@ Transform:
   - {fileID: 869289784}
   - {fileID: 887027067}
   - {fileID: 93781082}
-  - {fileID: 284921002}
   - {fileID: 2019215571}
   - {fileID: 892749167}
   - {fileID: 1169135029}
@@ -5802,63 +5796,6 @@ Transform:
   - {fileID: 423286144}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1160448915
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1137026675}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.030413
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.12711954
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.3671355
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.45192146
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.28967613
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.83204913
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.13981737
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 41.428
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
-      propertyPath: m_Name
-      value: SK_Spider
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 33ec441ecd96959479fc2e2b9a62b637, type: 3}
 --- !u!4 &1169135029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3613aefb56116643b31ff8132b1b614, type: 3}
@@ -9639,7 +9576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1863284492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9701,7 +9638,7 @@ Camera:
   m_GameObject: {fileID: 1863284491}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 1, g: 0, b: 0.95273113, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
