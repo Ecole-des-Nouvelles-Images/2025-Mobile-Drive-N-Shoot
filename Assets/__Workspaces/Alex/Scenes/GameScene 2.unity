@@ -208,10 +208,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 5674914704175160763}
-    - target: {fileID: 6117318404852176583, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
-      propertyPath: _startTimerValue
-      value: 130
-      objectReference: {fileID: 0}
     - target: {fileID: 7002962222005310161, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -259,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 8131337503076053173, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
       propertyPath: _panelScore
       value: 
-      objectReference: {fileID: 1075615971}
+      objectReference: {fileID: 1075615972}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1385,11 +1381,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8021053561120520386, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
   m_PrefabInstance: {fileID: 1075615968}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1075615971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7296374789599386157, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
+--- !u!114 &1075615972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2708956546499459071, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
   m_PrefabInstance: {fileID: 1075615968}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3497bab494aabe43b3f6a3ca2953590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.ScoreDisplay
 --- !u!1001 &1103257929
 PrefabInstance:
   m_ObjectHideFlags: 0
