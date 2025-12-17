@@ -130,11 +130,12 @@ namespace Car
                         Vector3 end = _targetTransform;
                         Vector3 direction = (end - start).normalized;
                         float distance = Vector3.Distance(start, end);
+                        
 
                         if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
                         {
                             // Detect if it's an enemy
-                            ImpactType type = hit.collider.GetComponentInParent<IEnemy>() != null 
+                            ImpactType type = hit.transform.gameObject.CompareTag("Enemy") 
                                 ? ImpactType.Enemy 
                                 : ImpactType.Default;
 
