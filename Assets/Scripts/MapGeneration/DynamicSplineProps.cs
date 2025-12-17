@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
+using Utils.Pooling;
 using Random = Unity.Mathematics.Random;
 
 namespace MapGeneration
@@ -30,6 +31,7 @@ namespace MapGeneration
         [SerializeField] private SplineContainer _splineContainer;
         private int _splinesCount;
 
+        private Vector3 _modulePosition;
         private Random _random;
         private List<GameObject> _propsSpawn = new();
         private int _randomForOnSideSpawn;
@@ -44,6 +46,11 @@ namespace MapGeneration
         {
             SpawnProps(_seed);
         }
+
+        public void Setup(Vector3 parentPos)
+        {
+            _modulePosition = parentPos;
+        }
         
         public void SpawnProps(uint seed)
         {
@@ -52,7 +59,7 @@ namespace MapGeneration
             
             foreach (var prop in _propsSpawn)
             {
-                Destroy(prop);
+                ObjectPoolingManager.ReturnObjectToPool(prop.gameObject);
             }
             _propsSpawn.Clear();
             
@@ -77,6 +84,7 @@ namespace MapGeneration
                     _splineContainer.Evaluate(i, t, out float3 pos, out float3 tan, out float3 up);
                     
                     Vector3 position = pos;
+                    position -= _modulePosition;
                     Vector3 forward = math.normalize(tan);
                     Vector3 right = Vector3.Cross(up, forward).normalized;
                     
@@ -125,9 +133,11 @@ namespace MapGeneration
                             leftPos.y = _heightOffset;
                             rightPos.y = _heightOffset;
                         }
-                    
-                        GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, leftRotationY, 0), _transformParent);
-                        GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, rightRotationY, 0), _transformParent);
+
+                        GameObject leftObj = ObjectPoolingManager.SpawnObject(_props[_random.NextInt(0, _props.Count)], _transformParent, leftPos, Quaternion.Euler(0, leftRotationY, 0));
+                        GameObject rightObj = ObjectPoolingManager.SpawnObject(_props[_random.NextInt(0, _props.Count)], _transformParent, rightPos, Quaternion.Euler(0, rightRotationY, 0));
+                        // GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, leftRotationY, 0), _transformParent);
+                        // GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, rightRotationY, 0), _transformParent);
                 
                         float leftScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
                         float rightScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
@@ -150,7 +160,8 @@ namespace MapGeneration
                             leftPos.y = _heightOffset;
                         }
                     
-                        GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, leftRotationY, 0), _transformParent);
+                        GameObject leftObj = ObjectPoolingManager.SpawnObject(_props[_random.NextInt(0, _props.Count)], _transformParent, leftPos, Quaternion.Euler(0, leftRotationY, 0));
+                        // GameObject leftObj = Instantiate(_props[_random.NextInt(0, _props.Count)], leftPos, Quaternion.Euler(0, leftRotationY, 0), _transformParent);
                 
                         float leftScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
                         leftObj.transform.localScale *= leftScaleModifier;
@@ -170,7 +181,8 @@ namespace MapGeneration
                             rightPos.y = _heightOffset;
                         }
                     
-                        GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, rightRotationY, 0), _transformParent);
+                        GameObject rightObj = ObjectPoolingManager.SpawnObject(_props[_random.NextInt(0, _props.Count)], _transformParent, rightPos, Quaternion.Euler(0, rightRotationY, 0));
+                        // GameObject rightObj = Instantiate(_props[_random.NextInt(0, _props.Count)], rightPos, Quaternion.Euler(0, rightRotationY, 0), _transformParent);
                 
                         float rightScaleModifier = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
                         rightObj.transform.localScale *= rightScaleModifier;
@@ -184,6 +196,15 @@ namespace MapGeneration
         public void SetDensity(int density)
         {
             _density = density;
+        }
+
+        public void DestroyProps()
+        {
+            _propsSpawn.RemoveAll(p => p == null);
+            foreach (var prop in _propsSpawn)
+            {
+                ObjectPoolingManager.ReturnObjectToPool(prop.gameObject);
+            }
         }
     }
 

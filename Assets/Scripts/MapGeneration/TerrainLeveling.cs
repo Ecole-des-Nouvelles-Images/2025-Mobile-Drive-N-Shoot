@@ -71,11 +71,11 @@ namespace MapGeneration
             }
 
             _terrainData.SetHeights(0, 0, heights);
-            
             yield return null;
+            
             BakeNavMeshSurface();
-            
             yield return null;
+            
             EventBus.OnModuleFinishedGeneration?.Invoke();
         }
 

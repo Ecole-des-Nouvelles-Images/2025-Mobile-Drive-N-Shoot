@@ -41,6 +41,21 @@ namespace MapGeneration
             StartCoroutine(AsyncGeneration());
         }
 
+        public void Destruction()
+        {
+            foreach (var prop in _splineProps)
+            {
+                prop.DestroyProps();
+            }
+            
+            foreach (var enemy in _splineEnemies)
+            {
+                enemy.DestroyProps();
+            }
+            
+            Destroy(gameObject);
+        }
+
         private void Awake()
         {
             _splineKnotHandler = GetComponentInChildren<SplineKnotHandler>();
@@ -79,6 +94,7 @@ namespace MapGeneration
             {
                 foreach (var prop in _splineProps)
                 {
+                    prop.Setup(transform.position);
                     prop.SpawnProps(_mainSeed);
                     yield return new WaitForSeconds(0.2f);
                 }

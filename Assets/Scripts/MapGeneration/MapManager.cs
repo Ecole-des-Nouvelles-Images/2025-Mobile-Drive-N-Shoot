@@ -64,7 +64,8 @@ namespace MapGeneration
             if (_mapModules.Count > 3)
             {
                 GameObject oldModule = _mapModules.Dequeue();
-                Destroy(oldModule);
+                oldModule.GetComponent<MapModuleHandler>().Destruction();
+                // Destroy(oldModule);
             }
         }
     }
