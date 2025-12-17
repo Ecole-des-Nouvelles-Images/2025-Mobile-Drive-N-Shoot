@@ -7,7 +7,6 @@
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/DynamicSplineProps.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/DynamicSplineProps.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapModuleHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapGeneration/MapModuleHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,7 @@
       <workItem from="1765744500356" duration="2726000" />
       <workItem from="1765788157913" duration="8801000" />
       <workItem from="1765874315778" duration="7895000" />
-      <workItem from="1765996107890" duration="1246000" />
+      <workItem from="1765996107890" duration="2093000" />
     </task>
     <servers />
   </component>

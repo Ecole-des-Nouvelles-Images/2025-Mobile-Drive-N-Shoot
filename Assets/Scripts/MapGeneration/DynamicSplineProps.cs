@@ -39,6 +39,7 @@ namespace MapGeneration
         private readonly List<GameObject> _propsSpawn = new();
 
         private Transform _cachedTransform;
+        private Vector3 _cachedTransformPos;
 
         private void Awake()
         {
@@ -69,6 +70,8 @@ namespace MapGeneration
 
             if (!_splineContainer || _splineContainer.Splines.Count == 0)
                 yield break;
+            
+            _cachedTransformPos = _cachedTransform.position;
 
             int splineCount = _splineContainer.Splines.Count;
             int propsCount = _props.Count;
@@ -95,7 +98,7 @@ namespace MapGeneration
                     float t = j * step;
                     _splineContainer.Evaluate(i, t, out float3 pos, out float3 tan, out float3 up);
 
-                    float3 position = pos;
+                    float3 position = pos - (float3)_modulePosition;
                     float3 forward = math.normalize(tan);
                     float3 right = math.cross(up, forward);
 
@@ -143,26 +146,42 @@ namespace MapGeneration
             }
         }
 
+        // private void SpawnProp(Vector3 worldPos, float rotY, int propsCount)
+        // {
+        //     Vector3 finalWorldPos = worldPos;
+        //     finalWorldPos.x += _random.NextFloat(-_positionOffset, _positionOffset);
+        //     finalWorldPos.z += _random.NextFloat(-_positionOffset, _positionOffset);
+        //
+        //     Vector3 localPos = _transformParent.InverseTransformPoint(finalWorldPos);
+        //
+        //     localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset;
+        //
+        //     GameObject obj = ObjectPoolingManager.SpawnObject(
+        //         _props[_random.NextInt(0, propsCount)],
+        //         _transformParent,
+        //         localPos,
+        //         Quaternion.Euler(0f, rotY, 0f)
+        //     );
+        //
+        //     float scale = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
+        //     obj.transform.localScale = Vector3.one * scale;
+        //     _propsSpawn.Add(obj);
+        // }
+
         private void SpawnProp(Vector3 worldPos, float rotY, int propsCount)
         {
-            Vector3 finalWorldPos = worldPos;
-            finalWorldPos.x += _random.NextFloat(-_positionOffset, _positionOffset);
-            finalWorldPos.z += _random.NextFloat(-_positionOffset, _positionOffset);
-    
-            Vector3 localPos = _transformParent.InverseTransformPoint(finalWorldPos);
-    
-            localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset;
-
+            Vector3 localPos = _cachedTransform.InverseTransformPoint(worldPos); 
+            localPos.x += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.x; 
+            localPos.z += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.z; 
+            localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset; 
+            
             GameObject obj = ObjectPoolingManager.SpawnObject(
                 _props[_random.NextInt(0, propsCount)],
-                _transformParent,
-                localPos,
+                _transformParent, localPos,
                 Quaternion.Euler(0f, rotY, 0f)
-            );
-
-            float scale = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
-            obj.transform.localScale = Vector3.one * scale;
-            _propsSpawn.Add(obj);
+                );
+            
+            obj.transform.localScale *= _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y); _propsSpawn.Add(obj);
         }
 
         public void SetDensity(int density)
