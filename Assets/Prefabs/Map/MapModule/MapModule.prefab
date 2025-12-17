@@ -70,7 +70,7 @@ MonoBehaviour:
   _typeRotationProps: 0
   _rotationOffset: 90
   _positionOffset: 5
-  _scaleOffsetMinMax: {x: 1, y: 1}
+  _scaleOffsetMinMax: {x: 1.9, y: 2.1}
   _props:
   - {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
   _transformParent: {fileID: 898583420212954918}
