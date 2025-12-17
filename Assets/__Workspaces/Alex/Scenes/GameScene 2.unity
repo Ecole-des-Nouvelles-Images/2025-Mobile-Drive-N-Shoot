@@ -208,10 +208,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 5674914704175160763}
-    - target: {fileID: 6117318404852176583, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
-      propertyPath: _startTimerValue
-      value: 130
-      objectReference: {fileID: 0}
     - target: {fileID: 7002962222005310161, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -259,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 8131337503076053173, guid: 2576f3f9a6a3e48448c205c875859c4e, type: 3}
       propertyPath: _panelScore
       value: 
-      objectReference: {fileID: 1075615971}
+      objectReference: {fileID: 1075615972}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -424,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 1847727359040202330, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2205203812999137503, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
+      propertyPath: MaxHealth
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
       propertyPath: m_Name
@@ -805,6 +805,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
+      propertyPath: MaxHealth
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: aimTransform
       value: 
       objectReference: {fileID: 560957742}
@@ -873,6 +877,10 @@ PrefabInstance:
     - target: {fileID: 1847727359040202330, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
+      propertyPath: MaxHealth
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: aimTransform
@@ -1373,11 +1381,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8021053561120520386, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
   m_PrefabInstance: {fileID: 1075615968}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1075615971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7296374789599386157, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
+--- !u!114 &1075615972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2708956546499459071, guid: 2ee1ab4d90a72b642891eb9d19fe23d9, type: 3}
   m_PrefabInstance: {fileID: 1075615968}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3497bab494aabe43b3f6a3ca2953590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI.ScoreDisplay
 --- !u!1001 &1103257929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1441,6 +1455,10 @@ PrefabInstance:
     - target: {fileID: 5398296867364309084, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
+      propertyPath: MaxHealth
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: aimTransform
@@ -1697,6 +1715,10 @@ PrefabInstance:
     - target: {fileID: 1847727359040202330, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
+      propertyPath: MaxHealth
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5791760298487775020, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
       propertyPath: aimTransform
