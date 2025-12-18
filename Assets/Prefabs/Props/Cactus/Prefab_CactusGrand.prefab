@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1150604945212800155, guid: a3cc7b5fec381e64baab0cd1fb58d215, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a3cc7b5fec381e64baab0cd1fb58d215, type: 3}
       propertyPath: m_Name
       value: ST_Cactus_seul

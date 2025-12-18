@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7501767142891776238, guid: 53149ad8855a9ca4ba9a067c8cb5556f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 53149ad8855a9ca4ba9a067c8cb5556f, type: 3}
       propertyPath: m_Name
       value: ST_Small_Rock_3
