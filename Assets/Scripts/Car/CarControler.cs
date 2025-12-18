@@ -137,7 +137,7 @@ namespace Car
                 _engineInstance.release();
             }
 
-            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
+            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: false, follow: gameObject);
         }
 
         void Update()
@@ -385,6 +385,7 @@ namespace Car
             {
                 _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 _engineInstance.release();
+                _engineInstance.clearHandle();
             }
         }
     }
