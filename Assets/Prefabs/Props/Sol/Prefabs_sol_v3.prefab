@@ -80,9 +80,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5014172137126582062, guid: e367cd87cdd4bfc41a5170905107e113, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e367cd87cdd4bfc41a5170905107e113, type: 3}
       propertyPath: m_Name
       value: SM_Sol_v3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e367cd87cdd4bfc41a5170905107e113, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631175176504720906, guid: e367cd87cdd4bfc41a5170905107e113, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526377422075772690, guid: e367cd87cdd4bfc41a5170905107e113, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

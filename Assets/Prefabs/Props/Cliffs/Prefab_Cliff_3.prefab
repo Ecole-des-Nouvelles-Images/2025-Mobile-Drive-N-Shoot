@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7458715472083678565, guid: 0e74021f6182cf2409fb3343e6bc659e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4736161186117750679, guid: 0e74021f6182cf2409fb3343e6bc659e, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -88,14 +92,26 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Cliff
       objectReference: {fileID: 0}
+    - target: {fileID: -4736161186117750679, guid: 0e74021f6182cf2409fb3343e6bc659e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0e74021f6182cf2409fb3343e6bc659e, type: 3}
       propertyPath: m_Name
       value: ST_Rock_Canyon_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e74021f6182cf2409fb3343e6bc659e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3533096919037811914, guid: 0e74021f6182cf2409fb3343e6bc659e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c48dc9b86fd9e8740a6293750081bc04, type: 2}
+    - target: {fileID: 3692254488790982148, guid: 0e74021f6182cf2409fb3343e6bc659e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -25,7 +25,7 @@ namespace UI
 
         private void OnDestroy()
         {
-            DOTween.KillAll();
+            DOTween.Kill(this);
         }
     }
 }

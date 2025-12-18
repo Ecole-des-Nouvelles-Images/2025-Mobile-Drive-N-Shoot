@@ -85,6 +85,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4253761832337411473}
     m_Modifications:
+    - target: {fileID: 364889903312527485, guid: d03ec21858711134dacbfe3019cc3dd7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472170461805542548, guid: d03ec21858711134dacbfe3019cc3dd7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1882369715178550761, guid: d03ec21858711134dacbfe3019cc3dd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0792
@@ -128,6 +136,10 @@ PrefabInstance:
     - target: {fileID: 2481137644493032116, guid: d03ec21858711134dacbfe3019cc3dd7, type: 3}
       propertyPath: m_Name
       value: PS_PetitCactusDestroy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481137644493032116, guid: d03ec21858711134dacbfe3019cc3dd7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -195,6 +207,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f5c28d632c0a0b94185acb2d0393d51e, type: 3}
       propertyPath: m_Name
       value: ST_Cactus_Petit
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f5c28d632c0a0b94185acb2d0393d51e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787686712047727980, guid: f5c28d632c0a0b94185acb2d0393d51e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

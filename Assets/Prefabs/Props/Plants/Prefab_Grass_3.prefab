@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3052723400193406615, guid: 92994869800277646b1f76b64a633502, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 92994869800277646b1f76b64a633502, type: 3}
       propertyPath: m_Name
       value: ST_Grass_v3
@@ -87,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92994869800277646b1f76b64a633502, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92994869800277646b1f76b64a633502, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

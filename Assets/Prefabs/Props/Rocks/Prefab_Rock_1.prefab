@@ -80,9 +80,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6341524203373443197, guid: 7236a3f9d63e48148a9c2182352151d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5363874446922245416, guid: 7236a3f9d63e48148a9c2182352151d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1935670070359551668, guid: 7236a3f9d63e48148a9c2182352151d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7236a3f9d63e48148a9c2182352151d3, type: 3}
       propertyPath: m_Name
       value: ST_Small_Rock_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7236a3f9d63e48148a9c2182352151d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
