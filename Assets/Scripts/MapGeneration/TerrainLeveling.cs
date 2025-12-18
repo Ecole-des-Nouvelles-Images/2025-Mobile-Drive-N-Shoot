@@ -6,7 +6,6 @@ using Utils.Game;
 
 namespace MapGeneration
 {
-    [ExecuteAlways]
     [RequireComponent(typeof(Terrain))]
     public class TerrainLeveling : MonoBehaviour
     {
