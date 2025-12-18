@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -22,6 +23,9 @@ namespace MapGeneration
         [SerializeField, Range(0f, 90f)] private float _rotationOffset;
         [SerializeField] private float _positionOffset;
         [SerializeField] private Vector2 _scaleOffsetMinMax;
+        
+        [Header("ASync Settings")]
+        [SerializeField] private int _yieldEveryProps = 10;
 
         [Header("Prefabs")]
         [SerializeField] private List<GameObject> _props = new();
@@ -35,6 +39,7 @@ namespace MapGeneration
         private readonly List<GameObject> _propsSpawn = new();
 
         private Transform _cachedTransform;
+        private Vector3 _cachedTransformPos;
 
         private void Awake()
         {
@@ -44,7 +49,7 @@ namespace MapGeneration
         [ContextMenu("SpawnProps")]
         public void DebugSpawnProps()
         {
-            SpawnProps(_seed);
+            AsyncSpawnProps(_seed);
         }
 
         public void Setup(Vector3 parentPos)
@@ -52,7 +57,7 @@ namespace MapGeneration
             _modulePosition = parentPos;
         }
 
-        public void SpawnProps(uint seed)
+        public IEnumerator AsyncSpawnProps(uint seed)
         {
             _seed = seed;
             _random = new Random(_seed);
@@ -64,7 +69,9 @@ namespace MapGeneration
             _propsSpawn.Clear();
 
             if (!_splineContainer || _splineContainer.Splines.Count == 0)
-                return;
+                yield break;
+            
+            _cachedTransformPos = _cachedTransform.position;
 
             int splineCount = _splineContainer.Splines.Count;
             int propsCount = _props.Count;
@@ -91,7 +98,7 @@ namespace MapGeneration
                     float t = j * step;
                     _splineContainer.Evaluate(i, t, out float3 pos, out float3 tan, out float3 up);
 
-                    float3 position = pos;
+                    float3 position = pos - (float3)_modulePosition;
                     float3 forward = math.normalize(tan);
                     float3 right = math.cross(up, forward);
 
@@ -132,30 +139,49 @@ namespace MapGeneration
 
                     if (spawnRight)
                         SpawnProp(position + right * halfWidth, rightRotY, propsCount);
+
+                    if (_propsSpawn.Count % _yieldEveryProps == 0)
+                        yield return null;
                 }
             }
         }
 
+        // private void SpawnProp(Vector3 worldPos, float rotY, int propsCount)
+        // {
+        //     Vector3 finalWorldPos = worldPos;
+        //     finalWorldPos.x += _random.NextFloat(-_positionOffset, _positionOffset);
+        //     finalWorldPos.z += _random.NextFloat(-_positionOffset, _positionOffset);
+        //
+        //     Vector3 localPos = _transformParent.InverseTransformPoint(finalWorldPos);
+        //
+        //     localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset;
+        //
+        //     GameObject obj = ObjectPoolingManager.SpawnObject(
+        //         _props[_random.NextInt(0, propsCount)],
+        //         _transformParent,
+        //         localPos,
+        //         Quaternion.Euler(0f, rotY, 0f)
+        //     );
+        //
+        //     float scale = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
+        //     obj.transform.localScale = Vector3.one * scale;
+        //     _propsSpawn.Add(obj);
+        // }
+
         private void SpawnProp(Vector3 worldPos, float rotY, int propsCount)
         {
-            Vector3 finalWorldPos = worldPos;
-            finalWorldPos.x += _random.NextFloat(-_positionOffset, _positionOffset);
-            finalWorldPos.z += _random.NextFloat(-_positionOffset, _positionOffset);
-    
-            Vector3 localPos = _transformParent.InverseTransformPoint(finalWorldPos);
-    
-            localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset;
-
+            Vector3 localPos = _cachedTransform.InverseTransformPoint(worldPos); 
+            localPos.x += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.x; 
+            localPos.z += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.z; 
+            localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset; 
+            
             GameObject obj = ObjectPoolingManager.SpawnObject(
                 _props[_random.NextInt(0, propsCount)],
-                _transformParent,
-                localPos,
+                _transformParent, localPos,
                 Quaternion.Euler(0f, rotY, 0f)
-            );
-
-            float scale = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
-            obj.transform.localScale = Vector3.one * scale;
-            _propsSpawn.Add(obj);
+                );
+            
+            obj.transform.localScale *= _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y); _propsSpawn.Add(obj);
         }
 
         public void SetDensity(int density)
