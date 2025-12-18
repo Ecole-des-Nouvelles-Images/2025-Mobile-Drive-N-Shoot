@@ -628,6 +628,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1239398156470897614, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239398156470897614, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239398156470897614, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239398156470897614, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903468200905188, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903468200905188, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903468200905188, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342903468200905188, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2939929967447458729, guid: 8306b0b8f716c1b4e875ab927ca07ae0, type: 3}
       propertyPath: m_Name
       value: Canvas_OverlaySelectionSkin

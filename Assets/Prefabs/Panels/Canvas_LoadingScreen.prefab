@@ -270,18 +270,16 @@ MonoBehaviour:
   _sprites:
   - {fileID: 21300000, guid: 0a87676669e3a0842b21214db511046f, type: 3}
   - {fileID: 21300000, guid: 0b2ac90b30e2277408b2998400c4096d, type: 3}
-  _sentences:
-  - Je la touche il la touche.
-  - "Pensez \xE0 manger 5 fruits et c\xF4te de porc par jour."
-  - "T'imagine que dans 3 ans et plus 5 ans apr\xE8s t'auras 30 ans."
-  - Processeur ASUS.
-  - J'cromprend pas.
-  - Des beau yeux vert.
-  - "Tu ressembles trop \xE0 mon frere il est roux pareil."
-  - Les squeezos sont pas content.
-  - "Vous avez trouv\xE9 l'easter egg ? Il est juste la. Ha ouais... prochain groupe."
+  _frSentences:
+  - fr
+  _enSentences:
+  - en
+  _imagePickupDroneStartingPos: 0
+  _imagePickupDroneEndingPos: 0
   _imageBackground: {fileID: 5958550903086442570}
   _tmpSentence: {fileID: 3077367931418464633}
+  _imageSliderFill: {fileID: 0}
+  _imagePickupDrone: {fileID: 0}
 --- !u!1 &2295123535111007043
 GameObject:
   m_ObjectHideFlags: 0

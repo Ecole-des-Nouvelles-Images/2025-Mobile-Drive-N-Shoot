@@ -7697,10 +7697,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1525959769246754921, guid: 966c120ea39549a459cf705af095d990, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7906500499225172159, guid: 966c120ea39549a459cf705af095d990, type: 3}
       propertyPath: m_Name
       value: VFX_Bullet
