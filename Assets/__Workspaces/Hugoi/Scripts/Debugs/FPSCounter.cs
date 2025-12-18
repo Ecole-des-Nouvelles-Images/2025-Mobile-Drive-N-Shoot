@@ -12,8 +12,8 @@ namespace __Workspaces.Hugoi.Scripts.Debugs
         {
             _fpsText = GetComponent<TextMeshProUGUI>();
             
-            // Application.targetFrameRate = 60;
-            // QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
+            QualitySettings.vSyncCount = 0;
         }
 
         void Update()

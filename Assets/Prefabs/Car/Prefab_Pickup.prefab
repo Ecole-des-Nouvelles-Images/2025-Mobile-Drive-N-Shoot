@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32528f6087c522744a4e3d56a3fe79fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IEMActivation
-  _psIem: {fileID: 0}
+  _psIem: {fileID: 6159196470785872593}
   _material: {fileID: 2100000, guid: 5c2ee2f62c26fa14a8d4eedda468ec26, type: 2}
 --- !u!114 &145836792616463274
 MonoBehaviour:
@@ -2383,6 +2383,11 @@ PrefabInstance:
 --- !u!4 &4157887851977577836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9134294036883892614, guid: 78668d9bff9e6744aa1e873fd4860ae4, type: 3}
+  m_PrefabInstance: {fileID: 5147685839109094634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6159196470785872593 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1299741979041590843, guid: 78668d9bff9e6744aa1e873fd4860ae4, type: 3}
   m_PrefabInstance: {fileID: 5147685839109094634}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5223001054153522749

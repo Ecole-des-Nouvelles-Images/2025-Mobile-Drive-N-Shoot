@@ -146,34 +146,12 @@ namespace MapGeneration
             }
         }
 
-        // private void SpawnProp(Vector3 worldPos, float rotY, int propsCount)
-        // {
-        //     Vector3 finalWorldPos = worldPos;
-        //     finalWorldPos.x += _random.NextFloat(-_positionOffset, _positionOffset);
-        //     finalWorldPos.z += _random.NextFloat(-_positionOffset, _positionOffset);
-        //
-        //     Vector3 localPos = _transformParent.InverseTransformPoint(finalWorldPos);
-        //
-        //     localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset;
-        //
-        //     GameObject obj = ObjectPoolingManager.SpawnObject(
-        //         _props[_random.NextInt(0, propsCount)],
-        //         _transformParent,
-        //         localPos,
-        //         Quaternion.Euler(0f, rotY, 0f)
-        //     );
-        //
-        //     float scale = _random.NextFloat(_scaleOffsetMinMax.x, _scaleOffsetMinMax.y);
-        //     obj.transform.localScale = Vector3.one * scale;
-        //     _propsSpawn.Add(obj);
-        // }
-
         private void SpawnProp(Vector3 worldPos, float rotY, int propsCount)
         {
             Vector3 localPos = _cachedTransform.InverseTransformPoint(worldPos); 
             localPos.x += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.x; 
             localPos.z += _random.NextFloat(-_positionOffset, _positionOffset) + _cachedTransformPos.z; 
-            localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset; 
+            localPos.y = _localHeightOffset ? localPos.y + _heightOffset : _heightOffset;
             
             GameObject obj = ObjectPoolingManager.SpawnObject(
                 _props[_random.NextInt(0, propsCount)],
@@ -195,7 +173,9 @@ namespace MapGeneration
             for (int i = 0; i < count; i++)
             {
                 if (_propsSpawn[i] != null)
+                {
                     ObjectPoolingManager.ReturnObjectToPool(_propsSpawn[i]);
+                }
             }
             _propsSpawn.Clear();
         }

@@ -8,6 +8,7 @@ namespace MapGeneration
     public class MapManager : MonoBehaviour
     {
         [Header("Settings")]
+        [SerializeField] private int _mapModuleMaxCount = 2;
         [SerializeField] private int _checkPointFrequency;
         [SerializeField] [Range(0f, 1f)] private float _itemChanceRate;
         
@@ -17,6 +18,7 @@ namespace MapGeneration
         
         [Header("References")]
         [SerializeField] private DifficultyHandler _difficultyHandler;
+        [SerializeField] private GameObject _cinematic;
         
         private Queue<GameObject> _mapModules = new();
         private int _lastCheckPoint = 1;
@@ -31,6 +33,8 @@ namespace MapGeneration
         
         public void SpawnMapModule()
         {
+            if (_mapModules.Count == 1) Destroy(_cinematic);
+                
             Vector3 lastPos = _mapModules.Last().transform.position;
 
             GameObject newModule;
@@ -61,11 +65,10 @@ namespace MapGeneration
             
             _mapModules.Enqueue(newModule);
 
-            if (_mapModules.Count > 3)
+            if (_mapModules.Count > _mapModuleMaxCount)
             {
                 GameObject oldModule = _mapModules.Dequeue();
                 oldModule.GetComponent<MapModuleHandler>().Destruction();
-                // Destroy(oldModule);
             }
         }
     }

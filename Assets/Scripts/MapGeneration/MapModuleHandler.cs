@@ -31,6 +31,30 @@ namespace MapGeneration
 
         private static readonly WaitForSeconds _waitStep = new WaitForSeconds(0.2f);
 
+        public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem, int difficulty)
+        {
+            _mapManager = mapManager;
+            _haveItem = haveItem;
+
+            _enemiesSpawnerHandler.Setup(difficulty);
+
+            if (haveCheckPoint && _checkpointGameObject != null)
+                _checkpointGameObject.SetActive(true);
+
+            StartCoroutine(AsyncGeneration());
+        }
+
+        public void Destruction()
+        {
+            for (int i = 0; i < _splineProps.Length; i++)
+                _splineProps[i].DestroyProps();
+
+            for (int i = 0; i < _splineEnemies.Length; i++)
+                _splineEnemies[i].DestroyProps();
+
+            Destroy(gameObject);
+        }
+        
         private void Awake()
         {
             _cachedTransform = transform;
@@ -75,30 +99,6 @@ namespace MapGeneration
                 _random = new Random(_mainSeed);
         }
 
-        public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem, int difficulty)
-        {
-            _mapManager = mapManager;
-            _haveItem = haveItem;
-
-            _enemiesSpawnerHandler.Setup(difficulty);
-
-            if (haveCheckPoint && _checkpointGameObject != null)
-                _checkpointGameObject.SetActive(true);
-
-            StartCoroutine(AsyncGeneration());
-        }
-
-        public void Destruction()
-        {
-            for (int i = 0; i < _splineProps.Length; i++)
-                _splineProps[i].DestroyProps();
-
-            for (int i = 0; i < _splineEnemies.Length; i++)
-                _splineEnemies[i].DestroyProps();
-
-            Destroy(gameObject);
-        }
-
         private IEnumerator AsyncGeneration()
         {
             if (!_haveItem)
@@ -116,7 +116,6 @@ namespace MapGeneration
                 {
                     _splineProps[i].Setup(_cachedPosition);
                     _splineProps[i].StartCoroutine(_splineProps[i].AsyncSpawnProps(_mainSeed));
-                    // _splineProps[i].AsyncSpawnProps(_mainSeed);
                     yield return _waitStep;
                 }
             }
@@ -125,17 +124,19 @@ namespace MapGeneration
             {
                 _splineEnemies[i].Setup(_cachedPosition);
                 _splineEnemies[i].StartCoroutine(_splineEnemies[i].AsyncSpawnProps(_mainSeed));
-                // _splineEnemies[i].AsyncSpawnProps(_mainSeed);
                 yield return _waitStep;
             }
 
             _terrainLeveling.StartCoroutine(_terrainLeveling.AsyncTerrainLeveling());
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Player"))
+            {
                 _mapManager.SpawnMapModule();
+                GetComponent<Collider>().isTrigger = false;
+            }
         }
 
         private void GenerateRandom()
