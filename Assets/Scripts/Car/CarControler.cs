@@ -46,9 +46,9 @@ namespace Car
         public float particleMinSpeed = 0.5f; // Minimal speed to activate wheel particles
         public float particleMaxEmission = 30f; // Max 
 
-        [Header("Nitro Attack")] 
-        [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
-
+        [Header("Boost VFX")]
+        [SerializeField] private ParticleSystem _boostVFX;
+        
         [Header("SFX")] 
         [SerializeField] private EventReference _engineSound;
         [SerializeField] private EventReference _boostSound;
@@ -131,6 +131,12 @@ namespace Car
             }
             
             // Start engine sound
+            if (_engineInstance.isValid())
+            {
+                _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _engineInstance.release();
+            }
+
             _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
         }
 
@@ -260,6 +266,9 @@ namespace Car
         {
             // Play boost sound
             AudioManager.Instance.Play(_boostSound, follow: gameObject);
+            // Play boost VFX
+            if (_boostVFX) _boostVFX.Play();
+            
             
             _nextBoostTime = 0f;
 

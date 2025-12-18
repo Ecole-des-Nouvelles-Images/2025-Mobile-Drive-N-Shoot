@@ -54,6 +54,18 @@ MonoBehaviour:
     m_Localized: Pick-up
     m_Metadata:
       m_Items: []
+  - m_Id: 4326181689286656
+    m_Localized: Conduire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4326235045027840
+    m_Localized: Tirer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4326318922719232
+    m_Localized: Boost Secouez
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -75,7 +75,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1001 &752235225694425108
 PrefabInstance:
@@ -206,7 +206,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8690717621316973016, guid: bd1bf9857a5ce8f4db847e02c209f485, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2653109097465294937}
+      addedObject: {fileID: 4304884647223106108}
     - targetCorrespondingSourceObject: {fileID: 8690717621316973016, guid: bd1bf9857a5ce8f4db847e02c209f485, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1394885302538507582}
@@ -216,8 +216,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8690717621316973016, guid: bd1bf9857a5ce8f4db847e02c209f485, type: 3}
   m_PrefabInstance: {fileID: 6105230452676408835}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2653109097465294937
-MeshCollider:
+--- !u!65 &4304884647223106108
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -234,10 +234,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1072856624783670646, guid: bd1bf9857a5ce8f4db847e02c209f485, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.35, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1394885302538507582
 MonoBehaviour:
   m_ObjectHideFlags: 0

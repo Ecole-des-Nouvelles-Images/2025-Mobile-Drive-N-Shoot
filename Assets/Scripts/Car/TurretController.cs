@@ -29,7 +29,8 @@ namespace Car
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
 
-        [Header("SFX")] 
+        [Header("SFX")]
+        [SerializeField] private LayerMask _layerMask;
         [SerializeField] private EventReference _shootSFX;
         [SerializeField] private EventReference _overheatSFX;
 
@@ -132,7 +133,7 @@ namespace Car
                         float distance = Vector3.Distance(start, end);
                         
 
-                        if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
+                        if (Physics.Raycast(start, direction, out RaycastHit hit, distance, _layerMask))
                         {
                             // Detect if it's an enemy
                             ImpactType type = hit.transform.gameObject.CompareTag("Enemy") 

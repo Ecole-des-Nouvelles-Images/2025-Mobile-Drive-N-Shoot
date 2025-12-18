@@ -11,48 +11,55 @@ namespace MapGeneration
         [SerializeField] private int _knotCount;
         [SerializeField] private int _terrainSize;
         [SerializeField] private int _nextPosOffset;
-        
+
         [Header("References")]
         [SerializeField] private SplineContainer _splineContainer;
-        
-        private Vector3 _lastPos;
 
         private Random _random;
-        
+        private Vector3 _lastPos;
+
+        private const float TANGENT_Z = 5f;
+        private const float CLAMP_X = 40f;
+
         [ContextMenu("DebugBuildRoad")]
         public void DebugGenerateSpline()
         {
             GenerateSpline(_seed);
         }
-        
+
         public void GenerateSpline(uint seed)
         {
             _seed = seed;
             _random = new Random(_seed);
-            
-            _splineContainer.Spline.Clear();
-            
-            float space = _terrainSize / (_knotCount - 1);
-            for (float i = 0; i <= _terrainSize; i += space)
+
+            Spline spline = _splineContainer.Spline;
+            spline.Clear();
+
+            _lastPos = Vector3.zero;
+
+            int knotCount = Mathf.Max(2, _knotCount);
+            float stepZ = (float)_terrainSize / (knotCount - 1);
+
+            Vector3 tangentIn = new Vector3(0f, 0f, -TANGENT_Z);
+            Vector3 tangentOut = new Vector3(0f, 0f, TANGENT_Z);
+
+            for (int i = 0; i < knotCount; i++)
             {
-                Vector3 newPos = new Vector3();
-                if (i == 0 || i == _terrainSize)
+                float z = i * stepZ;
+                Vector3 newPos;
+
+                if (i == 0 || i == knotCount - 1)
                 {
-                    newPos = new Vector3(0, 0, i);
+                    newPos = new Vector3(0f, 0f, z);
                 }
                 else
                 {
                     int xOffset = _random.NextInt(-_nextPosOffset, _nextPosOffset);
-                    newPos = new Vector3(_lastPos.x + xOffset, 0, i);
-                    newPos.x = Mathf.Clamp(newPos.x, -40, 40);
+                    float x = Mathf.Clamp(_lastPos.x + xOffset, -CLAMP_X, CLAMP_X);
+                    newPos = new Vector3(x, 0f, z);
                 }
-                
-                Vector3 tangentIn = new Vector3(0, 0, -5);
-                Vector3 tangentOut = new Vector3(0, 0, 5);
-                
-                BezierKnot newBezierKnot = new BezierKnot(newPos, tangentIn, tangentOut);
-                _splineContainer.Spline.Add(newBezierKnot);
-                
+
+                spline.Add(new BezierKnot(newPos, tangentIn, tangentOut));
                 _lastPos = newPos;
             }
         }
