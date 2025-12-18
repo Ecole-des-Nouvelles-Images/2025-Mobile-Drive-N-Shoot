@@ -29,13 +29,15 @@ namespace Car
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
 
-        [Header("SFX")] 
+        [Header("SFX")]
+        [SerializeField] private LayerMask _layerMask;
         [SerializeField] private EventReference _shootSFX;
         [SerializeField] private EventReference _overheatSFX;
 
         [Header("VFX")]
         [SerializeField] private ParticleSystem _shootVFX;
         [SerializeField] private ParticleSystem _overheatVFX;
+        [SerializeField] private ParticleSystem _bulletVFX;
         
         private CarInputActions _carInputActions;
         
@@ -129,11 +131,12 @@ namespace Car
                         Vector3 end = _targetTransform;
                         Vector3 direction = (end - start).normalized;
                         float distance = Vector3.Distance(start, end);
+                        
 
-                        if (Physics.Raycast(start, direction, out RaycastHit hit, distance))
+                        if (Physics.Raycast(start, direction, out RaycastHit hit, distance, _layerMask))
                         {
                             // Detect if it's an enemy
-                            ImpactType type = hit.collider.GetComponent<IEnemy>() != null 
+                            ImpactType type = hit.transform.gameObject.CompareTag("Enemy") 
                                 ? ImpactType.Enemy 
                                 : ImpactType.Default;
 
@@ -149,6 +152,7 @@ namespace Car
                         AudioManager.Instance.PlayAtPosition(_shootSFX, transform.position);
                         // VFX
                         if (_shootVFX) _shootVFX.Play();
+                        if (_bulletVFX) _bulletVFX.Emit(1);
                     }
                     
                     // OVERHEATING

@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 7111640776458576405}
   - component: {fileID: 1279313413151312451}
   - component: {fileID: 4738008987439203036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Prefab_EnemySpider
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -11,8 +11,8 @@ namespace __Workspaces.Alex.Scripts
         public float Radius = 30f;
         public float Damage = 100f;
         
-        [Header("VFX")]
-        [SerializeField] private GameObject _IEMGameObject;
+        // [Header("VFX")]
+        // [SerializeField] private GameObject _IEMGameObject;
         
         [Header("SFX")]
         [SerializeField] private EventReference _useSFX;
@@ -36,12 +36,12 @@ namespace __Workspaces.Alex.Scripts
                 }
             }
             
-            // Play VFX
-            if (_IEMGameObject != null)
-            {
-                GameObject tempIemVfx = Instantiate(_IEMGameObject, center, Quaternion.identity);
-                tempIemVfx.GetComponent<ParticleSystem>().Play();
-            }
+            // // Play VFX
+            // if (_IEMGameObject != null)
+            // {
+            //     GameObject tempIemVfx = Instantiate(_IEMGameObject, center, Quaternion.identity);
+            //     tempIemVfx.GetComponent<ParticleSystem>().Play();
+            // }
             // Play SFX
             AudioManager.Instance.PlayAtPosition(_useSFX, center);
         }

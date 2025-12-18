@@ -1,9 +1,12 @@
 using System.Collections;
+using __Workspaces.Alex.Scripts;
 using Car;
 using DG.Tweening;
+using FMODUnity;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils.Game;
 
@@ -20,6 +23,7 @@ namespace Cinematic
         [SerializeField] private Transform _textGo;
         [SerializeField] private Transform _textReady;
         [SerializeField] private GameObject _canvasOverlay;
+        [SerializeField] private GameObject _panelTuto;
         
         [Header("Animation GO")]
         [SerializeField] private float _endScaleGo;
@@ -34,6 +38,10 @@ namespace Cinematic
         [SerializeField] private CinemachineBrain _cinemachineBrain;
         [SerializeField] private CinemachineCamera _activeCinemachineCamera;
         [SerializeField] private CinemachineCamera _nextCinemachineCamera;
+        
+        [Header("SFX")]
+        [SerializeField] private EventReference _readySFX;
+        [SerializeField] private EventReference _goSFX;
         
         private WheelControl[] _wheelsRb;
         private CarControler _carControler;
@@ -71,6 +79,8 @@ namespace Cinematic
                 _playerDetected = true;
                 _textGo.DOScale(_endScaleGo, _durationGo).SetEase(_animationCurveGo).SetLoops(2, LoopType.Yoyo);
                 Invoke(nameof(FadeOut), _durationGo * 1.2f);
+                // SFX
+                AudioManager.Instance.PlayAtPosition(_goSFX, Vector3.zero);
             }
         }
 
@@ -84,6 +94,9 @@ namespace Cinematic
         {
             _carControler.enabled = false;
             _textReady.DOScale(_endScaleReady, time / 2f).SetEase(_animationCurveReady).SetLoops(2, LoopType.Yoyo);
+            // SFX
+            AudioManager.Instance.PlayAtPosition(_readySFX, Vector3.zero);
+            
             while (!_playerDetected)
             {
                 foreach (var wheel in _wheelsRb)
@@ -100,14 +113,22 @@ namespace Cinematic
             yield return new WaitForSeconds(time);
             _carControler.enabled = true;
             _canvasOverlay.SetActive(true);
+            _panelTuto.SetActive(true);
             _activeCinemachineCamera.gameObject.SetActive(false);
             
             EventBus.OnCinematicEnd?.Invoke();
+            StartCoroutine(DisableGo(_panelTuto, 5f));
         }
 
         private void FadeOut()
         {
             _textGo.GetComponent<TextMeshProUGUI>().DOFade(0.0f, _durationGo * 0.4f);
+        }
+
+        private IEnumerator DisableGo(GameObject go, float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            go.SetActive(false);
         }
     }
 }

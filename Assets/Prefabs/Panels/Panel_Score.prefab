@@ -715,11 +715,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6697698968604337606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47, y: -10}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &2429482880805507357
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -885,7 +885,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ead135d734257fa40930aff655751ac6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5269d100752fa444944f3e727229a25, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -927,11 +927,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6070859741715871073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -10}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &4086106366644407519
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -995,7 +995,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1063,11 +1063,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1271730945555421192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -10}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6183916111421627234
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1335,7 +1335,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446554576247964239
 MonoBehaviour:
@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f635d15046a7348bed2c824dcdefd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIAddedTimer
-  _scaleEndValue: 2
+  _scaleEndValue: 3
   _duration: 0.3
   _animationCurve:
     serializedVersion: 2
@@ -1406,14 +1406,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3c0d512b70265ed48bf70d69eca3daf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 73d6389790d04b84c98655d47c8d3224, type: 2}
   m_sharedMaterial: {fileID: -8901005938142353746, guid: 3c0d512b70265ed48bf70d69eca3daf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4279183947
   m_fontColor: {r: 0.29411766, g: 0.16470589, b: 0.05882353, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3986642069205830007
@@ -2016,12 +2016,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3497bab494aabe43b3f6a3ca2953590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.ScoreDisplay
-  _animationDuration: 2
+  _animationDuration: 1.5
   _scoreTextPos: {x: 150, y: 480, z: 0}
-  _distanceTextPos: {x: -400, y: 125, z: 0}
-  _checkpointTextPos: {x: 300, y: 125, z: 0}
-  _spiderTextPos: {x: -400, y: -125, z: 0}
-  _droneTextPos: {x: 300, y: -125, z: 0}
+  _distanceTextPos: {x: -300, y: 125, z: 0}
+  _checkpointTextPos: {x: 400, y: 125, z: 0}
+  _spiderTextPos: {x: -300, y: -125, z: 0}
+  _droneTextPos: {x: 400, y: -125, z: 0}
   _scoreText: {fileID: 541172347647107334}
   _distanceText: {fileID: 7203321065411733328}
   _checkpointText: {fileID: 8718608400166868641}
@@ -2060,11 +2060,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6860620908660469410}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: -10}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &7995795849925731606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

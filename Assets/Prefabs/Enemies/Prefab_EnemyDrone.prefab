@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 7870149483242953301}
   - component: {fileID: 6317129306135257024}
   - component: {fileID: 5210192218730039623}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Prefab_EnemyDrone
   m_TagString: Enemy
   m_Icon: {fileID: 0}

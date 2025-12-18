@@ -51,6 +51,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.InGame.TimerHandler
   _startTimerValue: 30
   _timeToAdd: 30
+  _timeAddSFX:
+    Guid:
+      Data1: 339250264
+      Data2: 1073801757
+      Data3: -1859196273
+      Data4: 826212507
+    Path: event:/SFX/30sec
 --- !u!114 &4695599650932629280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InGameHandlers.ScoreHandler
   _panelScore: {fileID: 0}
-  _tmpScore: {fileID: 0}
   _distanceHandler: {fileID: 4695599650932629280}
 --- !u!114 &4775684715079250762
 MonoBehaviour:

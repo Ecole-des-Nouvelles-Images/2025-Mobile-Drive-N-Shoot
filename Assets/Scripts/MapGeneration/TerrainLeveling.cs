@@ -13,98 +13,116 @@ namespace MapGeneration
         [Header("Terrain Data Settings")]
         [SerializeField] private int _heightmapResolution;
         [SerializeField] private Vector3 _terrainSize;
-        
+
         [Header("Leveling Settings")]
         [SerializeField] private float _raiseAmount = 1f;
         [SerializeField] private float _rayHeight = 10f;
         [SerializeField] private string _roadTag = "Road";
-        
+
         [Header("ASync Settings")]
-        [SerializeField] private int _yieldEveryYRows;
+        [SerializeField] private int _yieldEveryYRows = 8;
 
         [Header("References")]
         [SerializeField] private Terrain _terrain;
         [SerializeField] private NavMeshSurface _navMeshSurface;
-    
+
         [Header("Spline")]
         [SerializeField] private SplineContainer _splineContainer;
         [SerializeField] private int _splineIndex;
 
         private TerrainData _terrainData;
-        
+        private Transform _terrainTransform;
+        private Vector3 _terrainPos;
+
+        private static readonly RaycastHit[] _raycastHitsBuffer = new RaycastHit[8];
+
         [ContextMenu("DebugLevelingTerrain")]
         public void DebugLevelingTerrain()
         {
             StartCoroutine(AsyncTerrainLeveling());
         }
-        
+
         public IEnumerator AsyncTerrainLeveling()
         {
             CreateIndependentTerrain();
 
             int res = _terrainData.heightmapResolution;
-
             float[,] heights = new float[res, res];
-            
+
+            float invResMinus1 = 1f / (res - 1);
+            Vector3 size = _terrainData.size;
+
             for (int y = 0; y < res; y++)
             {
+                float ny = y * invResMinus1;
+                float worldZ = _terrainPos.z + ny * size.z;
+
                 for (int x = 0; x < res; x++)
                 {
-                    Vector3 worldPos = HeightmapToWorldPosition(x, y);
+                    float nx = x * invResMinus1;
+                    float worldX = _terrainPos.x + nx * size.x;
 
-                    Ray ray = new Ray(worldPos + Vector3.up * 8f, Vector3.down);
-                    RaycastHit[] hits = Physics.RaycastAll(ray, _rayHeight);
+                    Vector3 rayOrigin = new Vector3(
+                        worldX,
+                        _terrainPos.y + _rayHeight,
+                        worldZ
+                    );
+
+                    int hitCount = Physics.RaycastNonAlloc(
+                        rayOrigin,
+                        Vector3.down,
+                        _raycastHitsBuffer,
+                        _rayHeight
+                    );
+
                     bool hitRoad = false;
-                    foreach (var raycastHit in hits)
+                    for (int i = 0; i < hitCount; i++)
                     {
-                        if (raycastHit.collider.CompareTag(_roadTag))
+                        if (_raycastHitsBuffer[i].collider.CompareTag(_roadTag))
                         {
                             hitRoad = true;
                             break;
                         }
                     }
 
-                    if (!hitRoad) heights[y, x] = _raiseAmount;
-
-                    if (y % _yieldEveryYRows == 0 && x == 0) yield return null;
+                    if (!hitRoad)
+                        heights[y, x] = _raiseAmount;
                 }
+
+                if (_yieldEveryYRows > 0 && y % _yieldEveryYRows == 0)
+                    yield return null;
             }
 
             _terrainData.SetHeights(0, 0, heights);
-            
             yield return null;
+
             BakeNavMeshSurface();
-            
             yield return null;
+
             EventBus.OnModuleFinishedGeneration?.Invoke();
         }
 
         private void CreateIndependentTerrain()
         {
-            _terrainData = new TerrainData();
-            _terrainData.heightmapResolution = _heightmapResolution;
-            _terrainData.size = _terrainSize;
+            _terrainTransform = _terrain.transform;
+            _terrainPos = _terrainTransform.position;
+
+            _terrainData = new TerrainData
+            {
+                heightmapResolution = _heightmapResolution,
+                size = _terrainSize
+            };
+
             _terrain.terrainData = _terrainData;
 
-            float[,] heights = new float[_terrainData.heightmapResolution, _terrainData.heightmapResolution];
+            float[,] heights = new float[_heightmapResolution, _heightmapResolution];
             _terrainData.SetHeights(0, 0, heights);
-        }
-
-        private Vector3 HeightmapToWorldPosition(int x, int y)
-        {
-            float nx = (float)x / (_terrainData.heightmapResolution - 1);
-            float ny = (float)y / (_terrainData.heightmapResolution - 1);
-
-            float worldX = _terrain.transform.position.x + nx * _terrainData.size.x;
-            float worldZ = _terrain.transform.position.z + ny * _terrainData.size.z;
-            float worldY = _terrain.SampleHeight(new Vector3(worldX, 0, worldZ)) + _terrain.transform.position.y;
-
-            return new Vector3(worldX, worldY, worldZ);
         }
 
         private void BakeNavMeshSurface()
         {
-            _navMeshSurface.BuildNavMesh();
+            if (_navMeshSurface)
+                _navMeshSurface.BuildNavMesh();
         }
     }
 }

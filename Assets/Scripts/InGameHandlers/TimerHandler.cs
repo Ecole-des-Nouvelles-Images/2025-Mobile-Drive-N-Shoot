@@ -1,3 +1,5 @@
+using __Workspaces.Alex.Scripts;
+using FMODUnity;
 using UnityEngine;
 using Utils.Game;
 
@@ -10,6 +12,7 @@ namespace InGameHandlers
         [Header("Settings")]
         [SerializeField] private float _startTimerValue;
         [SerializeField] private float _timeToAdd;
+        [SerializeField] private EventReference _timeAddSFX;
         
         private bool _isActive;
 
@@ -52,6 +55,7 @@ namespace InGameHandlers
         private void AddTimeToTimer()
         {
             Timer += _timeToAdd;
+            AudioManager.Instance.PlayAtPosition(_timeAddSFX, Vector3.zero);
         }
 
         private void GameStart()
