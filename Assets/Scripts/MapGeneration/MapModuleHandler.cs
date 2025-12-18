@@ -14,6 +14,7 @@ namespace MapGeneration
 
         [Header("References")]
         [SerializeField] private GameObject _checkpointGameObject;
+        [SerializeField] private Collider _colliderCantGoBack;
 
         private MapManager _mapManager;
         private SplineKnotHandler _splineKnotHandler;
@@ -135,7 +136,8 @@ namespace MapGeneration
             if (other.CompareTag("Player"))
             {
                 _mapManager.SpawnMapModule();
-                GetComponent<Collider>().isTrigger = false;
+                GetComponent<Collider>().enabled = false;
+                _colliderCantGoBack.enabled = true;
             }
         }
 

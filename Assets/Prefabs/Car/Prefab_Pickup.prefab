@@ -1501,7 +1501,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -6483,7 +6483,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8049220703640872775}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6534,7 +6534,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.024458878
+        value: 0.02
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -6546,8 +6546,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 0.46666667}
-      key1: {r: 1, g: 0, b: 0, a: 0.48235294}
+      key0: {r: 0, g: 1, b: 0.03137255, a: 1}
+      key1: {r: 0, g: 1, b: 0.03137255, a: 0.48235294}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -7231,6 +7231,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1307731478977532975, guid: 14effc54d7eaeb247938ce7dc8d96e68, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307731478977532975, guid: 14effc54d7eaeb247938ce7dc8d96e68, type: 3}
       propertyPath: SubModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -7693,6 +7697,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1525959769246754921, guid: 966c120ea39549a459cf705af095d990, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7906500499225172159, guid: 966c120ea39549a459cf705af095d990, type: 3}
       propertyPath: m_Name
       value: VFX_Bullet
@@ -7783,6 +7791,10 @@ PrefabInstance:
     - target: {fileID: 1307731478977532975, guid: 14effc54d7eaeb247938ce7dc8d96e68, type: 3}
       propertyPath: lengthInSec
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307731478977532975, guid: 14effc54d7eaeb247938ce7dc8d96e68, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1307731478977532975, guid: 14effc54d7eaeb247938ce7dc8d96e68, type: 3}
       propertyPath: SubModule.enabled
