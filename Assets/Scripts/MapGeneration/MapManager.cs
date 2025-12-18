@@ -22,6 +22,7 @@ namespace MapGeneration
         
         private Queue<GameObject> _mapModules = new();
         private int _lastCheckPoint = 1;
+        private bool _lastModuleContainsItem = false;
         
         private void Awake()
         {  
@@ -51,16 +52,18 @@ namespace MapGeneration
                 _lastCheckPoint++;
             }
             
-            if (Random.Range(0f, 1f) > _itemChanceRate)
-            {
-                newModule = Instantiate(_mapModulePrefab, lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
-                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false, _difficultyHandler.Difficulty);
-            }
-            else
+            if (!_lastModuleContainsItem && Random.Range(0f, 1f) < _itemChanceRate)
             {
                 int index = Random.Range(0, _mapModuleItemPrefabs.Count);
                 newModule = Instantiate(_mapModuleItemPrefabs[index], lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
                 newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, true, _difficultyHandler.Difficulty);
+                _lastModuleContainsItem = true;
+            }
+            else
+            {
+                newModule = Instantiate(_mapModulePrefab, lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
+                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false, _difficultyHandler.Difficulty);
+                _lastModuleContainsItem = false;
             }
             
             _mapModules.Enqueue(newModule);

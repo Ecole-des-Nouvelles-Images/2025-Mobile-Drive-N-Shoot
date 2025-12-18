@@ -8,6 +8,21 @@ namespace MapGeneration
 {
     public class MapModuleHandler : MonoBehaviour
     {
+        private int _countDestroyingProps;
+        public int CountDestroyingProps
+        {
+            get => _countDestroyingProps;
+            set
+            {
+                _countDestroyingProps = value;
+
+                if (value >= _splineProps.Length + _splineEnemies.Length)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+        
         [Header("Settings")]
         [SerializeField] private bool _isRandomSeed;
         [SerializeField] private uint _mainSeed;
@@ -27,9 +42,6 @@ namespace MapGeneration
         private Random _random;
         private bool _haveItem;
 
-        private Transform _cachedTransform;
-        private Vector3 _cachedPosition;
-
         private static readonly WaitForSeconds _waitStep = new WaitForSeconds(0.2f);
 
         public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem, int difficulty)
@@ -48,19 +60,14 @@ namespace MapGeneration
         public void Destruction()
         {
             for (int i = 0; i < _splineProps.Length; i++)
-                _splineProps[i].DestroyProps();
+                _splineProps[i].StartCoroutine(_splineProps[i].AsyncDestroyProps());
 
             for (int i = 0; i < _splineEnemies.Length; i++)
-                _splineEnemies[i].DestroyProps();
-
-            Destroy(gameObject);
+                _splineEnemies[i].StartCoroutine(_splineEnemies[i].AsyncDestroyProps());
         }
         
         private void Awake()
         {
-            _cachedTransform = transform;
-            _cachedPosition = _cachedTransform.position;
-
             _splineKnotHandler = GetComponentInChildren<SplineKnotHandler>(true);
             _splineRoad = GetComponentInChildren<DynamicSplineRoad>(true);
             _terrainLeveling = GetComponentInChildren<TerrainLeveling>(true);
@@ -115,7 +122,7 @@ namespace MapGeneration
             {
                 for (int i = 0; i < _splineProps.Length; i++)
                 {
-                    _splineProps[i].Setup(_cachedPosition);
+                    _splineProps[i].Setup(this);
                     _splineProps[i].StartCoroutine(_splineProps[i].AsyncSpawnProps(_mainSeed));
                     yield return _waitStep;
                 }
@@ -123,7 +130,7 @@ namespace MapGeneration
 
             for (int i = 0; i < _splineEnemies.Length; i++)
             {
-                _splineEnemies[i].Setup(_cachedPosition);
+                _splineEnemies[i].Setup(this);
                 _splineEnemies[i].StartCoroutine(_splineEnemies[i].AsyncSpawnProps(_mainSeed));
                 yield return _waitStep;
             }
