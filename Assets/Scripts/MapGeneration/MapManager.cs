@@ -21,6 +21,7 @@ namespace MapGeneration
         [SerializeField] private GameObject _cinematic;
         
         private Queue<GameObject> _mapModules = new();
+        private Queue<bool> _isItemModule = new();
         private int _lastCheckPoint = 1;
         private bool _lastModuleContainsItem = false;
         
@@ -29,6 +30,7 @@ namespace MapGeneration
             GameObject newModule = Instantiate(_mapModulePrefab, transform);
             newModule.GetComponent<MapModuleHandler>().Setup(this, false, false, _difficultyHandler.Difficulty);
             _mapModules.Enqueue(newModule);
+            _isItemModule.Enqueue(false);
             _lastCheckPoint++;
         }
         
@@ -58,20 +60,33 @@ namespace MapGeneration
                 newModule = Instantiate(_mapModuleItemPrefabs[index], lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
                 newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, true, _difficultyHandler.Difficulty);
                 _lastModuleContainsItem = true;
+                
+                _isItemModule.Enqueue(true);
             }
             else
             {
                 newModule = Instantiate(_mapModulePrefab, lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
                 newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false, _difficultyHandler.Difficulty);
                 _lastModuleContainsItem = false;
+                
+                _isItemModule.Enqueue(false);
             }
             
             _mapModules.Enqueue(newModule);
 
             if (_mapModules.Count > _mapModuleMaxCount)
             {
+                bool haveItem = _isItemModule.Dequeue();
                 GameObject oldModule = _mapModules.Dequeue();
-                oldModule.GetComponent<MapModuleHandler>().Destruction();
+                
+                if (!haveItem)
+                {
+                    oldModule.GetComponent<MapModuleHandler>().Destruction();
+                }
+                else
+                {
+                    Destroy(oldModule);
+                }
             }
         }
     }
