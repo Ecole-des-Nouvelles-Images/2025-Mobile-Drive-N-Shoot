@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332524755295022774, guid: 4a84be1a7a56f7440ab8e9f158395965, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 86f8b7ec146c4f34e9418fbd673ebbc9, type: 2}
     - target: {fileID: 6375964387212286702, guid: 4a84be1a7a56f7440ab8e9f158395965, type: 3}
       propertyPath: m_Name
       value: Prefab_ItemIEM
@@ -223,6 +227,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 172191361510380070}
     m_Modifications:
+    - target: {fileID: 1479298179230782235, guid: c38a368e549261040a4744e0a6ec7561, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 86f8b7ec146c4f34e9418fbd673ebbc9, type: 2}
     - target: {fileID: 2643353495218301844, guid: c38a368e549261040a4744e0a6ec7561, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -335,16 +343,56 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.17254902
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.35686275
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.6862745
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.g
+      value: 0.44313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895227784207481807, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.r
+      value: 0.9137255
       objectReference: {fileID: 0}
     - target: {fileID: 7454081082202722249, guid: 67b1e0bde0a49e843a19eca8ccaab428, type: 3}
       propertyPath: m_Mesh
@@ -420,6 +468,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8237674490459304910, guid: 6785681293b1dc14291ae5f29ba33257, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 86f8b7ec146c4f34e9418fbd673ebbc9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
