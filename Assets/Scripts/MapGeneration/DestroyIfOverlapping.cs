@@ -23,17 +23,15 @@ namespace MapGeneration
                 if (col.gameObject != gameObject)
                 {
                     ObjectPoolingManager.ReturnObjectToPool(col.gameObject);
-                    Debug.Log("Overlapping");
-                    // Destroy(gameObject);
                     return;
                 }
             }
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _overlapRadius);
-        }
+        // private void OnDrawGizmosSelected()
+        // {
+        //     Gizmos.color = Color.red;
+        //     Gizmos.DrawWireSphere(transform.position, _overlapRadius);
+        // }
     }
 }
