@@ -110,8 +110,15 @@ Si vous rencontrez des bugs ou avez des suggestions, merci d'ouvrir un **[ticket
   <h1>Remerciements</h1>
 </div>
 
-Nous tenons à remercier :
+Nous tenons à remercier notre **école** et nos **professeurs** :  
 - **[L'École des Nouvelles Images](https://www.nouvellesimages.xyz/)**
+- **[Frédéric BAST](https://github.com/FBast)** - *Soutien Dév*
+- **[Yvan BLADET](https://github.com/PopoteProf)** - *Soutien Dév / Intégration*
+- **Jerome CROS** - *Soutien Artistique*
+- **Tommy HA PHUOC** - *Soutien Gameplay*
+
+Et notre camarade :  
+- **[Jerome DUPRET](https://github.com/jdupretENSI)** - *Aide Github*
 
 ---
 <div align="center">
