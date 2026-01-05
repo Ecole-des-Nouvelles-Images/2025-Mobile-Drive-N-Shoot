@@ -86,9 +86,6 @@ namespace Car
             // NO OVERHEAT TIMER
             if (_noOverheatActive)
             {
-                
-               //_turretSupport.GetComponent<MeshRenderer>().material.SetFloat("_NoOverheat", 1f);
-
                 _noOverheatTimer -= TimeManager.Instance.DeltaTime;
 
                 _currentOverheatValue = 0f;
@@ -98,7 +95,6 @@ namespace Car
                 {
                     _noOverheatActive = false;
                     GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_NoOverheat", 0f);
-
                 }
             }
 
