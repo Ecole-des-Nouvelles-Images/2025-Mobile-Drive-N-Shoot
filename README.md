@@ -110,8 +110,15 @@ If you encounter any bugs or have suggestions, please open an **[issue ticket](h
   <h1>Special Thanks</h1>
 </div>
 
-We would like to thank :
+We would like to thank our **school** and our **teachers** :  
 - **[L'École des Nouvelles Images](https://www.nouvellesimages.xyz/)**
+- **[Frédéric BAST](https://github.com/FBast)** - *Dev Support*
+- **[Yvan BLADET](https://github.com/PopoteProf)** - *Dev / Integration Support*
+- **Jerome CROS** - *Artist Support*
+- **Tommy HA PHUOC** - *Gameplay Support*
+
+And our classmate :  
+- **[Jerome DUPRET](https://github.com/jdupretENSI)** - *Github Help*
 
 ---
 <div align="center">
