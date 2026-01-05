@@ -1,13 +1,13 @@
 <div align="center">
-  <a href="https://github.com/Ecole-des-Nouvelles-Images/2024-Arcade-2D-Ball-Blop-Battle/blob/main/README.md">
+  <a href="https://github.com/Ecole-des-Nouvelles-Images/2025-Mobile-Drive-N-Shoot/blob/main/README.md">
     <img width="64" height="64" alt="flag_angleterre" src="https://github.com/user-attachments/assets/79223af9-d6d8-48a1-aa17-7355c3c6b444" />
   </a>
   &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/Ecole-des-Nouvelles-Images/2024-Arcade-2D-Ball-Blop-Battle/blob/main/README.es.md">
+  <a href="https://github.com/Ecole-des-Nouvelles-Images/2025-Mobile-Drive-N-Shoot/blob/main/README.es.md">
     <img width="64" height="64" alt="flag_espagne" src="https://github.com/user-attachments/assets/22639270-f31b-4416-9445-73230a53ec00" />
   </a>
   &nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/Ecole-des-Nouvelles-Images/2024-Arcade-2D-Ball-Blop-Battle/blob/main/README.fr.md">
+  <a href="https://github.com/Ecole-des-Nouvelles-Images/2025-Mobile-Drive-N-Shoot/blob/main/README.fr.md">
     <img width="64" height="64" alt="flag_france" src="https://github.com/user-attachments/assets/b98ca283-5441-4f57-a475-8cbf1f843485" />
   </a>
 </div>
