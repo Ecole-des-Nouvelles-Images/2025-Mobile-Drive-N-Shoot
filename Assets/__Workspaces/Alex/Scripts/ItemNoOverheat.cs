@@ -1,3 +1,4 @@
+using Car;
 using FMODUnity;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace __Workspaces.Alex.Scripts
     
         public override void Execute(GameObject target)
         {
-            TurretControler turret = target.GetComponent<TurretControler>();
+            TurretController turret = target.GetComponent<TurretController>();
             turret.ActivateNoOverheat(Duration);
             // Play SFX 
             AudioManager.Instance.PlayAtPosition(_useSFX, target.transform.position);
