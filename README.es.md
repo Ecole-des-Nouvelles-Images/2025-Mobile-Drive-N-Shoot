@@ -110,8 +110,15 @@ Si encuentras algún error o tienes sugerencias, por favor abre un **[ticket de 
   <h1>Agradecimientos Especiales</h1>
 </div>
 
-Nos gustaría agradecer a:
+Nos gustaría agradecer a nuestra **escuela** y a nuestros **profesores**:  
 - **[L'École des Nouvelles Images](https://www.nouvellesimages.xyz/)**
+- **[Frédéric BAST](https://github.com/FBast)** - *Soporte de Desarrollo*
+- **[Yvan BLADET](https://github.com/PopoteProf)** - *Soporte de Desarrollo / Integración*
+- **Jerome CROS** - *Soporte Artístico*
+- **Tommy HA PHUOC** - *Soporte de Gameplay*
+
+Y a nuestro compañero de clase:  
+- **[Jerome DUPRET](https://github.com/jdupretENSI)** - *Ayuda con Github*
 
 ---
 <div align="center">
