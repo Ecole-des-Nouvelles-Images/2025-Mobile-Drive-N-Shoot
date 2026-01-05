@@ -85,7 +85,7 @@ There are **3 different items**, each with its own effect :
 ## Game mechanics
 The player can **move**, **shoot**, use an **item**, and **boost** by shaking the device.
 
-https://github.com/user-attachments/assets/21fd09d4-ce86-439a-9fcd-63709f87ada4
+https://github.com/user-attachments/assets/9e614298-02dc-400d-a585-b95452e0fe85
 
 ---
 <div align="center">
