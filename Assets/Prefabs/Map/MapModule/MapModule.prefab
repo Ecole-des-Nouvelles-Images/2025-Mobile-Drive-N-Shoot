@@ -226,7 +226,7 @@ MonoBehaviour:
   _typeRotationProps: 0
   _rotationOffset: 90
   _positionOffset: 1
-  _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _scaleOffsetMinMax: {x: 1, y: 1.15}
   _yieldEverySpawningProps: 2
   _yieldEveryDestroyingProps: 2
   _props:
