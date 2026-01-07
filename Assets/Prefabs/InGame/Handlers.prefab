@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0609142400a2d1d43b3d28e2f399dd1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.InGame.TimerHandler
-  _startTimerValue: 130
+  _startTimerValue: 30
   _timeToAdd: 30
   _timeAddSFX:
     Guid:

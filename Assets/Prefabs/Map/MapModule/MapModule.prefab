@@ -70,7 +70,9 @@ MonoBehaviour:
   _typeRotationProps: 0
   _rotationOffset: 90
   _positionOffset: 5
-  _scaleOffsetMinMax: {x: 1, y: 1}
+  _scaleOffsetMinMax: {x: 1.9, y: 2.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 7989771649214069358, guid: d88dce54db386824e8e49097c7e8b4d7, type: 3}
   _transformParent: {fileID: 898583420212954918}
@@ -99,6 +101,8 @@ MonoBehaviour:
   _rotationOffset: 14.9
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 1, y: 1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 7989771649214069358, guid: 9bcf635ac373f33438b55d15e515775f, type: 3}
   _transformParent: {fileID: 898583420212954918}
@@ -159,6 +163,8 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.9, y: 1.2}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 93932886524337324, guid: d39b9d786a4219a419e44a52aaa65dee, type: 3}
   - {fileID: 93932886524337324, guid: c970dd7a264a7274c89c247e31231fef, type: 3}
@@ -221,11 +227,13 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 6309426883222056376, guid: b76f3199ae083094f9927d83e5d26471, type: 3}
   - {fileID: 6309426883222056376, guid: 02f44bc898d46904faf350a7c0d6b9a1, type: 3}
   - {fileID: 6309426883222056376, guid: a0fa50b60380acd4f9a251a2decaaed2, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &2558862024174877588
 MonoBehaviour:
@@ -251,11 +259,13 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 0.5
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 6309426883222056376, guid: b76f3199ae083094f9927d83e5d26471, type: 3}
   - {fileID: 6309426883222056376, guid: 02f44bc898d46904faf350a7c0d6b9a1, type: 3}
   - {fileID: 6309426883222056376, guid: a0fa50b60380acd4f9a251a2decaaed2, type: 3}
-  _transformParent: {fileID: 6264254432998931550}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!1 &3191581224057846319
 GameObject:
@@ -314,9 +324,11 @@ MonoBehaviour:
   _rotationOffset: 20
   _positionOffset: 0
   _scaleOffsetMinMax: {x: 1, y: 1.2}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 7769190505009400, guid: a810b76a3d586bd4e9500da766971a5b, type: 3}
-  _transformParent: {fileID: 2772815933780410945}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &8405133038541791034
 MonoBehaviour:
@@ -342,9 +354,11 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 1, y: 1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 2176892742850792974, guid: a864bd86e1c4e824fb2deef8c10ea6f7, type: 3}
-  _transformParent: {fileID: 2772815933780410945}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!1 &3539874032609928918
 GameObject:
@@ -377,6 +391,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8686251210349524493}
   - {fileID: 2778602007510608308}
   - {fileID: 3684699524607765317}
   - {fileID: 6264254432998931550}
@@ -402,6 +417,7 @@ MonoBehaviour:
   _isRandomSeed: 1
   _mainSeed: 0
   _checkpointGameObject: {fileID: 4743556773377785050}
+  _colliderCantGoBack: {fileID: 5955524863638880001}
 --- !u!65 &9191153044634136344
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -762,11 +778,13 @@ MonoBehaviour:
   _rotationOffset: 20
   _positionOffset: 0.5
   _scaleOffsetMinMax: {x: 0.8, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 8459920982313930829, guid: 07729c368538756418239df96ceacb12, type: 3}
   - {fileID: 5161216386637765027, guid: 46b4140ebaae6a945a74cf28833c9e18, type: 3}
   - {fileID: 8459920982313930829, guid: 36cbab40adca0db429f344bb7375a0f4, type: 3}
-  _transformParent: {fileID: 8609845499456673262}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &4325256246991269290
 MonoBehaviour:
@@ -792,12 +810,14 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 2
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 5017159615024599370, guid: 88367454f71b9b948812e4de3b1a612e, type: 3}
   - {fileID: 6671829077847000264, guid: d0f804c701206d14ea9a0dad98d6b27f, type: 3}
   - {fileID: 8609305779943020327, guid: 5f09d333c90afdf4fb595aa9917d83d9, type: 3}
   - {fileID: 1622018206705476654, guid: b56a0a5c8045a3b43bd645bd49119a76, type: 3}
-  _transformParent: {fileID: 8609845499456673262}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &4525236693950120326
 MonoBehaviour:
@@ -823,11 +843,13 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 5
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 5489865309931224674, guid: 7077374897cff5649b938e6fa763ee91, type: 3}
   - {fileID: 8913410019453691409, guid: e925cb69fae773f40aba4c60b8034fc1, type: 3}
   - {fileID: 482149236283104903, guid: b6060c82a5632124fb3448f036be02ac, type: 3}
-  _transformParent: {fileID: 8609845499456673262}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &7738156035356408645
 MonoBehaviour:
@@ -853,11 +875,13 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 5
   _scaleOffsetMinMax: {x: 0.8, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 861158402046415158, guid: 5ecc64ff9f52905479875e43462856c5, type: 3}
   - {fileID: 3205048574040650182, guid: 43452272b21025b45838647479a93da6, type: 3}
   - {fileID: 7244364707113374070, guid: 839b8908f88db2e4389fba45f5d7da3e, type: 3}
-  _transformParent: {fileID: 8609845499456673262}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &4734822219646093567
 MonoBehaviour:
@@ -883,11 +907,13 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 4
   _scaleOffsetMinMax: {x: 0.7, y: 0.9}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 1612527615959682190, guid: b120a211d2ab3d940a9bae4af53b3a6a, type: 3}
   - {fileID: 1612527615959682190, guid: 5627316f606d1fe458245d36c4647a6a, type: 3}
   - {fileID: 1612527615959682190, guid: 329bdf272c7656a47976c3744a07199d, type: 3}
-  _transformParent: {fileID: 8609845499456673262}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &6839359012028782584
 MonoBehaviour:
@@ -913,13 +939,15 @@ MonoBehaviour:
   _rotationOffset: 90
   _positionOffset: 6
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 3026735371325414904, guid: 239ddd92186f8944d9b979108134b0bb, type: 3}
   - {fileID: 2156347104938769760, guid: defa1226df34b0949aba1ecafaa8de7f, type: 3}
   - {fileID: 6765942630976665267, guid: 20224946e5817db478e5a75715fbef17, type: 3}
   - {fileID: 562690164777168320, guid: 479405c38310f1c42a93ddc637a814eb, type: 3}
   - {fileID: 9094208682212197977, guid: 87891c32839549848afd0fb6f60c1349, type: 3}
-  _transformParent: {fileID: 8609845499456673262}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &7634953062764424731
 MonoBehaviour:
@@ -945,10 +973,12 @@ MonoBehaviour:
   _rotationOffset: 0
   _positionOffset: 1
   _scaleOffsetMinMax: {x: 1, y: 1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 4857736684079876985, guid: 713d8c8cbf159224aa1e81886a504122, type: 3}
   - {fileID: 7846237715143704720, guid: 5e177e319b1eb7243a489544bca22765, type: 3}
-  _transformParent: {fileID: 8609845499456673262}
+  _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!1 &8048398075706295006
 GameObject:
@@ -1002,7 +1032,7 @@ MonoBehaviour:
   _raiseAmount: 1
   _rayHeight: 10
   _roadTag: Road
-  _yieldEveryYRows: 5
+  _yieldEveryYRows: 2
   _terrain: {fileID: 8544518952561437464}
   _navMeshSurface: {fileID: 97740809343622279}
   _splineContainer: {fileID: 5965455809491477312}
@@ -1081,7 +1111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
   m_SerializedVersion: 0
   m_AgentTypeID: 0
-  m_CollectObjects: 0
+  m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -1092,13 +1122,66 @@ MonoBehaviour:
   m_GenerateLinks: 1
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
+  m_OverrideTileSize: 1
+  m_TileSize: 128
   m_OverrideVoxelSize: 1
-  m_VoxelSize: 0.2
-  m_MinRegionArea: 2
+  m_VoxelSize: 0.4
+  m_MinRegionArea: 5
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!1 &8103736506181099738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8686251210349524493}
+  - component: {fileID: 5955524863638880001}
+  m_Layer: 0
+  m_Name: ColliderCantGoBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8686251210349524493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103736506181099738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5640243950555269481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5955524863638880001
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103736506181099738}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 100, y: 10, z: 5}
+  m_Center: {x: 50, y: 0, z: 10}
 --- !u!1001 &3356998638856322699
 PrefabInstance:
   m_ObjectHideFlags: 0

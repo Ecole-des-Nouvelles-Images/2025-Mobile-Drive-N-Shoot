@@ -1,12 +1,12 @@
 using System.Collections;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Splines;
 using Utils.Game;
 
 namespace MapGeneration
 {
-    [ExecuteAlways]
     [RequireComponent(typeof(Terrain))]
     public class TerrainLeveling : MonoBehaviour
     {
@@ -33,6 +33,7 @@ namespace MapGeneration
         private TerrainData _terrainData;
         private Transform _terrainTransform;
         private Vector3 _terrainPos;
+        private NavMeshData _navMeshData;
 
         private static readonly RaycastHit[] _raycastHitsBuffer = new RaycastHit[8];
 
@@ -121,8 +122,14 @@ namespace MapGeneration
 
         private void BakeNavMeshSurface()
         {
-            if (_navMeshSurface)
-                _navMeshSurface.BuildNavMesh();
+            if (_navMeshSurface) _navMeshSurface.BuildNavMesh();
         }
+        
+        // private void AsyncBakeNavMeshSurface()
+        // {
+        //     _navMeshData = new NavMeshData();
+        //     _navMeshSurface.navMeshData = _navMeshData;
+        //     _navMeshSurface.UpdateNavMesh(_navMeshData);
+        // }
     }
 }

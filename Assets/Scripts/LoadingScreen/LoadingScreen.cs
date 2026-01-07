@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -12,7 +12,8 @@ namespace LoadingScreen
     {
         [Header("Settings")]
         [SerializeField] private List<Sprite> _sprites = new();
-        [SerializeField] private List<string> _sentences = new();
+        [SerializeField] private List<string> _frSentences = new();
+        [SerializeField] private List<string> _enSentences = new();
         [SerializeField] private float _imagePickupDroneStartingPos;
         [SerializeField] private float _imagePickupDroneEndingPos;
         
@@ -27,7 +28,15 @@ namespace LoadingScreen
         private void OnEnable()
         {
             _imageBackground.sprite = _sprites[Random.Range(0, _sprites.Count)];
-            _tmpSentence.text = _sentences[Random.Range(0, _sentences.Count)];
+
+            if (LocalizationSettings.SelectedLocale.Identifier.Code.StartsWith("en"))
+            {
+                _tmpSentence.text = _enSentences[Random.Range(0, _enSentences.Count)];
+            }
+            else if (LocalizationSettings.SelectedLocale.Identifier.Code.StartsWith("fr"))
+            {
+                _tmpSentence.text = _frSentences[Random.Range(0, _frSentences.Count)];
+            }
 
             var vector2 = _imagePickupDrone.anchoredPosition;
             vector2.x = _imagePickupDroneStartingPos;

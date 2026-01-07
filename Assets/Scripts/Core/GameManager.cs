@@ -28,7 +28,12 @@ namespace Core
         private EventInstance _musicInstance;
         private EventInstance _ambiantSoundInstance;
         
-
+        private void Start()
+        {
+            Application.targetFrameRate = 60;
+            QualitySettings.vSyncCount = 0;
+        }
+        
         private void OnEnable()
         {
             EventBus.OnLoadScene += LoadScene;

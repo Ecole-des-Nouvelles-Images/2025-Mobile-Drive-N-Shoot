@@ -12,10 +12,33 @@ namespace __Workspaces.Alex.Scripts
 
         // Store looped unique events (music, ambiance…)
         private readonly Dictionary<EventReference, EventInstance> _uniqueInstances = new();
+        
+        //Player prefs keys for volume settings
+        private const string PREF_GAMEPLAY_VOL = "Audio_GameplayVolume";
+        private const string PREF_MUSIC_VOL = "Audio_MusicVolume";
+
+        private const float DEFAULT_GAMEPLAY_VOL = 0.8f;
+        private const float DEFAULT_MUSIC_VOL = 0.8f;
+        
+        // Cached volume levels
+        private float _gameplayVolume;
+        private float _musicVolume;
+        
+        // PUBLIC GETTERS
+        public float GameplayVolume => _gameplayVolume;
+        public float MusicVolume => _musicVolume;
 
         // ----------------------------------------------------------------------
         // PLAY (MAIN METHOD)
         // ----------------------------------------------------------------------
+        
+        protected override void Awake()
+        {
+            base.Awake();
+
+            LoadVolumes();
+        }
+        
         public EventInstance Play(EventReference eventRef, bool loop = false, GameObject follow = null)
         {
             if (eventRef.IsNull)
@@ -193,6 +216,51 @@ namespace __Workspaces.Alex.Scripts
             SFX,
             UI,
             Ambient
+        }
+        // ----------------------------------------------------------------------
+        // VOLUME GROUPS (UI SLIDERS)
+        // ----------------------------------------------------------------------
+        private float ApplyCurve(float value)
+        {
+            // simple quadratic curve for volume perception
+            return Mathf.Pow(Mathf.Clamp01(value), 2f);
+        }
+
+        public void SetGameplayVolume(float volume)
+        {
+            _gameplayVolume = Mathf.Clamp01(volume);
+
+            float v = ApplyCurve(_gameplayVolume);
+
+            SetBusVolume(AudioBus.SFX, v);
+            SetBusVolume(AudioBus.Ambient, v);
+
+            PlayerPrefs.SetFloat(PREF_GAMEPLAY_VOL, _gameplayVolume);
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            _musicVolume = Mathf.Clamp01(volume);
+
+            float v = ApplyCurve(_musicVolume);
+
+            SetBusVolume(AudioBus.Music, v);
+
+            PlayerPrefs.SetFloat(PREF_MUSIC_VOL, _musicVolume);
+        }
+        
+        private void LoadVolumes()
+        {
+            _gameplayVolume = PlayerPrefs.GetFloat(PREF_GAMEPLAY_VOL, DEFAULT_GAMEPLAY_VOL);
+            _musicVolume = PlayerPrefs.GetFloat(PREF_MUSIC_VOL, DEFAULT_MUSIC_VOL);
+
+            ApplyVolumes();
+        }
+
+        private void ApplyVolumes()
+        {
+            SetGameplayVolume(_gameplayVolume);
+            SetMusicVolume(_musicVolume);
         }
     }
 }

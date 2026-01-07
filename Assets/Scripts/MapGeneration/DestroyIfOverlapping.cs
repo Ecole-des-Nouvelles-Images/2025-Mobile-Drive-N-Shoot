@@ -1,15 +1,20 @@
 using UnityEngine;
+using Utils.Pooling;
 
 namespace MapGeneration
 {
-    [ExecuteAlways]
     public class DestroyIfOverlapping : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private float _overlapRadius;
         [SerializeField] private LayerMask _overlapLayers;
 
-        private void Awake()
+        private void OnEnable()
+        {
+            CheckOverlap();
+        }
+
+        private void CheckOverlap()
         {
             Collider[] overlaps = Physics.OverlapSphere(transform.position, _overlapRadius, _overlapLayers);
 
@@ -17,7 +22,7 @@ namespace MapGeneration
             {
                 if (col.gameObject != gameObject)
                 {
-                    Destroy(gameObject);
+                    ObjectPoolingManager.ReturnObjectToPool(col.gameObject);
                     return;
                 }
             }
