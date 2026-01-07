@@ -226,7 +226,7 @@ MonoBehaviour:
   _typeRotationProps: 0
   _rotationOffset: 90
   _positionOffset: 1
-  _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _scaleOffsetMinMax: {x: 1, y: 1.15}
   _yieldEverySpawningProps: 2
   _yieldEveryDestroyingProps: 2
   _props:
@@ -727,10 +727,13 @@ GameObject:
   - component: {fileID: 8609845499456673262}
   - component: {fileID: 9108657725563144977}
   - component: {fileID: 4325256246991269290}
+  - component: {fileID: 2948632799186650060}
   - component: {fileID: 4525236693950120326}
   - component: {fileID: 7738156035356408645}
   - component: {fileID: 4734822219646093567}
   - component: {fileID: 6839359012028782584}
+  - component: {fileID: 4642871924677248181}
+  - component: {fileID: 7102184161064023777}
   - component: {fileID: 7634953062764424731}
   m_Layer: 0
   m_Name: Props_RoadSmall
@@ -813,10 +816,39 @@ MonoBehaviour:
   _yieldEverySpawningProps: 2
   _yieldEveryDestroyingProps: 2
   _props:
-  - {fileID: 5017159615024599370, guid: 88367454f71b9b948812e4de3b1a612e, type: 3}
   - {fileID: 6671829077847000264, guid: d0f804c701206d14ea9a0dad98d6b27f, type: 3}
   - {fileID: 8609305779943020327, guid: 5f09d333c90afdf4fb595aa9917d83d9, type: 3}
   - {fileID: 1622018206705476654, guid: b56a0a5c8045a3b43bd645bd49119a76, type: 3}
+  _transformParent: {fileID: 2778602007510608308}
+  _splineContainer: {fileID: 5965455809491477312}
+--- !u!114 &2948632799186650060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164301078006077775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
+  _seed: 0
+  _typeSpawning: 3
+  _firstAndLastSpawn: 1
+  _density: 10
+  _spawnChance: 0.8
+  _width: 6
+  _localHeightOffset: 1
+  _heightOffset: 0
+  _typeRotationProps: 0
+  _rotationOffset: 90
+  _positionOffset: 2
+  _scaleOffsetMinMax: {x: 1.5, y: 4}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
+  _props:
+  - {fileID: 5017159615024599370, guid: 88367454f71b9b948812e4de3b1a612e, type: 3}
   _transformParent: {fileID: 2778602007510608308}
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &4525236693950120326
@@ -930,7 +962,7 @@ MonoBehaviour:
   _seed: 0
   _typeSpawning: 3
   _firstAndLastSpawn: 1
-  _density: 30
+  _density: 15
   _spawnChance: 0.9
   _width: 2
   _localHeightOffset: 1
@@ -943,8 +975,66 @@ MonoBehaviour:
   _yieldEveryDestroyingProps: 2
   _props:
   - {fileID: 3026735371325414904, guid: 239ddd92186f8944d9b979108134b0bb, type: 3}
-  - {fileID: 2156347104938769760, guid: defa1226df34b0949aba1ecafaa8de7f, type: 3}
   - {fileID: 6765942630976665267, guid: 20224946e5817db478e5a75715fbef17, type: 3}
+  _transformParent: {fileID: 2778602007510608308}
+  _splineContainer: {fileID: 5965455809491477312}
+--- !u!114 &4642871924677248181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164301078006077775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
+  _seed: 0
+  _typeSpawning: 3
+  _firstAndLastSpawn: 1
+  _density: 12
+  _spawnChance: 0.8
+  _width: 2
+  _localHeightOffset: 1
+  _heightOffset: 0
+  _typeRotationProps: 0
+  _rotationOffset: 90
+  _positionOffset: 6
+  _scaleOffsetMinMax: {x: 0.9, y: 1.1}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
+  _props:
+  - {fileID: 2156347104938769760, guid: defa1226df34b0949aba1ecafaa8de7f, type: 3}
+  _transformParent: {fileID: 2778602007510608308}
+  _splineContainer: {fileID: 5965455809491477312}
+--- !u!114 &7102184161064023777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164301078006077775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce502063090ff4e95a3eb7dd941ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DynamicSplineProps
+  _seed: 0
+  _typeSpawning: 3
+  _firstAndLastSpawn: 1
+  _density: 13
+  _spawnChance: 0.8
+  _width: 2
+  _localHeightOffset: 1
+  _heightOffset: 0
+  _typeRotationProps: 0
+  _rotationOffset: 90
+  _positionOffset: 6
+  _scaleOffsetMinMax: {x: 1.1, y: 1.4}
+  _yieldEverySpawningProps: 2
+  _yieldEveryDestroyingProps: 2
+  _props:
   - {fileID: 562690164777168320, guid: 479405c38310f1c42a93ddc637a814eb, type: 3}
   - {fileID: 9094208682212197977, guid: 87891c32839549848afd0fb6f60c1349, type: 3}
   _transformParent: {fileID: 2778602007510608308}
@@ -966,12 +1056,12 @@ MonoBehaviour:
   _firstAndLastSpawn: 0
   _density: 10
   _spawnChance: 0.8
-  _width: 9
+  _width: 7
   _localHeightOffset: 1
   _heightOffset: 0
   _typeRotationProps: 2
   _rotationOffset: 0
-  _positionOffset: 1
+  _positionOffset: 0.5
   _scaleOffsetMinMax: {x: 1, y: 1}
   _yieldEverySpawningProps: 2
   _yieldEveryDestroyingProps: 2

@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 2208109457956745971}
   - component: {fileID: 4442932171444487234}
   - component: {fileID: 592240446509257426}
+  - component: {fileID: 803331051226153280}
   - component: {fileID: 7189217818072186950}
   m_Layer: 5
   m_Name: Panel_Settings
@@ -270,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.5294118, g: 0.34117648, b: 0.14117648, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -287,6 +288,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &803331051226153280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467301584341341033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2fb0fa907d6244eb22d39f584f92a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIAudioMixer
+  gameplaySlider: {fileID: 975548963290107356}
+  musicSlider: {fileID: 8744432166190451291}
 --- !u!114 &7189217818072186950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +400,7 @@ GameObject:
   - component: {fileID: 7761384816499137240}
   - component: {fileID: 975548963290107356}
   m_Layer: 5
-  m_Name: Slider_Musique
+  m_Name: Slider_Son
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
