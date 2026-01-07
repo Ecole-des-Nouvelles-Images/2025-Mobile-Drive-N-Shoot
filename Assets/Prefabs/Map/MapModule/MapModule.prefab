@@ -844,7 +844,7 @@ MonoBehaviour:
   _typeRotationProps: 0
   _rotationOffset: 90
   _positionOffset: 2
-  _scaleOffsetMinMax: {x: 1.5, y: 4}
+  _scaleOffsetMinMax: {x: 1.5, y: 2.5}
   _yieldEverySpawningProps: 2
   _yieldEveryDestroyingProps: 2
   _props:
@@ -995,12 +995,12 @@ MonoBehaviour:
   _firstAndLastSpawn: 1
   _density: 12
   _spawnChance: 0.8
-  _width: 2
+  _width: 6
   _localHeightOffset: 1
   _heightOffset: 0
   _typeRotationProps: 0
   _rotationOffset: 90
-  _positionOffset: 6
+  _positionOffset: 1
   _scaleOffsetMinMax: {x: 0.9, y: 1.1}
   _yieldEverySpawningProps: 2
   _yieldEveryDestroyingProps: 2
@@ -1056,7 +1056,7 @@ MonoBehaviour:
   _firstAndLastSpawn: 0
   _density: 10
   _spawnChance: 0.8
-  _width: 7
+  _width: 6
   _localHeightOffset: 1
   _heightOffset: 0
   _typeRotationProps: 2
