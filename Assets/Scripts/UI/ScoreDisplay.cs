@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -13,8 +14,10 @@ namespace UI
         [SerializeField] private Vector3 _checkpointTextPos;
         [SerializeField] private Vector3 _spiderTextPos;
         [SerializeField] private Vector3 _droneTextPos;
-        
+
         [Header("References")]
+        [SerializeField] private Transform _tmpGameOver;
+        [SerializeField] private Transform _panelScore;
         [SerializeField] private TextMeshProUGUI _scoreText;
         [SerializeField] private TextMeshProUGUI _distanceText;
         [SerializeField] private TextMeshProUGUI _checkpointText;
@@ -30,6 +33,17 @@ namespace UI
         public void Setup(float distance, int checkpointPass, int spiderKills, int droneKills)
         {
             StopAllCoroutines();
+            StartCoroutine(GameOver((int)distance, checkpointPass, spiderKills, droneKills));
+        }
+
+        private IEnumerator GameOver(float distance, int checkpointPass, int spiderKills, int droneKills)
+        {
+            _tmpGameOver.DOScale(1f, 1f).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo);
+            
+            yield return new WaitForSeconds(2f);
+            _panelScore.DOScale(1f, 0.5f).SetEase(Ease.InOutSine);
+
+            yield return new WaitForSeconds(0.5f);
             StartCoroutine(AnimateAll((int)distance, checkpointPass, spiderKills, droneKills));
         }
 
