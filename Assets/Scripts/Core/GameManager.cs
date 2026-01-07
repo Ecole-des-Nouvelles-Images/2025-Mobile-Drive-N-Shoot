@@ -58,6 +58,7 @@ namespace Core
             CurrentIemExhaustPipeMaterials[0].SetFloat("_ResistanceProgress", 0f);
             CurrentCarMaterials[0].SetFloat("_HitProgress", 0f);
             CurrentTurretMaterials[0].SetFloat("_HitProgress", 0f);
+            CurrentTurretMaterials[0].SetFloat("_NoOverheat", 0f);
             CurrentIemExhaustPipeMaterials[0].SetFloat("_HitProgress", 0f);
             IemMaterial.SetFloat("_GlowStrength", 0f);
             SeeThroughMaterial.SetFloat("_Opacity", 0f);
