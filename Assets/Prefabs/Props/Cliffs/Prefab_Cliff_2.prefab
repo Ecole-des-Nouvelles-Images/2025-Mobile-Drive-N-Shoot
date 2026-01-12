@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878011cf71f3b5a4389418fe48a6d063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapGeneration.DestroyIfOverlapping
-  _overlapRadius: 0.6
+  _overlapRadius: 0.8
   _overlapLayers:
     serializedVersion: 2
     m_Bits: 2048

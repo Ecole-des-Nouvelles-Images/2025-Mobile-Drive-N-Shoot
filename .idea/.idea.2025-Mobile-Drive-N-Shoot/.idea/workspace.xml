@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudio.bundle/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudio.bundle/Contents/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudioL.bundle/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/fmodstudioL.bundle/Contents/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/resonanceaudio.bundle/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/platforms/mac/lib/resonanceaudio.bundle/Contents/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Pickup/M_BaseTurret.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Pickup/M_BaseTurret.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Car/CarControler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Car/CarControler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestHugoIGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scenes/TestHugoIGameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Alex",
+    "git-widget-placeholder": "optimization",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,10 +80,8 @@
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
@@ -93,10 +90,8 @@
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot" />
       <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
@@ -114,15 +109,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="14000">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="14000" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -177,6 +170,8 @@
       <workItem from="1766139891554" duration="25000" />
       <workItem from="1766141214644" duration="1040000" />
       <workItem from="1767603701279" duration="4639000" />
+      <workItem from="1767776734768" duration="627000" />
+      <workItem from="1767813729344" duration="318000" />
     </task>
     <servers />
   </component>
