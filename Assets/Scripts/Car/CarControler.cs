@@ -301,7 +301,7 @@ namespace Car
             );
             
             // Active Speed Effect
-            _imageSpeedEffect.DOFade(1f, 0.5f);
+            _imageSpeedEffect.DOFade(0.5f, 0.5f);
         }
 
         private IEnumerator ShieldTimeOutCoroutine()
