@@ -44,6 +44,7 @@ namespace InGameHandlers
             {
                 EventBus.OnGameOver?.Invoke();
                 _isActive = false;
+                Timer = 0f;
             }
         }
         
