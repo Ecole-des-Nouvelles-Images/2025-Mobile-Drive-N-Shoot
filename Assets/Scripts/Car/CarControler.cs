@@ -6,6 +6,7 @@ using DG.Tweening;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils.Game;
 
 namespace Car
@@ -32,6 +33,7 @@ namespace Car
         public float lowPassFilterFactor = 0.1f;  // smoothing factor for low-pass filter on accelerometer
         [SerializeField] private CarHealth _carHealth;   // Reference to CarHealth component
         [SerializeField] private float _shieldDuration = 2f; // Duration of shield after boost
+        [SerializeField] private Image _imageSpeedEffect;
 
         [Header("Damage behavior")]
         public float damagedSpeedFactor = 0.8f;
@@ -137,7 +139,7 @@ namespace Car
                 _engineInstance.release();
             }
 
-            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
+            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: false, follow: gameObject);
         }
 
         void Update()
@@ -297,6 +299,9 @@ namespace Car
                 targetValue,
                 0.5f
             );
+            
+            // Active Speed Effect
+            _imageSpeedEffect.DOFade(0.5f, 0.5f);
         }
 
         private IEnumerator ShieldTimeOutCoroutine()
@@ -323,6 +328,9 @@ namespace Car
                 targetValue,
                 0.75f
             );
+            
+            // Disable Speed Effect
+            _imageSpeedEffect.DOFade(0f, 0.2f);
         }
 
         private void HandleGamePause()
@@ -385,6 +393,7 @@ namespace Car
             {
                 _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 _engineInstance.release();
+                _engineInstance.clearHandle();
             }
         }
     }

@@ -1,12 +1,12 @@
 # ninja log v5
-105	381	7876974482989496	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	5552298c20c0af0b
-391	580	7876974484814136	C:/Users/PC/LocalRepo/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3o5a4f4u/obj/armeabi-v7a/libswappywrapper.so	f8142e6fa7e1d245
-1	1763	7876974496723691	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	56e2aa2a58d6b2b0
-47	1778	7876974496647911	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	adc0464fa2bd40fc
-61	1786	7876974496974790	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	da640748f9eed4af
-91	1865	7876974497797334	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	f3e9f9c80eb7ec82
-24	1879	7876974497939280	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	889be024d9e0679e
-76	2012	7876974499284361	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e36136eb1b4302a2
-35	2139	7876974500554809	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	b7a5b7ac7675b8e3
-13	2314	7876974502215471	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b5690fe61d17bddb
-2314	2459	7876974503752351	C:/Users/PC/LocalRepo/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3o5a4f4u/obj/armeabi-v7a/libgame.so	8c8c66fe4dc09df3
+72	208	7877836321329160	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	5552298c20c0af0b
+210	348	7877836322615497	C:/Users/PC/LocalRepo/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3o5a4f4u/obj/armeabi-v7a/libswappywrapper.so	f8142e6fa7e1d245
+25	1129	7877836330512339	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	da640748f9eed4af
+0	1140	7877836330607930	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	56e2aa2a58d6b2b0
+34	1141	7877836330627993	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	adc0464fa2bd40fc
+9	1166	7877836330856293	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	889be024d9e0679e
+61	1167	7877836330866292	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	f3e9f9c80eb7ec82
+52	1295	7877836332177873	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	e36136eb1b4302a2
+43	1356	7877836332782042	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	b7a5b7ac7675b8e3
+17	1454	7877836333720960	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b5690fe61d17bddb
+1454	1554	7877836334752448	C:/Users/PC/LocalRepo/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3o5a4f4u/obj/armeabi-v7a/libgame.so	8c8c66fe4dc09df3
