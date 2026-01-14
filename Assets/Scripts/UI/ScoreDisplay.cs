@@ -1,4 +1,6 @@
 using System.Collections;
+using __Workspaces.Hugoi.Scripts;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -13,9 +15,12 @@ namespace UI
         [SerializeField] private Vector3 _checkpointTextPos;
         [SerializeField] private Vector3 _spiderTextPos;
         [SerializeField] private Vector3 _droneTextPos;
-        
+
         [Header("References")]
+        [SerializeField] private Transform _tmpGameOver;
+        [SerializeField] private Transform _panelScore;
         [SerializeField] private TextMeshProUGUI _scoreText;
+        [SerializeField] private TextMeshProUGUI _bestScoreText;
         [SerializeField] private TextMeshProUGUI _distanceText;
         [SerializeField] private TextMeshProUGUI _checkpointText;
         [SerializeField] private TextMeshProUGUI _spiderKillsText;
@@ -26,10 +31,28 @@ namespace UI
         private int _currentCheckpointPass;
         private int _currentSpiderKills;
         private int _currentDroneKills;
+        
+        private SaveGameData _saveGameData = new SaveGameData();
 
         public void Setup(float distance, int checkpointPass, int spiderKills, int droneKills)
         {
             StopAllCoroutines();
+            StartCoroutine(GameOver((int)distance, checkpointPass, spiderKills, droneKills));
+
+            _saveGameData = SaveSystem.GetSaveGameData();
+            _bestScoreText.text = _saveGameData.BestScore.ToString();
+            
+            SaveSystem.SaveGameData((int)distance + checkpointPass + spiderKills + droneKills);
+        }
+
+        private IEnumerator GameOver(float distance, int checkpointPass, int spiderKills, int droneKills)
+        {
+            _tmpGameOver.DOScale(1f, 1f).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo);
+            
+            yield return new WaitForSeconds(2f);
+            _panelScore.DOScale(1f, 0.5f).SetEase(Ease.InOutSine);
+
+            yield return new WaitForSeconds(0.5f);
             StartCoroutine(AnimateAll((int)distance, checkpointPass, spiderKills, droneKills));
         }
 
@@ -74,6 +97,10 @@ namespace UI
             );
             _addedGameObject.GetComponent<UIAddedTimer>().Setup(_droneTextPos, _scoreTextPos, _currentDroneKills);
             _addedGameObject.SetActive(true);
+            
+            yield return new WaitForSeconds(_animationDuration);
+            _saveGameData = SaveSystem.GetSaveGameData();
+            _bestScoreText.text = _saveGameData.BestScore.ToString();
         }
 
         private IEnumerator AnimateValueTimed(

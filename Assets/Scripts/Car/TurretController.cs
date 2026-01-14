@@ -18,6 +18,10 @@ namespace Car
         [SerializeField] private float _overheatSpeed;
         [SerializeField] private float _cooldownSpeed;
         
+        [Header("No Overheat")]
+        [SerializeField] private bool _noOverheatActive;
+        [SerializeField] private float _noOverheatTimer;
+        
         [Header("Aiming")]
         [SerializeField] private float _turretRotationSpeed;
         [SerializeField] private Transform _turretFireStartTransform;
@@ -79,6 +83,22 @@ namespace Car
             Vector2 input = _carInputActions.CarControls.Aim.ReadValue<Vector2>();
             _isAiming = input.sqrMagnitude > 0f;
             
+            // NO OVERHEAT TIMER
+            if (_noOverheatActive)
+            {
+                _noOverheatTimer -= TimeManager.Instance.DeltaTime;
+
+                _currentOverheatValue = 0f;
+                _isOverheating = false;
+
+                if (_noOverheatTimer <= 0f)
+                {
+                    _noOverheatActive = false;
+                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_NoOverheat", 0f);
+                }
+            }
+
+            // Stop shoot VFX if not aiming
             if (_shootVFX) _shootVFX.Stop();
 
 
@@ -156,8 +176,11 @@ namespace Car
                     }
                     
                     // OVERHEATING
-                    _currentOverheatValue += _overheatSpeed * TimeManager.Instance.DeltaTime;
-                    if (_currentOverheatValue >= _maxOverheatValue)
+                    if (!_noOverheatActive)
+                    {
+                        _currentOverheatValue += _overheatSpeed * TimeManager.Instance.DeltaTime;
+                    }
+                    if (_currentOverheatValue >= _maxOverheatValue && !_noOverheatActive)
                     {
                         _isOverheating = true;
                         DisplayLaser(false, _targetTransform);
@@ -212,6 +235,14 @@ namespace Car
                 _lineRenderer.enabled = false;
                 _lineRendererIsActive = false;
             }
+        }
+        public void ActivateNoOverheat(float duration)
+        {
+            _noOverheatActive = true;
+            _noOverheatTimer = duration;
+            _currentOverheatValue = 0f;
+            _isOverheating = false;
+            GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_NoOverheat", 1f);
         }
     }
 }

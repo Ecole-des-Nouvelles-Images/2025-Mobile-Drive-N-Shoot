@@ -6,6 +6,7 @@ using DG.Tweening;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils.Game;
 
 namespace Car
@@ -32,6 +33,7 @@ namespace Car
         public float lowPassFilterFactor = 0.1f;  // smoothing factor for low-pass filter on accelerometer
         [SerializeField] private CarHealth _carHealth;   // Reference to CarHealth component
         [SerializeField] private float _shieldDuration = 2f; // Duration of shield after boost
+        [SerializeField] private Image _imageSpeedEffect;
 
         [Header("Damage behavior")]
         public float damagedSpeedFactor = 0.8f;
@@ -46,9 +48,9 @@ namespace Car
         public float particleMinSpeed = 0.5f; // Minimal speed to activate wheel particles
         public float particleMaxEmission = 30f; // Max 
 
-        [Header("Nitro Attack")] 
-        [SerializeField] private GameObject _nitroCollider; // Collider activated during boost for nitro attack
-
+        [Header("Boost VFX")]
+        [SerializeField] private ParticleSystem _boostVFX;
+        
         [Header("SFX")] 
         [SerializeField] private EventReference _engineSound;
         [SerializeField] private EventReference _boostSound;
@@ -131,7 +133,13 @@ namespace Car
             }
             
             // Start engine sound
-            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: true, follow: gameObject);
+            if (_engineInstance.isValid())
+            {
+                _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _engineInstance.release();
+            }
+
+            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: false, follow: gameObject);
         }
 
         void Update()
@@ -260,6 +268,9 @@ namespace Car
         {
             // Play boost sound
             AudioManager.Instance.Play(_boostSound, follow: gameObject);
+            // Play boost VFX
+            if (_boostVFX) _boostVFX.Play();
+            
             
             _nextBoostTime = 0f;
 
@@ -288,6 +299,9 @@ namespace Car
                 targetValue,
                 0.5f
             );
+            
+            // Active Speed Effect
+            _imageSpeedEffect.DOFade(0.5f, 0.5f);
         }
 
         private IEnumerator ShieldTimeOutCoroutine()
@@ -314,6 +328,9 @@ namespace Car
                 targetValue,
                 0.75f
             );
+            
+            // Disable Speed Effect
+            _imageSpeedEffect.DOFade(0f, 0.2f);
         }
 
         private void HandleGamePause()
@@ -376,6 +393,7 @@ namespace Car
             {
                 _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 _engineInstance.release();
+                _engineInstance.clearHandle();
             }
         }
     }

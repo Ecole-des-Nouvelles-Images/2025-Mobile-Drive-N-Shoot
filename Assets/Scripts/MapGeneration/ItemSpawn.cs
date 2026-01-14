@@ -13,9 +13,9 @@ namespace MapGeneration
     {
         [Header("Settings")]
         [SerializeField] private List<Item> _items = new();
-        [SerializeField] private Sprite _iconIem;
-        [SerializeField] private Sprite _iconOverheating;
-        [SerializeField] private Sprite _iconRepair;
+        [SerializeField] private GameObject _goIem;
+        [SerializeField] private GameObject _goOverheating;
+        [SerializeField] private GameObject _goRepair;
         
         [Header("Rotation")]
         [SerializeField] private float _rotationSpeed = 15f;
@@ -26,7 +26,6 @@ namespace MapGeneration
         [Header("References")]
         [SerializeField] private GameObject _itemVisual;
         [SerializeField] private EventReference _collectSFX;
-        [SerializeField] private Image _image;
         
         private Item _selectedItem;
 
@@ -36,15 +35,15 @@ namespace MapGeneration
 
             if (_selectedItem.ItemType == ItemType.BigBlast)
             {
-                _image.sprite = _iconIem;
+                _goIem.SetActive(true);
             }
             else if (_selectedItem.ItemType == ItemType.Overheat)
             {
-                _image.sprite = _iconOverheating;
+                _goOverheating.SetActive(true);
             }
             else if (_selectedItem.ItemType == ItemType.Repair)
             {
-                _image.sprite = _iconRepair;
+                _goRepair.SetActive(true);
             }
             
             DOTween.To(
