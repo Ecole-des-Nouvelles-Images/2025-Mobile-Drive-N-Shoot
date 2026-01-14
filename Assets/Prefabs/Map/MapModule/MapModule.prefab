@@ -696,7 +696,7 @@ MonoBehaviour:
   _seed: 0
   _knotCount: 5
   _terrainSize: 100
-  _nextPosOffset: 10
+  _nextPosOffset: 8
   _splineContainer: {fileID: 5965455809491477312}
 --- !u!114 &5431519557754820045
 MonoBehaviour:
