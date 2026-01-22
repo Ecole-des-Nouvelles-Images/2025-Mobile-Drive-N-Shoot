@@ -55,5 +55,10 @@ namespace InGameHandlers
             EventBus.OnCollectedItem -= OnCollectedItem;
             EventBus.OnUsingItem -= OnUsingItem;
         }
+
+        public List<Item> GetInventory()
+        {
+            return _items;
+        }
     }
 }

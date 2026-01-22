@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
 using DG.Tweening;
 using FMODUnity;
+using InGameHandlers;
 using UnityEngine;
-using UnityEngine.UI;
 using Utils.Game;
 using Random = UnityEngine.Random;
 
@@ -28,10 +29,21 @@ namespace MapGeneration
         [SerializeField] private EventReference _collectSFX;
         
         private Item _selectedItem;
+        private InventoryHandler _inventoryHandler;
 
         private void Awake()
         {
-            _selectedItem = _items[Random.Range(0, _items.Count)];
+            _inventoryHandler = FindObjectOfType<InventoryHandler>();
+            List<Item> currentItems = _inventoryHandler.GetInventory();
+            
+            List<Item> selectedItems = new List<Item>();
+            foreach (Item item in _items)
+            {
+                if (currentItems.Contains(item)) continue;
+                selectedItems.Add(item);
+            }
+            
+            _selectedItem = selectedItems[Random.Range(0, selectedItems.Count)];
 
             if (_selectedItem.ItemType == ItemType.BigBlast)
             {
