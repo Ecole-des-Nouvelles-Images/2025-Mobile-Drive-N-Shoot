@@ -8,19 +8,19 @@ namespace __Workspaces.Hugoi.Scripts
     {
         private static SaveGameData _saveGameData = new SaveGameData();
         
-        public static void SaveGameData(float bestScore)
+        public static void SaveGameData(float currentScore)
         {
             string filePath = Path.Combine(Application.persistentDataPath, "SaveGameData.json");
-            
-            if (File.Exists(filePath))
+    
+            SaveGameData data = GetSaveGameData();
+    
+            if (currentScore > data.BestScore)
             {
-                _saveGameData = JsonUtility.FromJson<SaveGameData>(File.ReadAllText(filePath));
+                data.BestScore = currentScore;
+        
+                string json = JsonUtility.ToJson(data);
+                File.WriteAllText(filePath, json);
             }
-            
-            _saveGameData.BestScore = bestScore;
-            
-            string json = JsonUtility.ToJson(_saveGameData);
-            File.WriteAllText(filePath, json);
         }
 
         public static SaveGameData GetSaveGameData()
