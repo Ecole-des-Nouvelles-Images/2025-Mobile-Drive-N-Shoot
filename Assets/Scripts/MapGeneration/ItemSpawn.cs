@@ -33,6 +33,7 @@ namespace MapGeneration
 
         private void Awake()
         {
+            _inventoryHandler = FindObjectOfType<InventoryHandler>();
             List<Item> currentItems = _inventoryHandler.GetInventory();
             
             List<Item> selectedItems = new List<Item>();
@@ -42,7 +43,7 @@ namespace MapGeneration
                 selectedItems.Add(item);
             }
             
-            _selectedItem = selectedItems[Random.Range(0, _items.Count)];
+            _selectedItem = selectedItems[Random.Range(0, selectedItems.Count)];
 
             if (_selectedItem.ItemType == ItemType.BigBlast)
             {
@@ -68,11 +69,6 @@ namespace MapGeneration
                 transform.position.y + _positionOffset,
                 _duration
             ).SetEase(_animationCurve).SetLoops(-1, LoopType.Yoyo);
-        }
-
-        private void Start()
-        {
-            _inventoryHandler = FindObjectOfType<InventoryHandler>();
         }
 
         private void Update()

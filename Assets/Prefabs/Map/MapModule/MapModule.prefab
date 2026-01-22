@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b30eb80ad56f4f40aa73eff0be714ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.EnemiesSpawnerHandler
-  _difficultyScaling: 12
+  _difficultyScaling: 5
 --- !u!114 &1496061003287026968
 MonoBehaviour:
   m_ObjectHideFlags: 0

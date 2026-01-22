@@ -15,13 +15,14 @@ namespace InGameHandlers
             _splineEnemies = GetComponentsInChildren<DynamicSplineProps>();
         }
 
-        public void Setup(int difficulty, int distanceDifficultyScaling)
+        public void Setup(int difficulty)
         {
             for (int i = 0; i < _splineEnemies.Length; i++)
             {
                 // _splineEnemies[i].SetDensity((int)(difficulty * _difficultyScaling));
                 
-                int density = Mathf.RoundToInt(Mathf.Log(difficulty / (float)distanceDifficultyScaling) * _difficultyScaling);
+                int density = Mathf.RoundToInt(Mathf.Log10(difficulty) * _difficultyScaling);
+                Debug.Log("Difficulty : " + density);
                 _splineEnemies[i].SetDensity(density);
             }
         }
