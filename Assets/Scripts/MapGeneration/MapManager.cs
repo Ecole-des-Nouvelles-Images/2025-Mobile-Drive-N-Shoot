@@ -30,7 +30,7 @@ namespace MapGeneration
         private void Awake()
         {  
             GameObject newModule = Instantiate(_mapModulePrefab, transform);
-            newModule.GetComponent<MapModuleHandler>().Setup(this, false, false, _difficultyHandler.Difficulty);
+            newModule.GetComponent<MapModuleHandler>().Setup(this, false, false, _difficultyHandler.Difficulty, _difficultyHandler.DistanceDifficultyScaling);
             _mapModules.Enqueue(newModule);
             _isItemModule.Enqueue(false);
             _lastCheckPoint++;
@@ -60,7 +60,7 @@ namespace MapGeneration
             {
                 int index = Random.Range(0, _mapModuleItemPrefabs.Count);
                 newModule = Instantiate(_mapModuleItemPrefabs[index], lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
-                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, true, _difficultyHandler.Difficulty);
+                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, true, _difficultyHandler.Difficulty, _difficultyHandler.DistanceDifficultyScaling);
                 _lastModuleContainsItem = true;
                 _pittyCount = 0;
                 
@@ -69,7 +69,7 @@ namespace MapGeneration
             else
             {
                 newModule = Instantiate(_mapModulePrefab, lastPos + new Vector3(0, 0, 100), Quaternion.identity, transform);
-                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false, _difficultyHandler.Difficulty);
+                newModule.GetComponent<MapModuleHandler>().Setup(this, haveCheckPoint, false, _difficultyHandler.Difficulty, _difficultyHandler.DistanceDifficultyScaling);
                 _lastModuleContainsItem = false;
                 _pittyCount++;
                 

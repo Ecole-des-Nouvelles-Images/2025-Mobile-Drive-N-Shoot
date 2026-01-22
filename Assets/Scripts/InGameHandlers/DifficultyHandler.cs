@@ -7,7 +7,7 @@ namespace InGameHandlers
         public int Difficulty {get; private set;}
         
         [Header("Settings")]
-        [SerializeField] private int _distanceDifficultyScaling;
+        public int DistanceDifficultyScaling;
             
         [Header("References Data")]
         [SerializeField] private DistanceHandler _distanceHandler;
@@ -18,7 +18,7 @@ namespace InGameHandlers
         {
             int distance = (int)_distanceHandler.Distance;
 
-            if (_distanceDifficultyScaling <= distance - _lastDistance)
+            if (DistanceDifficultyScaling <= distance - _lastDistance)
             {
                 Difficulty++;
                 _lastDistance = distance;

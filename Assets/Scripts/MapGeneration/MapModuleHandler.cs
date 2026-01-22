@@ -44,12 +44,12 @@ namespace MapGeneration
 
         private static readonly WaitForSeconds _waitStep = new WaitForSeconds(0.2f);
 
-        public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem, int difficulty)
+        public void Setup(MapManager mapManager, bool haveCheckPoint, bool haveItem, int difficulty, int distanceDifficultyScaling)
         {
             _mapManager = mapManager;
             _haveItem = haveItem;
 
-            _enemiesSpawnerHandler.Setup(difficulty);
+            _enemiesSpawnerHandler.Setup(difficulty, distanceDifficultyScaling);
 
             if (haveCheckPoint && _checkpointGameObject != null)
                 _checkpointGameObject.SetActive(true);
