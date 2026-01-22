@@ -345,7 +345,7 @@ MonoBehaviour:
   - {fileID: 2610493765176729079}
   - {fileID: 3549254908099652975}
   boostCooldown: 10
-  shakeThreshold: 2
+  shakeThreshold: 1.5
   boostDeltaV: 10
   lowPassFilterFactor: 0.1
   _carHealth: {fileID: 2524738207651137503}
@@ -403,7 +403,7 @@ MonoBehaviour:
   _damage: 5
   _maxOverheatValue: 15
   _overheatSpeed: 2
-  _cooldownSpeed: 2
+  _cooldownSpeed: 3
   _noOverheatActive: 0
   _noOverheatTimer: 0
   _turretRotationSpeed: 10

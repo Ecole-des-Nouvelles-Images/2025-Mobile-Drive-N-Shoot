@@ -3,7 +3,6 @@ using __Workspaces.Alex.Scripts;
 using DG.Tweening;
 using FMODUnity;
 using UnityEngine;
-using UnityEngine.UI;
 using Utils.Game;
 using Random = UnityEngine.Random;
 

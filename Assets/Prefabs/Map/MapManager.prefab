@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
   _mapModuleMaxCount: 2
   _checkPointFrequency: 2
-  _itemChanceRate: 0.2
+  _itemChanceRate: 0.33
+  _pitty: 4
   _mapModulePrefab: {fileID: 3539874032609928918, guid: ffba084bd9a00d840b432cc28c9b1aec, type: 3}
   _mapModuleItemPrefabs:
   - {fileID: 3539874032609928918, guid: f4c73048fd21f9d48a85d540961f4252, type: 3}

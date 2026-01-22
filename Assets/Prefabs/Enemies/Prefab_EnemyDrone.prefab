@@ -221,9 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.DroneController
   MaxHealth: 10
-  Damage: 1.5
+  Damage: 1
   AttackSpeed: 0.5
-  AttackRange: 3
+  AttackRange: 2.5
   SeeTarget: 0
   IsDying: 0
   IsDead: 0
@@ -292,7 +292,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240
