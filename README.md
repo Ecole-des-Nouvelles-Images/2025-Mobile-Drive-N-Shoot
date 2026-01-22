@@ -115,7 +115,7 @@ We would like to thank our **school** and our **teachers** :
 - **[Frédéric BAST](https://github.com/FBast)** - *Dev Support*
 - **[Yvan BLADET](https://github.com/PopoteProf)** - *Dev / Integration Support*
 - **Jerome CROS** - *Artist Support*
-- **Tommy HA PHUOC** - *Gameplay Support*
+- **[Tommy HA PHUOC](https://fr.linkedin.com/in/tommyhaphuoc/en)** - *Gameplay Support*
 
 And our classmate :  
 - **[Jerome DUPRET](https://github.com/jdupretENSI)** - *Github Help*
