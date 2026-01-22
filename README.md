@@ -114,7 +114,7 @@ We would like to thank our **school** and our **teachers** :
 - **[L'École des Nouvelles Images](https://www.nouvellesimages.xyz/)**
 - **[Frédéric BAST](https://github.com/FBast)** - *Dev Support*
 - **[Yvan BLADET](https://github.com/PopoteProf)** - *Dev / Integration Support*
-- **Jerome CROS** - *Artist Support*
+- **[Jerome CROS](https://fr.linkedin.com/in/crospro)** - *Artist Support*
 - **[Tommy HA PHUOC](https://fr.linkedin.com/in/tommyhaphuoc/en)** - *Gameplay Support*
 
 And our classmate :  
