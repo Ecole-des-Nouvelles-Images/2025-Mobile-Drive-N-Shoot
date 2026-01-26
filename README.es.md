@@ -113,7 +113,7 @@ Si encuentras algún error o tienes sugerencias, por favor abre un **[ticket de 
 Nos gustaría agradecer a nuestra **escuela** y a nuestros **profesores**:  
 - **[L'École des Nouvelles Images](https://www.nouvellesimages.xyz/)**
 - **[Frédéric BAST](https://github.com/FBast)** - *Soporte de Desarrollo*
-- **[Yvan BLADET](https://github.com/PopoteProf)** - *Soporte de Desarrollo / Integración*
+- **[Yvan BLADET](https://www.linkedin.com/in/yvan-bladet-676924261/)** - *Soporte de Desarrollo / Integración*
 - **[Jerome CROS](https://fr.linkedin.com/in/crospro)** - *Soporte Artístico*
 - **[Tommy HA PHUOC](https://fr.linkedin.com/in/tommyhaphuoc/en)** - *Soporte de Gameplay*
 
