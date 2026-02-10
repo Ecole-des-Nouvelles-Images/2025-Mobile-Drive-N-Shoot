@@ -1,7 +1,9 @@
 using __Workspaces.Alex.Scripts;
+using __Workspaces.Hugoi.Scripts;
 using FMODUnity;
 using Core;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils.Game;
 using Utils.Interfaces;
 
@@ -28,10 +30,12 @@ namespace Car
         [SerializeField] private Transform _turretDefaultAimTransform;
         [SerializeField] private TurretAimDetector _turretAimDetector;
         [SerializeField] private LineRenderer _lineRenderer;
-        
+
         [Header("References")]
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
+        [SerializeField] private Image _imageOverheatFill;
+        [SerializeField] private Button _buttonAim;
 
         [Header("SFX")]
         [SerializeField] private LayerMask _layerMask;
@@ -80,8 +84,8 @@ namespace Car
 
         private void Update()
         {
-            Vector2 input = _carInputActions.CarControls.Aim.ReadValue<Vector2>();
-            _isAiming = input.sqrMagnitude > 0f;
+            float input = _carInputActions.CarControls.Aim.ReadValue<float>();
+            _isAiming = input > 0f;
             
             // NO OVERHEAT TIMER
             if (_noOverheatActive)
@@ -104,15 +108,6 @@ namespace Car
 
             if (_isAiming)
             {
-                // Rotate on y the turret support
-                Vector3 dir = new Vector3(input.x, 0f, input.y);
-                Quaternion supportTargetRot = Quaternion.LookRotation(transform.TransformDirection(dir));
-                _turretSupport.rotation = Quaternion.Slerp(
-                    _turretSupport.rotation, 
-                    supportTargetRot, 
-                    TimeManager.Instance.DeltaTime * _turretRotationSpeed
-                );
-                
                 // Rotate on x and z the turret gun
                 Transform closestEnemyTransform = _turretAimDetector.GetClosestEnemy(transform.position);
                 
@@ -152,14 +147,14 @@ namespace Car
                         Vector3 direction = (end - start).normalized;
                         float distance = Vector3.Distance(start, end);
                         
-
+            
                         if (Physics.Raycast(start, direction, out RaycastHit hit, distance, _layerMask))
                         {
                             // Detect if it's an enemy
                             ImpactType type = hit.transform.gameObject.CompareTag("Enemy") 
                                 ? ImpactType.Enemy 
                                 : ImpactType.Default;
-
+            
                             // Call the pool to play the impact
                             ImpactPool.Instance.PlayImpact(
                                 hit.point,
@@ -218,6 +213,9 @@ namespace Car
                 // VISUAL MATERIAL
                 GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_HitProgress", _currentOverheatValue / _maxOverheatValue / 2f);
             }
+            
+            _imageOverheatFill.fillAmount = _currentOverheatValue / _maxOverheatValue;
+            _buttonAim.interactable = !_isOverheating;
         }
         
         private void DisplayLaser(bool isActive, Vector3 targetPos)

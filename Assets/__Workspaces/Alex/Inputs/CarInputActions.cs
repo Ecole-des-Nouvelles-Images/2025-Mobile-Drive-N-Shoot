@@ -103,12 +103,12 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Aim"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""b8c505b9-f804-411e-a3fb-6406ce09afd6"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -126,7 +126,7 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""87583e92-82fa-4931-932e-980c2bbf137f"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
