@@ -309,6 +309,7 @@ Transform:
   m_Children:
   - {fileID: 7983019399365026301}
   - {fileID: 7872217597330179532}
+  - {fileID: 1227401021573588560}
   - {fileID: 2075321241377096133}
   - {fileID: 6202387136444458791}
   - {fileID: 8483839403242949228}
@@ -400,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Hugoi.Scripts.TurretController
   _shootingSpeed: 0.1
-  _damage: 5
+  _damage: 3
   _maxOverheatValue: 15
   _overheatSpeed: 2
   _cooldownSpeed: 3
@@ -409,7 +410,8 @@ MonoBehaviour:
   _turretRotationSpeed: 10
   _turretFireStartTransform: {fileID: 184900457488522452}
   _turretDefaultAimTransform: {fileID: 9031161467884802263}
-  _turretAimDetector: {fileID: 2726558601490807011}
+  _turretDefaultPosTransform: {fileID: 1053768538296637819}
+  _turretAimDetector: {fileID: 3713242722769706066}
   _lineRenderer: {fileID: 4002681915579939223}
   _turretSupport: {fileID: 7434310711983047596}
   _turretGun: {fileID: 2628030001952147073}
@@ -847,7 +849,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2628030001952147073}
-  - {fileID: 2502910311908780181}
   m_Father: {fileID: 5321953222935300877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6537330362638988766
@@ -1051,7 +1052,7 @@ Transform:
   m_GameObject: {fileID: 3333735057208022284}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 25}
+  m_LocalPosition: {x: 0, y: 1.1, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6526,7 +6527,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &7246515324076859827
+--- !u!1 &7297258900158065032
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6534,38 +6535,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2502910311908780181}
-  - component: {fileID: 9179924094146266610}
-  - component: {fileID: 2726558601490807011}
+  - component: {fileID: 1227401021573588560}
+  - component: {fileID: 1315834527158928814}
+  - component: {fileID: 3713242722769706066}
   m_Layer: 10
-  m_Name: RangeCollider
+  m_Name: TurretRangeTriggerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2502910311908780181
+--- !u!4 &1227401021573588560
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246515324076859827}
+  m_GameObject: {fileID: 7297258900158065032}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7434310711983047596}
+  m_Father: {fileID: 2238183935687377848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &9179924094146266610
-BoxCollider:
+--- !u!135 &1315834527158928814
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246515324076859827}
+  m_GameObject: {fileID: 7297258900158065032}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -6578,20 +6579,20 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 5, z: 25}
-  m_Center: {x: 0, y: 1, z: 12.5}
---- !u!114 &2726558601490807011
+  m_Radius: 15
+  m_Center: {x: 0, y: 0, z: 10}
+--- !u!114 &3713242722769706066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246515324076859827}
+  m_GameObject: {fileID: 7297258900158065032}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c32096cc9ac90e4d964cdaf9c230ec1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TurretAimDetector
+  m_EditorClassIdentifier: Assembly-CSharp::__Workspaces.Alex.Scripts.TurretAimDetector
   EnemiesInSight: []
 --- !u!1 &7702547960126840722
 GameObject:
@@ -7159,6 +7160,18 @@ PrefabInstance:
     - target: {fileID: 8172198077679927291, guid: 09f1e7999769bb54ba14f28ffd75fd3a, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936186831647483732, guid: 09f1e7999769bb54ba14f28ffd75fd3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936186831647483732, guid: 09f1e7999769bb54ba14f28ffd75fd3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8936186831647483732, guid: 09f1e7999769bb54ba14f28ffd75fd3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8936186831647483732, guid: 09f1e7999769bb54ba14f28ffd75fd3a, type: 3}
       propertyPath: m_LocalPosition.x
