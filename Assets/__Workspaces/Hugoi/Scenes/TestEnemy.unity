@@ -953,6 +953,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!4 &879171345 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1053768538296637819, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+  m_PrefabInstance: {fileID: 1000591760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1000591760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -962,11 +967,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
       propertyPath: _buttonAim
       value: 
       objectReference: {fileID: 83663578}
     - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _shootingSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
       propertyPath: _imageAimButton
+      value: 
+      objectReference: {fileID: 83663579}
+    - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _imageButtonAim
       value: 
       objectReference: {fileID: 83663579}
     - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
@@ -977,6 +994,14 @@ PrefabInstance:
       propertyPath: _turretAimDetector
       value: 
       objectReference: {fileID: 1213492983}
+    - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _turretRotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 355360313880875959, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: _turretDefaultPosTransform
+      value: 
+      objectReference: {fileID: 879171345}
     - target: {fileID: 1546494360475675740, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
       propertyPath: m_Name
       value: Prefab_Pickup
@@ -1020,6 +1045,26 @@ PrefabInstance:
     - target: {fileID: 2238183935687377848, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553002694083985931, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553002694083985931, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553002694083985931, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031161467884802263, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031161467884802263, guid: 51694609fd3889041bbc82563451e7e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

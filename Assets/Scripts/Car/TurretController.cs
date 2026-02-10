@@ -28,6 +28,7 @@ namespace Car
         [SerializeField] private float _turretRotationSpeed;
         [SerializeField] private Transform _turretFireStartTransform;
         [SerializeField] private Transform _turretDefaultAimTransform;
+        [SerializeField] private Transform _turretDefaultPosTransform;
         [SerializeField] private TurretAimDetector _turretAimDetector;
         [SerializeField] private LineRenderer _lineRenderer;
 
@@ -35,6 +36,7 @@ namespace Car
         [SerializeField] private Transform _turretSupport;
         [SerializeField] private Transform _turretGun;
         [SerializeField] private Image _imageOverheatFill;
+        [SerializeField] private Image _imageButtonAim;
         [SerializeField] private Button _buttonAim;
 
         [Header("SFX")]
@@ -119,11 +121,13 @@ namespace Car
                 {
                     _targetTransform = _turretDefaultAimTransform.position;
                 }
-                Quaternion gunTargetRot = Quaternion.LookRotation(_targetTransform - _turretGun.position);
-                
-                _turretGun.rotation = Quaternion.Slerp(
-                    _turretGun.rotation,
-                    gunTargetRot,
+
+                Vector3 dir = _targetTransform - _turretGun.position;
+                Quaternion targetRot = Quaternion.LookRotation(dir);
+
+                _turretSupport.rotation = Quaternion.Slerp(
+                    _turretSupport.rotation, 
+                    targetRot, 
                     TimeManager.Instance.DeltaTime * _turretRotationSpeed
                 );
                 
@@ -193,6 +197,17 @@ namespace Car
             }
             else
             {
+                _targetTransform = _turretDefaultPosTransform.position;
+                
+                Vector3 dir = _targetTransform - _turretGun.position;
+                Quaternion targetRot = Quaternion.LookRotation(dir);
+
+                _turretSupport.rotation = Quaternion.Slerp(
+                    _turretSupport.rotation, 
+                    targetRot, 
+                    TimeManager.Instance.DeltaTime * _turretRotationSpeed
+                );
+                
                 if (_lineRendererIsActive) DisplayLaser(false, _targetTransform);
             }
             
@@ -215,6 +230,7 @@ namespace Car
             }
             
             _imageOverheatFill.fillAmount = _currentOverheatValue / _maxOverheatValue;
+            _imageButtonAim.color = _isOverheating ? Color.red : Color.white;
             _buttonAim.interactable = !_isOverheating;
         }
         
