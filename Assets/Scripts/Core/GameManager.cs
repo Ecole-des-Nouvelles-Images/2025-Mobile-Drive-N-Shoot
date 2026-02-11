@@ -17,6 +17,9 @@ namespace Core
         public Material[] CurrentIemExhaustPipeMaterials;
         public Material IemMaterial;
         
+        [Header("Settings")]
+        public int StickPos;
+        
         [Header("Material to reset")]
         public Material SeeThroughMaterial;
 

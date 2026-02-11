@@ -44,6 +44,9 @@ namespace Utils.Game
         public static Action OnDroneIsKilled;
         public static Action<float> OnEnemyTakeDamage;
         
+        // Sticks
+        public static Action<int> OnChangedStickPos;
+        
         // Module
         public static Action OnModuleFinishedGeneration;
         
