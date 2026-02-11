@@ -6,7 +6,6 @@ using FMODUnity;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utils.Game;
 

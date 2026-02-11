@@ -1,5 +1,6 @@
 using Core;
 using UnityEngine;
+using UnityEngine.InputSystem.OnScreen;
 using Utils.Game;
 
 namespace __Workspaces.Hugoi.Scripts
@@ -47,6 +48,10 @@ namespace __Workspaces.Hugoi.Scripts
                 _joystickMovement.position = _rightPos;
                 _buttonShoot.position = _leftPos;
             }
+
+            Destroy(_joystickMovement.gameObject.GetComponent<OnScreenStick>());
+            OnScreenStick stick = _joystickMovement.gameObject.AddComponent<OnScreenStick>();
+            stick.controlPath = "<Gamepad>/leftStick";
         }
     }
 }

@@ -34,8 +34,8 @@ namespace __Workspaces.Hugoi.Scripts
         
         private void OnDisable()
         {
-            _buttonLeft.onClick.RemoveListener(() => StickPosition(0));
-            _buttonRight.onClick.RemoveListener(() => StickPosition(1));
+            _buttonLeft.onClick.RemoveAllListeners();
+            _buttonRight.onClick.RemoveAllListeners();
         }
 
         public void StickPosition(int pos)
