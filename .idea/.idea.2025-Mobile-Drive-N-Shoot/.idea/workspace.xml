@@ -7,11 +7,8 @@
     <list default="true" id="e2d1b164-c586-4a39-897a-d761221f2cea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2025-Mobile-Drive-N-Shoot/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Pickup/M_BaseTurret.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Pickup/M_BaseTurret.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/Cinematic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/Cinematic.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Panels/Panel_Settings.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Panels/Panel_Settings.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cinematic/CinematicHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cinematic/CinematicHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/StickPanelHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/StickPanelHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/StickPositionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/__Workspaces/Hugoi/Scripts/StickPositionHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/EnemiesSpawnerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InGameHandlers/EnemiesSpawnerHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +80,10 @@
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
@@ -93,8 +92,10 @@
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\PC\LocalRepo\2025-Mobile-Drive-N-Shoot" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
@@ -179,6 +180,7 @@
       <workItem from="1769090001145" duration="4589000" />
       <workItem from="1770753164349" duration="8699000" />
       <workItem from="1770846183268" duration="2465000" />
+      <workItem from="1770885180275" duration="47000" />
     </task>
     <servers />
   </component>
