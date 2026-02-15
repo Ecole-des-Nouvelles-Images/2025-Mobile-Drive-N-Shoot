@@ -63,6 +63,10 @@ MonoBehaviour:
     m_Key: boost
     m_Metadata:
       m_Items: []
+  - m_Id: 26398440551358464
+    m_Key: joystick
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

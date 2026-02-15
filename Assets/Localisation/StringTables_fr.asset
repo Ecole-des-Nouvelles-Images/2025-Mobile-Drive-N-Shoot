@@ -66,6 +66,10 @@ MonoBehaviour:
     m_Localized: Boost Secouez
     m_Metadata:
       m_Items: []
+  - m_Id: 26398440551358464
+    m_Localized: 'Joystick position :'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
