@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using Core;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utils.Game;
 using Utils.Interfaces;
 
@@ -14,8 +14,12 @@ namespace __Workspaces.Alex.Scripts
 
         [SerializeField] private float _currentHealth;
         
+        [Header("References")]
+        [SerializeField] private List<GameObject> _visuals;
+        
         [Header("VFX")]
         [SerializeField] private ParticleSystem _healVFX;
+        [SerializeField] private ParticleSystem _explosionVFX;
     
         // internal state to avoid triggering the half repeatedly
         private bool _hasTriggeredHalf = false;
@@ -48,6 +52,14 @@ namespace __Workspaces.Alex.Scripts
             {
                 // TODO: explosion VFX and car destruction
                 EventBus.OnGameOver?.Invoke();
+                if (_explosionVFX)
+                {
+                    _explosionVFX.Play();
+                    foreach (var go in _visuals)
+                    {
+                        go.SetActive(false);
+                    }
+                }
             }
             
             // Change material

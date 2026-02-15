@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,11 +32,18 @@ namespace __Workspaces.Alex.Scripts
             float bestDist = Mathf.Infinity;
             foreach (var enemy in EnemiesInSight)
             {
-                float dist = Vector3.Distance(from, enemy.transform.position);
-                if (dist < bestDist)
+                Vector3 direction = enemy.transform.position - from;
+                float distance = direction.magnitude;
+                bool hitSomething = Physics.Raycast(transform.position, direction, distance, LayerMask.GetMask("SeeThrough"));
+
+                if (!hitSomething)
                 {
-                    bestDist = dist;
-                    best = enemy.transform;
+                    float dist = Vector3.Distance(from, enemy.transform.position);
+                    if (dist < bestDist)
+                    {
+                        bestDist = dist;
+                        best = enemy.transform;
+                    }
                 }
             }
 
