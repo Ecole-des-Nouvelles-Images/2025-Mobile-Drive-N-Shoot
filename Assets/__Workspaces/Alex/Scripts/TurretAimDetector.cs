@@ -31,6 +31,9 @@ namespace __Workspaces.Alex.Scripts
             float bestDist = Mathf.Infinity;
             foreach (var enemy in EnemiesInSight)
             {
+                if (Physics.Raycast(transform.position, enemy.transform.position - transform.position,
+                        Mathf.Infinity, LayerMask.GetMask("SeeThrough"))) continue;
+                
                 float dist = Vector3.Distance(from, enemy.transform.position);
                 if (dist < bestDist)
                 {
