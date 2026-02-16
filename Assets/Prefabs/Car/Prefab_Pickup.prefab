@@ -331,6 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarControler
   motorTorque: 1800
   brakeTorque: 2500
+  engineBrakeTorque: 300
   maxSpeed: 10
   baseMaxSpeed: 10
   steeringRange: 25
@@ -346,19 +347,19 @@ MonoBehaviour:
   - {fileID: 7820960878791366980}
   - {fileID: 2610493765176729079}
   - {fileID: 3549254908099652975}
+  _boostVFX: {fileID: 5540144401878414289}
+  _imageSpeedEffect: {fileID: 3877459622863405315}
+  particleMinSpeed: 0.5
+  particleMaxEmission: 90
   boostCooldown: 10
   shakeThreshold: 1.5
   boostDeltaV: 10
   lowPassFilterFactor: 0.1
   _carHealth: {fileID: 2524738207651137503}
   _shieldDuration: 2
-  _imageSpeedEffect: {fileID: 3877459622863405315}
   damagedSpeedFactor: 0.8
   reverseThreshold: -0.4
   _camera: {fileID: 1728030710496205890}
-  particleMinSpeed: 0.5
-  particleMaxEmission: 90
-  _boostVFX: {fileID: 5540144401878414289}
   _engineSound:
     Guid:
       Data1: -1614297975
