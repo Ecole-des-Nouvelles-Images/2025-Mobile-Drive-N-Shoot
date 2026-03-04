@@ -1,0 +1,23 @@
+# ninja log v5
+57	2261	7929523925025730	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	8ab40f504236c2b5
+105	2589	7929523925288611	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	35a83c7dcc54179c
+83	2602	7929523925665572	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	9245160509416b3
+12	2238	7929523924891821	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4e9362e1547d09fd
+129	2606	7929523928711016	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2438e1fbfb59a65
+111	2228	7929523924738061	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ab396ea4b0cd794d
+2229	2724	7929523929980771	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d6510ab71e6240b3
+30	2651	7929523929177251	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	19ddf6def66eacc1
+121	2608	7929523928715975	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	86d0f706becc0b1
+2724	2924	7929523931608763	E:/LocalRepositories/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/415x28f6/obj/arm64-v8a/libswappywrapper.so	21a1e54564d64876
+2651	2883	7929523931425242	E:/LocalRepositories/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/415x28f6/obj/arm64-v8a/libgame.so	dea191595007674
+25	1735	7929528969938961	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	8ab40f504236c2b5
+35	1825	7929528970623448	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ab396ea4b0cd794d
+49	1884	7929528971407121	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	35a83c7dcc54179c
+20	1917	7929528971724560	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4e9362e1547d09fd
+10	1920	7929528971749368	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	9245160509416b3
+1736	2059	7929528973237367	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d6510ab71e6240b3
+16	2183	7929528974383126	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	19ddf6def66eacc1
+2059	2228	7929528974765039	E:/LocalRepositories/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/415x28f6/obj/arm64-v8a/libswappywrapper.so	21a1e54564d64876
+30	2254	7929528975127119	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	86d0f706becc0b1
+56	2284	7929528975424716	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2438e1fbfb59a65
+2284	2413	7929528976726668	E:/LocalRepositories/2025-Mobile-Drive-N-Shoot/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/415x28f6/obj/arm64-v8a/libgame.so	dea191595007674

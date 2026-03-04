@@ -1,400 +1,319 @@
 using System.Collections;
 using System.Collections.Generic;
 using __Workspaces.Alex.Scripts;
-using Core;
+using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 using FMOD.Studio;
 using FMODUnity;
-using UnityEngine;
-using UnityEngine.UI;
+using Core;
 using Utils.Game;
 
 namespace Car
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class CarControler : MonoBehaviour
     {
         [Header("Car Controls")]
         public float motorTorque = 2000f;
         public float brakeTorque = 2000f;
+        public float engineBrakeTorque = 500f;
         public float maxSpeed = 10f;
         public float baseMaxSpeed = 10f;
         public float steeringRange = 30f;
         public float steeringRangeAtMaxSpeed = 10f;
         public float centreOfGravityOffset = -1f;
-    
-        [Header("Visual")]
+
+        [Header("Visual & VFX")]
         [SerializeField] private List<MeshRenderer> _pickupMeshRenderers;
         [SerializeField] private List<MeshRenderer> _turretMeshRenderers = new();
-
-        [Header("Boost")]
-        public float boostCooldown = 10f;         // cooldown between boosts (seconds)
-        public float shakeThreshold = 2.0f;       // threshold for detecting a shake (high-frequency component)
-        public float boostDeltaV = 5f;            // desired instantaneous delta-V in m/s (VelocityChange)
-        public float lowPassFilterFactor = 0.1f;  // smoothing factor for low-pass filter on accelerometer
-        [SerializeField] private CarHealth _carHealth;   // Reference to CarHealth component
-        [SerializeField] private float _shieldDuration = 2f; // Duration of shield after boost
-        [SerializeField] private Image _imageSpeedEffect;
-
-        [Header("Damage behavior")]
-        public float damagedSpeedFactor = 0.8f;
-
-        [Header("Input Thresholds")]
-        public float reverseThreshold = -0.4f;  // Joystick must go below this to trigger reverse
-    
-        [Header("Cinemachine Camera")]
-        public GameObject _camera;
-
-        [Header("Wheel VFX")] 
-        public float particleMinSpeed = 0.5f; // Minimal speed to activate wheel particles
-        public float particleMaxEmission = 30f; // Max 
-
-        [Header("Boost VFX")]
         [SerializeField] private ParticleSystem _boostVFX;
-        
-        [Header("SFX")] 
+        [SerializeField] private Image _imageSpeedEffect;
+        public float particleMinSpeed = 0.5f;
+        public float particleMaxEmission = 30f;
+
+        [Header("Boost Settings")]
+        public float boostCooldown = 10f;
+        public float shakeThreshold = 2.0f;
+        public float boostDeltaV = 5f;
+        public float lowPassFilterFactor = 0.1f;
+        [SerializeField] private CarHealth _carHealth;
+        [SerializeField] private float _shieldDuration = 2f;
+
+        [Header("Damage & Input")]
+        public float damagedSpeedFactor = 0.8f;
+        public float reverseThreshold = -0.4f;
+        private const float IDLE_THRESHOLD = 0.05f; // Seuil pour considérer le joystick au repos
+
+        [Header("References")]
+        public GameObject _camera;
         [SerializeField] private EventReference _engineSound;
         [SerializeField] private EventReference _boostSound;
 
-        private EventInstance _engineInstance;
-    
-    
-        private WheelControl[] _wheels;
+        // Internal State
         private Rigidbody _rigidBody;
+        private WheelControl[] _wheels;
         private CarInputActions _carControls;
-
-        // Cooldown state
-        private float _nextBoostTime;
-
-        // Low-pass filtered acceleration for shake detection
-        private Vector3 _lowPassAcceleration = Vector3.zero;
-
-        // Saved velocity for pause system
-        private Vector3 _savedVelocity;
-        private Vector3 _savedAngularVelocity;
-        private bool _isPaused = false;
-    
-        // Damage state
-        private bool _isDamaged = false;
-        
-        // Coroutine handle for shield timeout
+        private EventInstance _engineInstance;
         private Coroutine _shieldCoroutine;
-    
-    
+        
+        private Vector3 _lowPassAcceleration = Vector3.zero;
+        private Vector3 _savedVelocity, _savedAngularVelocity;
+        private float _nextBoostTime;
+        private bool _isPaused, _isDamaged;
+
+        #region Lifecycle
+
         private void Awake()
         {
             GameManager.Instance.Player = gameObject;
             _carControls = new CarInputActions();
+            _rigidBody = GetComponent<Rigidbody>();
+            _wheels = GetComponentsInChildren<WheelControl>();
         }
 
         private void OnEnable()
         {
             _carControls.Enable();
-            EventBus.OnGameOver += HandleGamePause;
-            EventBus.OnGamePause += HandleGamePause;
-            EventBus.OnGameResume += HandleGameResume;
-            EventBus.OnPlayerAtHalfHealth += DamageVehicle;
-            EventBus.OnPlayerRecoveredFromHalf += RestoreVehicle;
+            ToggleEvents(true);
         }
 
         private void OnDisable()
         {
             _carControls.Disable();
-            EventBus.OnGameOver -= HandleGamePause;
-            EventBus.OnGamePause -= HandleGamePause;
-            EventBus.OnGameResume -= HandleGameResume;
-            EventBus.OnPlayerAtHalfHealth -= DamageVehicle;
-            EventBus.OnPlayerRecoveredFromHalf -= RestoreVehicle;
+            ToggleEvents(false);
         }
 
-        void Start()
+        private void Start()
         {
-            _rigidBody = GetComponent<Rigidbody>();
-
-            // Adjust center of mass to improve stability and prevent rolling
-            Vector3 centerOfMass = _rigidBody.centerOfMass;
-            centerOfMass.y += centreOfGravityOffset;
-            _rigidBody.centerOfMass = centerOfMass;
-
-            // Get all wheel components attached to the car
-            _wheels = GetComponentsInChildren<WheelControl>();
-
-            // Initialize accelerometer filter and cooldown so boost can be used immediately
+            _rigidBody.centerOfMass += new Vector3(0, centreOfGravityOffset, 0);
             _lowPassAcceleration = Input.acceleration;
-            // _nextBoostTime = TimeManager.Instance.Time;
-        
-            // Skin
-            foreach (var meshRenderers in _pickupMeshRenderers)
-            {
-                meshRenderers.materials = GameManager.Instance.CurrentCarMaterials;
-            }
-            foreach (var meshRenderers in _turretMeshRenderers)
-            {
-                meshRenderers.materials = GameManager.Instance.CurrentTurretMaterials;
-            }
             
-            // Start engine sound
-            if (_engineInstance.isValid())
-            {
-                _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                _engineInstance.release();
-            }
-
-            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: false, follow: gameObject);
+            InitializeSkins();
+            InitializeAudio();
         }
 
-        void Update()
-        {
-            // Read raw acceleration and apply a simple low-pass filter to remove gravity/slow changes.
-            Vector3 currentAccel = Input.acceleration;
-            _lowPassAcceleration = Vector3.Lerp(_lowPassAcceleration, currentAccel, lowPassFilterFactor);
-
-            // High-frequency component (shake) = raw - low-pass
-            Vector3 highFreq = currentAccel - _lowPassAcceleration;
-
-            // If the high-frequency magnitude exceeds the threshold and cooldown has passed, trigger boost immediately
-            // float now = TimeManager.Instance.Time;
-            if (_nextBoostTime <= boostCooldown)
-            {
-                _nextBoostTime += TimeManager.Instance.DeltaTime;
-                _nextBoostTime = Mathf.Clamp(_nextBoostTime, 0f, boostCooldown);
-                EventBus.OnPlayerBoostCooldown?.Invoke(_nextBoostTime, boostCooldown);
-            }
-            if (highFreq.magnitude > shakeThreshold && _nextBoostTime >= boostCooldown)
-            {
-                ApplyVelocityChangeBoost();
-            }
-            
-            // Sound gestion
-            // Normalize speed to 0–1 for FMOD
-            float speed01 = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 20f);
-
-            if (_engineInstance.isValid())
-                _engineInstance.setParameterByName("RPM", speed01);
-
-#if UNITY_EDITOR || UNITY_STANDALONE
-            // Editor / standalone shortcut for testing: press B to trigger boost
-            if (Input.GetKeyDown(KeyCode.B) && _nextBoostTime >= boostCooldown)
-            {
-                ApplyVelocityChangeBoost();
-            }
-#endif
-        }
-
-        void FixedUpdate()
+        private void Update()
         {
             if (_isPaused) return;
-            // --- Input ---
-            Vector2 inputVector = _carControls.CarControls.Move.ReadValue<Vector2>();
-            float vInput = inputVector.y;
-            float hInput = inputVector.x;
 
-            // --- Reverse threshold handling ---
-            float effectiveVInput = vInput;
+            HandleShakeDetection();
+            UpdateEngineAudio();
+            HandleEditorInputs();
+        }
 
-            // Only activate reverse if joystick pushed enough
-            if (vInput < 0 && vInput > reverseThreshold)
-            {
-                effectiveVInput = 0f; // allow turning but no reverse motion
-            }
+        private void FixedUpdate()
+        {
+            if (_isPaused) return;
 
-            // --- Speed & steering logic ---
+            HandlePhysics();
+            ApplySpeedLimits();
+            UpdateWheelVFX();
+        }
+
+        #endregion
+
+        #region Movement Logic
+
+        private void HandlePhysics()
+        {
+            Vector2 input = _carControls.CarControls.Move.ReadValue<Vector2>();
             float forwardSpeed = Vector3.Dot(transform.forward, _rigidBody.linearVelocity);
             float speedFactor = Mathf.InverseLerp(0, maxSpeed, Mathf.Abs(forwardSpeed));
 
-            float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
-            float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
+            // Calcul du couple et de la direction
+            float currentMotor = Mathf.Lerp(motorTorque, 0, speedFactor);
+            float currentSteer = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
-            bool isAccelerating = Mathf.Sign(effectiveVInput) == Mathf.Sign(forwardSpeed);
+            // Détermination de l'état (Accélération, Frein manuel ou Frein moteur)
+            bool isIdle = Mathf.Abs(input.y) < IDLE_THRESHOLD;
+            bool isBraking = !isIdle && (Mathf.Sign(input.y) != Mathf.Sign(forwardSpeed) && Mathf.Abs(forwardSpeed) > 0.1f);
 
             foreach (var wheel in _wheels)
             {
                 if (wheel.steerable)
+                    wheel.WheelCollider.steerAngle = input.x * currentSteer;
+
+                if (isIdle) 
                 {
-                    wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
+                    // --- FREIN MOTEUR ---
+                    wheel.WheelCollider.motorTorque = 0;
+                    wheel.WheelCollider.brakeTorque = engineBrakeTorque;
                 }
-
-                if (isAccelerating)
+                else if (isBraking)
                 {
-                    if (wheel.motorized)
-                    {
-                        wheel.WheelCollider.motorTorque = effectiveVInput * currentMotorTorque;
-                    }
-
-                    wheel.WheelCollider.brakeTorque = 0f;
+                    // Freinage actif
+                    wheel.WheelCollider.motorTorque = 0;
+                    wheel.WheelCollider.brakeTorque = Mathf.Abs(input.y) * brakeTorque;
                 }
                 else
                 {
-                    wheel.WheelCollider.motorTorque = 0f;
-                    wheel.WheelCollider.brakeTorque = Mathf.Abs(effectiveVInput) * brakeTorque;
-                }
-            }
-
-            // --- Speed decay after boost ---
-            float currentSpeed = _rigidBody.linearVelocity.magnitude;
-
-            if (currentSpeed > maxSpeed)
-            {
-                float newSpeed = Mathf.Lerp(currentSpeed, maxSpeed, 0.01f);
-                _rigidBody.linearVelocity = _rigidBody.linearVelocity.normalized * newSpeed;
-            }
-        
-            // --- Wheel particle effects ---
-            foreach (var wheel in _wheels)
-            {
-                if (wheel.wheelParticles != null)
-                {
-                    var emission = wheel.wheelParticles.emission;
-
-                    if (currentSpeed > particleMinSpeed)
-                    {
-                        // Enable emission proportionally to speed
-                        emission.rateOverTime = Mathf.Lerp(0, particleMaxEmission, currentSpeed / maxSpeed);
-                        if(!wheel.wheelParticles.isPlaying) wheel.wheelParticles.Play();
-                    }
-                    else
-                    {
-                        // Disable emission when slow or stopped
-                        emission.rateOverTime = 0f;
-                        if (wheel.wheelParticles.isPlaying) wheel.wheelParticles.Stop();
-                    }
+                    // Propulsion
+                    float effectiveInput = (input.y < 0 && input.y > reverseThreshold) ? 0 : input.y;
+                    if (wheel.motorized) wheel.WheelCollider.motorTorque = effectiveInput * currentMotor;
+                    wheel.WheelCollider.brakeTorque = 0;
                 }
             }
         }
 
- 
-    
-        // Apply an immediate velocity change (VelocityChange) and set the cooldown
+        private void ApplySpeedLimits()
+        {
+            float currentSpeed = _rigidBody.linearVelocity.magnitude;
+            if (currentSpeed > maxSpeed)
+            {
+                _rigidBody.linearVelocity = Vector3.Lerp(_rigidBody.linearVelocity, _rigidBody.linearVelocity.normalized * maxSpeed, 0.05f);
+            }
+        }
+
+        #endregion
+
+        #region Boost & Shake Detection
+
+        private void HandleShakeDetection()
+        {
+            if (_nextBoostTime < boostCooldown)
+            {
+                _nextBoostTime = Mathf.Clamp(_nextBoostTime + TimeManager.Instance.DeltaTime, 0f, boostCooldown);
+                EventBus.OnPlayerBoostCooldown?.Invoke(_nextBoostTime, boostCooldown);
+            }
+
+            Vector3 currentAccel = Input.acceleration;
+            _lowPassAcceleration = Vector3.Lerp(_lowPassAcceleration, currentAccel, lowPassFilterFactor);
+            
+            if ((currentAccel - _lowPassAcceleration).magnitude > shakeThreshold && _nextBoostTime >= boostCooldown)
+            {
+                ApplyVelocityChangeBoost();
+            }
+        }
+
         private void ApplyVelocityChangeBoost()
         {
-            // Play boost sound
             AudioManager.Instance.Play(_boostSound, follow: gameObject);
-            // Play boost VFX
             if (_boostVFX) _boostVFX.Play();
             
-            
             _nextBoostTime = 0f;
-
-            // Apply an immediate velocity change in the forward direction (mass-independent)
             _rigidBody.AddForce(transform.forward * boostDeltaV, ForceMode.VelocityChange);
 
-
             _carHealth.IsShieldActive = true;
-            if (_shieldCoroutine != null)
-            {
-                StopCoroutine(_shieldCoroutine);
-            }
-            _shieldCoroutine = StartCoroutine(ShieldTimeOutCoroutine());
+            if (_shieldCoroutine != null) StopCoroutine(_shieldCoroutine);
+            _shieldCoroutine = StartCoroutine(ShieldRoutine());
 
-
-            // Change Material
-            float targetValue = 0.3f;
-            DOTween.To(
-                () => 0f,
-                value =>
-                {
-                    GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
-                    GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
-                    GameManager.Instance.CurrentIemExhaustPipeMaterials[0].SetFloat("_ResistanceProgress", value);
-                },
-                targetValue,
-                0.5f
-            );
-            
-            // Active Speed Effect
+            SetMaterialsProgress(0.3f, 0.5f);
             _imageSpeedEffect.DOFade(0.5f, 0.5f);
         }
 
-        private IEnumerator ShieldTimeOutCoroutine()
+        private IEnumerator ShieldRoutine()
         {
-            float elapsed = 0f;
-            while (elapsed < _shieldDuration)
-            {
-                elapsed += TimeManager.Instance.DeltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(_shieldDuration);
             _carHealth.IsShieldActive = false;
+            SetMaterialsProgress(0f, 0.75f);
+            _imageSpeedEffect.DOFade(0f, 0.2f);
             _shieldCoroutine = null;
-            
-            // Change Color
-            float targetValue = 0f;
-            DOTween.To(
-                () => 0.6f,
-                value =>
+        }
+
+        #endregion
+
+        #region Visuals & Audio
+
+        private void InitializeSkins()
+        {
+            foreach (var r in _pickupMeshRenderers) r.materials = GameManager.Instance.CurrentCarMaterials;
+            foreach (var r in _turretMeshRenderers) r.materials = GameManager.Instance.CurrentTurretMaterials;
+        }
+
+        private void InitializeAudio()
+        {
+            if (_engineInstance.isValid()) { _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); _engineInstance.release(); }
+            _engineInstance = AudioManager.Instance.Play(_engineSound, loop: false, follow: gameObject);
+        }
+
+        private void UpdateEngineAudio()
+        {
+            if (_engineInstance.isValid())
+            {
+                float rpm = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 20f);
+                _engineInstance.setParameterByName("RPM", rpm);
+            }
+        }
+
+        private void UpdateWheelVFX()
+        {
+            float speed = _rigidBody.linearVelocity.magnitude;
+            foreach (var wheel in _wheels)
+            {
+                if (wheel.wheelParticles == null) continue;
+                var emission = wheel.wheelParticles.emission;
+
+                if (speed > particleMinSpeed)
                 {
+                    emission.rateOverTime = Mathf.Lerp(0, particleMaxEmission, speed / maxSpeed);
+                    if (!wheel.wheelParticles.isPlaying) wheel.wheelParticles.Play();
+                }
+                else if (wheel.wheelParticles.isPlaying) wheel.wheelParticles.Stop();
+            }
+        }
+
+        private void SetMaterialsProgress(float target, float duration)
+        {
+            DOTween.To(() => GameManager.Instance.CurrentCarMaterials[0].GetFloat("_ResistanceProgress"),
+                value => {
                     GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_ResistanceProgress", value);
                     GameManager.Instance.CurrentCarMaterials[0].SetFloat("_ResistanceProgress", value);
                     GameManager.Instance.CurrentIemExhaustPipeMaterials[0].SetFloat("_ResistanceProgress", value);
-                },
-                targetValue,
-                0.75f
-            );
-            
-            // Disable Speed Effect
-            _imageSpeedEffect.DOFade(0f, 0.2f);
+                }, target, duration);
+        }
+
+        #endregion
+
+        #region Events & Pause
+
+        private void ToggleEvents(bool subscribe)
+        {
+            if (subscribe) {
+                EventBus.OnGameOver += HandleGamePause; EventBus.OnGamePause += HandleGamePause;
+                EventBus.OnGameResume += HandleGameResume; EventBus.OnPlayerAtHalfHealth += DamageVehicle;
+                EventBus.OnPlayerRecoveredFromHalf += RestoreVehicle;
+            } else {
+                EventBus.OnGameOver -= HandleGamePause; EventBus.OnGamePause -= HandleGamePause;
+                EventBus.OnGameResume -= HandleGameResume; EventBus.OnPlayerAtHalfHealth -= DamageVehicle;
+                EventBus.OnPlayerRecoveredFromHalf -= RestoreVehicle;
+            }
         }
 
         private void HandleGamePause()
         {
-            // Save Velocity
             _savedVelocity = _rigidBody.linearVelocity;
             _savedAngularVelocity = _rigidBody.angularVelocity;
-        
-            // Stop instantly
-            _rigidBody.linearVelocity = Vector3.zero;
-            _rigidBody.angularVelocity = Vector3.zero;
-        
-            // Disable wheel motion
-            foreach (var wheel in _wheels)
-            {
-                wheel.WheelCollider.motorTorque = 0f;
-                wheel.WheelCollider.brakeTorque = brakeTorque;
-            }
-        
-            // Disable Camera to avoid its movement
+            _rigidBody.linearVelocity = _rigidBody.angularVelocity = Vector3.zero;
+            foreach (var w in _wheels) w.WheelCollider.brakeTorque = brakeTorque;
             _camera.SetActive(false);
-        
             _isPaused = true;
         }
 
         private void HandleGameResume()
         {
-            // Restore previous velocity
             _rigidBody.linearVelocity = _savedVelocity;
             _rigidBody.angularVelocity = _savedAngularVelocity;
-        
-            // Release brakes
-            foreach (var wheel in _wheels)
-            {
-                wheel.WheelCollider.brakeTorque = 0f;
-            }
-            // Active camera
+            foreach (var w in _wheels) w.WheelCollider.brakeTorque = 0f;
             _camera.SetActive(true);
             _isPaused = false;
         }
 
-        private void DamageVehicle()
+        private void DamageVehicle() { if (_isDamaged) return; _isDamaged = true; maxSpeed = baseMaxSpeed * damagedSpeedFactor; }
+        private void RestoreVehicle() { if (!_isDamaged) return; _isDamaged = false; maxSpeed = baseMaxSpeed; }
+
+        private void HandleEditorInputs()
         {
-            if (_isDamaged) return;
-            _isDamaged = true;
-            // Reduce maxSpeed
-            maxSpeed = baseMaxSpeed * damagedSpeedFactor;
+#if UNITY_EDITOR || UNITY_STANDALONE
+            if (Input.GetKeyDown(KeyCode.B) && _nextBoostTime >= boostCooldown) ApplyVelocityChangeBoost();
+#endif
         }
 
-        private void RestoreVehicle()
-        {
-            if (!_isDamaged) return;
-            _isDamaged = false;
-            // Restore maxSpeed
-            maxSpeed = baseMaxSpeed;
-        }
         private void OnDestroy()
         {
-            if (_engineInstance.isValid())
-            {
-                _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                _engineInstance.release();
-                _engineInstance.clearHandle();
-            }
+            if (_engineInstance.isValid()) { _engineInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); _engineInstance.release(); }
         }
+
+        #endregion
     }
 }
