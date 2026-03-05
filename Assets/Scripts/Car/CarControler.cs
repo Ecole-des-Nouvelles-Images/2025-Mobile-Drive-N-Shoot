@@ -35,7 +35,7 @@ namespace Car
         [Header("Boost Settings")]
         public float boostCooldown = 10f;
         public float shakeThreshold = 2.0f;
-        public float boostDeltaV = 5f;
+        public float boostMaxSpeedMultiplier = 2f;
         public float lowPassFilterFactor = 0.1f;
         [SerializeField] private CarHealth _carHealth;
         [SerializeField] private float _shieldDuration = 2f;
@@ -43,14 +43,13 @@ namespace Car
         [Header("Damage & Input")]
         public float damagedSpeedFactor = 0.8f;
         public float reverseThreshold = -0.4f;
-        private const float IDLE_THRESHOLD = 0.05f; // Seuil pour considérer le joystick au repos
+        private const float IDLE_THRESHOLD = 0.05f;
 
         [Header("References")]
         public GameObject _camera;
         [SerializeField] private EventReference _engineSound;
         [SerializeField] private EventReference _boostSound;
 
-        // Internal State
         private Rigidbody _rigidBody;
         private WheelControl[] _wheels;
         private CarInputActions _carControls;
@@ -61,6 +60,7 @@ namespace Car
         private Vector3 _savedVelocity, _savedAngularVelocity;
         private float _nextBoostTime;
         private bool _isPaused, _isDamaged;
+        private bool _isBoosting; // Flag pour le boost
 
         #region Lifecycle
 
@@ -119,13 +119,12 @@ namespace Car
         {
             Vector2 input = _carControls.CarControls.Move.ReadValue<Vector2>();
             float forwardSpeed = Vector3.Dot(transform.forward, _rigidBody.linearVelocity);
-            float speedFactor = Mathf.InverseLerp(0, maxSpeed, Mathf.Abs(forwardSpeed));
+            float currentLimit = _isBoosting ? maxSpeed * boostMaxSpeedMultiplier : maxSpeed;
+            float speedFactor = Mathf.InverseLerp(0, currentLimit, Mathf.Abs(forwardSpeed));
 
-            // Calcul du couple et de la direction
             float currentMotor = Mathf.Lerp(motorTorque, 0, speedFactor);
             float currentSteer = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
-            // Détermination de l'état (Accélération, Frein manuel ou Frein moteur)
             bool isIdle = Mathf.Abs(input.y) < IDLE_THRESHOLD;
             bool isBraking = !isIdle && (Mathf.Sign(input.y) != Mathf.Sign(forwardSpeed) && Mathf.Abs(forwardSpeed) > 0.1f);
 
@@ -136,19 +135,16 @@ namespace Car
 
                 if (isIdle) 
                 {
-                    // --- FREIN MOTEUR ---
                     wheel.WheelCollider.motorTorque = 0;
                     wheel.WheelCollider.brakeTorque = engineBrakeTorque;
                 }
                 else if (isBraking)
                 {
-                    // Freinage actif
                     wheel.WheelCollider.motorTorque = 0;
                     wheel.WheelCollider.brakeTorque = Mathf.Abs(input.y) * brakeTorque;
                 }
                 else
                 {
-                    // Propulsion
                     float effectiveInput = (input.y < 0 && input.y > reverseThreshold) ? 0 : input.y;
                     if (wheel.motorized) wheel.WheelCollider.motorTorque = effectiveInput * currentMotor;
                     wheel.WheelCollider.brakeTorque = 0;
@@ -158,10 +154,13 @@ namespace Car
 
         private void ApplySpeedLimits()
         {
+            float currentMax = _isBoosting ? maxSpeed * boostMaxSpeedMultiplier : maxSpeed;
             float currentSpeed = _rigidBody.linearVelocity.magnitude;
-            if (currentSpeed > maxSpeed)
+            
+            if (currentSpeed > currentMax)
             {
-                _rigidBody.linearVelocity = Vector3.Lerp(_rigidBody.linearVelocity, _rigidBody.linearVelocity.normalized * maxSpeed, 0.05f);
+                // Freinage plus doux si on dépasse la limite boostée ou normale
+                _rigidBody.linearVelocity = Vector3.Lerp(_rigidBody.linearVelocity, _rigidBody.linearVelocity.normalized * currentMax, 0.05f);
             }
         }
 
@@ -188,26 +187,30 @@ namespace Car
 
         private void ApplyVelocityChangeBoost()
         {
+            _nextBoostTime = 0f;
+            _isBoosting = true; // Active le flag de boost
+
             AudioManager.Instance.Play(_boostSound, follow: gameObject);
             if (_boostVFX) _boostVFX.Play();
             
-            _nextBoostTime = 0f;
-            _rigidBody.AddForce(transform.forward * boostDeltaV, ForceMode.VelocityChange);
+            // On force la vélocité vers l'avant de façon instantanée
+            _rigidBody.linearVelocity = transform.forward * (maxSpeed * boostMaxSpeedMultiplier);
 
             _carHealth.IsShieldActive = true;
             if (_shieldCoroutine != null) StopCoroutine(_shieldCoroutine);
             _shieldCoroutine = StartCoroutine(ShieldRoutine());
 
             SetMaterialsProgress(0.3f, 0.5f);
-            _imageSpeedEffect.DOFade(0.5f, 0.5f);
+            _imageSpeedEffect.DOFade(0.5f, 0.2f); // Fade plus rapide
         }
 
         private IEnumerator ShieldRoutine()
         {
             yield return new WaitForSeconds(_shieldDuration);
+            _isBoosting = false; // Désactive la limite de vitesse étendue
             _carHealth.IsShieldActive = false;
             SetMaterialsProgress(0f, 0.75f);
-            _imageSpeedEffect.DOFade(0f, 0.2f);
+            _imageSpeedEffect.DOFade(0f, 0.5f);
             _shieldCoroutine = null;
         }
 
@@ -231,7 +234,7 @@ namespace Car
         {
             if (_engineInstance.isValid())
             {
-                float rpm = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / 20f);
+                float rpm = Mathf.Clamp01(_rigidBody.linearVelocity.magnitude / (maxSpeed * 1.5f));
                 _engineInstance.setParameterByName("RPM", rpm);
             }
         }
