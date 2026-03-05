@@ -20,6 +20,12 @@ namespace InGameHandlers
             for (int i = 0; i < _splineEnemies.Length; i++)
             {
                 int density = Mathf.RoundToInt(Mathf.Log10(difficulty) * _difficultyScaling);
+                
+                if (density < 1)
+                {
+                    density = 1;
+                }
+                
                 _splineEnemies[i].SetDensity(density);
             }
         }
