@@ -353,7 +353,7 @@ MonoBehaviour:
   particleMaxEmission: 90
   boostCooldown: 10
   shakeThreshold: 1.5
-  boostDeltaV: 10
+  boostMaxSpeedMultiplier: 1.8
   lowPassFilterFactor: 0.1
   _carHealth: {fileID: 2524738207651137503}
   _shieldDuration: 2
