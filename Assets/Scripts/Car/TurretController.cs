@@ -49,7 +49,7 @@ namespace Car
         [SerializeField] private ParticleSystem _overheatVFX;
         [SerializeField] private ParticleSystem _bulletVFX;
         
-        private CarInputActions _carInputActions;
+        // private CarInputActions _carInputActions;
         
         [Header("DEBUG")]
         // States
@@ -68,26 +68,26 @@ namespace Car
         
         private void Awake()
         {
-            _carInputActions = new CarInputActions();
+            // _carInputActions = new CarInputActions();
             
             // Debug
             TimeManager.Instance.Resume();
         }
 
-        private void OnEnable()
-        {
-            _carInputActions.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _carInputActions.Disable();
-        }
+        // private void OnEnable()
+        // {
+        //     _carInputActions.Enable();
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     _carInputActions.Disable();
+        // }
 
         private void Update()
         {
-            float input = _carInputActions.CarControls.Aim.ReadValue<float>();
-            _isAiming = input > 0f;
+            // float input = _carInputActions.CarControls.Aim.ReadValue<float>();
+            // _isAiming = input > 0f;
             
             // NO OVERHEAT TIMER
             if (_noOverheatActive)

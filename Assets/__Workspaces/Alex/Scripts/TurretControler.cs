@@ -71,7 +71,7 @@ namespace __Workspaces.Alex.Scripts
 
         void Update()
         {
-            Vector2 input = _carInputActions.CarControls.Aim.ReadValue<Vector2>();
+            Vector2 input = _carInputActions.CarControls.Move.ReadValue<Vector2>();
             bool isAiming = input.sqrMagnitude > 0f;
             float dt = TimeManager.Instance.DeltaTime;
 

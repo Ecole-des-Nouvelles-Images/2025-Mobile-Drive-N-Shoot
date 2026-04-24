@@ -90,21 +90,84 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""CarControls"",
-            ""id"": ""48e53b9c-2d8f-4901-92b5-35433d488560"",
+            ""id"": ""603bc589-b0ca-4d4b-b418-40354579038a"",
             ""actions"": [
                 {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""c483daf5-5fe0-4da1-be1b-de8dbaad7592"",
+                    ""id"": ""1553c1ae-4673-4092-adc4-8d73cb58e184"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Aim"",
+                    ""name"": ""Fire"",
                     ""type"": ""Button"",
-                    ""id"": ""b8c505b9-f804-411e-a3fb-6406ce09afd6"",
+                    ""id"": ""80c53501-17ad-4469-b0ce-822707fda769"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemOne"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ff48eb2-f94c-44eb-ae85-b47c00eb30c0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemTwo"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f38d2e0-240f-45c4-ad2a-1744c57aa3f9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemThree"",
+                    ""type"": ""Button"",
+                    ""id"": ""f280d275-5f4f-4b03-b13c-d0cb4a5ad575"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Accelerate"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b57dc0a-c5a4-4d2a-8b38-2112d878223a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Backward"",
+                    ""type"": ""Button"",
+                    ""id"": ""dcd67de3-79d0-42fb-a1bd-080b20fea0a0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Boost"",
+                    ""type"": ""Button"",
+                    ""id"": ""5033dec7-1173-4873-a078-30bb88f6cec0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb844084-31a2-44fe-8330-95d8e2716fe4"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -114,23 +177,100 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""cc9f96cc-1eed-45d4-8f29-a053f56bf1f8"",
+                    ""id"": ""83e1e4a2-a7d2-40c1-8b47-d30b61b1078f"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""87583e92-82fa-4931-932e-980c2bbf137f"",
+                    ""id"": ""d6fdca83-836a-4862-a3e9-f9a63249cd53"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cf5003d-d061-4b09-8679-8404f0b81235"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ItemThree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e1a58db-27f3-414a-9dd9-06f4380054de"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ItemOne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3124b288-c99e-411b-8b12-db2da7de27b7"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ItemTwo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f81e3bb2-2a16-4991-b8ce-6c2280d7c806"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cab12ac1-8764-4b8f-be9a-08c4d8adf447"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Backward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f6c066e-4246-46ec-aed8-33fd8ec77e79"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b8ffc51-c445-4abb-8038-806ed171c335"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -142,7 +282,14 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
         // CarControls
         m_CarControls = asset.FindActionMap("CarControls", throwIfNotFound: true);
         m_CarControls_Move = m_CarControls.FindAction("Move", throwIfNotFound: true);
-        m_CarControls_Aim = m_CarControls.FindAction("Aim", throwIfNotFound: true);
+        m_CarControls_Fire = m_CarControls.FindAction("Fire", throwIfNotFound: true);
+        m_CarControls_ItemOne = m_CarControls.FindAction("ItemOne", throwIfNotFound: true);
+        m_CarControls_ItemTwo = m_CarControls.FindAction("ItemTwo", throwIfNotFound: true);
+        m_CarControls_ItemThree = m_CarControls.FindAction("ItemThree", throwIfNotFound: true);
+        m_CarControls_Accelerate = m_CarControls.FindAction("Accelerate", throwIfNotFound: true);
+        m_CarControls_Backward = m_CarControls.FindAction("Backward", throwIfNotFound: true);
+        m_CarControls_Boost = m_CarControls.FindAction("Boost", throwIfNotFound: true);
+        m_CarControls_Start = m_CarControls.FindAction("Start", throwIfNotFound: true);
     }
 
     ~@CarInputActions()
@@ -224,7 +371,14 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_CarControls;
     private List<ICarControlsActions> m_CarControlsActionsCallbackInterfaces = new List<ICarControlsActions>();
     private readonly InputAction m_CarControls_Move;
-    private readonly InputAction m_CarControls_Aim;
+    private readonly InputAction m_CarControls_Fire;
+    private readonly InputAction m_CarControls_ItemOne;
+    private readonly InputAction m_CarControls_ItemTwo;
+    private readonly InputAction m_CarControls_ItemThree;
+    private readonly InputAction m_CarControls_Accelerate;
+    private readonly InputAction m_CarControls_Backward;
+    private readonly InputAction m_CarControls_Boost;
+    private readonly InputAction m_CarControls_Start;
     /// <summary>
     /// Provides access to input actions defined in input action map "CarControls".
     /// </summary>
@@ -241,9 +395,37 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Move => m_Wrapper.m_CarControls_Move;
         /// <summary>
-        /// Provides access to the underlying input action "CarControls/Aim".
+        /// Provides access to the underlying input action "CarControls/Fire".
         /// </summary>
-        public InputAction @Aim => m_Wrapper.m_CarControls_Aim;
+        public InputAction @Fire => m_Wrapper.m_CarControls_Fire;
+        /// <summary>
+        /// Provides access to the underlying input action "CarControls/ItemOne".
+        /// </summary>
+        public InputAction @ItemOne => m_Wrapper.m_CarControls_ItemOne;
+        /// <summary>
+        /// Provides access to the underlying input action "CarControls/ItemTwo".
+        /// </summary>
+        public InputAction @ItemTwo => m_Wrapper.m_CarControls_ItemTwo;
+        /// <summary>
+        /// Provides access to the underlying input action "CarControls/ItemThree".
+        /// </summary>
+        public InputAction @ItemThree => m_Wrapper.m_CarControls_ItemThree;
+        /// <summary>
+        /// Provides access to the underlying input action "CarControls/Accelerate".
+        /// </summary>
+        public InputAction @Accelerate => m_Wrapper.m_CarControls_Accelerate;
+        /// <summary>
+        /// Provides access to the underlying input action "CarControls/Backward".
+        /// </summary>
+        public InputAction @Backward => m_Wrapper.m_CarControls_Backward;
+        /// <summary>
+        /// Provides access to the underlying input action "CarControls/Boost".
+        /// </summary>
+        public InputAction @Boost => m_Wrapper.m_CarControls_Boost;
+        /// <summary>
+        /// Provides access to the underlying input action "CarControls/Start".
+        /// </summary>
+        public InputAction @Start => m_Wrapper.m_CarControls_Start;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -273,9 +455,30 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Aim.started += instance.OnAim;
-            @Aim.performed += instance.OnAim;
-            @Aim.canceled += instance.OnAim;
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
+            @ItemOne.started += instance.OnItemOne;
+            @ItemOne.performed += instance.OnItemOne;
+            @ItemOne.canceled += instance.OnItemOne;
+            @ItemTwo.started += instance.OnItemTwo;
+            @ItemTwo.performed += instance.OnItemTwo;
+            @ItemTwo.canceled += instance.OnItemTwo;
+            @ItemThree.started += instance.OnItemThree;
+            @ItemThree.performed += instance.OnItemThree;
+            @ItemThree.canceled += instance.OnItemThree;
+            @Accelerate.started += instance.OnAccelerate;
+            @Accelerate.performed += instance.OnAccelerate;
+            @Accelerate.canceled += instance.OnAccelerate;
+            @Backward.started += instance.OnBackward;
+            @Backward.performed += instance.OnBackward;
+            @Backward.canceled += instance.OnBackward;
+            @Boost.started += instance.OnBoost;
+            @Boost.performed += instance.OnBoost;
+            @Boost.canceled += instance.OnBoost;
+            @Start.started += instance.OnStart;
+            @Start.performed += instance.OnStart;
+            @Start.canceled += instance.OnStart;
         }
 
         /// <summary>
@@ -290,9 +493,30 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Aim.started -= instance.OnAim;
-            @Aim.performed -= instance.OnAim;
-            @Aim.canceled -= instance.OnAim;
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
+            @ItemOne.started -= instance.OnItemOne;
+            @ItemOne.performed -= instance.OnItemOne;
+            @ItemOne.canceled -= instance.OnItemOne;
+            @ItemTwo.started -= instance.OnItemTwo;
+            @ItemTwo.performed -= instance.OnItemTwo;
+            @ItemTwo.canceled -= instance.OnItemTwo;
+            @ItemThree.started -= instance.OnItemThree;
+            @ItemThree.performed -= instance.OnItemThree;
+            @ItemThree.canceled -= instance.OnItemThree;
+            @Accelerate.started -= instance.OnAccelerate;
+            @Accelerate.performed -= instance.OnAccelerate;
+            @Accelerate.canceled -= instance.OnAccelerate;
+            @Backward.started -= instance.OnBackward;
+            @Backward.performed -= instance.OnBackward;
+            @Backward.canceled -= instance.OnBackward;
+            @Boost.started -= instance.OnBoost;
+            @Boost.performed -= instance.OnBoost;
+            @Boost.canceled -= instance.OnBoost;
+            @Start.started -= instance.OnStart;
+            @Start.performed -= instance.OnStart;
+            @Start.canceled -= instance.OnStart;
         }
 
         /// <summary>
@@ -341,11 +565,60 @@ public partial class @CarInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Aim" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Fire" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAim(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ItemOne" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnItemOne(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ItemTwo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnItemTwo(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ItemThree" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnItemThree(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Accelerate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAccelerate(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Backward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBackward(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Boost" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBoost(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Start" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStart(InputAction.CallbackContext context);
     }
 }

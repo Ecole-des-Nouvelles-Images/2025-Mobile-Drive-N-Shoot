@@ -117,7 +117,11 @@ namespace Car
 
         private void HandlePhysics()
         {
-            Vector2 input = _carControls.CarControls.Move.ReadValue<Vector2>();
+            float inputAcceleration = _carControls.CarControls.Accelerate.ReadValue<float>();
+            float inputBackward = _carControls.CarControls.Backward.ReadValue<float>();
+            Vector2 inputMovement = _carControls.CarControls.Move.ReadValue<Vector2>();
+            
+            
             float forwardSpeed = Vector3.Dot(transform.forward, _rigidBody.linearVelocity);
             float currentLimit = _isBoosting ? maxSpeed * boostMaxSpeedMultiplier : maxSpeed;
             float speedFactor = Mathf.InverseLerp(0, currentLimit, Mathf.Abs(forwardSpeed));
@@ -125,13 +129,13 @@ namespace Car
             float currentMotor = Mathf.Lerp(motorTorque, 0, speedFactor);
             float currentSteer = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
-            bool isIdle = Mathf.Abs(input.y) < IDLE_THRESHOLD;
-            bool isBraking = !isIdle && (Mathf.Sign(input.y) != Mathf.Sign(forwardSpeed) && Mathf.Abs(forwardSpeed) > 0.1f);
+            bool isIdle = Mathf.Abs(inputMovement.y) < IDLE_THRESHOLD;
+            bool isBraking = !isIdle && (Mathf.Sign(inputMovement.y) != Mathf.Sign(forwardSpeed) && Mathf.Abs(forwardSpeed) > 0.1f);
 
             foreach (var wheel in _wheels)
             {
                 if (wheel.steerable)
-                    wheel.WheelCollider.steerAngle = input.x * currentSteer;
+                    wheel.WheelCollider.steerAngle = inputMovement.x * currentSteer;
 
                 if (isIdle) 
                 {
@@ -141,11 +145,11 @@ namespace Car
                 else if (isBraking)
                 {
                     wheel.WheelCollider.motorTorque = 0;
-                    wheel.WheelCollider.brakeTorque = Mathf.Abs(input.y) * brakeTorque;
+                    wheel.WheelCollider.brakeTorque = Mathf.Abs(inputMovement.y) * brakeTorque;
                 }
                 else
                 {
-                    float effectiveInput = (input.y < 0 && input.y > reverseThreshold) ? 0 : input.y;
+                    float effectiveInput = (inputMovement.y < 0 && inputMovement.y > reverseThreshold) ? 0 : inputMovement.y;
                     if (wheel.motorized) wheel.WheelCollider.motorTorque = effectiveInput * currentMotor;
                     wheel.WheelCollider.brakeTorque = 0;
                 }
