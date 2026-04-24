@@ -117,11 +117,15 @@ namespace Car
 
         private void HandlePhysics()
         {
+            // Récupération des inputs
             float inputAcceleration = _carControls.CarControls.Accelerate.ReadValue<float>();
             float inputBackward = _carControls.CarControls.Backward.ReadValue<float>();
             Vector2 inputMovement = _carControls.CarControls.Move.ReadValue<Vector2>();
-            
-            
+    
+            // On combine les deux inputs en une seule valeur "drive"
+            // 1 (Accel) - 0 = 1 (Avance), 0 - 1 (Recul) = -1 (Frein/Recul)
+            float driveInput = inputAcceleration - inputBackward;
+    
             float forwardSpeed = Vector3.Dot(transform.forward, _rigidBody.linearVelocity);
             float currentLimit = _isBoosting ? maxSpeed * boostMaxSpeedMultiplier : maxSpeed;
             float speedFactor = Mathf.InverseLerp(0, currentLimit, Mathf.Abs(forwardSpeed));
@@ -129,11 +133,13 @@ namespace Car
             float currentMotor = Mathf.Lerp(motorTorque, 0, speedFactor);
             float currentSteer = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
 
-            bool isIdle = Mathf.Abs(inputMovement.y) < IDLE_THRESHOLD;
-            bool isBraking = !isIdle && (Mathf.Sign(inputMovement.y) != Mathf.Sign(forwardSpeed) && Mathf.Abs(forwardSpeed) > 0.1f);
+            // On utilise driveInput au lieu de inputMovement.y
+            bool isIdle = Mathf.Abs(driveInput) < IDLE_THRESHOLD;
+            bool isBraking = !isIdle && (Mathf.Sign(driveInput) != Mathf.Sign(forwardSpeed) && Mathf.Abs(forwardSpeed) > 0.1f);
 
             foreach (var wheel in _wheels)
             {
+                // On garde inputMovement.x pour la direction
                 if (wheel.steerable)
                     wheel.WheelCollider.steerAngle = inputMovement.x * currentSteer;
 
@@ -145,17 +151,20 @@ namespace Car
                 else if (isBraking)
                 {
                     wheel.WheelCollider.motorTorque = 0;
-                    wheel.WheelCollider.brakeTorque = Mathf.Abs(inputMovement.y) * brakeTorque;
+                    // On utilise la valeur absolue de driveInput pour appliquer la force de freinage
+                    wheel.WheelCollider.brakeTorque = Mathf.Abs(driveInput) * brakeTorque;
                 }
                 else
                 {
-                    float effectiveInput = (inputMovement.y < 0 && inputMovement.y > reverseThreshold) ? 0 : inputMovement.y;
+                    // On conserve ta logique de reverseThreshold si besoin
+                    float effectiveInput = (driveInput < 0 && driveInput > reverseThreshold) ? 0 : driveInput;
+            
                     if (wheel.motorized) wheel.WheelCollider.motorTorque = effectiveInput * currentMotor;
                     wheel.WheelCollider.brakeTorque = 0;
                 }
             }
         }
-
+        
         private void ApplySpeedLimits()
         {
             float currentMax = _isBoosting ? maxSpeed * boostMaxSpeedMultiplier : maxSpeed;
@@ -185,27 +194,32 @@ namespace Car
             
             if ((currentAccel - _lowPassAcceleration).magnitude > shakeThreshold && _nextBoostTime >= boostCooldown)
             {
-                ApplyVelocityChangeBoost();
+                ApplyVelocityChangeBoost(1);
             }
         }
 
-        private void ApplyVelocityChangeBoost()
+        private void ApplyVelocityChangeBoost(float value)
         {
-            _nextBoostTime = 0f;
-            _isBoosting = true; // Active le flag de boost
+            if (value <= 0f) return;
 
-            AudioManager.Instance.Play(_boostSound, follow: gameObject);
-            if (_boostVFX) _boostVFX.Play();
+            if (_nextBoostTime >= boostCooldown)
+            {
+                _nextBoostTime = 0f;
+                _isBoosting = true; // Active le flag de boost
+
+                AudioManager.Instance.Play(_boostSound, follow: gameObject);
+                if (_boostVFX) _boostVFX.Play();
             
-            // On force la vélocité vers l'avant de façon instantanée
-            _rigidBody.linearVelocity = transform.forward * (maxSpeed * boostMaxSpeedMultiplier);
+                // On force la vélocité vers l'avant de façon instantanée
+                _rigidBody.linearVelocity = transform.forward * (maxSpeed * boostMaxSpeedMultiplier);
 
-            _carHealth.IsShieldActive = true;
-            if (_shieldCoroutine != null) StopCoroutine(_shieldCoroutine);
-            _shieldCoroutine = StartCoroutine(ShieldRoutine());
+                _carHealth.IsShieldActive = true;
+                if (_shieldCoroutine != null) StopCoroutine(_shieldCoroutine);
+                _shieldCoroutine = StartCoroutine(ShieldRoutine());
 
-            SetMaterialsProgress(0.3f, 0.5f);
-            _imageSpeedEffect.DOFade(0.5f, 0.2f); // Fade plus rapide
+                SetMaterialsProgress(0.3f, 0.5f);
+                _imageSpeedEffect.DOFade(0.5f, 0.2f); // Fade plus rapide
+            }
         }
 
         private IEnumerator ShieldRoutine()
@@ -280,10 +294,12 @@ namespace Car
                 EventBus.OnGameOver += HandleGamePause; EventBus.OnGamePause += HandleGamePause;
                 EventBus.OnGameResume += HandleGameResume; EventBus.OnPlayerAtHalfHealth += DamageVehicle;
                 EventBus.OnPlayerRecoveredFromHalf += RestoreVehicle;
+                PlayerInputHandler.OnBoost += ApplyVelocityChangeBoost;
             } else {
                 EventBus.OnGameOver -= HandleGamePause; EventBus.OnGamePause -= HandleGamePause;
                 EventBus.OnGameResume -= HandleGameResume; EventBus.OnPlayerAtHalfHealth -= DamageVehicle;
                 EventBus.OnPlayerRecoveredFromHalf -= RestoreVehicle;
+                PlayerInputHandler.OnBoost -= ApplyVelocityChangeBoost;
             }
         }
 
@@ -312,7 +328,7 @@ namespace Car
         private void HandleEditorInputs()
         {
 #if UNITY_EDITOR || UNITY_STANDALONE
-            if (Input.GetKeyDown(KeyCode.B) && _nextBoostTime >= boostCooldown) ApplyVelocityChangeBoost();
+            if (Input.GetKeyDown(KeyCode.B) && _nextBoostTime >= boostCooldown) ApplyVelocityChangeBoost(1);
 #endif
         }
 

@@ -15,25 +15,25 @@ namespace InGameHandlers
         [ContextMenu("Use IEM")]
         public void UseIEM()
         {
-            EventBus.OnUsingItem?.Invoke(ItemType.BigBlast);
+            EventBus.OnWantUsingItem?.Invoke(ItemType.BigBlast);
         }
         
         [ContextMenu("Use Repair")]
         public void UseRepair()
         {
-            EventBus.OnUsingItem?.Invoke(ItemType.Repair);
+            EventBus.OnWantUsingItem?.Invoke(ItemType.Repair);
         }
         
         [ContextMenu("Use Overheat")]
         public void UseOverheat()
         {
-            EventBus.OnUsingItem?.Invoke(ItemType.Overheat);
+            EventBus.OnWantUsingItem?.Invoke(ItemType.Overheat);
         }
         
         private void OnEnable()
         {
             EventBus.OnCollectedItem += OnCollectedItem;
-            EventBus.OnUsingItem += OnUsingItem;
+            EventBus.OnWantUsingItem += OnUsingItem;
         }
         
         private void OnCollectedItem(Item item)
@@ -47,13 +47,14 @@ namespace InGameHandlers
             if (!item) return;
             
             item.Execute(GameManager.Instance.Player);
+            EventBus.OnUsingItem?.Invoke(itemType);
             _items.Remove(item);
         }
         
         private void OnDisable()
         {
             EventBus.OnCollectedItem -= OnCollectedItem;
-            EventBus.OnUsingItem -= OnUsingItem;
+            EventBus.OnWantUsingItem -= OnUsingItem;
         }
 
         public List<Item> GetInventory()

@@ -1,5 +1,5 @@
+using System;
 using __Workspaces.Alex.Scripts;
-using __Workspaces.Hugoi.Scripts;
 using FMODUnity;
 using Core;
 using UnityEngine;
@@ -258,5 +258,31 @@ namespace Car
             _isOverheating = false;
             GameManager.Instance.CurrentTurretMaterials[0].SetFloat("_NoOverheat", 1f);
         }
+
+        #region ===== EVENTS =====
+
+        private void OnEnable()
+        {
+            PlayerInputHandler.OnFire += OnFire;
+        }
+        
+        private void OnDisable()
+        {
+            PlayerInputHandler.OnFire -= OnFire;
+        }
+
+        private void OnFire(float value)
+        {
+            if (value > 0f)
+            {
+                _isAiming = true;
+            }
+            else
+            {
+                _isAiming = false;
+            }
+        }
+
+        #endregion
     }
 }

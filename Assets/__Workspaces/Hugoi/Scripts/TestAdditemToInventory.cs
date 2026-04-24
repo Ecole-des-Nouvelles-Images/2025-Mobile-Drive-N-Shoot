@@ -17,7 +17,7 @@ namespace __Workspaces.Hugoi.Scripts
         [ContextMenu("UsingItem")]
         public void UsingItem()
         {
-            EventBus.OnUsingItem?.Invoke(_item.ItemType);
+            EventBus.OnWantUsingItem?.Invoke(_item.ItemType);
         }
     }
 }

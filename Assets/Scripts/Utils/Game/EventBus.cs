@@ -55,6 +55,7 @@ namespace Utils.Game
         
         // Items
         public static Action<Item> OnCollectedItem;
+        public static Action<ItemType> OnWantUsingItem;
         public static Action<ItemType> OnUsingItem;
         
         // Cinematic
@@ -95,7 +96,7 @@ namespace Utils.Game
             OnModuleFinishedGeneration = null;
             OnAddTimeToTimer = null;
             OnCollectedItem = null; 
-            OnUsingItem = null;
+            OnWantUsingItem = null;
             OnCinematicEnd = null;
             OnBigExplosion = null;
             OnSmallExplosion = null;

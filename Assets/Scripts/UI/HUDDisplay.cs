@@ -1,5 +1,6 @@
 using System;
 using __Workspaces.Alex.Scripts;
+using Car;
 using InGameHandlers;
 using TMPro;
 using UnityEngine;
@@ -40,7 +41,7 @@ namespace UI
                     _buttonItemRepair.interactable = false;
                     break;
             }
-            EventBus.OnUsingItem?.Invoke(itemType);
+            EventBus.OnWantUsingItem?.Invoke(itemType);
         }
         
         private void Update()
@@ -57,14 +58,20 @@ namespace UI
             if (_distanceHandler) _tmpDistance.text = _distanceHandler.Distance.ToString();
         }
 
+        #region ===== EVENTS =====
+        
         private void OnEnable()
         {
             EventBus.OnAddTimeToTimer += AddTimeToTimer;
             EventBus.OnCollectedItem += OnCollectedItem;
             EventBus.OnPlayerHealthChange += OnPlayerHealthChange;
             EventBus.OnPlayerBoostCooldown += OnPlayerBoostCooldown;
+            
+            PlayerInputHandler.OnItemOne += OnItemOne;
+            PlayerInputHandler.OnItemTwo += OnItemTwo;
+            PlayerInputHandler.OnItemThree += OnItemThree;
         }
-        
+
         private void AddTimeToTimer()
         {
             _tmpTimerAdd.SetActive(true);
@@ -95,13 +102,34 @@ namespace UI
                     break;
             }
         }
-
+        
+        private void OnItemOne(float value)
+        {
+            UseItem("BigBlast");
+        }
+        
+        private void OnItemTwo(float value)
+        {
+            UseItem("Overheat");
+        }
+        
+        private void OnItemThree(float value)
+        {
+            UseItem("Repair");
+        }
+        
         private void OnDisable()
         {
             EventBus.OnAddTimeToTimer -= AddTimeToTimer;
             EventBus.OnCollectedItem -= OnCollectedItem;
             EventBus.OnPlayerHealthChange -= OnPlayerHealthChange;
             EventBus.OnPlayerBoostCooldown -= OnPlayerBoostCooldown;
+            
+            PlayerInputHandler.OnItemOne -= OnItemOne;
+            PlayerInputHandler.OnItemTwo -= OnItemTwo;
+            PlayerInputHandler.OnItemThree -= OnItemThree;
         }
+        
+        #endregion
     }
 }
