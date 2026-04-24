@@ -67,6 +67,10 @@ MonoBehaviour:
     m_Key: joystick
     m_Metadata:
       m_Items: []
+  - m_Id: 51033562758176768
+    m_Key: quit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

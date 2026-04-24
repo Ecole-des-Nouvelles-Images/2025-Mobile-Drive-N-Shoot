@@ -10,6 +10,11 @@ namespace UI
             SceneManager.LoadScene(id);
         }
 
+        public void Quit()
+        {
+            Application.Quit();
+        }
+
         // public void GameStart()
         // {
         //     EventBus.OnGameStart?.Invoke();

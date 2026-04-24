@@ -33,6 +33,8 @@ namespace Core
         
         private void Start()
         {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Application.targetFrameRate = 60;
             QualitySettings.vSyncCount = 0;
         }
