@@ -1782,6 +1782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7250931132236927168, guid: f8b801c65fba99c46916d7af0ae8c0b1, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7263665528947549797, guid: f8b801c65fba99c46916d7af0ae8c0b1, type: 3}
       propertyPath: field of view
       value: 60

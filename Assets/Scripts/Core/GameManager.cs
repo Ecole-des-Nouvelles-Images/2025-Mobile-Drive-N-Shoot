@@ -35,8 +35,8 @@ namespace Core
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            // Application.targetFrameRate = 60;
-            // QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = 60;
+            QualitySettings.vSyncCount = 0;
         }
         
         private void OnEnable()
